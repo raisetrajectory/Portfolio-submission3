@@ -149,7 +149,7 @@
                     <mxGeometry y="194" width="250" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="499" value="チャットメッセージ(Chat Messages)" style="swimlane;whiteSpace=wrap;html=1;rounded=1;dashed=0;strokeColor=rgb(240, 240, 240);fontFamily=Helvetica;fontSize=10;fontColor=rgb(240, 240, 240);fillColor=none;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="230" y="580" width="420" height="290" as="geometry"/>
+                    <mxGeometry x="230" y="635" width="420" height="290" as="geometry"/>
                 </mxCell>
                 <mxCell id="500" value="ユーザー(Users)" style="html=1;align=right;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=50;dashed=0;spacingTop=10;spacingRight=30;fontSize=10;fillColor=none;" parent="499" vertex="1">
                     <mxGeometry x="220" y="40" width="190.5" height="110" as="geometry"/>
@@ -195,8 +195,8 @@
                 </mxCell>
                 <mxCell id="563" value="" style="endArrow=ERmany;html=1;startArrow=ERmandOne;startFill=0;endFill=0;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="420.5" y="548" as="sourcePoint"/>
-                        <mxPoint x="420" y="578" as="targetPoint"/>
+                        <mxPoint x="420" y="550" as="sourcePoint"/>
+                        <mxPoint x="420" y="640" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="568" value="" style="verticalLabelPosition=bottom;dashed=0;shadow=0;html=1;align=center;verticalAlign=top;shape=mxgraph.cabinets.cabinet;hasStand=1;fontSize=10;" parent="1" vertex="1">
@@ -260,7 +260,7 @@
                     <mxGeometry x="901.38" y="380" width="210" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="421" value="カウンセリング内容記録と管理画面" style="swimlane;whiteSpace=wrap;html=1;rounded=1;dashed=0;strokeColor=rgb(240, 240, 240);fontFamily=Helvetica;fontSize=10;fontColor=#FFFFFF;startSize=23;fillColor=none;direction=east;" parent="1" vertex="1">
-                    <mxGeometry x="360" y="910" width="280" height="230" as="geometry"/>
+                    <mxGeometry x="370" y="970" width="280" height="230" as="geometry"/>
                 </mxCell>
                 <mxCell id="422" value="&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Text(テキストボックス)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;機能(チャットログやカウンセリング内容の詳細を表示する要素)&lt;/li&gt;&lt;/ul&gt;" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;align=left;" parent="421" vertex="1">
                     <mxGeometry x="20" y="40" width="240" height="80" as="geometry"/>
@@ -270,8 +270,8 @@
                 </mxCell>
                 <mxCell id="650" value="" style="endArrow=ERmandOne;html=1;startArrow=ERmandOne;startFill=0;endFill=0;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="480" y="870" as="sourcePoint"/>
-                        <mxPoint x="480" y="910" as="targetPoint"/>
+                        <mxPoint x="480" y="930" as="sourcePoint"/>
+                        <mxPoint x="480" y="970" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="651" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
