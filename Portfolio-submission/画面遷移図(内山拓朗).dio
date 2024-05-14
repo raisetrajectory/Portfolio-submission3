@@ -100,15 +100,6 @@
                 <mxCell id="375" value="ログアウト" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="363" vertex="1">
                     <mxGeometry y="198" width="210" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="421" value="カウンセリング内容記録と管理画面" style="swimlane;whiteSpace=wrap;html=1;rounded=1;dashed=0;strokeColor=rgb(240, 240, 240);fontFamily=Helvetica;fontSize=10;fontColor=#FFFFFF;startSize=23;fillColor=none;direction=east;" parent="1" vertex="1">
-                    <mxGeometry x="470" y="900" width="280" height="230" as="geometry"/>
-                </mxCell>
-                <mxCell id="422" value="&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Text(テキストボックス)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;機能(チャットログやカウンセリング内容の詳細を表示する要素)&lt;/li&gt;&lt;/ul&gt;" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;align=left;" parent="421" vertex="1">
-                    <mxGeometry x="20" y="40" width="240" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="423" value="&lt;ul&gt;&lt;li&gt;Document&lt;/li&gt;&lt;li&gt;機能(カウンセリング内容を保存するための要素)&lt;/li&gt;&lt;/ul&gt;" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;align=left;" parent="421" vertex="1">
-                    <mxGeometry x="20" y="137" width="240" height="80" as="geometry"/>
-                </mxCell>
                 <mxCell id="89" value="ログイン画面&amp;nbsp; ユーザー(Users)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;align=center;fontSize=10;" parent="1" vertex="1">
                     <mxGeometry x="40" y="320" width="220" height="224" as="geometry"/>
                 </mxCell>
@@ -196,7 +187,7 @@
                         <mxPoint x="569" y="480" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="557" value="" style="endArrow=ERmandOne;html=1;startArrow=ERmandOne;startFill=0;endFill=0;" parent="1" edge="1">
+                <mxCell id="557" value="" style="endArrow=ERmandOne;html=1;startArrow=none;startFill=0;endFill=0;" parent="1" edge="1" source="421">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="500" y="870" as="sourcePoint"/>
                         <mxPoint x="500" y="900" as="targetPoint"/>
@@ -263,7 +254,7 @@
                     <mxGeometry x="1150" y="240" width="150" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="641" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=none;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="890" y="570" width="220" height="30" as="geometry"/>
+                    <mxGeometry x="1210" y="510" width="220" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="642" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=none;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="898.63" y="322" width="212.75" height="30" as="geometry"/>
@@ -276,6 +267,21 @@
                 </mxCell>
                 <mxCell id="648" value="チャット画面へ" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="901.38" y="380" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="649" value="" style="endArrow=none;html=1;startArrow=ERmandOne;startFill=0;endFill=0;" edge="1" parent="1" target="421">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="500" y="870" as="sourcePoint"/>
+                        <mxPoint x="500" y="900" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="421" value="カウンセリング内容記録と管理画面" style="swimlane;whiteSpace=wrap;html=1;rounded=1;dashed=0;strokeColor=rgb(240, 240, 240);fontFamily=Helvetica;fontSize=10;fontColor=#FFFFFF;startSize=23;fillColor=none;direction=east;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="900" width="280" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="422" value="&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Text(テキストボックス)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;機能(チャットログやカウンセリング内容の詳細を表示する要素)&lt;/li&gt;&lt;/ul&gt;" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;align=left;" parent="421" vertex="1">
+                    <mxGeometry x="20" y="40" width="240" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="423" value="&lt;ul&gt;&lt;li&gt;Document&lt;/li&gt;&lt;li&gt;機能(カウンセリング内容を保存するための要素)&lt;/li&gt;&lt;/ul&gt;" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;align=left;" parent="421" vertex="1">
+                    <mxGeometry x="20" y="137" width="240" height="80" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
