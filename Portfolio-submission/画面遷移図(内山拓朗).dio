@@ -202,26 +202,11 @@
                 <mxCell id="568" value="" style="verticalLabelPosition=bottom;dashed=0;shadow=0;html=1;align=center;verticalAlign=top;shape=mxgraph.cabinets.cabinet;hasStand=1;fontSize=10;" parent="1" vertex="1">
                     <mxGeometry x="880" y="40" width="250" height="500" as="geometry"/>
                 </mxCell>
-                <mxCell id="593" value="Button Text" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="1320" y="240" width="150" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="594" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.multiButton;fillColor=#008cff;strokeColor=#666666;mainText=;subText=;fontSize=10;" parent="1" vertex="1">
-                    <mxGeometry x="1340" y="322" width="150" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="595" value="Main Text" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.anchor;fontSize=16;fontColor=#ffffff;fontStyle=1;whiteSpace=wrap;fillColor=none;" parent="594" vertex="1">
-                    <mxGeometry y="8" width="150" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="596" value="Sub Text" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.anchor;fontSize=12;fontColor=#ffffff;fontStyle=1;whiteSpace=wrap;fillColor=none;" parent="594" vertex="1">
-                    <mxGeometry y="30" width="150" height="10" as="geometry"/>
-                </mxCell>
                 <mxCell id="607" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.containers.userFemale;strokeColor=#666666;strokeColor2=#008cff;fontSize=10;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="1191" y="390" width="100" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="625" value="名前" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
                     <mxGeometry x="900" y="200" width="50" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="628" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.containers.userFemale;strokeColor=#666666;strokeColor2=#008cff;fontSize=10;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="1299" y="60" width="100" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="629" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=10;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="950.5" y="200" width="149.5" height="30" as="geometry"/>
@@ -234,15 +219,6 @@
                 </mxCell>
                 <mxCell id="634" value="カウンセラーの専門領域や経験" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
                     <mxGeometry x="895.5" y="290" width="214.5" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="638" value="カウンセラーの専門領域や経験" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
-                    <mxGeometry x="1150" y="180" width="214.5" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="639" value="Search" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.searchBox;strokeColor=#999999;mainText=;strokeColor2=#008cff;fontColor=#666666;fontSize=17;align=left;spacingLeft=3;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="1364.5" y="180" width="150" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="640" value="Search" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.searchBox;strokeColor=#999999;mainText=;strokeColor2=#008cff;fontColor=#666666;fontSize=17;align=left;spacingLeft=3;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="1150" y="240" width="150" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="641" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=none;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="1210" y="510" width="220" height="30" as="geometry"/>
@@ -316,8 +292,14 @@
                 <mxCell id="668" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
                     <mxGeometry x="-100" y="630" width="300" height="480" as="geometry"/>
                 </mxCell>
-                <mxCell id="669" value="Text" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+                <mxCell id="669" value="カウンセラー一覧画面(Process)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
                     <mxGeometry x="-70" y="650" width="230" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="670" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.containers.userMale;strokeColor=#666666;strokeColor2=#008cff;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="-70" y="690" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="672" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.containers.userFemale;strokeColor=#666666;strokeColor2=#008cff;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="-70" y="810" width="100" height="100" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
