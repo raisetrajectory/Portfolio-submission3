@@ -145,7 +145,7 @@
                 <mxCell id="505" value="コメント削除" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="499" vertex="1">
                     <mxGeometry x="30" y="225" width="150" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="773" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;メインメニューへ&lt;/font&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="499">
+                <mxCell id="773" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;メインメニューへ&lt;/font&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="499" vertex="1">
                     <mxGeometry x="278.5000000000001" y="240" width="130" height="35" as="geometry"/>
                 </mxCell>
                 <mxCell id="550" value="" style="endArrow=ERmandOne;html=1;startArrow=ERmandOne;startFill=0;endFill=0;" parent="1" edge="1">
@@ -286,42 +286,6 @@
                 <mxCell id="665" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;カウンセラー一覧画面へ&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="682" vertex="1">
                     <mxGeometry y="323" width="210" height="35" as="geometry"/>
                 </mxCell>
-                <mxCell id="746" value="メインメニュー(main menu)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;align=center;fontSize=10;" parent="1" vertex="1">
-                    <mxGeometry x="-610" width="210" height="358" as="geometry"/>
-                </mxCell>
-                <mxCell id="747" value="ユーザー登録" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="746" vertex="1">
-                    <mxGeometry y="26" width="210" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="748" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="746" vertex="1">
-                    <mxGeometry y="60" width="210" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="749" value="チャット画面へ" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="746" vertex="1">
-                    <mxGeometry y="86" width="210" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="750" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="746" vertex="1">
-                    <mxGeometry y="116" width="210" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="751" value="ログイン" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="746" vertex="1">
-                    <mxGeometry y="142" width="210" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="752" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="746" vertex="1">
-                    <mxGeometry y="172" width="210" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="753" value="ログアウト" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="746" vertex="1">
-                    <mxGeometry y="198" width="210" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="754" value="　　　　　　　　　　　　　　　　　" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" parent="746" vertex="1">
-                    <mxGeometry y="228" width="210" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="755" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;プロフィール画面へ&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="746" vertex="1">
-                    <mxGeometry y="258" width="210" height="35" as="geometry"/>
-                </mxCell>
-                <mxCell id="756" value="　　　　　　　　　　　　　　　　　" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" parent="746" vertex="1">
-                    <mxGeometry y="293" width="210" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="757" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;カウンセラー一覧画面へ&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="746" vertex="1">
-                    <mxGeometry y="323" width="210" height="35" as="geometry"/>
-                </mxCell>
                 <mxCell id="758" value="" style="endArrow=ERmany;html=1;startArrow=ERmandOne;startFill=0;endFill=0;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="420" y="680" as="sourcePoint"/>
@@ -331,19 +295,19 @@
                 <mxCell id="668" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="-250" y="630" width="400" height="350" as="geometry"/>
                 </mxCell>
-                <mxCell id="760" value="" style="endArrow=ERone;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;endFill=0;startArrow=ERmany;startFill=0;" edge="1" parent="1" target="730">
+                <mxCell id="760" value="" style="endArrow=ERone;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;endFill=0;startArrow=ERmany;startFill=0;" parent="1" target="730" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="150" y="670" as="sourcePoint"/>
                         <mxPoint x="200" y="620" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="761" value="" style="endArrow=ERmany;html=1;entryX=-0.003;entryY=0.322;entryDx=0;entryDy=0;entryPerimeter=0;endFill=0;startArrow=ERone;startFill=0;" edge="1" parent="1" target="651">
+                <mxCell id="761" value="" style="endArrow=ERmany;html=1;entryX=-0.003;entryY=0.322;entryDx=0;entryDy=0;entryPerimeter=0;endFill=0;startArrow=ERone;startFill=0;" parent="1" target="651" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="520" y="600" as="sourcePoint"/>
                         <mxPoint x="570" y="550" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="767" value="" style="endArrow=ERone;html=1;endFill=0;" edge="1" parent="1">
+                <mxCell id="767" value="" style="endArrow=ERone;html=1;endFill=0;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="-90" y="1270" as="sourcePoint"/>
                         <mxPoint x="940" y="1050" as="targetPoint"/>
@@ -352,19 +316,19 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="769" value="" style="endArrow=ERone;html=1;endFill=0;" edge="1" parent="1">
+                <mxCell id="769" value="" style="endArrow=ERone;html=1;endFill=0;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="-90" y="1270" as="sourcePoint"/>
                         <mxPoint x="-90" y="980" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="770" value="" style="endArrow=ERmandOne;html=1;endFill=0;startArrow=ERmandOne;startFill=0;" edge="1" parent="1">
+                <mxCell id="770" value="" style="endArrow=ERmandOne;html=1;endFill=0;startArrow=ERmandOne;startFill=0;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="640" y="1000" as="sourcePoint"/>
                         <mxPoint x="700" y="1000" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="771" value="" style="endArrow=ERmandOne;html=1;endFill=0;startArrow=ERmandOne;startFill=0;" edge="1" parent="1">
+                <mxCell id="771" value="" style="endArrow=ERmandOne;html=1;endFill=0;startArrow=ERmandOne;startFill=0;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="150" y="840" as="sourcePoint"/>
                         <mxPoint x="220" y="840" as="targetPoint"/>
