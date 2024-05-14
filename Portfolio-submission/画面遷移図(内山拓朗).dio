@@ -280,6 +280,9 @@
                 <mxCell id="651" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="680" y="580" width="310" height="450" as="geometry"/>
                 </mxCell>
+                <mxCell id="652" value="プロフィール画面(Profile)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="700" y="600" width="270" height="30" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
