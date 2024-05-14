@@ -220,9 +220,6 @@
                 <mxCell id="625" value="名前" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
                     <mxGeometry x="900" y="200" width="50" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="627" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.containers.userMale;strokeColor=#666666;strokeColor2=#008cff;fontSize=10;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="955" y="70" width="100" height="100" as="geometry"/>
-                </mxCell>
                 <mxCell id="628" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.containers.userFemale;strokeColor=#666666;strokeColor2=#008cff;fontSize=10;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="1299" y="60" width="100" height="100" as="geometry"/>
                 </mxCell>
@@ -278,10 +275,13 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="651" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="680" y="580" width="310" height="450" as="geometry"/>
+                    <mxGeometry x="700" y="580" width="310" height="450" as="geometry"/>
                 </mxCell>
                 <mxCell id="652" value="プロフィール画面(Profile)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="700" y="600" width="270" height="30" as="geometry"/>
+                    <mxGeometry x="720" y="600" width="270" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="653" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.containers.userMale;strokeColor=#666666;strokeColor2=#008cff;" vertex="1" parent="1">
+                    <mxGeometry x="801.38" y="640" width="100" height="100" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
