@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="nMnuXORbZ245L0lCiLTD" name="ページ1">
-        <mxGraphModel dx="1936" dy="3089" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2163" dy="3089" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -148,18 +148,6 @@
                 <mxCell id="773" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;メインメニューへ&lt;/font&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="499" vertex="1">
                     <mxGeometry x="278.5000000000001" y="240" width="130" height="35" as="geometry"/>
                 </mxCell>
-                <mxCell id="550" value="" style="endArrow=ERmandOne;html=1;startArrow=ERmandOne;startFill=0;endFill=0;" parent="1" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-390" y="-180" as="sourcePoint"/>
-                        <mxPoint x="-319" y="-80" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="558" value="" style="endArrow=ERmandOne;html=1;startArrow=ERmandOne;startFill=0;endFill=0;" parent="1" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-195" y="-22" as="sourcePoint"/>
-                        <mxPoint x="-115" y="-102" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="421" value="カウンセリング内容記録と管理画面" style="swimlane;whiteSpace=wrap;html=1;rounded=1;dashed=0;strokeColor=rgb(240, 240, 240);fontFamily=Helvetica;fontSize=10;fontColor=#FFFFFF;startSize=23;fillColor=none;direction=east;" parent="1" vertex="1">
                     <mxGeometry x="360" y="1320" width="280" height="230" as="geometry"/>
                 </mxCell>
@@ -295,39 +283,6 @@
                 </mxCell>
                 <mxCell id="782" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;患者が【チャット画面へ】を押した場合にカウンセラー02が対応しているチャット画面に遷移出来る機能を実装します。&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-560" y="630" width="270" height="85" as="geometry"/>
-                </mxCell>
-                <mxCell id="785" value="メインメニュー(main menu)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;align=center;fontSize=10;" vertex="1" parent="1">
-                    <mxGeometry x="-800" y="40" width="210" height="328" as="geometry"/>
-                </mxCell>
-                <mxCell id="786" value="ユーザー登録" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="785">
-                    <mxGeometry y="26" width="210" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="787" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="785">
-                    <mxGeometry y="60" width="210" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="789" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="785">
-                    <mxGeometry y="86" width="210" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="790" value="ログイン" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="785">
-                    <mxGeometry y="112" width="210" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="791" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="785">
-                    <mxGeometry y="142" width="210" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="792" value="ログアウト" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="785">
-                    <mxGeometry y="168" width="210" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="793" value="　　　　　　　　　　　　　　　　　" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="785">
-                    <mxGeometry y="198" width="210" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="794" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;プロフィール画面へ&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="785">
-                    <mxGeometry y="228" width="210" height="35" as="geometry"/>
-                </mxCell>
-                <mxCell id="795" value="　　　　　　　　　　　　　　　　　" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="785">
-                    <mxGeometry y="263" width="210" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="796" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;カウンセラー一覧画面へ&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="785">
-                    <mxGeometry y="293" width="210" height="35" as="geometry"/>
                 </mxCell>
                 <mxCell id="797" value="メインメニュー(main menu)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;align=center;fontSize=10;" vertex="1" parent="1">
                     <mxGeometry x="-780" y="1350" width="450" height="768" as="geometry"/>
@@ -608,30 +563,6 @@
                 <mxCell id="912" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="890">
                     <mxGeometry y="738" width="450" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="915" value="" style="endArrow=ERmandOne;html=1;startArrow=ERmandOne;startFill=0;endFill=0;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-610" y="-90" as="sourcePoint"/>
-                        <mxPoint x="-560" y="-90" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="916" value="" style="endArrow=ERmandOne;html=1;startArrow=ERmandOne;startFill=0;endFill=0;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-550" y="-190" as="sourcePoint"/>
-                        <mxPoint x="-479" y="-90" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="917" value="" style="endArrow=ERmandOne;html=1;startArrow=ERmandOne;startFill=0;endFill=0;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-250" y="-70" as="sourcePoint"/>
-                        <mxPoint x="-170" y="-150" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="920" value="" style="endArrow=ERmandOne;html=1;startArrow=ERmandOne;startFill=0;endFill=0;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-139.5" y="-40" as="sourcePoint"/>
-                        <mxPoint x="9.5" y="-40" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="931" value="" style="shape=singleArrow;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
                     <mxGeometry x="650" y="358" width="100" height="60" as="geometry"/>
                 </mxCell>
@@ -657,12 +588,6 @@
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="6.25" y="710" as="sourcePoint"/>
                         <mxPoint x="-236.25" y="599" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="951" value="" style="endArrow=ERmandOne;html=1;startArrow=ERmandOne;startFill=0;endFill=0;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-600" y="-80" as="sourcePoint"/>
-                        <mxPoint x="-550" y="-80" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="952" value="" style="shape=singleArrow;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
@@ -733,9 +658,6 @@
                 </mxCell>
                 <mxCell id="1031" value="カウンセラー一覧画面へ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
                     <mxGeometry x="130" y="860" width="160" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="788" value="チャット画面へ" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="-550" y="126" width="210" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="1036" value="現在チャットによって行われているオンラインカウンセリングサービスが表示されてます。" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fillColor=none;" vertex="1" parent="1">
                     <mxGeometry x="190" y="-90" width="280.5" height="60" as="geometry"/>
