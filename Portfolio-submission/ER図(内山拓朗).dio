@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="-p5o7Z2GgSf2gbE43U7U" name="ページ1">
-        <mxGraphModel dx="1936" dy="751" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1936" dy="1920" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -40,10 +40,10 @@
                         <mxPoint x="900.4000000000001" y="400" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="353" value="" style="endArrow=ERmany;html=1;endFill=0;startArrow=ERmandOne;startFill=0;" parent="1" edge="1">
+                <mxCell id="353" value="" style="endArrow=ERmany;html=1;endFill=0;startArrow=ERmandOne;startFill=0;entryX=0.317;entryY=1.003;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1" target="1685">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="900" y="90" as="sourcePoint"/>
-                        <mxPoint x="900" y="20" as="targetPoint"/>
+                        <mxPoint x="438.67" y="230" as="sourcePoint"/>
+                        <mxPoint x="439" y="160" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1230" value="セッションログイン情報 (SessionLoginInfo)" style="shape=table;startSize=20;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fontSize=9;" vertex="1" parent="1">
@@ -322,7 +322,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1666" value="カウンセリングセッション (CounselingSessions)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fontSize=10;" vertex="1" parent="1">
-                    <mxGeometry x="2560" y="820" width="340" height="300" as="geometry"/>
+                    <mxGeometry x="330" y="-150" width="340" height="300" as="geometry"/>
                 </mxCell>
                 <mxCell id="1667" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;fontSize=10;" vertex="1" parent="1666">
                     <mxGeometry y="30" width="340" height="30" as="geometry"/>
@@ -497,7 +497,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1762" value="カウンセリング履歴 (CounselingHistory)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fontSize=8;" vertex="1" parent="1">
-                    <mxGeometry x="2930" y="800" width="340" height="260" as="geometry"/>
+                    <mxGeometry x="-85" y="-110" width="340" height="260" as="geometry"/>
                 </mxCell>
                 <mxCell id="1763" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;fontSize=10;" vertex="1" parent="1762">
                     <mxGeometry y="30" width="340" height="30" as="geometry"/>
@@ -2145,6 +2145,12 @@
                         <mxPoint x="720" y="560" as="sourcePoint"/>
                         <mxPoint x="720" y="480" as="targetPoint"/>
                         <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2265" value="" style="endArrow=ERmany;html=1;endFill=0;startArrow=ERmandOne;startFill=0;entryX=0.317;entryY=1.003;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200.89000000000007" y="230" as="sourcePoint"/>
+                        <mxPoint x="200.0000000000002" y="150.1199999999999" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
             </root>
