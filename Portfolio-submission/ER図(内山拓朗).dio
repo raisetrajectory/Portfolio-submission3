@@ -1119,7 +1119,7 @@
                     <mxGeometry y="180" width="200" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="1740" value="カウンセリング履歴 (CounselingHistory)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fontSize=8;" vertex="1" parent="1">
-                    <mxGeometry x="2020" y="620" width="340" height="300" as="geometry"/>
+                    <mxGeometry x="2020" y="620" width="340" height="260" as="geometry"/>
                 </mxCell>
                 <mxCell id="1741" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;fontSize=10;" vertex="1" parent="1740">
                     <mxGeometry y="30" width="340" height="30" as="geometry"/>
@@ -1129,7 +1129,7 @@
                         <mxRectangle width="30" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1743" value="セッションID (SessionID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;fontSize=9;" vertex="1" parent="1741">
+                <mxCell id="1743" value="履歴ID (HistoryID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;fontSize=9;" vertex="1" parent="1741">
                     <mxGeometry x="30" width="310" height="30" as="geometry">
                         <mxRectangle width="310" height="30" as="alternateBounds"/>
                     </mxGeometry>
@@ -1142,7 +1142,7 @@
                         <mxRectangle width="30" height="40" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1746" value="ユーザーID (UserID)(references UserID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=9;" vertex="1" parent="1744">
+                <mxCell id="1746" value="ユーザーID (UserID)(FK - Users.UserID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=9;" vertex="1" parent="1744">
                     <mxGeometry x="30" width="310" height="40" as="geometry">
                         <mxRectangle width="310" height="40" as="alternateBounds"/>
                     </mxGeometry>
@@ -1155,7 +1155,7 @@
                         <mxRectangle width="30" height="40" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1749" value="カウンセラーID (CounselorID)(references CounselorID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=9;fontStyle=1" vertex="1" parent="1747">
+                <mxCell id="1749" value="カウンセラーID (CounselorID)(FK - Counselors.CounselorID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=9;fontStyle=1" vertex="1" parent="1747">
                     <mxGeometry x="30" width="310" height="40" as="geometry">
                         <mxRectangle width="310" height="40" as="alternateBounds"/>
                     </mxGeometry>
@@ -1168,7 +1168,7 @@
                         <mxRectangle width="30" height="40" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1752" value="開始日時 (StartDateTime)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=9;" vertex="1" parent="1750">
+                <mxCell id="1752" value="SessionID (FK - CounselingSessions.SessionID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=9;" vertex="1" parent="1750">
                     <mxGeometry x="30" width="310" height="40" as="geometry">
                         <mxRectangle width="310" height="40" as="alternateBounds"/>
                     </mxGeometry>
@@ -1181,7 +1181,7 @@
                         <mxRectangle width="30" height="40" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1755" value="終了日時 (EndDateTime)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=9;fontStyle=1" vertex="1" parent="1753">
+                <mxCell id="1755" value="MessageID (FK - ChatMessages.MessageID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=9;fontStyle=1" vertex="1" parent="1753">
                     <mxGeometry x="30" width="310" height="40" as="geometry">
                         <mxRectangle width="310" height="40" as="alternateBounds"/>
                     </mxGeometry>
@@ -1194,20 +1194,7 @@
                         <mxRectangle width="30" height="40" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1758" value="Created_At" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=9;fontStyle=1" vertex="1" parent="1756">
-                    <mxGeometry x="30" width="310" height="40" as="geometry">
-                        <mxRectangle width="310" height="40" as="alternateBounds"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="1759" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;fontSize=10;" vertex="1" parent="1740">
-                    <mxGeometry y="260" width="340" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="1760" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;fontSize=10;" vertex="1" parent="1759">
-                    <mxGeometry width="30" height="40" as="geometry">
-                        <mxRectangle width="30" height="40" as="alternateBounds"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="1761" value="Updated_At" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=9;fontStyle=1" vertex="1" parent="1759">
+                <mxCell id="1758" value="日時 (DateTime)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=9;fontStyle=1" vertex="1" parent="1756">
                     <mxGeometry x="30" width="310" height="40" as="geometry">
                         <mxRectangle width="310" height="40" as="alternateBounds"/>
                     </mxGeometry>
