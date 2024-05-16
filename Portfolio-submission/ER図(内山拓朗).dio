@@ -144,10 +144,10 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1371" value="画面(Screens)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" vertex="1" parent="1">
-                    <mxGeometry x="240" y="862" width="200" height="120" as="geometry"/>
+                    <mxGeometry x="80" y="820" width="360" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="1372" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="1371">
-                    <mxGeometry y="30" width="200" height="30" as="geometry"/>
+                    <mxGeometry y="30" width="360" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="1373" value="PK" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;" vertex="1" parent="1372">
                     <mxGeometry width="30" height="30" as="geometry">
@@ -155,12 +155,12 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1374" value="属性ID(ScreenID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;fontSize=10;" vertex="1" parent="1372">
-                    <mxGeometry x="30" width="170" height="30" as="geometry">
-                        <mxRectangle width="170" height="30" as="alternateBounds"/>
+                    <mxGeometry x="30" width="330" height="30" as="geometry">
+                        <mxRectangle width="330" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1375" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" vertex="1" parent="1371">
-                    <mxGeometry y="60" width="200" height="30" as="geometry"/>
+                    <mxGeometry y="60" width="360" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="1376" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" vertex="1" parent="1375">
                     <mxGeometry width="30" height="30" as="geometry">
@@ -168,12 +168,12 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1377" value="画面名(ScreenName)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=10;" vertex="1" parent="1375">
-                    <mxGeometry x="30" width="170" height="30" as="geometry">
-                        <mxRectangle width="170" height="30" as="alternateBounds"/>
+                    <mxGeometry x="30" width="330" height="30" as="geometry">
+                        <mxRectangle width="330" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1378" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" vertex="1" parent="1371">
-                    <mxGeometry y="90" width="200" height="30" as="geometry"/>
+                    <mxGeometry y="90" width="360" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="1379" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" vertex="1" parent="1378">
                     <mxGeometry width="30" height="30" as="geometry">
@@ -181,12 +181,12 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1380" value="画面タイプ(ScreenType)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="1378">
-                    <mxGeometry x="30" width="170" height="30" as="geometry">
-                        <mxRectangle width="170" height="30" as="alternateBounds"/>
+                    <mxGeometry x="30" width="330" height="30" as="geometry">
+                        <mxRectangle width="330" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1417" value="メニューと画面の関連付け(MenuScreenMapping)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" vertex="1" parent="1">
-                    <mxGeometry x="-150" y="862" width="360" height="162" as="geometry"/>
+                    <mxGeometry x="80" y="940" width="360" height="162" as="geometry"/>
                 </mxCell>
                 <mxCell id="1418" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="1417">
                     <mxGeometry y="30" width="360" height="30" as="geometry"/>
@@ -1831,8 +1831,8 @@
                 </mxCell>
                 <mxCell id="2192" value="" style="endArrow=ERmany;html=1;fontSize=10;endFill=0;startArrow=ERone;startFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="990" y="1350" as="sourcePoint"/>
-                        <mxPoint x="990" y="1190" as="targetPoint"/>
+                        <mxPoint x="990" y="1150" as="sourcePoint"/>
+                        <mxPoint x="990" y="990" as="targetPoint"/>
                         <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
@@ -2151,6 +2151,145 @@
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="200.89000000000007" y="230" as="sourcePoint"/>
                         <mxPoint x="200.0000000000002" y="150.1199999999999" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2272" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;startArrow=ERmandOne;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="1345">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="-20" y="600" as="sourcePoint"/>
+                        <mxPoint x="90" y="660" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2273" value="" style="endArrow=ERmany;html=1;fontSize=10;endFill=0;startArrow=ERone;startFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-390" y="1045" as="sourcePoint"/>
+                        <mxPoint x="-490" y="940" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2276" value="メニュー項目(MenuItems)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" vertex="1" parent="1">
+                    <mxGeometry x="-460" y="1180" width="360" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="2277" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="2276">
+                    <mxGeometry y="30" width="360" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2278" value="PK" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;" vertex="1" parent="2277">
+                    <mxGeometry width="30" height="30" as="geometry">
+                        <mxRectangle width="30" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2279" value="メニュー項目ID(MenuItemID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;fontSize=10;" vertex="1" parent="2277">
+                    <mxGeometry x="30" width="330" height="30" as="geometry">
+                        <mxRectangle width="330" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2280" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" vertex="1" parent="2276">
+                    <mxGeometry y="60" width="360" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2281" value="FK" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" vertex="1" parent="2280">
+                    <mxGeometry width="30" height="30" as="geometry">
+                        <mxRectangle width="30" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2282" value="遷移先画面ID(Destination ScreenID) (Screens.ScreenID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=10;" vertex="1" parent="2280">
+                    <mxGeometry x="30" width="330" height="30" as="geometry">
+                        <mxRectangle width="330" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2283" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" vertex="1" parent="2276">
+                    <mxGeometry y="90" width="360" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2284" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" vertex="1" parent="2283">
+                    <mxGeometry width="30" height="30" as="geometry">
+                        <mxRectangle width="30" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2285" value="MenuName" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=10;" vertex="1" parent="2283">
+                    <mxGeometry x="30" width="330" height="30" as="geometry">
+                        <mxRectangle width="330" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2286" value="メニューと画面の関連付け(MenuScreenMapping)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" vertex="1" parent="1">
+                    <mxGeometry x="-460" y="1340" width="360" height="162" as="geometry"/>
+                </mxCell>
+                <mxCell id="2287" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="2286">
+                    <mxGeometry y="30" width="360" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2288" value="PK" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;" vertex="1" parent="2287">
+                    <mxGeometry width="30" height="30" as="geometry">
+                        <mxRectangle width="30" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2289" value="マッピングID(MappingID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;fontSize=10;" vertex="1" parent="2287">
+                    <mxGeometry x="30" width="330" height="30" as="geometry">
+                        <mxRectangle width="330" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2290" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" vertex="1" parent="2286">
+                    <mxGeometry y="60" width="360" height="51" as="geometry"/>
+                </mxCell>
+                <mxCell id="2291" value="FK" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" vertex="1" parent="2290">
+                    <mxGeometry width="30" height="51" as="geometry">
+                        <mxRectangle width="30" height="51" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2292" value="メニュー項目(MenuItemID)(MenuItems.MenuItemID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="2290">
+                    <mxGeometry x="30" width="330" height="51" as="geometry">
+                        <mxRectangle width="330" height="51" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2293" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" vertex="1" parent="2286">
+                    <mxGeometry y="111" width="360" height="51" as="geometry"/>
+                </mxCell>
+                <mxCell id="2294" value="FK" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" vertex="1" parent="2293">
+                    <mxGeometry width="30" height="51" as="geometry">
+                        <mxRectangle width="30" height="51" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2295" value="画面ID(ScreenID)(Screens.ScreenID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="2293">
+                    <mxGeometry x="30" width="330" height="51" as="geometry">
+                        <mxRectangle width="330" height="51" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2296" value="画面(Screens)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" vertex="1" parent="1">
+                    <mxGeometry x="-470" y="1550" width="200" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="2297" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="2296">
+                    <mxGeometry y="30" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2298" value="PK" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;" vertex="1" parent="2297">
+                    <mxGeometry width="30" height="30" as="geometry">
+                        <mxRectangle width="30" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2299" value="属性ID(ScreenID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;fontSize=10;" vertex="1" parent="2297">
+                    <mxGeometry x="30" width="170" height="30" as="geometry">
+                        <mxRectangle width="170" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2300" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" vertex="1" parent="2296">
+                    <mxGeometry y="60" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2301" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" vertex="1" parent="2300">
+                    <mxGeometry width="30" height="30" as="geometry">
+                        <mxRectangle width="30" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2302" value="画面名(ScreenName)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=10;" vertex="1" parent="2300">
+                    <mxGeometry x="30" width="170" height="30" as="geometry">
+                        <mxRectangle width="170" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2303" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" vertex="1" parent="2296">
+                    <mxGeometry y="90" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2304" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" vertex="1" parent="2303">
+                    <mxGeometry width="30" height="30" as="geometry">
+                        <mxRectangle width="30" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2305" value="画面タイプ(ScreenType)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="2303">
+                    <mxGeometry x="30" width="170" height="30" as="geometry">
+                        <mxRectangle width="170" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
             </root>
