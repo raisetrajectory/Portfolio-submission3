@@ -40,13 +40,6 @@
                         <mxPoint x="900.4000000000001" y="400" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="352" value="" style="endArrow=ERmandOne;html=1;rounded=0;endFill=0;startArrow=ERmandOne;startFill=0;" parent="1" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="680" y="560" as="sourcePoint"/>
-                        <mxPoint x="680" y="500" as="targetPoint"/>
-                        <Array as="points"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="353" value="" style="endArrow=ERmany;html=1;endFill=0;startArrow=ERmandOne;startFill=0;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="900" y="90" as="sourcePoint"/>
@@ -54,7 +47,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1230" value="セッションログイン情報 (SessionLoginInfo)" style="shape=table;startSize=20;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fontSize=9;" vertex="1" parent="1">
-                    <mxGeometry x="540" y="320" width="220" height="180" as="geometry"/>
+                    <mxGeometry x="950" y="170" width="220" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="1231" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;fontSize=10;" vertex="1" parent="1230">
                     <mxGeometry y="20" width="220" height="30" as="geometry"/>
@@ -640,7 +633,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1794" value="セッションログイン情報 (SessionLoginInfo)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fontSize=9;" vertex="1" parent="1">
-                    <mxGeometry x="3270" y="570" width="310" height="190" as="geometry"/>
+                    <mxGeometry x="540" y="280" width="310" height="200" as="geometry"/>
                 </mxCell>
                 <mxCell id="1795" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;fontSize=10;" vertex="1" parent="1794">
                     <mxGeometry y="30" width="310" height="30" as="geometry"/>
@@ -682,20 +675,20 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1804" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;fontSize=10;" vertex="1" parent="1794">
-                    <mxGeometry y="150" width="310" height="40" as="geometry"/>
+                    <mxGeometry y="150" width="310" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="1805" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;fontSize=10;" vertex="1" parent="1804">
-                    <mxGeometry width="30" height="40" as="geometry">
-                        <mxRectangle width="30" height="40" as="alternateBounds"/>
+                    <mxGeometry width="30" height="50" as="geometry">
+                        <mxRectangle width="30" height="50" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1806" value="ログアウト日時 (LogoutDateTime)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=10;" vertex="1" parent="1804">
-                    <mxGeometry x="30" width="280" height="40" as="geometry">
-                        <mxRectangle width="280" height="40" as="alternateBounds"/>
+                    <mxGeometry x="30" width="280" height="50" as="geometry">
+                        <mxRectangle width="280" height="50" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1845" value="ユーザー(Users)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" vertex="1" parent="1">
-                    <mxGeometry x="2630" y="220" width="230" height="230" as="geometry"/>
+                    <mxGeometry x="3770" y="2170" width="230" height="230" as="geometry"/>
                 </mxCell>
                 <mxCell id="1846" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="1845">
                     <mxGeometry y="30" width="230" height="30" as="geometry"/>
@@ -1928,7 +1921,7 @@
                 <mxCell id="2209" value="" style="endArrow=ERmandOne;html=1;rounded=0;endFill=0;startArrow=ERmandOne;startFill=0;" edge="1" parent="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="600" y="560" as="sourcePoint"/>
-                        <mxPoint x="600" y="500" as="targetPoint"/>
+                        <mxPoint x="600" y="480" as="targetPoint"/>
                         <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
@@ -2145,6 +2138,13 @@
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="-80" y="550" as="sourcePoint"/>
                         <mxPoint x="-79.59999999999968" y="490" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2264" value="" style="endArrow=ERmandOne;html=1;rounded=0;endFill=0;startArrow=ERmandOne;startFill=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="720" y="560" as="sourcePoint"/>
+                        <mxPoint x="720" y="480" as="targetPoint"/>
+                        <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
             </root>
