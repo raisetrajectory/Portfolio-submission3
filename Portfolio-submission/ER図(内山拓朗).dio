@@ -2385,7 +2385,7 @@
                 <mxCell id="2631" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;修正を行いやすいために、要素を残してあります。評価及び採点していただく必要がありません。&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="1">
                     <mxGeometry x="-510" y="2370" width="470" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="2632" value="矢印を配置したER図です。&lt;br&gt;評価及び採点をお願い致します。" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;" vertex="1" parent="1">
+                <mxCell id="2632" value="矢印を配置したER図です。&lt;br&gt;矢印を配置したER図のみ&lt;br&gt;評価及び採点をお願い致します。" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;" vertex="1" parent="1">
                     <mxGeometry x="-570" y="-280" width="440" height="140" as="geometry"/>
                 </mxCell>
             </root>
