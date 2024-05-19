@@ -1545,7 +1545,7 @@
                         <mxRectangle width="330" height="51" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2382" value="" style="endArrow=ERmandOne;startArrow=ERoneToMany;html=1;fontSize=10;startFill=0;endFill=0;entryX=0.611;entryY=1.02;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1" target="2259">
+                <mxCell id="2382" value="" style="endArrow=ERmandOne;startArrow=ERoneToMany;html=1;fontSize=10;startFill=0;endFill=0;entryX=0.611;entryY=1.02;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;" parent="1" edge="1" target="2259">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="20" y="1020" as="sourcePoint"/>
                         <mxPoint x="-120" y="860" as="targetPoint"/>
@@ -2342,19 +2342,19 @@
                 <mxCell id="2632" value="矢印を配置したER図です。&lt;br&gt;矢印を配置したER図のみ&lt;br&gt;評価及び採点をお願い致します。" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;" parent="1" vertex="1">
                     <mxGeometry x="-570" y="-280" width="440" height="140" as="geometry"/>
                 </mxCell>
-                <mxCell id="2818" value="" style="endArrow=ERone;html=1;fontSize=10;endFill=0;startArrow=ERoneToMany;startFill=0;entryX=0.37;entryY=-0.002;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="2310">
+                <mxCell id="2818" value="" style="endArrow=ERone;html=1;fontSize=10;endFill=0;startArrow=ERoneToMany;startFill=0;entryX=0.37;entryY=-0.002;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;" edge="1" parent="1" target="2310">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="280" y="720" as="sourcePoint"/>
                         <mxPoint x="280" y="810" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2825" value="" style="endArrow=ERmandOne;html=1;endFill=0;startArrow=ERmandOne;startFill=0;entryX=0.317;entryY=1.003;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=4;" edge="1" parent="1">
+                <mxCell id="2825" value="" style="endArrow=ERmandOne;html=1;endFill=0;startArrow=ERmandOne;startFill=0;entryX=0.317;entryY=1.003;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=3;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="380" y="410" as="sourcePoint"/>
                         <mxPoint x="380.0000000000002" y="-30.000000000000114" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2826" value="" style="endArrow=ERmandOne;html=1;endFill=0;startArrow=ERmandOne;startFill=0;entryX=0.317;entryY=1.003;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=4;" edge="1" parent="1">
+                <mxCell id="2826" value="" style="endArrow=ERmandOne;html=1;endFill=0;startArrow=ERmandOne;startFill=0;entryX=0.317;entryY=1.003;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=3;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="120" y="410" as="sourcePoint"/>
                         <mxPoint x="120.00000000000023" y="99.99999999999989" as="targetPoint"/>
@@ -2795,7 +2795,7 @@
                         <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2980" value="" style="edgeStyle=segmentEdgeStyle;endArrow=ERmandOne;html=1;curved=0;rounded=0;endSize=8;startSize=8;fontSize=9;elbow=vertical;entryX=0.072;entryY=1.028;entryDx=0;entryDy=0;entryPerimeter=0;endFill=0;startArrow=ERoneToMany;startFill=0;strokeWidth=3;" edge="1" parent="1" target="1804">
+                <mxCell id="2980" value="" style="edgeStyle=segmentEdgeStyle;endArrow=ERmandOne;html=1;curved=0;rounded=0;endSize=8;startSize=8;fontSize=9;elbow=vertical;entryX=0.072;entryY=1.028;entryDx=0;entryDy=0;entryPerimeter=0;endFill=0;startArrow=ERoneToMany;startFill=0;strokeWidth=1;fillColor=#0050ef;strokeColor=#001DBC;" edge="1" parent="1" target="1804">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="450" y="430" as="sourcePoint"/>
                         <mxPoint x="520" y="280" as="targetPoint"/>
@@ -2804,7 +2804,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2981" value="" style="edgeStyle=segmentEdgeStyle;endArrow=ERoneToMany;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeWidth=3;fontSize=9;elbow=vertical;startArrow=ERmandOne;startFill=0;endFill=0;" edge="1" parent="1">
+                <mxCell id="2981" value="" style="edgeStyle=segmentEdgeStyle;endArrow=ERoneToMany;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeWidth=1;fontSize=9;elbow=vertical;startArrow=ERmandOne;startFill=0;endFill=0;fillColor=#0050ef;strokeColor=#001DBC;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="-120" y="230" as="sourcePoint"/>
                         <mxPoint x="80" y="420" as="targetPoint"/>
@@ -2814,7 +2814,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2983" value="" style="endArrow=ERmandOne;startArrow=ERoneToMany;html=1;fontSize=10;startFill=0;endFill=0;" edge="1" parent="1">
+                <mxCell id="2983" value="" style="endArrow=ERmandOne;startArrow=ERoneToMany;html=1;fontSize=10;startFill=0;endFill=0;strokeWidth=2;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="720" y="891" as="sourcePoint"/>
                         <mxPoint x="795" y="620" as="targetPoint"/>
