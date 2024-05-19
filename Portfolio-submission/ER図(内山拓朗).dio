@@ -410,7 +410,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1781" value="セッションログイン情報 (SessionLoginInfo)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fontSize=9;" parent="1" vertex="1">
-                    <mxGeometry x="-260" y="160" width="250" height="170" as="geometry"/>
+                    <mxGeometry x="-370" y="80" width="250" height="170" as="geometry"/>
                 </mxCell>
                 <mxCell id="1782" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;fontSize=10;" parent="1781" vertex="1">
                     <mxGeometry y="30" width="250" height="30" as="geometry"/>
@@ -1350,10 +1350,10 @@
                         <mxRectangle width="200" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2265" value="" style="endArrow=ERmany;html=1;endFill=0;startArrow=ERmandOne;startFill=0;entryX=0.317;entryY=1.003;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1">
+                <mxCell id="2265" value="" style="endArrow=ERoneToMany;html=1;endFill=0;startArrow=ERmandOne;startFill=0;entryX=0.673;entryY=1.025;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;" parent="1" edge="1" target="1791">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-144.6099999999999" y="410" as="sourcePoint"/>
-                        <mxPoint x="-145.49999999999977" y="330.1199999999999" as="targetPoint"/>
+                        <mxPoint x="-199.1099999999999" y="410" as="sourcePoint"/>
+                        <mxPoint x="-199.99999999999977" y="330.1199999999999" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2310" value="&lt;span style=&quot;font-size: 10px; font-weight: 400;&quot;&gt;メインメニュー(Main menu)&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
@@ -2797,28 +2797,29 @@
                         <mxPoint x="450" y="560" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2974" value="" style="edgeStyle=segmentEdgeStyle;endArrow=ERoneToMany;html=1;curved=0;rounded=0;endSize=8;startSize=8;fontSize=9;elbow=vertical;endFill=0;startArrow=ERmandOne;startFill=0;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-20" y="330" as="sourcePoint"/>
-                        <mxPoint x="80" y="430" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="-20" y="430"/>
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="2978" value="" style="endArrow=ERoneToMany;html=1;rounded=0;endFill=0;startArrow=ERmandOne;startFill=0;" edge="1" parent="1">
+                <mxCell id="2978" value="" style="endArrow=ERoneToMany;html=1;rounded=0;endFill=0;startArrow=ERmandOne;startFill=0;strokeWidth=2;" edge="1" parent="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="720.33" y="410" as="sourcePoint"/>
                         <mxPoint x="720" y="260" as="targetPoint"/>
                         <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2980" value="" style="edgeStyle=segmentEdgeStyle;endArrow=ERmandOne;html=1;curved=0;rounded=0;endSize=8;startSize=8;fontSize=9;elbow=vertical;entryX=0.072;entryY=1.028;entryDx=0;entryDy=0;entryPerimeter=0;endFill=0;startArrow=ERoneToMany;startFill=0;" edge="1" parent="1" target="1804">
+                <mxCell id="2980" value="" style="edgeStyle=segmentEdgeStyle;endArrow=ERmandOne;html=1;curved=0;rounded=0;endSize=8;startSize=8;fontSize=9;elbow=vertical;entryX=0.072;entryY=1.028;entryDx=0;entryDy=0;entryPerimeter=0;endFill=0;startArrow=ERoneToMany;startFill=0;strokeWidth=3;" edge="1" parent="1" target="1804">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="450" y="430" as="sourcePoint"/>
                         <mxPoint x="520" y="280" as="targetPoint"/>
                         <Array as="points">
                             <mxPoint x="520" y="430"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2981" value="" style="edgeStyle=segmentEdgeStyle;endArrow=ERoneToMany;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeWidth=3;fontSize=9;elbow=vertical;startArrow=ERmandOne;startFill=0;endFill=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-120" y="230" as="sourcePoint"/>
+                        <mxPoint x="80" y="420" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="30" y="230"/>
+                            <mxPoint x="30" y="420"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
