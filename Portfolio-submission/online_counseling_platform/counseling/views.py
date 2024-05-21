@@ -3,9 +3,23 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.shortcuts import get_object_or_404
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 from .models import Counselor
 from .forms import CounselorForm
+from .models import CounselingSession, Counselor
+
+@login_required
+def create_session(request, counselor_id):
+    counselor = get_object_or_404(Counselor, id=counselor_id)
+    session = CounselingSession.objects.create(user=request.user, counselor=counselor)
+    return redirect('session_detail', pk=session.pk)
+
+@login_required
+def session_detail(request, pk):
+    session = get_object_or_404(CounselingSession, pk=pk)
+    return render(request, 'session_detail.html', {'session': session})
 
 def counselor_profile(request, pk):
     counselor = get_object_or_404(Counselor, pk=pk)
