@@ -4,7 +4,7 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='home'), # type: ignore
+    path('', views.home, name='home'),  # ホームビューのルーティング # type: ignore
     path('counselor/<int:pk>/', views.counselor_profile, name='counselor_profile'), # type: ignore
     path('counselor/<int:pk>/edit/', views.edit_counselor_profile, name='edit_counselor_profile'), # type: ignore
     path('signup/', views.signup, name='signup'), # type: ignore
