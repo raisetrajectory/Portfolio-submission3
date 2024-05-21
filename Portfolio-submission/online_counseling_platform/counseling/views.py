@@ -14,9 +14,11 @@ def home(request):
     return render(request, 'home.html')
 
 @login_required
-def create_session(request, counselor_id):
-    counselor = get_object_or_404(Counselor, id=counselor_id)
-    session = CounselingSession.objects.create(user=request.user, counselor=counselor)
+def create_session(request):
+    if request.method == 'POST':
+        counselor_id = request.POST.get('counselor')
+        counselor = get_object_or_404(Counselor, id=counselor_id)
+        session = CounselingSession.objects.create(user=request.user, counselor=counselor)
     return redirect('session_detail', pk=session.pk)
 
 @login_required
