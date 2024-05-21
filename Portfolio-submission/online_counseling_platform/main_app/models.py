@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.shortcuts import render, redirect
+from .models import CounselingSession, Counselor
+from django.contrib.auth.decorators import login_required
 
 class User(AbstractUser):
     is_counselor = models.BooleanField(default=False)
