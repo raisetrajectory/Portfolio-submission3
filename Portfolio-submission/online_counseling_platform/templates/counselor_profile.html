@@ -1,0 +1,12 @@
+<!-- templates/counselor_profile.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counselor Profile</title>
+</head>
+<body>
+    <h2>{{ counselor.user.username }}'s Profile</h2>
+    <p>{{ counselor.bio }}</p>
+    <a href="{% url 'edit_counselor_profile' counselor.pk %}">Edit Profile</a>
+</body>
+</html>
