@@ -1,12 +1,15 @@
 # counseling/views.py
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.shortcuts import get_object_or_404
 
-# def counselor_profile(request, pk):
-#     counselor = get_object_or_404(Counselor, pk=pk)
-#     return render(request, 'counselor_profile.html', {'counselor': counselor})
+from .models import Counselor
+from .forms import CounselorForm
+
+def counselor_profile(request, pk):
+    counselor = get_object_or_404(Counselor, pk=pk)
+    return render(request, 'counselor_profile.html', {'counselor': counselor})
 
 # def edit_counselor_profile(request, pk):
 #     counselor = get_object_or_404(Counselor, pk=pk)
