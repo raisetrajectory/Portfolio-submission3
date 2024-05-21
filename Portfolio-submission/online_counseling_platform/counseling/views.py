@@ -1,4 +1,5 @@
 # counseling/views.py
+from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
@@ -9,6 +10,9 @@ from django.contrib.auth.decorators import login_required
 from .models import Counselor
 from .forms import CounselorForm
 from .models import CounselingSession, Counselor
+
+def home(request):
+    return render(request, 'home.html')
 
 @login_required
 def create_session(request, counselor_id):
