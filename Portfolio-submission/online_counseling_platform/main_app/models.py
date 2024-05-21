@@ -2,7 +2,26 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.shortcuts import render, redirect
 from .models import CounselingSession, Counselor
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from .models import CounselingSession, ChatMessage
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
+@login_required
+def chat_view(request, session_id):
+    session = get_object_or_404(CounselingSession, id=session_id)
+    messages = ChatMessage.objects.filter(session=session)
+    return render(request, 'chat.html', {'session': session, 'messages': messages})
+
+@csrf_exempt
+def send_message(request):
+    if request.method == 'POST':
+        session_id = request.POST['session_id']
+        message = request.POST['message']
+        session = get_object_or_404(CounselingSession, id=session_id)
+        ChatMessage.objects.create(session=session, sender=request.user, message=message)
+        return JsonResponse({'status': 'success'})
 
 class User(AbstractUser):
     is_counselor = models.BooleanField(default=False)
