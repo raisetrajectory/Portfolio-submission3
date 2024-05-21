@@ -4,6 +4,22 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     is_counselor = models.BooleanField(default=False)
 
+    # Add related_name to avoid clashes
+    groups = models.ManyToManyField(
+        'auth.Group',
+        related_name='custom_user_set',  # Change this line
+        blank=True,
+        help_text='The groups this user belongs to.',
+        verbose_name='groups',
+    )
+    user_permissions = models.ManyToManyField(
+        'auth.Permission',
+        related_name='custom_user_set',  # Change this line
+        blank=True,
+        help_text='Specific permissions for this user.',
+        verbose_name='user permissions',
+    )
+
 class Counselor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField()
