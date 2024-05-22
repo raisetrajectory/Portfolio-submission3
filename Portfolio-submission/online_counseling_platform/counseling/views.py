@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Counselor
 from .forms import CounselorForm
-from .models import CounselingSession, Counselor
+from .models import CounselingSession, ChatMessage
 
 def home(request):
     return render(request, 'home.html')
