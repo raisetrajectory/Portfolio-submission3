@@ -1,4 +1,4 @@
-<div id="chat">
+{% comment %} <div id="chat">
     {% for message in messages %}
         <p><strong>{{ message.sender.username }}:</strong> {{ message.message }}</p>
     {% endfor %}
@@ -24,4 +24,16 @@
         var session_id = document.querySelector('input[name="session_id"]').value;
         xhr.send('session_id=' + session_id + '&message=' + message);
     };
-</script>
+</script> {% endcomment %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>チャット画面</title>
+</head>
+<body>
+    <h1>チャット画面</h1>
+    <!-- ここにチャットの内容を追加 -->
+</body>
+</html>
