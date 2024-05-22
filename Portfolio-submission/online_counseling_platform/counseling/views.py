@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 
 from .models import Counselor
 from .forms import CounselorForm
@@ -32,6 +33,14 @@ def create_session(request):
 
     counselors = Counselor.objects.all()
     return render(request, 'create_session.html', {'counselors': counselors})
+
+def send_message(request):
+    if request.method == 'POST':
+        message = request.POST.get('message')
+        # ここでメッセージを処理するロジックを実装する
+        return JsonResponse({'status': 'success'})
+    else:
+        return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
 
 # def new_func():
 #     counselors = Counselor.objects.all()
