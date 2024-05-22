@@ -2,7 +2,7 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
-from .views import create_session, chat_view, send_message # type: ignore
+from .views import create_session, chat_view, send_message, session_detail # type: ignore
 
 urlpatterns = [
     path('', views.home, name='home'),  # ホームビューのルーティング # type: ignore
@@ -14,4 +14,5 @@ urlpatterns = [
     path('create_session/', create_session, name='create_session'),
     path('chat/<int:session_id>/', chat_view, name='chat_view'),
     path('send_message/', send_message, name='send_message'),
+    path('session/<int:session_id>/', session_detail, name='session_detail'),
 ]
