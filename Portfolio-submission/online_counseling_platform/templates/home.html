@@ -8,7 +8,7 @@
     <div>
         <button onclick="location.href='{% url 'signup' %}'">ユーザー登録</button>
     </div>
-        <button onclick="location.href='{% url 'chat' %}'">チャット画面へ</button>
+        {% comment %} <button onclick="location.href='{% url 'chat' %}'">チャット画面へ</button> {% endcomment %}
         {% comment %} <button onclick="location.href='{% url 'login' %}'">ログイン</button> {% endcomment %}
         {% comment %} <button onclick="location.href='{% url 'logout' %}'">ログアウト</button> {% endcomment %}
         {% comment %} <button onclick="location.href='{% url 'profile' %}'">プロフィール画面</button> {% endcomment %}
