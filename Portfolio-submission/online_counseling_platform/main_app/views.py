@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from .models import ChatMessage  # チャットメッセージのモデルをインポート
 
 def home(request):
     return render(request, 'home.html')
@@ -10,7 +11,8 @@ def login_view(request):
 
 @login_required
 def chat_view(request):
-    return render(request, 'chat.html')
+    messages = ChatMessage.objects.all()  # チャットメッセージを取得
+    return render(request, 'counseling/chat.html', {'messages': messages})
 
 def register(request):
     # ユーザー登録のロジック
