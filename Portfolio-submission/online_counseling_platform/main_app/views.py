@@ -18,9 +18,9 @@ def register(request):
     # ユーザー登録のロジック
     return render(request, 'register.html')
 
-# def chat(request):
-#     # チャット画面のロジック
-#     return render(request, 'chat.html')
+def chat(request):
+    # チャット画面のロジック
+    return render(request, 'chat.html')
 
 
 
