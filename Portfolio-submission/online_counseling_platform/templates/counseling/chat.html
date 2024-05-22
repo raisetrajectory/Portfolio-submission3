@@ -35,5 +35,10 @@
 <body>
     <h1>チャット画面</h1>
     <!-- ここにチャットの内容を追加 -->
+    <ul>
+        {% for message in messages %}
+            <li>{{ message.user }}: {{ message.content }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
