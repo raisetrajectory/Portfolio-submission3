@@ -1,4 +1,9 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def chat_view(request):
+    return render(request, 'chat.html')
 
 def home(request):
     return render(request, 'home.html')
@@ -7,9 +12,9 @@ def register(request):
     # ユーザー登録のロジック
     return render(request, 'register.html')
 
-def chat(request):
-    # チャット画面のロジック
-    return render(request, 'chat.html')
+# def chat(request):
+#     # チャット画面のロジック
+#     return render(request, 'chat.html')
 
 def login_view(request):
     # ログインのロジック
