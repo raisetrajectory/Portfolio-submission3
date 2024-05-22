@@ -141,7 +141,7 @@ STATIC_URL = '/static/'
 # STATICFILES_DIRSは、追加の静的ファイルディレクトリがある場合に指定します
 # 例えば、プロジェクト全体で共有される静的ファイルなど
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'online_counseling_platform', 'static'),
 ]
 
 # 静的ファイルの収集先
