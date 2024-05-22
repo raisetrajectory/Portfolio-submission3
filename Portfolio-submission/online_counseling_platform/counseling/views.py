@@ -42,12 +42,12 @@ def send_message(request):
     else:
         return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
 
-# def new_func():
-#     counselors = Counselor.objects.all()
+def new_func():
+    counselors = Counselor.objects.all()
 
-# def counselor_profile(request, pk):
-#     counselor = get_object_or_404(Counselor, pk=pk)
-#     return render(request, 'counselor_profile.html', {'counselor': counselor})
+def counselor_profile(request, pk):
+    counselor = get_object_or_404(Counselor, pk=pk)
+    return render(request, 'counselor_profile.html', {'counselor': counselor})
 
 def edit_counselor_profile(request, pk):
     counselor = get_object_or_404(Counselor, pk=pk)
