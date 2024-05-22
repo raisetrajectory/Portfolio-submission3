@@ -18,6 +18,10 @@ def session_detail(request, session_id):
     messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
     return render(request, 'session_detail.html', {'session': session, 'messages': messages})
 
+def chat_view(request):
+    messages = ChatMessage.objects.all()
+    return render(request, 'chat.html', {'messages': messages})
+
 @login_required
 def create_session(request):
     if request.method == 'POST':
