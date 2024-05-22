@@ -12,6 +12,12 @@ def home(request):
     return render(request, 'home.html')
 
 @login_required
+def session_detail(request, session_id):
+    session = get_object_or_404(CounselingSession, id=session_id)
+    messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
+    return render(request, 'session_detail.html', {'session': session, 'messages': messages})
+
+@login_required
 def create_session(request):
     if request.method == 'POST':
         counselor_id = request.POST.get('counselor')
@@ -21,11 +27,6 @@ def create_session(request):
 
     counselors = Counselor.objects.all()
     return render(request, 'create_session.html', {'counselors': counselors})
-
-@login_required
-def session_detail(request, pk):
-    session = get_object_or_404(CounselingSession, pk=pk)
-    return render(request, 'session_detail.html', {'session': session})
 
 def counselor_profile(request, pk):
     counselor = get_object_or_404(Counselor, pk=pk)
