@@ -8,6 +8,8 @@ urlpatterns = [
     path('', views.home, name='home'),  # ホームビューのルーティング # type: ignore
     path('signup/', views.signup, name='signup'), # type: ignore
     path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('chat/', views.chat_view, name='chat'),  # チャット画面のURL
+
     path('counselor/<int:pk>/', views.counselor_profile, name='counselor_profile'), # type: ignore
     path('counselor/<int:pk>/edit/', views.edit_counselor_profile, name='edit_counselor_profile'), # type: ignore
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
@@ -15,6 +17,7 @@ urlpatterns = [
     path('chat/<int:session_id>/', chat_view, name='chat_view'),
     path('send_message/', send_message, name='send_message'),
     path('session/<int:session_id>/', session_detail, name='session_detail'),
+
 
     # path('register/', views.register, name='register'), # type: ignore
     # path('chat/', views.chat, name='chat'), # type: ignore
