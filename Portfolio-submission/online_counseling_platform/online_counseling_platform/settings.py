@@ -142,6 +142,7 @@ STATIC_URL = '/static/'
 # 例えば、プロジェクト全体で共有される静的ファイルなど
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'online_counseling_platform', 'static'),
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 # 静的ファイルの収集先
