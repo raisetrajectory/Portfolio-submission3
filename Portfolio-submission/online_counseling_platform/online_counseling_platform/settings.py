@@ -138,6 +138,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 # STATICFILES_DIRSは、追加の静的ファイルディレクトリがある場合に指定します
 # 例えば、プロジェクト全体で共有される静的ファイルなど
 STATICFILES_DIRS = [
