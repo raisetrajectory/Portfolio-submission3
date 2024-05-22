@@ -15,10 +15,11 @@ urlpatterns = [
     path('chat/<int:session_id>/', chat_view, name='chat_view'),
     path('send_message/', send_message, name='send_message'),
     path('session/<int:session_id>/', session_detail, name='session_detail'),
-    path('register/', views.register, name='register'), # type: ignore
-    path('chat/', views.chat, name='chat'), # type: ignore
-    path('login/', views.login_view, name='login'), # type: ignore
-    path('logout/', views.logout_view, name='logout'), # type: ignore
-    path('profile/', views.profile, name='profile'), # type: ignore
-    path('counselor-list/', views.counselor_list, name='counselor_list'), # type: ignore
+
+    # path('register/', views.register, name='register'), # type: ignore
+    # path('chat/', views.chat, name='chat'), # type: ignore
+    # path('login/', views.login_view, name='login'), # type: ignore
+    # path('logout/', views.logout_view, name='logout'), # type: ignore
+    # path('profile/', views.profile, name='profile'), # type: ignore
+    # path('counselor-list/', views.counselor_list, name='counselor_list'), # type: ignore
 ]
