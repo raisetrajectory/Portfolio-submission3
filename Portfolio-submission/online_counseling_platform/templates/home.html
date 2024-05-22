@@ -5,5 +5,13 @@
 </head>
 <body>
     <h1>Welcome to the Online Counseling Platform</h1>
+    <div>
+        <button onclick="location.href='{% url 'register' %}'">ユーザー登録</button>
+        <button onclick="location.href='{% url 'chat' %}'">チャット画面へ</button>
+        <button onclick="location.href='{% url 'login' %}'">ログイン</button>
+        <button onclick="location.href='{% url 'logout' %}'">ログアウト</button>
+        <button onclick="location.href='{% url 'profile' %}'">プロフィール画面</button>
+        <button onclick="location.href='{% url 'counselor_list' %}'">カウンセラー一覧画面へ</button>
+    </div>
 </body>
 </html>
