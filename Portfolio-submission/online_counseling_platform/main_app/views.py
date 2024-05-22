@@ -12,21 +12,22 @@ def login_view(request):
 @login_required
 def chat_view(request):
     messages = ChatMessage.objects.all()  # チャットメッセージを取得
-    return render(request, 'chat.html')
-    # return render(request, 'counseling/chat.html', {'messages': messages})
+    # return render(request, 'chat.html')
+    return render(request, 'counseling/chat.html', {'messages': messages})
 
-def register(request):
-    # ユーザー登録のロジック
-    return render(request, 'register.html')
 
-def logout_view(request):
-    # ログアウトのロジック
-    return redirect('home')
+# def register(request):
+#     # ユーザー登録のロジック
+#     return render(request, 'register.html')
 
-def profile(request):
-    # プロフィール画面のロジック
-    return render(request, 'profile.html')
+# def logout_view(request):
+#     # ログアウトのロジック
+#     return redirect('home')
 
-def counselor_list(request):
-    # カウンセラー一覧画面のロジック
-    return render(request, 'counselor_list.html')
+# def profile(request):
+#     # プロフィール画面のロジック
+#     return render(request, 'profile.html')
+
+# def counselor_list(request):
+#     # カウンセラー一覧画面のロジック
+#     return render(request, 'counselor_list.html')
