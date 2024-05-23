@@ -2,9 +2,23 @@
 <html>
 <head>
     <title>メインメニュー</title>
+    <style>
+        /* 必要なスタイルを追加 */
+        #chat-box {
+            height: 300px;
+            border: 1px solid #ccc;
+            overflow-y: scroll;
+        }
+    </style>
 </head>
 <body>
     <h1>オンラインカウンセリングプラットフォームへようこそ！</h1>
+    <h1>チャット</h1>
+        <div id="chat-box">
+        {% for message in messages %}
+            <p><strong>{{ message.user }}:</strong> {{ message.content }}</p>
+        {% endfor %}
+    </div>
     <div>
         <button onclick="location.href='{% url 'signup' %}'">ユーザー登録</button>
         <button onclick="location.href='{% url 'login' %}'">ログイン</button>
