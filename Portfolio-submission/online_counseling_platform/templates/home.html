@@ -24,27 +24,6 @@
         <input type="text" name="message" placeholder="メッセージを入力してください">
         <button type="submit">送信</button>
     </form>
-
-    <script>
-        // JavaScriptによる自動更新の実装例
-        function updateChat() {
-            fetch('{% url "get_messages" %}')
-                .then(response => response.json())
-                .then(data => {
-                    const chatBox = document.getElementById('chat-box');
-                    chatBox.innerHTML = '';
-                    data.messages.forEach(message => {
-                        const p = document.createElement('p');
-                        p.innerHTML = `<strong>${message.user}:</strong> ${message.content}`;
-                        chatBox.appendChild(p);
-                    });
-                });
-        }
-
-        // 一定間隔でチャットを更新
-        setInterval(updateChat, 3000); // 3秒毎に更新
-    </script> {% endcomment %}
-
     <div>
         <button onclick="location.href='{% url 'signup' %}'">ユーザー登録</button>
         <button onclick="location.href='{% url 'login' %}'">ログイン</button>
