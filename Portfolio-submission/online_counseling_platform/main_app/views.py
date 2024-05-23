@@ -12,8 +12,7 @@ def login_view(request):
 @login_required
 def chat_view(request):
     messages = ChatMessage.objects.all()  # チャットメッセージを取得
-    # return render(request, 'chat.html')
-    return render(request, 'registration/chat.html', {'messages': messages})
+    return render(request, 'counseling/registration/chat.html', {'messages': messages})
 
 
 # def register(request):
