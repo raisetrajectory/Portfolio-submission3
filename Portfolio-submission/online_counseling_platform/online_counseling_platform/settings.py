@@ -134,7 +134,7 @@ USE_TZ = True
 
 LOGIN_REDIRECT_URL = 'home'  # ログイン後のリダイレクト先
 LOGOUT_REDIRECT_URL = 'home'  # ログアウト後のリダイレクト先
-LOGIN_REDIRECT_URL = 'chat'  # ログイン後のリダイレクト先
+# LOGIN_REDIRECT_URL = 'chat'  # ログイン後のリダイレクト先
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
