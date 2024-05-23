@@ -1,29 +1,14 @@
-{% comment %} <!DOCTYPE html>
-<html>
-<head>
-    <title>ログアウト</title>
-</head>
-<body>
-    <h1>ログアウト</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">ログアウト</button>
-    </form>
-</body>
-</html> {% endcomment %}
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>ログアウト</title>
 </head>
 <body>
-    <h1>ログアウトしました</h1>
-    <form action="{% url 'logout' %}" method="post">
+    <h1>ログアウトしますか？</h1>
+    <form method="post">
         {% csrf_token %}
         <button type="submit">ログアウト</button>
     </form>
-    <p><a href="{% url 'home' %}">ホームに戻る</a></p>
+    <p><a href="{% url 'home' %}">キャンセル</a></p>
 </body>
 </html>
