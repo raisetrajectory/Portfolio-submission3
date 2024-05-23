@@ -80,3 +80,7 @@ def logout_view(request):
         logout(request)
         return redirect('home')  # ログアウト後にホームページにリダイレクト
     return render(request, 'logout.html')
+
+@login_required
+def profile_view(request):
+    return render(request, 'profile.html', {'user': request.user})
