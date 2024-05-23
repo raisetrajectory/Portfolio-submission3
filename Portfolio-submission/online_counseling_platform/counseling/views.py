@@ -96,3 +96,9 @@ def chat(request):
 def get_messages(request):
     messages = ChatMessage.objects.values('user', 'content')
     return JsonResponse({'messages': list(messages)})
+
+def send_message(request):
+    if request.method == 'POST':
+        message_content = request.POST.get('message')
+        ChatMessage.objects.create(user=request.user, content=message_content)
+    return redirect('chat')
