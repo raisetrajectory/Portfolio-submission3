@@ -1,7 +1,7 @@
 # counseling/views.py
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.template.loader import get_template
@@ -9,8 +9,7 @@ from django.template import TemplateDoesNotExist
 
 from .models import Counselor
 from .forms import CounselorForm
-from .models import CounselingSession
-from .models import ChatMessage
+from .models import CounselingSession, ChatMessage
 
 def home(request):
     return render(request, 'home.html')
