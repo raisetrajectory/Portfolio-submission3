@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ログアウト</title>
+</head>
+<body>
+    <h1>ログアウト</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">ログアウト</button>
+    </form>
+</body>
+</html>
