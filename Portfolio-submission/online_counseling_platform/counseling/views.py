@@ -4,6 +4,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from django.template.loader import get_template
+from django.template import TemplateDoesNotExist
 
 from .models import Counselor
 from .forms import CounselorForm
@@ -21,7 +23,11 @@ def session_detail(request, session_id):
 
 def chat_view(request):
     messages = ChatMessage.objects.all()
-    return render(request, 'chat.html', {'messages': messages})
+    try:
+        template = get_template('counseling/registration/chat.html')
+    except TemplateDoesNotExist:
+        raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
+    return render(request, 'counseling/registration/chat.html', {'messages': messages})
 
 @login_required
 def create_session(request):
