@@ -84,3 +84,7 @@ def logout_view(request):
 @login_required
 def profile_view(request):
     return render(request, 'profile.html', {'user': request.user})
+
+def counselor_list_view(request):
+    counselors = Counselor.objects.all()
+    return render(request, 'counselor_list.html', {'counselors': counselors})
