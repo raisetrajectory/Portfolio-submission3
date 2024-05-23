@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import ChatMessage  # チャットメッセージのモデルをインポート
 from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
+from django.contrib.auth import logout
 
 def home(request):
     return render(request, 'home.html')
@@ -19,6 +20,11 @@ def chat_view(request):
     except TemplateDoesNotExist:
         raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
     return render(request, 'counseling/registration/chat.html', {'messages': messages})
+
+def logout_view(request):
+    # ログアウトのロジック
+    logout(request)  # Djangoのlogout関数を使用してユーザーをログアウトさせる
+    return render(request, 'logout.html')  # ログアウト画面を表示する
 
 
 # def register(request):
