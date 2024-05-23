@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>プロフィール</title>
+</head>
+<body>
+    <h1>{{ user.username }}のプロフィール</h1>
+    <p>Email: {{ user.email }}</p>
+    <!-- 他のプロフィール情報をここに追加 -->
+    <p><a href="{% url 'home' %}">ホームに戻る</a></p>
+    <p><a href="{% url 'logout' %}">ログアウト</a></p>
+</body>
+</html>
