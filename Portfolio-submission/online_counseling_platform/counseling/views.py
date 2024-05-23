@@ -92,3 +92,7 @@ def counselor_list_view(request):
 def chat(request):
     messages = ChatMessage.objects.all()
     return render(request, 'chat.html', {'messages': messages})
+
+def get_messages(request):
+    messages = ChatMessage.objects.values('user', 'content')
+    return JsonResponse({'messages': list(messages)})
