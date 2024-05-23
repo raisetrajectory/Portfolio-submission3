@@ -88,3 +88,7 @@ def profile_view(request):
 def counselor_list_view(request):
     counselors = Counselor.objects.all()
     return render(request, 'counselor_list.html', {'counselors': counselors})
+
+def chat(request):
+    messages = ChatMessage.objects.all()
+    return render(request, 'chat.html', {'messages': messages})
