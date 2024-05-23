@@ -24,7 +24,7 @@ def chat_view(request):
 def logout_view(request):
     # ログアウトのロジック
     logout(request)  # Djangoのlogout関数を使用してユーザーをログアウトさせる
-    return render(request, 'logout.html')  # ログアウト画面を表示する
+    return redirect('home')  # ログアウト後にホームページにリダイレクト
 
 
 # def register(request):
