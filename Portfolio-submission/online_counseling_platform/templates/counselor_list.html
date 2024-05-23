@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>カウンセラー一覧</title>
+</head>
+<body>
+    <h1>カウンセラー一覧</h1>
+    <ul>
+        {% for counselor in counselors %}
+        <li>{{ counselor.name }}</li>
+        {% endfor %}
+    </ul>
+    <p><a href="{% url 'home' %}">ホームに戻る</a></p>
+</body>
+</html>
