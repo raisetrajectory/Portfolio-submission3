@@ -2,14 +2,14 @@
 <html>
 <head>
     <title>メインメニュー</title>
-    <style>
+    {% comment %} <style>
         /* 必要なスタイルを追加 */
         #chat-box {
             height: 300px;
             border: 1px solid #ccc;
             overflow-y: scroll;
         }
-    </style>
+    </style> {% endcomment %}
 </head>
 <body>
     <h1>オンラインカウンセリングプラットフォームへようこそ！</h1>
@@ -19,7 +19,7 @@
             <p><strong>{{ message.user }}:</strong> {{ message.content }}</p>
         {% endfor %}
     </div>
-    <form id="chat-form" method="post" action="{% url 'send_message' %}">
+    {% comment %} <form id="chat-form" method="post" action="{% url 'send_message' %}">
         {% csrf_token %}
         <input type="text" name="message" placeholder="メッセージを入力してください">
         <button type="submit">送信</button>
@@ -43,7 +43,7 @@
 
         // 一定間隔でチャットを更新
         setInterval(updateChat, 3000); // 3秒毎に更新
-    </script>
+    </script> {% endcomment %}
 
     <div>
         <button onclick="location.href='{% url 'signup' %}'">ユーザー登録</button>
