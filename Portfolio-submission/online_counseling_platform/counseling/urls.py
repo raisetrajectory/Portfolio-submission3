@@ -9,7 +9,6 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'), # type: ignore
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('chat/', views.chat_view, name='chat'),  # チャット画面のURL
-
     path('logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
     path('counselor/<int:pk>/', views.counselor_profile, name='counselor_profile'), # type: ignore
     path('counselor/<int:pk>/edit/', views.edit_counselor_profile, name='edit_counselor_profile'), # type: ignore
