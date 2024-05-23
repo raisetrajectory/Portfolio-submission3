@@ -75,3 +75,9 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
+
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('home')  # ログアウト後にホームページにリダイレクト
+    return render(request, 'logout.html')
