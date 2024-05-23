@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html>
 <head>
     <title>ログアウト</title>
@@ -10,5 +10,20 @@
         {{ form.as_p }}
         <button type="submit">ログアウト</button>
     </form>
+</body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ログアウト</title>
+</head>
+<body>
+    <h1>ログアウトしました</h1>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">ログアウト</button>
+    </form>
+    <p><a href="{% url 'home' %}">ホームに戻る</a></p>
 </body>
 </html>
