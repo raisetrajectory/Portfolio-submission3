@@ -7,9 +7,8 @@ from django.http import JsonResponse
 from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
 
-from .models import Counselor
+from .models import Counselor, CounselingSession, ChatMessage
 from .forms import CounselorForm
-from .models import CounselingSession, ChatMessage
 
 def home(request):
     return render(request, 'home.html')
