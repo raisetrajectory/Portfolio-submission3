@@ -25,6 +25,15 @@ class Counselor(models.Model):
     bio = models.TextField()
     # Add other fields relevant to counselors
 
+# class Counselor(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     name = models.CharField(max_length=100)
+#     picture = models.ImageField(upload_to='counselor_pictures/')
+#     bio = models.TextField(blank=True)  # Add a bio field as an example
+
+#     def __str__(self):
+#         return self.name
+
 class CounselingSession(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     counselor = models.ForeignKey(Counselor, on_delete=models.CASCADE)
