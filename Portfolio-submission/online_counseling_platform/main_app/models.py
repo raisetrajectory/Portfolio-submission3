@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 class User(AbstractUser):
     is_counselor = models.BooleanField(default=False)
@@ -58,8 +60,6 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 from .models import CounselingSession, ChatMessage
 
 @login_required
