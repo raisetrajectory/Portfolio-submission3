@@ -22,17 +22,12 @@ class User(AbstractUser):
 
 class Counselor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    bio = models.TextField()
-    # Add other fields relevant to counselors
+    name = models.CharField(max_length=100)
+    picture = models.ImageField(upload_to='counselor_pictures/')
+    bio = models.TextField(blank=True)  # Add a bio field as an example
 
-# class Counselor(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     name = models.CharField(max_length=100)
-#     picture = models.ImageField(upload_to='counselor_pictures/')
-#     bio = models.TextField(blank=True)  # Add a bio field as an example
-
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return self.name
 
 class CounselingSession(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
