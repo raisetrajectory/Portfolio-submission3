@@ -29,7 +29,6 @@ def chat_view(request, session_id=None):
             raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
         return render(request, 'counseling/registration/chat.html', {'messages': messages})
 
-
 def logout_view(request):
     # ログアウトのロジック
     logout(request)  # Djangoのlogout関数を使用してユーザーをログアウトさせる
