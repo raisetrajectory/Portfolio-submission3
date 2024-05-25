@@ -25,20 +25,3 @@ def logout_view(request):
     # ログアウトのロジック
     logout(request)  # Djangoのlogout関数を使用してユーザーをログアウトさせる
     return redirect('home')  # ログアウト後にホームページにリダイレクト
-
-
-# def register(request):
-#     # ユーザー登録のロジック
-#     return render(request, 'register.html')
-
-# def logout_view(request):
-#     # ログアウトのロジック
-#     return redirect('home')
-
-# def profile(request):
-#     # プロフィール画面のロジック
-#     return render(request, 'profile.html')
-
-# def counselor_list(request):
-#     # カウンセラー一覧画面のロジック
-#     return render(request, 'counselor_list.html')
