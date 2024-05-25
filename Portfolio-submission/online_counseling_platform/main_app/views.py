@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from .models import ChatMessage  # チャットメッセージのモデルをインポート
 from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
@@ -28,9 +29,19 @@ def chat_view(request, session_id=None):
             raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
         return render(request, 'counseling/registration/chat.html', {'messages': messages})
 
+
 def logout_view(request):
     # ログアウトのロジック
     logout(request)  # Djangoのlogout関数を使用してユーザーをログアウトさせる
     return redirect('home')  # ログアウト後にホームページにリダイレクト
+
+@csrf_exempt
+def send_message(request):
+    if request.method == 'POST':
+        session_id = request.POST.get('session_id')
+        message = request.POST.get('message')
+        session = get_object_or_404(CounselingSession, id=session_id)
+        ChatMessage.objects.create(session=session, sender=request.user, message=message)
+        return JsonResponse({'status': 'success'})
 
 
