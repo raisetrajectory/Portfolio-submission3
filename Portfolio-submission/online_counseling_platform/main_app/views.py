@@ -5,6 +5,7 @@ from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
 from django.contrib.auth import logout
 from django.views.decorators.csrf import csrf_exempt
+from .models import CounselingSession, ChatMessage, User
 
 def home(request):
     return render(request, 'home.html')
@@ -22,7 +23,11 @@ def chat_view(request):
         raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
     return render(request, 'counseling/registration/chat.html', {'messages': messages})
 
+
+
 def logout_view(request):
     # ログアウトのロジック
     logout(request)  # Djangoのlogout関数を使用してユーザーをログアウトさせる
     return redirect('home')  # ログアウト後にホームページにリダイレクト
+
+
