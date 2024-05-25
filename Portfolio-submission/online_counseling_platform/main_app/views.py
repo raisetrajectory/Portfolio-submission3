@@ -14,14 +14,28 @@ def login_view(request):
     # ログインのロジック
     return render(request, 'login.html')
 
+# @login_required
+# def chat_view(request):
+#     messages = ChatMessage.objects.all()  # チャットメッセージを取得
+#     try:
+#         get_template('counseling/registration/chat.html')
+#     except TemplateDoesNotExist:
+#         raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
+#     return render(request, 'counseling/registration/chat.html', {'messages': messages})
+
 @login_required
-def chat_view(request):
-    messages = ChatMessage.objects.all()  # チャットメッセージを取得
-    try:
-        get_template('counseling/registration/chat.html')
-    except TemplateDoesNotExist:
-        raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
-    return render(request, 'counseling/registration/chat.html', {'messages': messages})
+def chat_view(request, session_id=None):
+    if session_id:
+        session = get_object_or_404(CounselingSession, id=session_id)
+        messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
+        return render(request, 'chat.html', {'session': session, 'messages': messages})
+    else:
+        messages = ChatMessage.objects.all()  # チャットメッセージを取得
+        try:
+            get_template('counseling/registration/chat.html')
+        except TemplateDoesNotExist:
+            raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
+        return render(request, 'counseling/registration/chat.html', {'messages': messages})
 
 
 
