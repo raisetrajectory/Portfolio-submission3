@@ -4,6 +4,7 @@ from .models import ChatMessage  # チャットメッセージのモデルをイ
 from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
 from django.contrib.auth import logout
+from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
     return render(request, 'home.html')
