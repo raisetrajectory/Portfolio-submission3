@@ -141,6 +141,9 @@ LOGIN_REDIRECT_URL = 'chat'  # ログイン後のリダイレクト先
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # STATICFILES_DIRSは、追加の静的ファイルディレクトリがある場合に指定します
 # 例えば、プロジェクト全体で共有される静的ファイルなど

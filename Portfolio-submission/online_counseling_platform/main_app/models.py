@@ -7,6 +7,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 class User(AbstractUser):
     is_counselor = models.BooleanField(default=False)
+    profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
+
 
     # Add related_name to avoid clashes
     groups = models.ManyToManyField(
