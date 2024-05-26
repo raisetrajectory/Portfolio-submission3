@@ -14,9 +14,9 @@
     <form action="{% url 'home' %}" method="get">
         <button type="submit">メインメニューへ</button>
     </form>
-    <form action="{% url 'profile' counselor_id=1 %}" method="get">
+    {% comment %} <form action="{% url 'profile' counselor_id=1 %}" method="get">
         <button type="submit">プロフィール画面へ（カウンセラー01）</button>
-    </form>
+    </form> {% endcomment %}
     <form action="{% url 'home' %}" method="get">
         <button type="submit">プロフィール画面へ（カウンセラー01）</button>
     <form action="{% url 'home' %}" method="get">
