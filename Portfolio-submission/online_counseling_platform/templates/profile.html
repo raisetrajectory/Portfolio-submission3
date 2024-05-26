@@ -7,7 +7,7 @@
     <h1>{{ user.username }}のプロフィール</h1>
     {% comment %} <p>Email: {{ user.email }}</p> {% endcomment %}
     <!-- プロフィール画像の表示 -->
-    {% comment %} {% if user.profile_picture %}
+    {% if user.profile_picture %}
         <img src="{{ user.profile_picture.url }}" alt="プロフィール画像">
     {% else %}
         <p>プロフィール画像がありません。</p>
