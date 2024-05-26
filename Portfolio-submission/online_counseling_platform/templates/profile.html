@@ -6,11 +6,17 @@
 <body>
     <h1>{{ user.username }}のプロフィール</h1>
     <p>Email: {{ user.email }}</p>
+    <!-- プロフィール画像の表示 -->
     {% if user.profile_picture %}
-    <p><img src="{{ user.profile_picture.url }}" alt="プロフィール画像" style="max-width: 200px; max-height: 200px;"></p>
+        <img src="{{ user.profile_picture.url }}" alt="プロフィール画像">
     {% else %}
-    <p>プロフィール画像がありません。</p>
+        <p>プロフィール画像がありません。</p>
     {% endif %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">画像をアップロード</button>
+    </form>
     <p><a href="{% url 'home' %}">ホームに戻る</a></p>
     <p><a href="{% url 'logout' %}">ログアウト</a></p>
 </body>
