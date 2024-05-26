@@ -16,7 +16,7 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">画像をアップロード</button>
-    </form>
+    {% comment %} </form> {% endcomment %}
     <p><a href="{% url 'home' %}">ホームに戻る</a></p>
     <p><a href="{% url 'logout' %}">ログアウト</a></p>
 </body>
