@@ -2,6 +2,7 @@
 from django import forms
 from .models import Counselor
 from .models import User
+from accounts.models import CustomUser  # CustomUserをインポート
 
 class CounselorForm(forms.ModelForm):
     class Meta:
