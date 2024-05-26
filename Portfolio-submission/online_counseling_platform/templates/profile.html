@@ -11,12 +11,13 @@
         <img src="{{ user.profile_picture.url }}" alt="プロフィール画像">
     {% else %}
         <p>プロフィール画像がありません。</p>
-    {% endif %} {% endcomment %}
-    {% comment %} <form method="POST" enctype="multipart/form-data"> {% endcomment %}
+    {% endif %}
+    <!-- 画像アップロードフォーム -->
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+        <input type="file" name="profile_picture">
         <button type="submit">画像をアップロード</button>
-    {% comment %} </form> {% endcomment %}
+    </form>
     <p><a href="{% url 'home' %}">ホームに戻る</a></p>
     <p><a href="{% url 'logout' %}">ログアウト</a></p>
 </body>
