@@ -1,7 +1,6 @@
 # counseling/forms.py
 from django import forms
 from .models import Counselor
-from .models import User
 from accounts.models import CustomUser  # CustomUserをインポート
 
 class CounselorForm(forms.ModelForm):
@@ -11,5 +10,5 @@ class CounselorForm(forms.ModelForm):
 
 class ProfileForm(forms.ModelForm):
     class Meta:
-        model = User
-        fields = ['profile_picture']
+        model = CustomUser  # UserではなくCustomUserを使用
+        fields = ['username', 'email', 'profile_picture']
