@@ -5,11 +5,6 @@ import django.contrib.auth.validators
 from django.db import migrations, models
 import django.utils.timezone
 
-# accounts/migrations/0001_initial.py
-dependencies = [
-    ('admin', '0001_initial'),
-]
-
 class Migration(migrations.Migration):
     initial = True
 
