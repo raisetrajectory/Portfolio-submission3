@@ -14,7 +14,12 @@ class CounselorForm(forms.ModelForm):
 #         model = CustomUser  # UserではなくCustomUserを使用
 #         fields = ['username', 'email', 'profile_picture']
 
+# class ProfileForm(forms.ModelForm):
+#     class Meta:
+#         model = User  # Userモデルを使用
+#         fields = ['username', 'email', 'profile_picture']
+
 class ProfileForm(forms.ModelForm):
     class Meta:
-        model = User  # Userモデルを使用
-        fields = ['username', 'email', 'profile_picture']
+        model = Counselor  # Counselor モデルを使用する
+        fields = ['bio', 'profile_picture']  # プロフィール情報に対応するフィールドを追加
