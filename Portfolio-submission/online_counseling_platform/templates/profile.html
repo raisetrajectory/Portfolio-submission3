@@ -13,5 +13,11 @@
     {% endif %}
     <p><a href="{% url 'home' %}">ホームに戻る</a></p>
     <p><a href="{% url 'logout' %}">ログアウト</a></p>
+    <form action="{% url 'home' %}" method="get">
+        <button type="submit">メインメニューへ</button>
+    </form>
+    <form action="{% url 'counselor_list' %}" method="get">
+        <button type="submit">カウンセラー一覧画面へ</button>
+    </form>
 </body>
 </html>
