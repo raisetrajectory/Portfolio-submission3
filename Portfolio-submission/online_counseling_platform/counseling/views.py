@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Counselor, CounselingSession, ChatMessage
 from .forms import CounselorForm, ProfileForm
@@ -74,9 +75,21 @@ def logout_view(request):
         return redirect('home')  # ログアウト後にホームページにリダイレクト
     return render(request, 'logout.html')
 
+# @login_required
+# def profile_view(request):
+#     return render(request, 'profile.html', {'user': request.user})
+
 @login_required
 def profile_view(request):
-    return render(request, 'profile.html', {'user': request.user})
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = ProfileForm(instance=request.user)
+
+    return render(request, 'profile.html', {'form': form})
 
 def counselor_list_view(request):
     counselors = Counselor.objects.all()
@@ -90,8 +103,17 @@ def get_messages(request):
     messages = ChatMessage.objects.values('user', 'content')
     return JsonResponse({'messages': list(messages)})
 
+# def send_message(request):
+#     if request.method == 'POST':
+#         message_content = request.POST.get('message')
+#         ChatMessage.objects.create(user=request.user, content=message_content)
+#     return redirect('chat')
+
+@csrf_exempt
 def send_message(request):
     if request.method == 'POST':
-        message_content = request.POST.get('message')
-        ChatMessage.objects.create(user=request.user, content=message_content)
-    return redirect('chat')
+        session_id = request.POST.get('session_id')
+        message = request.POST.get('message')
+        session = get_object_or_404(CounselingSession, id=session_id)
+        ChatMessage.objects.create(session=session, sender=request.user, message=message)
+        return JsonResponse({'status': 'success'})
