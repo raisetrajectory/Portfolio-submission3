@@ -24,7 +24,12 @@ class CounselorForm(forms.ModelForm):
 #         model = Counselor  # Counselor モデルを使用する
 #         fields = ['bio', 'profile_picture']  # プロフィール情報に対応するフィールドを追加
 
+# class ProfileForm(forms.ModelForm):
+#     class Meta:
+#         model = Counselor
+#         fields = ['picture']
+
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Counselor
-        fields = ['picture']
+        fields = ['name', 'age', 'grade']
