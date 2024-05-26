@@ -75,10 +75,6 @@ def logout_view(request):
         return redirect('home')  # ログアウト後にホームページにリダイレクト
     return render(request, 'logout.html')
 
-# @login_required
-# def profile_view(request):
-#     return render(request, 'profile.html', {'user': request.user})
-
 @login_required
 def profile_view(request):
     if request.method == 'POST':
