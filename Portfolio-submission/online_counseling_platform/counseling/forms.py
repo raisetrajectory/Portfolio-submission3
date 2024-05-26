@@ -8,7 +8,7 @@ class CounselorForm(forms.ModelForm):
         model = Counselor
         fields = ['bio']  # 他の必要なフィールドを追加
 
-# class ProfileForm(forms.ModelForm):
-#     class Meta:
-#         model = User
-#         fields = ['profile_picture']
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['profile_picture']

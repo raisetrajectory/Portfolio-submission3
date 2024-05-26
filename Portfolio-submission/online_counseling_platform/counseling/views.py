@@ -8,8 +8,8 @@ from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
 
 from .models import Counselor, CounselingSession, ChatMessage
-# from .forms import CounselorForm, ProfileForm # type: ignore
-from .forms import CounselorForm
+from .forms import CounselorForm, ProfileForm
+
 
 def home(request):
     return render(request, 'home.html')
