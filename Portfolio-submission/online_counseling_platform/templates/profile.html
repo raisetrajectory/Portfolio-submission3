@@ -19,11 +19,11 @@
     <form action="{% url 'counselor_list' %}" method="get">
         <button type="submit">カウンセラー一覧画面へ</button>
     </form>
-    {% comment %} <form action="{% url 'chat' %}" method="get">
+    <form action="{% url 'counselor_list' %}" method="get">
         <button type="submit">チャット画面へ</button>
-    </form> {% endcomment %}
-    {% comment %} <form action="{% url 'change_counselor' %}" method="get">
+    </form>
+    <form action="{% url 'counselor_list' %}" method="get">
         <button type="submit">カウンセラーを変更する</button>
-    </form> {% endcomment %}
+    </form>
 </body>
 </html>
