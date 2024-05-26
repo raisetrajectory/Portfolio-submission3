@@ -1,7 +1,7 @@
 # counseling/forms.py
 from django import forms
 from .models import Counselor
-from accounts.models import CustomUser # type: ignore
+# from accounts.models import CustomUser
 from django.contrib.auth.models import User
 
 class CounselorForm(forms.ModelForm):
