@@ -144,6 +144,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # STATICFILES_DIRSは、追加の静的ファイルディレクトリがある場合に指定します
 # 例えば、プロジェクト全体で共有される静的ファイルなど
