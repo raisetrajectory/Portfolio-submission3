@@ -23,12 +23,7 @@ class CounselorForm(forms.ModelForm):
 #         model = Counselor
 #         fields = ['picture']
 
-# class ProfileForm(forms.ModelForm):
-#     class Meta:
-#         model = Counselor
-#         fields = ['name', 'age', 'grade']
-
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Counselor
-        fields = ['picture']
+        fields = ['name', 'age', 'grade', 'profile_picture']  # profile_pictureを含める
