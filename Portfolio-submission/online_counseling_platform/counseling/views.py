@@ -99,17 +99,17 @@ def get_messages(request):
     messages = ChatMessage.objects.values('user', 'content')
     return JsonResponse({'messages': list(messages)})
 
-# def send_message(request):
-#     if request.method == 'POST':
-#         message_content = request.POST.get('message')
-#         ChatMessage.objects.create(user=request.user, content=message_content)
-#     return redirect('chat')
-
-@csrf_exempt
 def send_message(request):
     if request.method == 'POST':
-        session_id = request.POST.get('session_id')
-        message = request.POST.get('message')
-        session = get_object_or_404(CounselingSession, id=session_id)
-        ChatMessage.objects.create(session=session, sender=request.user, message=message)
-        return JsonResponse({'status': 'success'})
+        message_content = request.POST.get('message')
+        ChatMessage.objects.create(user=request.user, content=message_content)
+    return redirect('chat')
+
+# @csrf_exempt
+# def send_message(request):
+#     if request.method == 'POST':
+#         session_id = request.POST.get('session_id')
+#         message = request.POST.get('message')
+#         session = get_object_or_404(CounselingSession, id=session_id)
+#         ChatMessage.objects.create(session=session, sender=request.user, message=message)
+#         return JsonResponse({'status': 'success'})
