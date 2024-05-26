@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>{{ user.username }}のプロフィール</h1>
-    {% comment %} <p>Email: {{ user.email }}</p> {% endcomment %}
+    <p>Email: {{ user.email }}</p>
     <!-- プロフィール画像の表示 -->
     {% if user.profile_picture %}
         <img src="{{ user.profile_picture.url }}" alt="プロフィール画像">
