@@ -58,12 +58,22 @@ def edit_counselor_profile(request, pk):
         form = CounselorForm(instance=counselor)
     return render(request, 'edit_counselor_profile.html', {'form': form})
 
+# def signup(request):
+#     if request.method == 'POST':
+#         form = CustomUserCreationForm(request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             login(request, user)
+#             form.save()
+#             return redirect('home')  # ホームページにリダイレクト
+#     else:
+#         form = CustomUserCreationForm()
+#     return render(request, 'signup.html', {'form': form})
+
 def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)
             form.save()
             return redirect('home')  # ホームページにリダイレクト
     else:
