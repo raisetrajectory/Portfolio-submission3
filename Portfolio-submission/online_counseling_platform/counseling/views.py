@@ -9,6 +9,7 @@ from django.template import TemplateDoesNotExist
 
 from .models import Counselor, CounselingSession, ChatMessage
 from .forms import CounselorForm, ProfileForm
+from .forms import CustomUserCreationForm
 
 def home(request):
     return render(request, 'home.html')
