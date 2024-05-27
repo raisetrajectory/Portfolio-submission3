@@ -4,7 +4,6 @@ from .models import Counselor
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
-
 class CounselorForm(forms.ModelForm):
     class Meta:
         model = Counselor
