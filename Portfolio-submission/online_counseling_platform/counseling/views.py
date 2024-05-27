@@ -11,7 +11,6 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Counselor, CounselingSession, ChatMessage
 from .forms import CounselorForm, ProfileForm
 
-
 def home(request):
     return render(request, 'home.html')
 
