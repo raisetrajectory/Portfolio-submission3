@@ -51,6 +51,8 @@ SITE_ID = 1
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
+    'counseling.backends.EmailOrUsernameModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 ACCOUNT_EMAIL_REQUIRED = True
