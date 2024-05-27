@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
-# from django.views.decorators.csrf import csrf_exempt
 
 from .models import Counselor, CounselingSession, ChatMessage
 from .forms import CounselorForm, ProfileForm
@@ -104,12 +103,3 @@ def send_message(request):
         message_content = request.POST.get('message')
         ChatMessage.objects.create(user=request.user, content=message_content)
     return redirect('chat')
-
-# @csrf_exempt
-# def send_message(request):
-#     if request.method == 'POST':
-#         session_id = request.POST.get('session_id')
-#         message = request.POST.get('message')
-#         session = get_object_or_404(CounselingSession, id=session_id)
-#         ChatMessage.objects.create(session=session, sender=request.user, message=message)
-#         return JsonResponse({'status': 'success'})
