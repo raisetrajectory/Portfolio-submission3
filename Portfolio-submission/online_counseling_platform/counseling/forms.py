@@ -21,5 +21,8 @@ class CustomUserCreationForm(UserCreationForm):
         model = User
         fields = ('username', 'email', 'password1', 'password2')
 
+# class CustomAuthenticationForm(AuthenticationForm):
+#     username = forms.CharField(label='ユーザー名またはメールアドレス')
+
 class CustomAuthenticationForm(AuthenticationForm):
-    username = forms.CharField(label='ユーザー名またはメールアドレス')
+    username = forms.CharField(label='ユーザーネームまたはメールアドレス')
