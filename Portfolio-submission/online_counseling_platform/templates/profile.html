@@ -1,33 +1,3 @@
-{% comment %} <!DOCTYPE html>
-<html>
-<head>
-    <title>プロフィール</title>
-</head>
-<body>
-    <h1>{{ user.username }}のプロフィール</h1>
-    <p>Email: {{ user.email }}</p>
-    {% if user.profile_picture %}
-    <p><img src="{{ user.profile_picture.url }}" alt="プロフィール画像" style="max-width: 200px; max-height: 200px;"></p>
-    {% else %}
-    <p>プロフィール画像がありません。</p>
-    {% endif %}
-    <p><a href="{% url 'home' %}">ホームに戻る</a></p>
-    <p><a href="{% url 'logout' %}">ログアウト</a></p>
-    <form action="{% url 'home' %}" method="get">
-        <button type="submit">メインメニューへ</button>
-    </form>
-    <form action="{% url 'counselor_list' %}" method="get">
-        <button type="submit">カウンセラー一覧画面へ</button>
-    </form>
-    <form action="{% url 'counselor_list' %}" method="get">
-        <button type="submit">チャット画面へ</button>
-    </form>
-    <form action="{% url 'counselor_list' %}" method="get">
-        <button type="submit">カウンセラーを変更する</button>
-    </form>
-</body>
-</html> {% endcomment %}
-
 <!DOCTYPE html>
 <html>
 <head>
