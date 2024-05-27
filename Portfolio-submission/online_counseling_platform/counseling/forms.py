@@ -3,6 +3,7 @@ from django import forms
 from .models import Counselor
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 
 class CounselorForm(forms.ModelForm):
     class Meta:
