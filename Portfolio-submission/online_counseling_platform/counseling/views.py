@@ -1,15 +1,15 @@
 # counseling/views.py
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate  # authenticateを追加
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
+from .forms import CustomUserCreationForm, CustomAuthenticationForm  # 修正箇所
+from .forms import CounselorForm, ProfileForm
 
 from .models import Counselor, CounselingSession, ChatMessage
-from .forms import CounselorForm, ProfileForm
-from .forms import CustomUserCreationForm
 
 def home(request):
     return render(request, 'home.html')
@@ -61,6 +61,8 @@ def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
+            user = form.save()
+            login(request, user)
             form.save()
             return redirect('home')  # ホームページにリダイレクト
     else:
