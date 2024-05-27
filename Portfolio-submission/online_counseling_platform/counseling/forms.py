@@ -22,7 +22,6 @@ class CustomUserCreationForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
         labels = {
             'username': 'ユーザーネーム',
-            'email': 'メールアドレス',
         }
 
 class CustomAuthenticationForm(AuthenticationForm):
