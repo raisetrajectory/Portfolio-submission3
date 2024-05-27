@@ -34,7 +34,6 @@ def create_session(request):
         counselor_id = request.POST.get('counselor')
         counselor = get_object_or_404(Counselor, id=counselor_id)
         session = CounselingSession.objects.create(user=request.user, counselor=counselor)
-        # return redirect('chat_view', session_id=session.id) # type: ignore
         return redirect('chat_view', counselor_id=counselor.id)  # type: ignore # 修正箇所
 
     counselors = Counselor.objects.all()
