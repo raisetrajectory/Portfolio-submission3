@@ -2,8 +2,7 @@
 from django import forms
 from .models import Counselor
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 class CounselorForm(forms.ModelForm):
     class Meta:
@@ -21,3 +20,7 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+
+# class CustomAuthenticationForm(AthenticatiounForm):
+#     username = forms.CharField(label='ユーザー名またはメールアドレス')
+
