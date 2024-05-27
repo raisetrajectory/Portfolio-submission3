@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
-from django.views.decorators.csrf import csrf_exempt
+# from django.views.decorators.csrf import csrf_exempt
 
 from .models import Counselor, CounselingSession, ChatMessage
 from .forms import CounselorForm, ProfileForm
@@ -34,7 +34,8 @@ def create_session(request):
         counselor_id = request.POST.get('counselor')
         counselor = get_object_or_404(Counselor, id=counselor_id)
         session = CounselingSession.objects.create(user=request.user, counselor=counselor)
-        return redirect('chat_view', session_id=session.id) # type: ignore
+        # return redirect('chat_view', session_id=session.id) # type: ignore
+        return redirect('chat_view', counselor_id=counselor.id)  # type: ignore # 修正箇所
 
     counselors = Counselor.objects.all()
     return render(request, 'create_session.html', {'counselors': counselors})
