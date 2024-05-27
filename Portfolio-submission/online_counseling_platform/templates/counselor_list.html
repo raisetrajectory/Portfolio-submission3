@@ -1,49 +1,3 @@
-{% comment %} <!DOCTYPE html>
-<html>
-<head>
-    <title>カウンセラー一覧画面</title>
-</head>
-<body>
-    <h1>カウンセラー一覧画面</h1>
-    <ul>
-        {% for counselor in counselors %}
-        <li>{{ counselor.name }}</li>
-        {% endfor %}
-    </ul>
-    <p><a href="{% url 'home' %}">ホームに戻る</a></p>
-    <form action="{% url 'home' %}" method="get">
-        <button type="submit">メインメニューへ</button>
-    </form>
-    {% comment %} <form action="{% url 'profile' counselor_id=1 %}" method="get">
-        <button type="submit">プロフィール画面へ（カウンセラー01）</button>
-    </form> {% endcomment %}
-    {% comment %} <form action="{% url 'chat' counselor_id=1 %}" method="get">
-        <button type="submit">チャット画面へ（カウンセラー01）</button>
-    </form> {% endcomment %}
-    {% comment %} <form action="{% url 'profile' counselor_id=2 %}" method="get">
-        <button type="submit">プロフィール画面へ（カウンセラー02）</button>
-    </form> {% endcomment %}
-    {% comment %} <form action="{% url 'chat' counselor_id=2 %}" method="get">
-        <button type="submit">チャット画面へ（カウンセラー02）</button>
-    </form> {% endcomment %}
-    {% comment %} <form action="{% url 'home' %}" method="get">
-        <button type="submit">プロフィール画面へ（カウンセラー01）</button>
-    </form>
-    <form action="{% url 'home' %}" method="get">
-        <button type="submit">チャット画面へ（カウンセラー01）</button>
-    </form>
-    <form action="{% url 'home' %}" method="get">
-        <button type="submit">プロフィール画面へ（カウンセラー02）</button>
-    </form>
-    <form action="{% url 'home' %}" method="get">
-        <button type="submit">チャット画面へ（カウンセラー02）</button>
-    </form>
-    <form action="{% url 'home' %}" method="get">
-        <button type="submit">メインメニューへ</button>
-    </form>
-</body>
-</html> {% endcomment %}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,6 +19,18 @@
     </ul>
     <form action="{% url 'home' %}" method="get">
         <button type="submit">メインメニューへ</button>
+    </form>
+    <form action="{% url 'home' %}" method="get">
+        <button type="submit">チャット画面へ（カウンセラー01）</button>
+    </form>
+    <form action="{% url 'home' %}" method="get">
+        <button type="submit">チャット画面へ（カウンセラー02）</button>
+    </form>
+    <form action="{% url 'home' %}" method="get">
+        <button type="submit">プロフィール画面へ（カウンセラー01）</button>
+    </form>
+    <form action="{% url 'profile' counselor_id=2 %}" method="get">
+        <button type="submit">プロフィール画面へ（カウンセラー02）</button>
     </form>
 </body>
 </html>
