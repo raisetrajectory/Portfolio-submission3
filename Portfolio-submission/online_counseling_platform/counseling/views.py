@@ -382,9 +382,13 @@ def send_message(request):
         if form.is_valid():
             chat_message = form.save(commit=False)
             chat_message.sender = request.user
-            chat_message.session = get_object_or_404(CounselingSession, id=request.POST.get('session_id'))
+            session_id = request.POST.get('session_id')
+            if session_id:
+                chat_message.session = get_object_or_404(CounselingSession, id=session_id)
             chat_message.save()
-            return redirect('chat_view', session_id=request.POST.get('session_id'))
+            if session_id:  # session_id が存在する場合のみリダイレクト
+                return redirect('chat_view', session_id=session_id)
     return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
+
 
 
