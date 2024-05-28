@@ -22,12 +22,12 @@
 </head>
 <body>
     <h1>チャットメッセージ</h1>
+    <!-- ここにチャットの内容を追加 -->
     <ul>
         {% for message in messages %}
             <li>{{ message.user.username }}: {{ message.content }}</li>
         {% endfor %}
     </ul>
-
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
