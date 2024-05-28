@@ -196,3 +196,14 @@ def send_message(request):
             if session_id:  # session_id が存在する場合のみリダイレクト
                 return redirect('chat_view', session_id=session_id)
     return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
+
+# @login_required
+# def create_session(request):
+#     if request.method == 'POST':
+#         counselor_id = request.POST.get('counselor')
+#         counselor = get_object_or_404(Counselor, id=counselor_id)
+#         session = CounselingSession.objects.create(user=request.user, counselor=counselor)
+#         return redirect('chat_view', counselor_id=counselor.id)  # type: ignore # 修正箇所
+
+#     counselors = Counselor.objects.all()
+#     return render(request, 'create_session.html', {'counselors': counselors})
