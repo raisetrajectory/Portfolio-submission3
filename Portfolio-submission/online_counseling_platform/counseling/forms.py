@@ -32,3 +32,5 @@ class CustomAuthenticationForm(AuthenticationForm):
 #     class Meta:
 #         model = ChatMessage
 #         fields = ['content']
+
+# 1~34の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！
