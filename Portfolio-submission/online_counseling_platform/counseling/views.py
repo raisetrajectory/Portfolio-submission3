@@ -240,9 +240,9 @@ def counselor_list_view(request):
     counselors = Counselor.objects.all()
     return render(request, 'counselor_list.html', {'counselors': counselors})
 
-def chat(request):
-    messages = ChatMessage.objects.all()
-    return render(request, 'chat.html', {'messages': messages})
+# def chat(request):
+#     messages = ChatMessage.objects.all()
+#     return render(request, 'chat.html', {'messages': messages})
 
 def get_messages(request):
     messages = ChatMessage.objects.values('user', 'content')
@@ -253,3 +253,14 @@ def send_message(request):
         message_content = request.POST.get('message')
         ChatMessage.objects.create(user=request.user, content=message_content)
     return redirect('chat')
+
+@login_required
+def send_message(request):
+    if request.method == 'POST':
+        form = ChatMessageForm(request.POST)
+        if form.is_valid():
+            chat_message = form.save(commit=False)
+            chat_message.sender = request.user
+            chat_message.session = get_object_or_404(CounselingSession, id=request.POST.get('session_id'))
+            chat_message.save()
+    return redirect('chat_session_view', session_id=request.POST.get('session_id'))
