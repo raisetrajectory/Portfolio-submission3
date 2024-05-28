@@ -11,6 +11,8 @@ from django.contrib.auth import views as auth_views
 from .forms import CustomUserCreationForm, CustomAuthenticationForm, ChatMessageForm
 from .forms import CounselorForm, ProfileForm
 from .models import Counselor, CounselingSession, ChatMessage
+from .forms import ChatMessageForm
+from .models import ChatMessage
 
 def home(request):
     return render(request, 'home.html')

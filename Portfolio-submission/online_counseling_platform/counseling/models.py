@@ -34,7 +34,7 @@ class ChatMessage(models.Model):
     session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE)
     sender = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()  # messageからcontentに変更
-    # message = models.TextField()
+    message = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
