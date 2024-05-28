@@ -37,6 +37,17 @@ from .forms import CustomUserCreationForm, CustomAuthenticationForm,CounselorFor
 from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorForm, ProfileForm, ChatMessageForm  # すべてのフォームを一行でインポート
 from .models import Counselor, CounselingSession, ChatMessage
 
+# @login_required
+# def create_session(request):
+#     if request.method == 'POST':
+#         counselor_id = request.POST.get('counselor')
+#         counselor = get_object_or_404(Counselor, id=counselor_id)
+#         session = CounselingSession.objects.create(user=request.user, counselor=counselor)
+#         return redirect('chat_view', counselor_id=counselor.id)  # type: ignore # 修正箇所
+
+#     counselors = Counselor.objects.all()
+#     return render(request, 'create_session.html', {'counselors': counselors})
+
 def home(request):
     return render(request, 'home.html')
 
