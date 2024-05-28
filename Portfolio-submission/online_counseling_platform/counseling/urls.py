@@ -23,4 +23,6 @@ urlpatterns = [
     path('profile/<int:counselor_id>/', views.profile_view, name='profile'),  # カウンセラーIDに基づくプロフィールビュー
     path('send_message/', views.send_message, name='send_message'),
     path('session/<int:session_id>/', views.session_detail, name='session_detail'),
+    path('chat/session/<int:session_id>/', views.chat_view, name='chat_session'),
+    path('chat/counselor/<int:counselor_id>/', views.chat_view, name='chat_counselor'),
 ]
