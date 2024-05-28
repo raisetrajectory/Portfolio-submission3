@@ -90,8 +90,8 @@ ROOT_URLCONF = "online_counseling_platform.urls"
 
 TEMPLATES = [
     {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'templates')],
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],  # テンプレートディレクトリのパス
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
