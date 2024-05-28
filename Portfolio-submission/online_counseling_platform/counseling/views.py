@@ -31,21 +31,6 @@ def chat_view(request):
         raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
     return render(request, 'counseling/registration/chat.html', {'messages': messages})
 
-# def chat_view(request):
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             # フォームがバリデーションを通過した場合の処理
-#             form.save()  # データベースにコメントを保存
-#             # 保存後にコメントを追加するために、フォームをクリア
-#             form = ChatMessageForm()
-#     else:
-#         form = ChatMessageForm()
-
-#     messages = ChatMessage.objects.all()
-#     context = {'messages': messages, 'form': form}
-#     return render(request, 'counseling/registration/chat.html', context)
-
 @login_required
 def create_session(request):
     if request.method == 'POST':
