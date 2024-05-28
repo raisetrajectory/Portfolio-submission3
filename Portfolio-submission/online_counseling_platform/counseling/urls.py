@@ -9,7 +9,6 @@ from counseling.forms import CustomAuthenticationForm
 urlpatterns = [
     path('', views.home, name='home'),  # ホームビューのルーティング # type: ignore
     path('signup/', views.signup, name='signup'), # type: ignore
-    # path('login/', auth_views.LoginView.as_view(), name='login'),
     path('login/', auth_views.LoginView.as_view(authentication_form=CustomAuthenticationForm), name='login'),
     path('chat/', views.chat_view, name='chat'),  # チャット画面のURL
     path('logout/', views.logout_view, name='logout'),  # ログアウト機能の追加
