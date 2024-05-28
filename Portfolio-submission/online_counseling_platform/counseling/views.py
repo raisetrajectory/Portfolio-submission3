@@ -124,3 +124,5 @@ def send_message(request):
         message_content = request.POST.get('message')
         ChatMessage.objects.create(user=request.user, content=message_content)
     return redirect('chat')
+
+# 1~126の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！
