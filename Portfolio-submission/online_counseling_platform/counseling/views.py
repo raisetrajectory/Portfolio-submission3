@@ -46,6 +46,25 @@ def session_detail(request, session_id):
 #     messages = ChatMessage.objects.all()
 #     return render(request, 'chat.html', {'form': form, 'messages': messages})
 
+# def chat_view(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.user = request.user
+#             chat_message.save()
+#             return redirect('chat_view')
+#     else:
+#         form = ChatMessageForm()
+
+#     messages = ChatMessage.objects.all()
+#     try:
+#         template = get_template('counseling/registration/chat.html')
+#     except TemplateDoesNotExist:
+#         template = get_template('chat.html')
+
+#     return render(request, template, {'form': form, 'messages': messages}) # type: ignore
+
 def chat_view(request):
     if request.method == 'POST':
         form = ChatMessageForm(request.POST)
@@ -58,12 +77,15 @@ def chat_view(request):
         form = ChatMessageForm()
 
     messages = ChatMessage.objects.all()
+    template_name = 'counseling/registration/chat.html'
     try:
-        template = get_template('counseling/registration/chat.html')
+        template = get_template(template_name)
     except TemplateDoesNotExist:
-        template = get_template('chat.html')
+        template_name = 'chat.html'
+        template = get_template(template_name)
 
-    return render(request, template, {'form': form, 'messages': messages}) # type: ignore
+    return render(request, template_name, {'form': form, 'messages': messages})
+
 
 @login_required
 def create_session(request):
