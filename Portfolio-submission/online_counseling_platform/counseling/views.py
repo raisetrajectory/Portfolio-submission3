@@ -157,53 +157,6 @@ def chat_view(request):
         raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
     return render(request, 'counseling/registration/chat.html', {'messages': messages})
 
-# @login_required
-# def chat_view(request, session_id=None, counselor_id=None):
-#     if session_id:
-#         session = get_object_or_404(CounselingSession, id=session_id)
-#     elif counselor_id:
-#         counselor = get_object_or_404(Counselor, id=counselor_id)
-#         session, created = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
-#     else:
-#         return redirect('home')  # 適切なリダイレクト先を設定してください
-
-#     messages = ChatMessage.objects.filter(session=session).order_by('-timestamp')
-
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             chat_message = form.save(commit=False)
-#             chat_message.sender = request.user
-#             chat_message.session = session
-#             chat_message.save()
-#             return redirect('chat_session_view', session_id=session.id)
-#     else:
-#         form = ChatMessageForm()
-
-#     return render(request, 'chat.html', {'form': form, 'messages': messages, 'session': session})
-
-# @login_required
-# def chat_view(request, session_id=None, counselor_id=None):
-#     session = None
-#     if session_id:
-#         session = get_object_or_404(CounselingSession, id=session_id)
-#     elif counselor_id:
-#         counselor = get_object_or_404(Counselor, id=counselor_id)
-#         session, created = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
-
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             chat_message = form.save(commit=False)
-#             chat_message.sender = request.user
-#             chat_message.session = session
-#             chat_message.save()
-#             return redirect('chat_view', session_id=session.id)
-#     else:
-#         form = ChatMessageForm()
-#     messages = ChatMessage.objects.filter(session=session).order_by('-timestamp') if session else []
-#     return render(request, 'chat.html', {'form': form, 'messages': messages, 'session': session})
-
 @login_required
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
@@ -226,7 +179,6 @@ def chat_view(request, session_id=None, counselor_id=None):
     messages = ChatMessage.objects.filter(session=session).order_by('-timestamp') if session else []
     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
 
-
 @login_required
 def create_session(request):
     if request.method == 'POST':
@@ -237,9 +189,6 @@ def create_session(request):
 
     counselors = Counselor.objects.all()
     return render(request, 'create_session.html', {'counselors': counselors})
-
-# def new_func():
-#     counselors = Counselor.objects.all()
 
 def counselor_profile(request, pk):
     counselor = get_object_or_404(Counselor, pk=pk)
@@ -268,7 +217,6 @@ def signup(request):
         form = CustomUserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
-
 def login_view(request):
     return auth_views.LoginView.as_view(authentication_form=CustomAuthenticationForm)(request)
 
@@ -294,10 +242,6 @@ def counselor_list_view(request):
     counselors = Counselor.objects.all()
     return render(request, 'counselor_list.html', {'counselors': counselors})
 
-# def chat(request):
-#     messages = ChatMessage.objects.all()
-#     return render(request, 'chat.html', {'messages': messages})
-
 def get_messages(request):
     messages = ChatMessage.objects.values('user', 'content')
     return JsonResponse({'messages': list(messages)})
@@ -322,7 +266,3 @@ def send_message(request):
             if session_id:  # session_id が存在する場合のみリダイレクト
                 return redirect('chat_view', session_id=session_id)
     return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
-
-
-
-
