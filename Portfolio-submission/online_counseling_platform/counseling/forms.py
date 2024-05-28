@@ -68,4 +68,7 @@ class CustomAuthenticationForm(AuthenticationForm):
 class ChatMessageForm(forms.ModelForm):  # ChatMessageForm を追加
     class Meta:
         model = ChatMessage
-        fields = ['content']
+        fields = ['message']
+        labels = {
+            'message': 'メッセージ',
+        }
