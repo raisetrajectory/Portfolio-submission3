@@ -179,13 +179,13 @@ def create_session(request):
         counselor_id = request.POST.get('counselor')
         counselor = get_object_or_404(Counselor, id=counselor_id)
         session = CounselingSession.objects.create(user=request.user, counselor=counselor)
-        return redirect('chat_view', counselor_id=counselor.id)  # type: ignore # 修正箇所
+        return redirect('chat_view', counselor_id=counselor.id)
 
     counselors = Counselor.objects.all()
     return render(request, 'create_session.html', {'counselors': counselors})
 
-def new_func():
-    counselors = Counselor.objects.all()
+# def new_func():
+#     counselors = Counselor.objects.all()
 
 def counselor_profile(request, pk):
     counselor = get_object_or_404(Counselor, pk=pk)
