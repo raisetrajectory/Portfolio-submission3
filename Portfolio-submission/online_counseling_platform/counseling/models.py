@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-
 class User(AbstractUser):
     is_counselor = models.BooleanField(default=False)
 
@@ -34,8 +33,11 @@ class CounselingSession(models.Model):
 class ChatMessage(models.Model):
     session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE)
     sender = models.ForeignKey(User, on_delete=models.CASCADE)
-    message = models.TextField()
+    content = models.TextField()  # messageからcontentに変更
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.sender.username}: {self.content}'
 
 class Task(models.Model):
     ASSIGNED_ROLE_CHOICES = [
