@@ -345,6 +345,37 @@ def send_message(request):
 #     # return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
 #     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
 
+# @login_required
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.session = get_object_or_404(CounselingSession, id=request.POST.get('session_id'))
+#             chat_message.session = session
+#             chat_message.save()
+#             if session_id:  # session_id が空でない場合のみリダイレクト
+#                 return redirect('chat_view', session_id=session.id)
+#     # return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
+#     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
+
+# @login_required
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.session = get_object_or_404(CounselingSession, id=request.POST.get('session_id'))
+#             chat_message.session = session
+#             chat_message.save()
+#             if session_id:  # session_id が空でない場合のみリダイレクト
+#                 return redirect('chat_view', session_id=session.id)
+#     # return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
+#     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
+
+
 @login_required
 def send_message(request):
     if request.method == 'POST':
@@ -353,11 +384,7 @@ def send_message(request):
             chat_message = form.save(commit=False)
             chat_message.sender = request.user
             chat_message.session = get_object_or_404(CounselingSession, id=request.POST.get('session_id'))
-            chat_message.session = session
             chat_message.save()
-            if session_id:  # session_id が空でない場合のみリダイレクト
-                return redirect('chat_view', session_id=session.id)
-    # return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
-    return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
-
+            return redirect('chat_view', session_id=request.POST.get('session_id'))
+    return redirect('counseling/registration/chat.html')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
 
