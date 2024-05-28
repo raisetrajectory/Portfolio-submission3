@@ -8,6 +8,7 @@ from django.contrib.auth import logout
 from django.views.decorators.csrf import csrf_exempt
 from .models import CounselingSession, ChatMessage, User
 
+
 def home(request):
     return render(request, 'home.html')
 
