@@ -1,47 +1,3 @@
-{% comment %} <!-- chat.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>チャットメッセージ</title>
-</head>
-<body>
-    <h1>チャットメッセージ</h1>
-    <ul>
-        {% for message in messages %}
-            <li>{{ message.user }}: {{ message.content }}</li>
-        {% endfor %}
-    </ul>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">コメントする</button>
-    </form>
-</body>
-</html> {% endcomment %}
-
-{% comment %} # 1~20の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！ {% endcomment %}
-
-{% comment %} <!DOCTYPE html>
-<html>
-<head>
-    <title>チャットメッセージ</title>
-</head>
-<body>
-    <h1>チャットメッセージ</h1>
-    <ul>
-        {% for message in messages %}
-            <li>{{ message.sender.username }}: {{ message.message }}</li>
-        {% endfor %}
-    </ul>
-    <form method="post" action="{% url 'send_message' session.id %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="hidden" name="session_id" value="{{ session.id }}">
-        <button type="submit">コメントする</button>
-    </form>
-</body>
-</html> {% endcomment %}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,3 +18,5 @@
     </form>
 </body>
 </html>
+
+{% comment %} 1~20の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！ {% endcomment %}
