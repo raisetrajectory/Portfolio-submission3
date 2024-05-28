@@ -39,6 +39,12 @@ class ChatMessage(models.Model):
     def __str__(self):
         return f'{self.sender.username}: {self.content}'
 
+# class ChatMessage(models.Model):
+#     session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE)
+#     sender = models.ForeignKey(User, on_delete=models.CASCADE)
+#     message = models.TextField()
+#     timestamp = models.DateTimeField(auto_now_add=True)
+
 class Task(models.Model):
     ASSIGNED_ROLE_CHOICES = [
         ('user', 'User'),
