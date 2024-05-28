@@ -150,14 +150,3 @@ def send_message(request):
     return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
 
 # 1~151の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！
-
-# @login_required
-# def create_session(request):
-#     if request.method == 'POST':
-#         counselor_id = request.POST.get('counselor')
-#         counselor = get_object_or_404(Counselor, id=counselor_id)
-#         session = CounselingSession.objects.create(user=request.user, counselor=counselor)
-#         return redirect('chat_view', counselor_id=counselor.id)  # type: ignore # 修正箇所
-
-#     counselors = Counselor.objects.all()
-#     return render(request, 'create_session.html', {'counselors': counselors})
