@@ -137,7 +137,7 @@ from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
 from django.contrib.auth import views as auth_views
 from .forms import CustomUserCreationForm, CustomAuthenticationForm,CounselorForm, ProfileForm  # 修正箇所
-# from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorForm, ProfileForm, ChatMessageForm  # すべてのフォームを一行でインポート
+from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorForm, ProfileForm, ChatMessageForm  # すべてのフォームを一行でインポート
 from .models import Counselor, CounselingSession, ChatMessage
 
 def home(request):
