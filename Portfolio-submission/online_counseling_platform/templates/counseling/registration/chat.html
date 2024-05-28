@@ -33,7 +33,8 @@
             <li>{{ message.sender.username }}: {{ message.message }}</li>
         {% endfor %}
     </ul>
-    <form method="post" action="{% url 'send_message' %}">
+    {% comment %} <form method="post" action="{% url 'send_message' %}"> {% endcomment %}
+    <form method="post" action="{% url 'send_message' session.id %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">コメントする</button>
