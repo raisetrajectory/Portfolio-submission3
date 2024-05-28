@@ -158,6 +158,31 @@ def chat_view(request):
     return render(request, 'counseling/registration/chat.html', {'messages': messages})
 
 @login_required
+def chat_view(request, session_id=None, counselor_id=None):
+    if session_id:
+        session = get_object_or_404(CounselingSession, id=session_id)
+    elif counselor_id:
+        counselor = get_object_or_404(Counselor, id=counselor_id)
+        session, created = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
+    else:
+        return redirect('home')  # 適切なリダイレクト先を設定してください
+
+    messages = ChatMessage.objects.filter(session=session).order_by('-timestamp')
+
+    if request.method == 'POST':
+        form = ChatMessageForm(request.POST)
+        if form.is_valid():
+            chat_message = form.save(commit=False)
+            chat_message.sender = request.user
+            chat_message.session = session
+            chat_message.save()
+            return redirect('chat_session_view', session_id=session.id)
+    else:
+        form = ChatMessageForm()
+
+    return render(request, 'chat.html', {'form': form, 'messages': messages, 'session': session})
+
+@login_required
 def create_session(request):
     if request.method == 'POST':
         counselor_id = request.POST.get('counselor')
