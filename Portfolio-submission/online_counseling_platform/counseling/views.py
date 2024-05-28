@@ -44,7 +44,6 @@ def chat_view(request):
     messages = ChatMessage.objects.all()
     return render(request, 'chat.html', {'form': form, 'messages': messages})
 
-
 @login_required
 def create_session(request):
     if request.method == 'POST':
