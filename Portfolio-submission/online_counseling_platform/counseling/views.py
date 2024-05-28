@@ -182,6 +182,28 @@ def chat_view(request):
 
 #     return render(request, 'chat.html', {'form': form, 'messages': messages, 'session': session})
 
+# @login_required
+# def chat_view(request, session_id=None, counselor_id=None):
+#     session = None
+#     if session_id:
+#         session = get_object_or_404(CounselingSession, id=session_id)
+#     elif counselor_id:
+#         counselor = get_object_or_404(Counselor, id=counselor_id)
+#         session, created = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
+
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.session = session
+#             chat_message.save()
+#             return redirect('chat_view', session_id=session.id)
+#     else:
+#         form = ChatMessageForm()
+#     messages = ChatMessage.objects.filter(session=session).order_by('-timestamp') if session else []
+#     return render(request, 'chat.html', {'form': form, 'messages': messages, 'session': session})
+
 @login_required
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
@@ -202,7 +224,7 @@ def chat_view(request, session_id=None, counselor_id=None):
     else:
         form = ChatMessageForm()
     messages = ChatMessage.objects.filter(session=session).order_by('-timestamp') if session else []
-    return render(request, 'chat.html', {'form': form, 'messages': messages, 'session': session})
+    return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
 
 
 @login_required
