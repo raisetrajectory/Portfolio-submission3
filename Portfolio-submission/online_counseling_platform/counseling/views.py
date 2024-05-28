@@ -375,6 +375,21 @@ def send_message(request):
 #     # return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
 #     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
 
+# @login_required
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             session_id = request.POST.get('session_id')
+#             if session_id:
+#                 chat_message.session = get_object_or_404(CounselingSession, id=session_id)
+#             chat_message.save()
+#             if session_id:  # session_id が存在する場合のみリダイレクト
+#                 return redirect('chat_view', session_id=session_id)
+#     return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
+
 @login_required
 def send_message(request):
     if request.method == 'POST':
@@ -389,6 +404,7 @@ def send_message(request):
             if session_id:  # session_id が存在する場合のみリダイレクト
                 return redirect('chat_view', session_id=session_id)
     return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
+
 
 
 
