@@ -11,39 +11,6 @@
 # # from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorForm, ProfileForm, ChatMessageForm  # すべてのフォームを一行でインポート
 # from .models import Counselor, CounselingSession, ChatMessage
 
-# def home(request):
-#     return render(request, 'home.html')
-
-# @login_required
-# def session_detail(request, session_id):
-#     session = get_object_or_404(CounselingSession, id=session_id)
-#     messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
-#     return render(request, 'session_detail.html', {'session': session, 'messages': messages})
-
-# def chat_view(request):
-#     messages = ChatMessage.objects.all()
-#     try:
-#         template = get_template('counseling/registration/chat.html')
-#     except TemplateDoesNotExist:
-#         raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
-#     return render(request, 'counseling/registration/chat.html', {'messages': messages})
-
-# # def chat_view(request):
-# #     if request.method == 'POST':
-# #         form = ChatMessageForm(request.POST)
-# #         if form.is_valid():
-# #             form.save()
-# #             return redirect('chat')  # フォームが正常に処理された後、リダイレクトする
-# #     else:
-# #         form = ChatMessageForm()
-
-# #     messages = ChatMessage.objects.all()
-# #     try:
-# #         template = get_template('counseling/registration/chat.html')
-# #     except TemplateDoesNotExist:
-# #         raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
-# #     return render(request, 'counseling/registration/chat.html', {'messages': messages, 'form': form})
-
 # @login_required
 # def create_session(request):
 #     if request.method == 'POST':
@@ -197,13 +164,3 @@ def send_message(request):
                 return redirect('chat_view', session_id=session_id)
     return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
 
-# @login_required
-# def create_session(request):
-#     if request.method == 'POST':
-#         counselor_id = request.POST.get('counselor')
-#         counselor = get_object_or_404(Counselor, id=counselor_id)
-#         session = CounselingSession.objects.create(user=request.user, counselor=counselor)
-#         return redirect('chat_view', counselor_id=counselor.id)  # type: ignore # 修正箇所
-
-#     counselors = Counselor.objects.all()
-#     return render(request, 'create_session.html', {'counselors': counselors})
