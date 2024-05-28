@@ -14,6 +14,7 @@ from .models import Counselor, CounselingSession, ChatMessage
 from .models import ChatMessage
 # from .forms import ChatMessageForm
 
+
 def home(request):
     return render(request, 'home.html')
 
@@ -30,6 +31,22 @@ def chat_view(request):
     except TemplateDoesNotExist:
         raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
     return render(request, 'counseling/registration/chat.html', {'messages': messages})
+
+# def chat_view(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('chat')  # フォームが正常に処理された後、リダイレクトする
+#     else:
+#         form = ChatMessageForm()
+
+#     messages = ChatMessage.objects.all()
+#     try:
+#         template = get_template('counseling/registration/chat.html')
+#     except TemplateDoesNotExist:
+#         raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
+#     return render(request, 'counseling/registration/chat.html', {'messages': messages, 'form': form})
 
 @login_required
 def create_session(request):
