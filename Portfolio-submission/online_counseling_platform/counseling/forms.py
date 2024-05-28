@@ -38,7 +38,7 @@
 # counseling/forms.py
 from django import forms
 from .models import Counselor
-# from .models import Counselor, ChatMessage  # ChatMessage を追加
+from .models import Counselor, ChatMessage  # ChatMessage を追加
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
@@ -65,7 +65,7 @@ class CustomUserCreationForm(UserCreationForm):
 class CustomAuthenticationForm(AuthenticationForm):
     username = forms.CharField(label='ユーザーネームまたはメールアドレス')
 
-# class ChatMessageForm(forms.ModelForm):  # ChatMessageForm を追加
-#     class Meta:
-#         model = ChatMessage
-#         fields = ['content']
+class ChatMessageForm(forms.ModelForm):  # ChatMessageForm を追加
+    class Meta:
+        model = ChatMessage
+        fields = ['content']
