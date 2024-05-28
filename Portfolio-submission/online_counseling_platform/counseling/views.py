@@ -9,8 +9,6 @@
 #     counselors = Counselor.objects.all()
 #     return render(request, 'create_session.html', {'counselors': counselors})
 
-# 1~126の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！
-
 # counseling/views.py
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.forms import UserCreationForm
@@ -151,3 +149,4 @@ def send_message(request):
                 return redirect('chat_view', session_id=session_id)
     return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
 
+# 1~151の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！
