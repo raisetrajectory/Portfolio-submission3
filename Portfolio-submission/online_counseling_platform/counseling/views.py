@@ -11,6 +11,7 @@ from .forms import CustomUserCreationForm, CustomAuthenticationForm  # 修正箇
 from .forms import CounselorForm, ProfileForm
 # from .forms import CounselorForm, ProfileForm, ChatMessageForm  # ChatMessageFormを追加
 # from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorForm, ProfileForm, ChatMessageForm  # すべてのフォームを一行でインポート
+from .models import Counselor, CounselingSession, ChatMessage
 
 from .models import Counselor, CounselingSession, ChatMessage
 
