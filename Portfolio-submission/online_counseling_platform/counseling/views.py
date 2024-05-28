@@ -7,9 +7,9 @@ from django.http import JsonResponse
 from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
 from django.contrib.auth import views as auth_views
+
 from .forms import CustomUserCreationForm, CustomAuthenticationForm  # 修正箇所
 from .forms import CounselorForm, ProfileForm
-
 from .models import Counselor, CounselingSession, ChatMessage
 
 def home(request):
@@ -28,6 +28,7 @@ def chat_view(request):
     except TemplateDoesNotExist:
         raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
     return render(request, 'counseling/registration/chat.html', {'messages': messages})
+
 
 @login_required
 def create_session(request):
