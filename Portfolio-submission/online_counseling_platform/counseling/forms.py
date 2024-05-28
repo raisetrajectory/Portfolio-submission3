@@ -1,6 +1,6 @@
 # counseling/forms.py
 from django import forms
-from .models import Counselor
+from .models import Counselor, ChatMessage
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
