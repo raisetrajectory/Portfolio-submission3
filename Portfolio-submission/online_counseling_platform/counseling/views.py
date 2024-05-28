@@ -29,6 +29,21 @@ def session_detail(request, session_id):
 #         raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
 #     return render(request, 'counseling/registration/chat.html', {'messages': messages})
 
+# @login_required
+# def chat_view(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.user = request.user
+#             chat_message.save()
+#             return redirect('chat_view')
+#     else:
+#         form = ChatMessageForm()
+
+#     messages = ChatMessage.objects.all()
+#     return render(request, 'chat.html', {'form': form, 'messages': messages})
+
 @login_required
 def chat_view(request):
     if request.method == 'POST':
