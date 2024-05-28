@@ -208,8 +208,8 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            form.save()
-            return redirect('home')  # ホームページにリダイレクト
+            # form.save()
+            return redirect('home')
     else:
         form = CustomUserCreationForm()
     return render(request, 'signup.html', {'form': form})
