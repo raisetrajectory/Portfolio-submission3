@@ -49,3 +49,5 @@ class Task(models.Model):
     complete_flg = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+# 1~51の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！

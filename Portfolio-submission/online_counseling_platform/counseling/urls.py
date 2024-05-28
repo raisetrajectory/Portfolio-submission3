@@ -25,3 +25,5 @@ urlpatterns = [
     path('chat/session/<int:session_id>/', views.chat_view, name='chat_session'),
     path('chat/counselor/<int:counselor_id>/', views.chat_view, name='chat_counselor'),
 ]
+
+# 1~27の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！
