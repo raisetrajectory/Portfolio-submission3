@@ -361,14 +361,3 @@ def send_message(request):
     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
 
 
-# if request.method == 'POST':
-#     form = ChatMessageForm(request.POST)
-#     if form.is_valid():
-#         chat_message = form.save(commit=False)
-#         chat_message.sender = request.user
-#         chat_message.session = session
-#         chat_message.save()
-#         if session_id:  # session_id が空でない場合のみリダイレクト
-#             return redirect('chat_view', session_id=session.id)
-# return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
-
