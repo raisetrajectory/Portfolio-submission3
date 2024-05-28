@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html>
 <head>
     <title>チャットメッセージ</title>
@@ -11,5 +11,27 @@
             <li>{{ message.user }}: {{ message.content }}</li>
         {% endfor %}
     </ul>
+</body>
+</html> {% endcomment %}
+
+<!-- templates/chat.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>チャットメッセージ</title>
+</head>
+<body>
+    <h1>チャットメッセージ</h1>
+    <ul>
+        {% for message in messages %}
+            <li>{{ message.user.username }}: {{ message.content }}</li>
+        {% endfor %}
+    </ul>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">送信</button>
+    </form>
 </body>
 </html>
