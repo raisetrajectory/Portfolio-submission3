@@ -9,11 +9,10 @@ from django.template import TemplateDoesNotExist
 from django.contrib.auth import views as auth_views
 from .forms import CustomUserCreationForm, CustomAuthenticationForm  # 修正箇所
 from .forms import CounselorForm, ProfileForm
+# from .forms import CounselorForm, ProfileForm, ChatMessageForm  # ChatMessageFormを追加
+# from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorForm, ProfileForm, ChatMessageForm  # すべてのフォームを一行でインポート
 
 from .models import Counselor, CounselingSession, ChatMessage
-from .models import ChatMessage
-# from .forms import ChatMessageForm
-
 
 def home(request):
     return render(request, 'home.html')
