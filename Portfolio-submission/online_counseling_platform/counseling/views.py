@@ -12,8 +12,6 @@ from .forms import CustomUserCreationForm, CustomAuthenticationForm, ChatMessage
 from .forms import CounselorForm, ProfileForm
 from .models import Counselor, CounselingSession, ChatMessage
 
-
-
 def home(request):
     return render(request, 'home.html')
 
@@ -23,13 +21,28 @@ def session_detail(request, session_id):
     messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
     return render(request, 'session_detail.html', {'session': session, 'messages': messages})
 
+# def chat_view(request):
+#     messages = ChatMessage.objects.all()
+#     try:
+#         template = get_template('counseling/registration/chat.html')
+#     except TemplateDoesNotExist:
+#         raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
+#     return render(request, 'counseling/registration/chat.html', {'messages': messages})
+
+@login_required
 def chat_view(request):
+    if request.method == 'POST':
+        form = ChatMessageForm(request.POST)
+        if form.is_valid():
+            chat_message = form.save(commit=False)
+            chat_message.user = request.user
+            chat_message.save()
+            return redirect('chat_view')
+    else:
+        form = ChatMessageForm()
+
     messages = ChatMessage.objects.all()
-    try:
-        template = get_template('counseling/registration/chat.html')
-    except TemplateDoesNotExist:
-        raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
-    return render(request, 'counseling/registration/chat.html', {'messages': messages})
+    return render(request, 'chat.html', {'form': form, 'messages': messages})
 
 
 @login_required
