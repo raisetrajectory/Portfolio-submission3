@@ -172,13 +172,13 @@ def session_detail(request, session_id):
     messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
     return render(request, 'session_detail.html', {'session': session, 'messages': messages})
 
-def chat_view(request):
-    messages = ChatMessage.objects.all()
-    try:
-        template = get_template('counseling/registration/chat.html')
-    except TemplateDoesNotExist:
-        raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
-    return render(request, 'counseling/registration/chat.html', {'messages': messages})
+# def chat_view(request):
+#     messages = ChatMessage.objects.all()
+#     try:
+#         template = get_template('counseling/registration/chat.html')
+#     except TemplateDoesNotExist:
+#         raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
+#     return render(request, 'counseling/registration/chat.html', {'messages': messages})
 
 @login_required
 def chat_view(request, session_id=None, counselor_id=None):
