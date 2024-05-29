@@ -361,22 +361,6 @@ def send_message(request):
                 return redirect('chat_view', session_id=session_id)
     return redirect('home')
 
-# @login_required
-# def delete_message(request, message_id):
-#     message = get_object_or_404(ChatMessage, id=message_id)
-#     session_id = message.session.id
-#     if request.user == message.sender:
-#         message.delete()
-#     return redirect('chat_view', session_id=session_id)
-
-# @login_required
-# def delete_message(request, message_id):
-#     message = get_object_or_404(ChatMessage, id=message_id)
-#     session_id = message.session.id
-#     if request.user == message.sender:
-#         message.delete()
-#     return redirect('chat_view', session_id=session_id)
-
 @login_required
 def delete_message(request, message_id):
     message = get_object_or_404(ChatMessage, id=message_id)
