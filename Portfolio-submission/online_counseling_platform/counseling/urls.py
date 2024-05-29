@@ -36,7 +36,6 @@ from .views import create_session, chat_view, send_message, session_detail # typ
 from counseling.forms import CustomAuthenticationForm
 from .views import send_message, chat_view, delete_message
 
-
 urlpatterns = [
     path('', views.home, name='home'),  # ホームビューのルーティング # type: ignore
     path('signup/', views.signup, name='signup'), # type: ignore
