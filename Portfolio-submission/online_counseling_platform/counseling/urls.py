@@ -34,7 +34,7 @@ from django.contrib.auth import views as auth_views
 from . import views
 from .views import create_session, chat_view, send_message, session_detail # type: ignore
 from counseling.forms import CustomAuthenticationForm
-# from .views import send_message, chat_view, delete_message
+from .views import send_message, chat_view, delete_message
 
 
 urlpatterns = [
@@ -56,7 +56,7 @@ urlpatterns = [
     path('chat/session/<int:session_id>/', views.chat_view, name='chat_session'),
     path('chat/counselor/<int:counselor_id>/', views.chat_view, name='chat_counselor'),
 
-    # path('send_message/', send_message, name='send_message'),
-    # path('chat/<int:session_id>/', chat_view, name='chat_view'),
-    # path('delete_message/<int:message_id>/', delete_message, name='delete_message'),
+    path('send_message/', send_message, name='send_message'),
+    path('chat/<int:session_id>/', chat_view, name='chat_view'),
+    path('delete_message/<int:message_id>/', delete_message, name='delete_message'),
 ]
