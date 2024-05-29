@@ -43,10 +43,10 @@ urlpatterns = [
     path('chat/', views.chat_view, name='chat'),  # チャット画面のURL
     path('logout/', views.logout_view, name='logout'),  # ログアウト機能の追加
     path('profile/', views.profile_view, name='profile'),  # プロフィール画面の追加
+    path('counselors/', views.counselor_list_view, name='counselor_list'),  # カウンセラー一覧画面の追加
+    path('counselor/<int:pk>/', views.counselor_profile, name='counselor_profile'),
+    path('counselor/<int:pk>/edit/', views.edit_counselor_profile, name='edit_counselor_profile'),
     
-    path('counselors/', views.counselor_list_view, name='counselor_list'),  # カウンセラー一覧画面の追加 # type: ignore
-    path('counselor/<int:pk>/', views.counselor_profile, name='counselor_profile'), # type: ignore
-    path('counselor/<int:pk>/edit/', views.edit_counselor_profile, name='edit_counselor_profile'), # type: ignore
     path('create_session/', views.create_session, name='create_session'),
     path('chat/<int:session_id>/', views.chat_view, name='chat_view'),
     path('chat/<int:counselor_id>/', views.chat_view, name='chat'),
