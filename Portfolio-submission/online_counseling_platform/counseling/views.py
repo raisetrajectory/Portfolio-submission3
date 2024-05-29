@@ -144,14 +144,6 @@ from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorFo
 from .models import Counselor, CounselingSession, ChatMessage
 from django.contrib.auth import get_user_model
 
-@login_required
-def delete_message(request, message_id):
-    message = get_object_or_404(ChatMessage, id=message_id)
-    session_id = message.session.id
-    if request.user == message.sender:
-        message.delete()
-    return redirect('chat_view', session_id=session_id)
-
 def home(request):
     return render(request, 'home.html')
 
@@ -305,3 +297,11 @@ def send_message(request):
             if session_id:  # session_id が存在する場合のみリダイレクト
                 return redirect('chat_view', session_id=session_id)
     return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
+
+@login_required
+def delete_message(request, message_id):
+    message = get_object_or_404(ChatMessage, id=message_id)
+    session_id = message.session.id
+    if request.user == message.sender:
+        message.delete()
+    return redirect('chat_view', session_id=session_id)
