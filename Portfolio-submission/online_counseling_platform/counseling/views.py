@@ -281,3 +281,5 @@ def send_message(request):
             if session_id:  # session_id が存在する場合のみリダイレクト
                 return redirect('chat_view', session_id=session_id)
     return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
+
+# 1~151の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！
