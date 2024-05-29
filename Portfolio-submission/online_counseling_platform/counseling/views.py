@@ -217,6 +217,34 @@ def session_detail(request, session_id):
 #         'user': request.user,
 #     })
 
+# @login_required
+# def chat_view(request, session_id=None, counselor_id=None):
+#     session = None
+#     if session_id:
+#         session = get_object_or_404(CounselingSession, id=session_id)
+#         messages = ChatMessage.objects.filter(session=session)
+#     elif counselor_id:
+#         counselor = get_object_or_404(Counselor, id=counselor_id)
+#         session, created = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
+
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = get_user_model().objects.get(pk=request.user.pk)
+#             chat_message.session = session
+#             chat_message.save()
+#             return redirect('chat_view', session_id=session.id)  # type: ignore
+#     else:
+#         form = ChatMessageForm()
+#     messages = ChatMessage.objects.filter(session=session).order_by('-timestamp') if session else []
+#     return render(request, 'counseling/registration/chat.html', {
+#         'form': form,
+#         'messages': messages,
+#         'session': session,
+#         'user': request.user,
+#     })
+
 @login_required
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
@@ -231,7 +259,7 @@ def chat_view(request, session_id=None, counselor_id=None):
         form = ChatMessageForm(request.POST)
         if form.is_valid():
             chat_message = form.save(commit=False)
-            chat_message.sender = get_user_model().objects.get(pk=request.user.pk)
+            chat_message.sender = request.user  # request.user をそのまま使用
             chat_message.session = session
             chat_message.save()
             return redirect('chat_view', session_id=session.id)  # type: ignore
@@ -326,13 +354,28 @@ def get_messages(request):
 #                 return redirect('chat_view', session_id=session_id)
 #     return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
 
+# @login_required
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = get_user_model().objects.get(pk=request.user.pk)
+#             session_id = request.POST.get('session_id')
+#             if session_id:
+#                 chat_message.session = get_object_or_404(CounselingSession, id=session_id)
+#             chat_message.save()
+#             if session_id:
+#                 return redirect('chat_view', session_id=session_id)
+#     return redirect('home')
+
 @login_required
 def send_message(request):
     if request.method == 'POST':
         form = ChatMessageForm(request.POST)
         if form.is_valid():
             chat_message = form.save(commit=False)
-            chat_message.sender = get_user_model().objects.get(pk=request.user.pk)
+            chat_message.sender = request.user  # request.user をそのまま使用
             session_id = request.POST.get('session_id')
             if session_id:
                 chat_message.session = get_object_or_404(CounselingSession, id=session_id)
@@ -340,6 +383,14 @@ def send_message(request):
             if session_id:
                 return redirect('chat_view', session_id=session_id)
     return redirect('home')
+
+# @login_required
+# def delete_message(request, message_id):
+#     message = get_object_or_404(ChatMessage, id=message_id)
+#     session_id = message.session.id
+#     if request.user == message.sender:
+#         message.delete()
+#     return redirect('chat_view', session_id=session_id)
 
 # @login_required
 # def delete_message(request, message_id):
