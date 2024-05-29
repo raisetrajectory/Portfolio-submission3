@@ -30,7 +30,12 @@
     <h1>チャットメッセージ</h1>
     <ul>
         {% for message in messages %}
-            <li>{{ message.sender.username }}: {{ message.message }}</li>
+            <li>
+                {{ message.sender.username }}: {{ message.message }}
+                {% if message.sender == user %}
+                    <a href="{% url 'delete_message' message.id %}">削除</a>
+                {% endif %}
+            </li>
         {% endfor %}
     </ul>
     <form method="post" action="{% url 'send_message' %}">
