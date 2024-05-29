@@ -38,11 +38,12 @@ from .views import send_message, chat_view, delete_message
 
 urlpatterns = [
     path('', views.home, name='home'),  # ホームビューのルーティング # type: ignore
-    path('signup/', views.signup, name='signup'), # type: ignore
+    path('signup/', views.signup, name='signup'),
     path('login/', auth_views.LoginView.as_view(authentication_form=CustomAuthenticationForm), name='login'),
     path('chat/', views.chat_view, name='chat'),  # チャット画面のURL
     path('logout/', views.logout_view, name='logout'),  # ログアウト機能の追加
-    path('profile/', views.profile_view, name='profile'),  # プロフィール画面の追加 # type: ignore
+    path('profile/', views.profile_view, name='profile'),  # プロフィール画面の追加
+    
     path('counselors/', views.counselor_list_view, name='counselor_list'),  # カウンセラー一覧画面の追加 # type: ignore
     path('counselor/<int:pk>/', views.counselor_profile, name='counselor_profile'), # type: ignore
     path('counselor/<int:pk>/edit/', views.edit_counselor_profile, name='edit_counselor_profile'), # type: ignore
