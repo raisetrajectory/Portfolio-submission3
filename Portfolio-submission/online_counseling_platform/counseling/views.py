@@ -142,6 +142,7 @@ from django.template import TemplateDoesNotExist
 from django.contrib.auth import views as auth_views
 from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorForm, ProfileForm, ChatMessageForm  # すべてのフォームを一行でインポート
 from .models import Counselor, CounselingSession, ChatMessage
+from django.contrib.auth import get_user_model
 
 @login_required
 def delete_message(request, message_id):
@@ -268,6 +269,7 @@ def send_message(request):
         if form.is_valid():
             chat_message = form.save(commit=False)
             chat_message.sender = request.user
+            chat_message.sender = get_user_model().objects.get(pk=request.user.pk)
             session_id = request.POST.get('session_id')
             if session_id:
                 chat_message.session = get_object_or_404(CounselingSession, id=session_id)
@@ -275,11 +277,3 @@ def send_message(request):
             if session_id:  # session_id が存在する場合のみリダイレクト
                 return redirect('chat_view', session_id=session_id)
     return redirect('home')  # フォームが無効な場合やPOST以外のリクエストの場合はホームにリダイレクト
-
-# @login_required
-# def delete_message(request, message_id):
-#     message = get_object_or_404(ChatMessage, id=message_id)
-#     session_id = message.session.id
-#     if request.user == message.sender:
-#         message.delete()
-#     return redirect('chat_view', session_id=session_id)
