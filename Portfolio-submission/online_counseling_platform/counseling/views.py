@@ -169,6 +169,34 @@ def session_detail(request, session_id):
 #         raise TemplateDoesNotExist("The template 'counseling/registration/chat.html' does not exist.")
 #     return render(request, 'counseling/registration/chat.html', {'messages': messages})
 
+# @login_required
+# def chat_view(request, session_id=None, counselor_id=None):
+#     session = None
+#     if session_id:
+#         session = get_object_or_404(CounselingSession, id=session_id)
+#         messages = ChatMessage.objects.filter(session=session)
+#     elif counselor_id:
+#         counselor = get_object_or_404(Counselor, id=counselor_id)
+#         session, created = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
+
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.session = session
+#             chat_message.save()
+#             return redirect('chat_view', session_id=session.id) # type: ignore
+#     else:
+#         form = ChatMessageForm()
+#     messages = ChatMessage.objects.filter(session=session).order_by('-timestamp') if session else []
+#     return render(request, 'counseling/registration/chat.html', {
+#         'form': form,
+#         'messages': messages,
+#         'session': session,
+#         'user': request.user,
+#     })
+
 @login_required
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
@@ -183,10 +211,10 @@ def chat_view(request, session_id=None, counselor_id=None):
         form = ChatMessageForm(request.POST)
         if form.is_valid():
             chat_message = form.save(commit=False)
-            chat_message.sender = request.user
+            chat_message.sender = get_user_model().objects.get(pk=request.user.pk)
             chat_message.session = session
             chat_message.save()
-            return redirect('chat_view', session_id=session.id) # type: ignore
+            return redirect('chat_view', session_id=session.id)  # type: ignore
     else:
         form = ChatMessageForm()
     messages = ChatMessage.objects.filter(session=session).order_by('-timestamp') if session else []
