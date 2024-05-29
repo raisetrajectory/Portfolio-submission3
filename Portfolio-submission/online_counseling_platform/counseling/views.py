@@ -433,6 +433,24 @@ def get_messages(request):
 #                 return redirect('chat_view', session_id=session_id)
 #     return redirect('home')
 
+# @login_required
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             user = request.user
+#             if isinstance(user, SimpleLazyObject):
+#                 user = user._wrapped
+#             chat_message.sender = user
+#             session_id = request.POST.get('session_id')
+#             if session_id:
+#                 chat_message.session = get_object_or_404(CounselingSession, id=session_id)
+#             chat_message.save()
+#             if session_id:
+#                 return redirect('chat_view', session_id=session_id)
+#     return redirect('home')
+
 @login_required
 def send_message(request):
     if request.method == 'POST':
