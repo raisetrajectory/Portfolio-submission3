@@ -367,6 +367,22 @@ def get_messages(request):
 #                 return redirect('chat_view', session_id=session_id)
 #     return redirect('home')
 
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             session_id = form.cleaned_data['session_id']
+#             message_text = form.cleaned_data['message']
+#             session = CounselingSession.objects.get(id=session_id)
+#             user = request.user if request.user.is_authenticated else None
+#             sender = user if user else User.objects.get(username='default_user') # ここを変更する必要があります
+#             chat_message = ChatMessage(sender=sender, message=message_text, session=session)
+#             chat_message.save()
+#             return redirect('chat')
+#     else:
+#         form = MessageForm()
+#     return render(request, 'chat.html', {'form': form, 'messages': messages, 'session': session})
+
 def send_message(request):
     if request.method == 'POST':
         form = ChatMessageForm(request.POST)
@@ -375,13 +391,15 @@ def send_message(request):
             message_text = form.cleaned_data['message']
             session = CounselingSession.objects.get(id=session_id)
             user = request.user if request.user.is_authenticated else None
-            sender = user if user else User.objects.get(username='default_user') # ここを変更する必要があります
+            sender = user if user else User.objects.get(username='default_user')  # ここを変更する必要があります
             chat_message = ChatMessage(sender=sender, message=message_text, session=session)
             chat_message.save()
-            return redirect('chat')
+            messages = ChatMessage.objects.filter(session=session)  # メッセージを取得
+            return render(request, 'chat.html', {'form': form, 'messages': messages, 'session': session})
     else:
-        form = MessageForm()
-    return render(request, 'chat.html', {'form': form, 'messages': messages, 'session': session})
+        form = ChatMessageForm()
+    return render(request, 'chat.html', {'form': form})
+
 
 # @login_required
 # def delete_message(request, message_id):
