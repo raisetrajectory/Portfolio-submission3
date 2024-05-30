@@ -75,3 +75,5 @@ class ChatMessageForm(forms.ModelForm):  # ChatMessageForm を追加
         labels = {
             'message': 'メッセージ',
         }
+
+
