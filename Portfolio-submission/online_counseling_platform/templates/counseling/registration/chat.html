@@ -42,7 +42,6 @@
         {% csrf_token %}
         {{ form.as_p }}
         <input type="hidden" name="session_id" value="{{ session.id }}">
-        <textarea name="message" placeholder="コメントを入力してください"></textarea>  <!-- 追加 -->
         <button type="submit">コメントする</button>
     </form>
 </body>
