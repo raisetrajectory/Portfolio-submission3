@@ -369,7 +369,7 @@ def send_message(request):
 
 def send_message(request):
     if request.method == 'POST':
-        form = MessageForm(request.POST)
+        form = ChatMessageForm(request.POST)
         if form.is_valid():
             session_id = form.cleaned_data['session_id']
             message_text = form.cleaned_data['message']
