@@ -58,7 +58,7 @@
         {% for message in messages %}
             <li>
                 {{ message.sender.username }}: {{ message.message }}
-                {% if message.sender == user %}
+                {% if message.sender == request.user %}
                     <a href="{% url 'delete_message' message.id %}">削除</a>
                 {% endif %}
             </li>
@@ -71,5 +71,3 @@
     </form>
 </body>
 </html>
-
-
