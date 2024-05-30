@@ -90,17 +90,26 @@ class CounselingSession(models.Model):
 #     message = models.TextField()
 #     timestamp = models.DateTimeField(auto_now_add=True)
 
+# class ChatMessage(models.Model):
+#     sender = models.ForeignKey(User, on_delete=models.CASCADE)
+#     message = models.TextField()
+#     session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE)
+#     created_at = models.DateTimeField(auto_now_add=True)
+
+#     def __str__(self):
+#         return f'{self.sender.username}: {self.message}'
+
+#     def delete_message(self):
+#         self.delete()
+
 class ChatMessage(models.Model):
+    session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE)
     sender = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.TextField()
-    session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.sender.username}: {self.message}'
-
-    def delete_message(self):
-        self.delete()
 
 class Task(models.Model):
     ASSIGNED_ROLE_CHOICES = [
