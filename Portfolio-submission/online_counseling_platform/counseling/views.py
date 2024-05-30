@@ -280,6 +280,26 @@ def get_messages(request):
 #         form = ChatMessageForm()
 #     return render(request, 'counseling/registration/chat.html', {'form': form})
 
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             session_id = form.cleaned_data['session_id']
+#             message_text = form.cleaned_data['message']
+#             session = CounselingSession.objects.get(id=session_id)
+#             user = request.user if request.user.is_authenticated else None
+#             sender = user if user else User.objects.get(username='default_user')
+#             chat_message = ChatMessage(sender=sender, message=message_text, session=session)
+#             chat_message.save()
+#             messages = ChatMessage.objects.filter(session=session)
+#             return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
+#     else:
+#         session_id = request.GET.get('session_id')
+#         session = CounselingSession.objects.get(id=session_id)
+#         form = ChatMessageForm(initial={'session_id': session.id})
+#         messages = ChatMessage.objects.filter(session=session)
+#     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
+
 def send_message(request):
     if request.method == 'POST':
         form = ChatMessageForm(request.POST)
