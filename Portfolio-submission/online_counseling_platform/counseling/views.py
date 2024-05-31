@@ -294,40 +294,6 @@ def get_messages(request):
 #         form = ChatMessageForm()
 #     return render(request, 'counseling/registration/chat.html', {'form': form})
 
-# def send_message(request):
-#     messages = []  # 初期値として空のリストを設定
-#     session = None  # 初期値としてNoneを設定
-
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             session_id = form.cleaned_data.get('session_id')
-#             message_text = form.cleaned_data.get('message')
-#             session = CounselingSession.objects.get(id=session_id)
-#             user = request.user if request.user.is_authenticated else None
-#             sender = user if user else User.objects.get(username='default_user')
-#             chat_message = ChatMessage(sender=sender, message=message_text, session=session)
-#             chat_message.save()
-#             messages = ChatMessage.objects.filter(session=session)
-#             form = ChatMessageForm(initial={'session_id': session.id})  # フォームをリセットしてセッションIDを保持
-#         else:
-#             # フォームが無効な場合でもsessionを取得
-#             session_id = request.POST.get('session_id')
-#             if session_id:
-#                 session = CounselingSession.objects.get(id=session_id)
-#                 messages = ChatMessage.objects.filter(session=session)
-#     else:
-#         session_id = request.GET.get('session_id')
-#         if session_id:
-#             session = CounselingSession.objects.get(id=session_id)
-#             form = ChatMessageForm(initial={'session_id': session.id})
-#             messages = ChatMessage.objects.filter(session=session)
-#         else:
-#             form = ChatMessageForm()
-
-#     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
-
-@login_required
 def send_message(request):
     messages = []  # 初期値として空のリストを設定
     session = None  # 初期値としてNoneを設定
@@ -337,25 +303,59 @@ def send_message(request):
         if form.is_valid():
             session_id = form.cleaned_data.get('session_id')
             message_text = form.cleaned_data.get('message')
-            session = get_object_or_404(CounselingSession, id=session_id)
-            user = request.user
-            chat_message = ChatMessage(sender=user, message=message_text, session=session)
+            session = CounselingSession.objects.get(id=session_id)
+            user = request.user if request.user.is_authenticated else None
+            sender = user if user else User.objects.get(username='default_user')
+            chat_message = ChatMessage(sender=sender, message=message_text, session=session)
             chat_message.save()
-            return redirect(f"{request.path_info}?session_id={session.id}")
+            messages = ChatMessage.objects.filter(session=session)
+            form = ChatMessageForm(initial={'session_id': session.id})  # フォームをリセットしてセッションIDを保持
         else:
-            session_id = form.cleaned_data.get('session_id') or request.POST.get('session_id')
-            session = get_object_or_404(CounselingSession, id=session_id)
-            messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
+            # フォームが無効な場合でもsessionを取得
+            session_id = request.POST.get('session_id')
+            if session_id:
+                session = CounselingSession.objects.get(id=session_id)
+                messages = ChatMessage.objects.filter(session=session)
     else:
         session_id = request.GET.get('session_id')
         if session_id:
-            session = get_object_or_404(CounselingSession, id=session_id)
+            session = CounselingSession.objects.get(id=session_id)
             form = ChatMessageForm(initial={'session_id': session.id})
-            messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
+            messages = ChatMessage.objects.filter(session=session)
         else:
             form = ChatMessageForm()
 
     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
+
+# @login_required
+# def send_message(request):
+#     messages = []  # 初期値として空のリストを設定
+#     session = None  # 初期値としてNoneを設定
+
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             session_id = form.cleaned_data.get('session_id')
+#             message_text = form.cleaned_data.get('message')
+#             session = get_object_or_404(CounselingSession, id=session_id)
+#             user = request.user
+#             chat_message = ChatMessage(sender=user, message=message_text, session=session)
+#             chat_message.save()
+#             return redirect(f"{request.path_info}?session_id={session.id}")
+#         else:
+#             session_id = form.cleaned_data.get('session_id') or request.POST.get('session_id')
+#             session = get_object_or_404(CounselingSession, id=session_id)
+#             messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
+#     else:
+#         session_id = request.GET.get('session_id')
+#         if session_id:
+#             session = get_object_or_404(CounselingSession, id=session_id)
+#             form = ChatMessageForm(initial={'session_id': session.id})
+#             messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
+#         else:
+#             form = ChatMessageForm()
+
+#     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
 
 def delete_message(request, message_id):
     message = get_object_or_404(ChatMessage, id=message_id)
