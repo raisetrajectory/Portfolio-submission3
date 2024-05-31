@@ -100,7 +100,7 @@ class ChatMessageForm(forms.ModelForm):
 
     class Meta:
         model = ChatMessage
-        fields = ['message', 'session_id']
+        fields = ['session_id', 'message']
 
 class CommentForm(forms.Form):
     message = forms.CharField(label='コメント', widget=forms.Textarea)
