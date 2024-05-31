@@ -45,8 +45,6 @@ from .models import Counselor, ChatMessage  # ChatMessage を追加
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
-from django import forms
-
 class CounselorForm(forms.ModelForm):
     class Meta:
         model = Counselor
