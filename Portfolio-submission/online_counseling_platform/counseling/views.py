@@ -147,14 +147,6 @@ from django.utils.functional import SimpleLazyObject
 
 User = get_user_model()
 
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.decorators import login_required
-from .forms import ChatMessageForm
-from .models import ChatMessage, CounselingSession
-from django.contrib.auth import get_user_model
-
-User = get_user_model()
-
 def home(request):
     return render(request, 'home.html')
 
