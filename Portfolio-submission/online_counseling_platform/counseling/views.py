@@ -133,7 +133,6 @@
 
 # counseling/views.py
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, logout, authenticate  # authenticateを追加
 from django.contrib.auth.decorators import login_required
@@ -145,7 +144,7 @@ from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorFo
 from .models import Counselor, CounselingSession, ChatMessage
 from django.contrib.auth import get_user_model
 from django.utils.functional import SimpleLazyObject
-from django.contrib.auth.models import AbstractBaseUser
+
 
 User = get_user_model()
 
