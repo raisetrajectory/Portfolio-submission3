@@ -47,26 +47,24 @@
 </html> {% endcomment %}
 
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
+    <meta charset="UTF-8">
     <title>チャットメッセージ</title>
 </head>
 <body>
     <h1>チャットメッセージ</h1>
-    <ul>
-        {% for message in messages %}
-            <li>
-                {{ message.sender.username }}: {{ message.message }}
-                {% if message.sender == request.user %}
-                    <a href="{% url 'delete_message' message.id %}">削除</a>
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
     <form method="post" action="{% url 'send_message' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">コメントする</button>
     </form>
+
+    <h2>メッセージ一覧</h2>
+    <ul>
+        {% for message in messages %}
+            <li><strong>{{ message.sender.username }}:</strong> {{ message.message }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
