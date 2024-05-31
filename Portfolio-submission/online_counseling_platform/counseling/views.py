@@ -147,14 +147,14 @@ from django.utils.functional import SimpleLazyObject
 
 User = get_user_model()
 
-# def home(request):
-#     return render(request, 'home.html')
-
 def home(request):
-    # 特定の条件が満たされた場合にのみユーザーを作成します。
-    # if some_condition and not User.objects.filter(username='default_user').exists():
-    #     User.objects.create_user(username='default_user', password='defaultpassword')
     return render(request, 'home.html')
+
+# def home(request):
+#     # 特定の条件が満たされた場合にのみユーザーを作成します。
+#     if some_condition and not User.objects.filter(username='default_user').exists():
+#         User.objects.create_user(username='default_user', password='defaultpassword')
+#     return render(request, 'home.html')
 
 @login_required
 def session_detail(request, session_id):
