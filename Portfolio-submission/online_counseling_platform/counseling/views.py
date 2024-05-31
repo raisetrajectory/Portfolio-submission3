@@ -145,7 +145,6 @@ from .models import Counselor, CounselingSession, ChatMessage
 from django.contrib.auth import get_user_model
 from django.utils.functional import SimpleLazyObject
 
-
 User = get_user_model()
 
 # 特定の条件が満たされた場合にのみユーザーを作成します。
