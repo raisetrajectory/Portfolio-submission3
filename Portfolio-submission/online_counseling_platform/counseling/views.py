@@ -149,6 +149,10 @@ from django.contrib.auth.models import AbstractBaseUser
 
 User = get_user_model()
 
+# 特定の条件が満たされた場合にのみユーザーを作成します。
+# if some_condition and not User.objects.filter(username='default_user').exists():
+#     User.objects.create_user(username='default_user', password='defaultpassword')
+
 def home(request):
     return render(request, 'home.html')
 
