@@ -327,32 +327,32 @@ def send_message(request):
 
     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
 
-@login_required
-def send_message(request):
-    messages = []
-    session = None
+# @login_required
+# def send_message(request):
+#     messages = []
+#     session = None
 
-    if request.method == 'POST':
-        form = ChatMessageForm(request.POST)
-        if form.is_valid():
-            session_id = form.cleaned_data.get('session_id')
-            message_text = form.cleaned_data.get('message')
-            session = get_object_or_404(CounselingSession, id=session_id)
-            user = request.user
-            sender = user if user else get_object_or_404(User, username='default_user')
-            chat_message = ChatMessage(sender=sender, message=message_text, session=session)
-            chat_message.save()
-            form = ChatMessageForm(initial={'session_id': session.id})
-        else:
-            session_id = request.POST.get('session_id')
-            session = get_object_or_404(CounselingSession, id=session_id)
-    else:
-        session_id = request.GET.get('session_id')
-        session = get_object_or_404(CounselingSession, id=session_id)
-        form = ChatMessageForm(initial={'session_id': session.id})
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             session_id = form.cleaned_data.get('session_id')
+#             message_text = form.cleaned_data.get('message')
+#             session = get_object_or_404(CounselingSession, id=session_id)
+#             user = request.user
+#             sender = user if user else get_object_or_404(User, username='default_user')
+#             chat_message = ChatMessage(sender=sender, message=message_text, session=session)
+#             chat_message.save()
+#             form = ChatMessageForm(initial={'session_id': session.id})
+#         else:
+#             session_id = request.POST.get('session_id')
+#             session = get_object_or_404(CounselingSession, id=session_id)
+#     else:
+#         session_id = request.GET.get('session_id')
+#         session = get_object_or_404(CounselingSession, id=session_id)
+#         form = ChatMessageForm(initial={'session_id': session.id})
 
-    messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
-    return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
+#     messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
+#     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
 
 def delete_message(request, message_id):
     message = get_object_or_404(ChatMessage, id=message_id)
