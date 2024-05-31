@@ -156,6 +156,16 @@ def home(request):
 #         User.objects.create_user(username='default_user', password='defaultpassword')
 #     return render(request, 'home.html')
 
+def home(request):
+    # 例えば、サイトが初めて起動されたときに `default_user` を作成する条件を設定します。
+    some_condition = not User.objects.filter(username='default_user').exists()
+
+    # 特定の条件が満たされた場合にのみユーザーを作成します。
+    if some_condition:
+        User.objects.create_user(username='default_user', password='defaultpassword')
+
+    return render(request, 'home.html')
+
 @login_required
 def session_detail(request, session_id):
     session = get_object_or_404(CounselingSession, id=session_id)
