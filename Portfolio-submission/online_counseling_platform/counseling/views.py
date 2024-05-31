@@ -327,21 +327,6 @@ def send_message(request):
 
     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
 
-@login_required
-def send_message(request):
-    session_id = request.POST.get('session_id') or request.GET.get('session_id')
-    session = get_object_or_404(CounselingSession, id=session_id)
-    form = ChatMessageForm(request.POST or None, initial={'session_id': session.id})
-
-    if request.method == 'POST' and form.is_valid():
-        message_text = form.cleaned_data.get('message')
-        chat_message = ChatMessage(sender=request.user, message=message_text, session=session)
-        chat_message.save()
-        return redirect(request.path_info + f'?session_id={session.id}')
-
-    messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
-    return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
-
 # @login_required
 # def send_message(request):
 #     messages = []
