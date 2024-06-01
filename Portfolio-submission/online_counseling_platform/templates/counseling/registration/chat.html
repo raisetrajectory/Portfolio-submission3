@@ -70,7 +70,7 @@
     <h1>チャットメッセージ</h1>
     <form method="post" action="{% url 'send_message' %}">
         {% csrf_token %}
-        {{ form.session_id }}
+        {{ form.hidden_field }}
         {{ form.message.label_tag }} {{ form.message }}
         <button type="submit">コメントする</button>
     </form>
@@ -98,4 +98,5 @@
     </form>
 </body>
 </html>
+
 
