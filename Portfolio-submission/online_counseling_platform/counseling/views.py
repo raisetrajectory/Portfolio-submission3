@@ -401,6 +401,48 @@ def get_messages(request):
 
 #     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages_list, 'session': session})
 
+# @login_required
+# def send_message(request):
+#     messages_list = []
+#     session = None
+
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             session_id = form.cleaned_data.get('session_id')
+#             if session_id:
+#                 session = get_object_or_404(CounselingSession, id=session_id)
+#                 message_text = form.cleaned_data.get('message')
+#                 user = request.user
+#                 chat_message = ChatMessage(sender=user, message=message_text, session=session)
+#                 chat_message.save()
+#                 return redirect(f"{request.path_info}?session_id={session.id}")
+#             else:
+#                 form.add_error('session_id', 'セッションIDが無効です。')
+#         else:
+#             session_id = request.POST.get('session_id')
+#             if session_id:
+#                 session = get_object_or_404(CounselingSession, id=session_id)
+#                 messages_list = ChatMessage.objects.filter(session=session).order_by('timestamp')
+#             form.add_error('session_id', 'セッションIDが無効です。')
+#     else:
+#         session_id = request.GET.get('session_id')
+#         if session_id:
+#             session = get_object_or_404(CounselingSession, id=session_id)
+#             form = ChatMessageForm(initial={'session_id': session.id})
+#             messages_list = ChatMessage.objects.filter(session=session).order_by('timestamp')
+#         else:
+#             form = ChatMessageForm()
+
+#     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages_list, 'session': session})
+
+# def delete_message(request, message_id):
+#     message = get_object_or_404(ChatMessage, id=message_id)
+#     session_id = message.session.id
+#     if request.user == message.sender:
+#         message.delete_message()  # delete_messageメソッドを呼び出す
+#     return redirect('chat_view', session_id=session_id)
+
 @login_required
 def send_message(request):
     messages_list = []
@@ -416,7 +458,7 @@ def send_message(request):
                 user = request.user
                 chat_message = ChatMessage(sender=user, message=message_text, session=session)
                 chat_message.save()
-                return redirect(f"{request.path_info}?session_id={session.id}")
+                return redirect(f"/chat/?session_id={session.id}")
             else:
                 form.add_error('session_id', 'セッションIDが無効です。')
         else:
@@ -436,9 +478,10 @@ def send_message(request):
 
     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages_list, 'session': session})
 
+@login_required
 def delete_message(request, message_id):
     message = get_object_or_404(ChatMessage, id=message_id)
     session_id = message.session.id
     if request.user == message.sender:
-        message.delete_message()  # delete_messageメソッドを呼び出す
+        message.delete()  # deleteメソッドを呼び出す
     return redirect('chat_view', session_id=session_id)
