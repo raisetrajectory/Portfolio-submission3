@@ -157,7 +157,6 @@ def home(request):
     # 特定の条件が満たされた場合にのみユーザーを作成します。
     if some_condition:
         User.objects.create_user(username='default_user', password='defaultpassword')
-
     return render(request, 'home.html')
 
 @login_required
