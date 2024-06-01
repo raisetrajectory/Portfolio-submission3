@@ -290,41 +290,6 @@ def counselor_list_view(request):
 #         form = ChatMessageForm()
 #     return render(request, 'counseling/registration/chat.html', {'form': form})
 
-# @login_required
-# def send_message(request):
-#     messages_list = []
-#     session = None
-
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             session_id = form.cleaned_data.get('session_id')
-#             if session_id:
-#                 session = get_object_or_404(CounselingSession, id=session_id)
-#                 message_text = form.cleaned_data.get('message')
-#                 user = request.user
-#                 chat_message = ChatMessage(sender=user, message=message_text, session=session)
-#                 chat_message.save()
-#                 return redirect(f"/chat/?session_id={session.id}")
-#             else:
-#                 form.add_error('session_id', 'セッションIDが無効です。')
-#         else:
-#             session_id = request.POST.get('session_id')
-#             if session_id:
-#                 session = get_object_or_404(CounselingSession, id=session_id)
-#                 messages_list = ChatMessage.objects.filter(session=session).order_by('timestamp')
-#             form.add_error('session_id', 'セッションIDが無効です。')
-#     else:
-#         session_id = request.GET.get('session_id')
-#         if session_id:
-#             session = get_object_or_404(CounselingSession, id=session_id)
-#             form = ChatMessageForm(initial={'session_id': session.id})
-#             messages_list = ChatMessage.objects.filter(session=session).order_by('timestamp')
-#         else:
-#             form = ChatMessageForm()
-
-#     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages_list, 'session': session})
-
 @login_required
 def send_message(request):
     if request.method == 'POST':
