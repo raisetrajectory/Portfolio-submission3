@@ -44,5 +44,8 @@
             <li>メッセージはありません。</li>
         {% endfor %}
     </ul>
+    <form action="{% url 'home' %}" method="get">
+        <button type="submit">メインメニューへ</button>
+    </form>
 </body>
 </html>
