@@ -56,7 +56,8 @@
     <h1>チャットメッセージ</h1>
     <form method="post" action="{% url 'send_message' %}">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.session_id }}
+        {{ form.message.label_tag }} {{ form.message }}
         <button type="submit">コメントする</button>
     </form>
 
