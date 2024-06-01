@@ -248,7 +248,7 @@ def chat_view(request, session_id=None, counselor_id=None):
     form = ChatMessageForm(initial={'session_id': session.id}) if session else ChatMessageForm()
     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
 
-    return render(request, 'counseling/chat.html', {
+    return render(request, 'counseling/registration/chat.html', {
         'form': form,
         'messages': messages,
         'session': session,
@@ -443,7 +443,7 @@ def send_message(request):
         else:
             form = ChatMessageForm()
 
-    return render(request, 'counseling/chat.html', {'form': form, 'messages': messages_list, 'session': session})
+    return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages_list, 'session': session})
 
 def delete_message(request, message_id):
     message = get_object_or_404(ChatMessage, id=message_id)
