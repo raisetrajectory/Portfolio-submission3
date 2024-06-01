@@ -88,20 +88,6 @@ class CustomAuthenticationForm(AuthenticationForm):
 #             'message': 'メッセージ',
 #         }
 
-# class ChatMessageForm(forms.ModelForm):
-#     session_id = forms.IntegerField(widget=forms.HiddenInput())
-
-#     class Meta:
-#         model = ChatMessage
-#         fields = ['message', 'session_id']
-
-# class ChatMessageForm(forms.ModelForm):
-#     session_id = forms.CharField(widget=forms.HiddenInput())
-
-#     class Meta:
-#         model = ChatMessage
-#         fields = ['message', 'session_id']
-
 class ChatMessageForm(forms.ModelForm):
     session_id = forms.CharField(widget=forms.HiddenInput(), required=True)
 
