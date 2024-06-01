@@ -134,16 +134,16 @@
 # counseling/views.py
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login, logout, authenticate  # authenticateを追加
+from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from django.contrib.auth import views as auth_views
 from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
-from django.contrib.auth import views as auth_views
-from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorForm, ProfileForm, ChatMessageForm  # すべてのフォームを一行でインポート
+from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorForm, ProfileForm, ChatMessageForm
 from .models import Counselor, CounselingSession, ChatMessage
 from django.contrib.auth import get_user_model
-from django.utils.functional import SimpleLazyObject
+# from django.utils.functional import SimpleLazyObject
 
 User = get_user_model()
 
