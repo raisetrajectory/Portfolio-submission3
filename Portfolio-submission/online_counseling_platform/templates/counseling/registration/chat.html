@@ -71,29 +71,3 @@
     </ul>
 </body>
 </html>
-
-{% comment %} <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>チャットメッセージ</title>
-</head>
-<body>
-    <h1>チャットメッセージ</h1>
-    <form method="post" action="{% url 'send_message' %}">
-        {% csrf_token %}
-        {{ form.session_id }}
-        {{ form.message.label_tag }} {{ form.message }}
-        <button type="submit">コメントする</button>
-    </form>
-
-    <h2>メッセージ一覧</h2>
-    <ul>
-        {% for message in messages %}
-            <li><strong>{{ message.sender.username }}:</strong> {{ message.message }}</li>
-        {% empty %}
-            <li>メッセージはありません。</li>
-        {% endfor %}
-    </ul>
-</body>
-</html> {% endcomment %}
