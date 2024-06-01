@@ -105,15 +105,6 @@ class CounselingSession(models.Model):
 #     def delete_message(self):
 #         self.delete()
 
-# class ChatMessage(models.Model):
-#     session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE)
-#     sender = models.ForeignKey(User, on_delete=models.CASCADE)
-#     message = models.TextField()
-#     timestamp = models.DateTimeField(auto_now_add=True)
-
-#     def __str__(self):
-#         return f'{self.sender.username}: {self.message}'
-
 class ChatMessage(models.Model):
     session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE)
     sender = models.ForeignKey(User, on_delete=models.CASCADE)
