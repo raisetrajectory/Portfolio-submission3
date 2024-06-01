@@ -315,5 +315,5 @@ def delete_message(request, message_id):
     message = get_object_or_404(ChatMessage, id=message_id)
     session_id = message.session.id
     if request.user == message.sender:
-        message.delete()  # deleteメソッドを呼び出す
+        message.delete()
     return redirect('chat_view', session_id=session_id)
