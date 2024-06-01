@@ -326,7 +326,7 @@ def send_message(request):
                 session = get_object_or_404(CounselingSession, id=session_id)
                 messages_list = ChatMessage.objects.filter(session=session).order_by('timestamp')
                 return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages_list, 'session': session})
-    return redirect('counseling/registration/chat.html')
+    return redirect('chat_view')
 
 # @login_required
 # def delete_message(request, message_id):
