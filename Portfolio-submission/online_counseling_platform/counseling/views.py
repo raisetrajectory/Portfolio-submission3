@@ -420,8 +420,8 @@ def get_messages(request):
 
 @login_required
 def send_message(request):
-    messages = []  # 初期値として空のリストを設定
-    session = None  # 初期値としてNoneを設定
+    messages = []
+    session = None
 
     if request.method == 'POST':
         form = ChatMessageForm(request.POST)
@@ -435,7 +435,7 @@ def send_message(request):
                     chat_message = ChatMessage(sender=user, message=message_text, session=session)
                     chat_message.save()
                     return redirect(f"{request.path_info}?session_id={session.id}")
-                except ValueError:
+                except CounselingSession.DoesNotExist:
                     form.add_error('session_id', 'セッションIDが無効です。')
             else:
                 form.add_error('session_id', 'セッションIDが無効です。')
@@ -445,7 +445,7 @@ def send_message(request):
                 try:
                     session = get_object_or_404(CounselingSession, id=session_id)
                     messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
-                except ValueError:
+                except CounselingSession.DoesNotExist:
                     form.add_error('session_id', 'セッションIDが無効です。')
             else:
                 form.add_error('session_id', 'セッションIDが無効です。')
@@ -456,7 +456,7 @@ def send_message(request):
                 session = get_object_or_404(CounselingSession, id=session_id)
                 form = ChatMessageForm(initial={'session_id': session.id})
                 messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
-            except ValueError:
+            except CounselingSession.DoesNotExist:
                 form.add_error('session_id', 'セッションIDが無効です。')
         else:
             form = ChatMessageForm()
