@@ -395,7 +395,7 @@ def send_message(request):
             else:
                 form.add_error('session_id', 'セッションIDが無効です。')
         else:
-            session_id = request.POST.get('session_id')
+            session_id = form.cleaned_data.get('session_id') or request.POST.get('session_id')
             if session_id:
                 try:
                     session = get_object_or_404(CounselingSession, id=session_id)
@@ -412,7 +412,6 @@ def send_message(request):
                 form = ChatMessageForm(initial={'session_id': session.id})
                 messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
             except ValueError:
-                form = ChatMessageForm()
                 form.add_error('session_id', 'セッションIDが無効です。')
         else:
             form = ChatMessageForm()
