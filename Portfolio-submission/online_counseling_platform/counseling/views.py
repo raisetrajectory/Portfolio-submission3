@@ -250,9 +250,9 @@ def counselor_list_view(request):
     counselors = Counselor.objects.all()
     return render(request, 'counselor_list.html', {'counselors': counselors})
 
-def get_messages(request):
-    messages = ChatMessage.objects.values('user', 'content')
-    return JsonResponse({'messages': list(messages)})
+# def get_messages(request):
+#     messages = ChatMessage.objects.values('user', 'content')
+#     return JsonResponse({'messages': list(messages)})
 
 # def send_message(request):
 #     if request.method == 'POST':
