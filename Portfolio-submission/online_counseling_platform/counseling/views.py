@@ -145,7 +145,7 @@ from .models import Counselor, CounselingSession, ChatMessage
 from django.contrib.auth import get_user_model
 # from django.utils.functional import SimpleLazyObject
 
-User = get_user_model()
+# User = get_user_model()
 
 # def home(request):
 #     return render(request, 'home.html')
