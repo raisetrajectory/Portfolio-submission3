@@ -217,18 +217,9 @@ def session_detail(request, session_id):
 #         counselor = get_object_or_404(Counselor, id=counselor_id)
 #         session, created = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
 
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             chat_message = form.save(commit=False)
-#             chat_message.sender = request.user
-#             chat_message.session = session
-#             chat_message.save()
-#             return redirect('chat_view', session_id=session.id)
-#     else:
-#         form = ChatMessageForm()
+#     form = ChatMessageForm(initial={'session_id': session.id}) if session else ChatMessageForm()
+#     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
 
-#     messages = ChatMessage.objects.filter(session=session).order_by('-timestamp') if session else []
 #     return render(request, 'counseling/registration/chat.html', {
 #         'form': form,
 #         'messages': messages,
