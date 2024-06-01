@@ -150,14 +150,6 @@ User = get_user_model()
 # def home(request):
 #     return render(request, 'home.html')
 
-# def home(request):
-#     # 例えば、サイトが初めて起動されたときに `default_user` を作成する条件を設定します。
-#     some_condition = not User.objects.filter(username='default_user').exists()
-#     # 特定の条件が満たされた場合にのみユーザーを作成します。
-#     if some_condition:
-#         User.objects.create_user(username='default_user', password='defaultpassword')
-#     return render(request, 'home.html')
-
 def home(request):
     some_condition = not User.objects.filter(username='default_user').exists()
     if some_condition:
