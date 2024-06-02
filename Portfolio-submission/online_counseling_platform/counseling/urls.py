@@ -58,4 +58,6 @@ urlpatterns = [
     path('chat/<int:session_id>/', chat_view, name='chat_view'),
     path('delete_message/<int:message_id>/', delete_message, name='delete_message'),
     path('delete_message/<int:message_id>/', views.delete_message, name='delete_message'),
+
+    path('chat/', views.chat_view, name='chat_view'),
 ]
