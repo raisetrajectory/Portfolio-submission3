@@ -281,13 +281,13 @@ def send_message(request):
             return redirect('chat_view', session_id=session.id)  # 正しいリダイレクトURLを設定
     return redirect('home')
 
-@login_required
-def delete_message(request, message_id):
-    message = get_object_or_404(ChatMessage, id=message_id)
-    session_id = message.session.id
-    if request.user == message.sender:
-        message.delete()
-    return redirect('chat_view', session_id=session_id)
+# @login_required
+# def delete_message(request, message_id):
+#     message = get_object_or_404(ChatMessage, id=message_id)
+#     session_id = message.session.id
+#     if request.user == message.sender:
+#         message.delete()
+#     return redirect('chat_view', session_id=session_id)
 
 @login_required
 def chat_view(request, session_id=None, counselor_id=None):
@@ -456,3 +456,11 @@ def counselor_list_view(request):
 #     if request.user == message.sender:
 #         message.delete()
 #     return redirect('chat_view', session_id=session_id)
+
+@login_required
+def delete_message(request, message_id):
+    message = get_object_or_404(ChatMessage, id=message_id)
+    session_id = message.session.id
+    if request.user == message.sender:
+        message.delete()
+    return redirect('chat_view', session_id=session_id)
