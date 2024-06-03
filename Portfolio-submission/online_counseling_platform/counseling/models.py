@@ -128,3 +128,4 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+# 55~129の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！
