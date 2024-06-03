@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html>
 <head>
     <title>カウンセラー一覧画面</title>
@@ -35,9 +35,9 @@
         <button type="submit">プロフィール画面へ</button>
     </form>
 </body>
-</html>
+</html> {% endcomment %}
 
-{% comment %} <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>カウンセラー一覧画面</title>
@@ -57,8 +57,7 @@
     <button onclick="location.href='{% url 'chat' counselor_id=2 %}'">チャット画面へ（カウンセラー02）</button>
     <button onclick="location.href='{% url 'profile' counselor_id=1 %}'">プロフィール画面へ（カウンセラー01）</button>
     <button onclick="location.href='{% url 'profile' counselor_id=2 %}'">プロフィール画面へ（カウンセラー02）</button>
-    <button onclick="location.href='{% url 'home' %}'">プロフィール画面へ</button>
     <button onclick="location.href='{% url 'profile' %}'">プロフィール画面へ</button>
 </body>
-</html> {% endcomment %}
+</html>
 
