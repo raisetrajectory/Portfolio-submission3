@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html>
 <head>
     <title>プロフィール</title>
@@ -25,5 +25,37 @@
     <form action="{% url 'counselor_list' %}" method="get">
         <button type="submit">カウンセラーを変更する</button>
     </form>
+</body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>プロフィール</title>
+    <style>
+        ul {
+            list-style-type: none; /* リストマーカーを非表示にする */
+            padding: 0; /* デフォルトのパディングを削除 */
+        }
+        li {
+            margin: 5px 0; /* リストアイテム間のマージンを設定 */
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ user.username }}のプロフィール</h1>
+    <p>Email: {{ user.email }}</p>
+    {% if user.profile_picture %}
+    <p><img src="{{ user.profile_picture.url }}" alt="プロフィール画像" style="max-width: 200px; max-height: 200px;"></p>
+    {% else %}
+    <p>プロフィール画像がありません。</p>
+    {% endif %}
+    <ul>
+        <li><button onclick="location.href='{% url 'home' %}'">ホームに戻る</button></li>
+        <li><button onclick="location.href='{% url 'logout' %}'">ログアウト</button></li>
+        <li><button onclick="location.href='{% url 'chat' %}'">チャット画面へ</button></li>
+        <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラー一覧画面へ</button></li>
+        <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラーを変更する</button></li>
+    </ul>
 </body>
 </html>
