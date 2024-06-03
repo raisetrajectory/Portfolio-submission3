@@ -27,9 +27,9 @@
     <p>名前:カウンセラー01(男性) {{ user.bio|linebreaks }}</p>
     <p>自己紹介:初めまして！ よろしくお願い致します! {{ user.bio|linebreaks }}</p>
     <p>資格:臨床心理士 {{ user.bio|linebreaks }}</p>
-    <p>名前: {{ user.name }}</p>
-    <p>自己紹介: {{ user.bio|linebreaks }}</p>
-    <p>資格: {{ user.qualifications }}</p>
+    <p>名前:カウンセラー01(男性) {{ user.name }}</p>
+    <p>自己紹介:初めまして！ よろしくお願い致します! {{ user.bio|linebreaks }}</p>
+    <p>資格:臨床心理士 {{ user.qualifications }}</p>
     <ul>
         <li><button onclick="location.href='{% url 'home' %}'">メインメニューへ戻る</button>（{{ user.username }}）</li>
         <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラー一覧画面へ</button>（{{ user.username }}）</li>
