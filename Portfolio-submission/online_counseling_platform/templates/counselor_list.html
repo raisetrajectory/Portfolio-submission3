@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html>
 <head>
     <title>カウンセラー一覧画面</title>
@@ -36,4 +36,30 @@
     </form>
     <button onclick="location.href='{% url 'profile' %}'">プロフィール画面へ</button>
 </body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>カウンセラー一覧画面</title>
+</head>
+<body>
+    <h1>カウンセラー一覧画面</h1>
+    <ul>
+        {% for counselor in counselors %}
+        <li>{{ counselor.name }}
+            <button onclick="location.href='{% url 'profile' counselor_id=counselor.id %}'">プロフィール画面へ</button>
+            <button onclick="location.href='{% url 'chat' counselor_id=counselor.id %}'">チャット画面へ</button>
+        </li>
+        {% endfor %}
+    </ul>
+    <button onclick="location.href='{% url 'home' %}'">メインメニューへ</button>
+    <button onclick="location.href='{% url 'chat' counselor_id=1 %}'">チャット画面へ（カウンセラー01）</button>
+    <button onclick="location.href='{% url 'chat' counselor_id=2 %}'">チャット画面へ（カウンセラー02）</button>
+    <button onclick="location.href='{% url 'profile' counselor_id=1 %}'">プロフィール画面へ（カウンセラー01）</button>
+    <button onclick="location.href='{% url 'profile' counselor_id=2 %}'">プロフィール画面へ（カウンセラー02）</button>
+    <button onclick="location.href='{% url 'home' %}'">プロフィール画面へ</button>
+    <button onclick="location.href='{% url 'profile' %}'">プロフィール画面へ</button>
+</body>
 </html>
+
