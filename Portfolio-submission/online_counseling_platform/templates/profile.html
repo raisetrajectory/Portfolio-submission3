@@ -56,7 +56,7 @@
     {% else %}
     <p>プロフィール画像がありません。</p>
     {% endif %}
-    <p>自己紹介: {{ user.bio|linebreaks }}</p>
+    <p>名前: {{ user.bio|linebreaks }}</p>
     <p>自己紹介: {{ user.bio|linebreaks }}</p>
     <ul>
         <li><button onclick="location.href='{% url 'home' %}'">メインメニューへ戻る</button>（<span class="username">{{ user.username }}</span>）</li>
