@@ -160,6 +160,9 @@ STATICFILES_DIRS = [
 # 静的ファイルの収集先
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# settings.py
+# AUTH_USER_MODEL = 'counseling.CustomUser'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
