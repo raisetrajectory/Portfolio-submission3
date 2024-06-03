@@ -23,8 +23,8 @@
         {% endfor %}
     </ul>
     <ul>
-        <li><button onclick="location.href='{% url 'chat' counselor_id=1 %}'">チャット画面へ（カウンセラー01）</button></li>
-        <li><button onclick="location.href='{% url 'chat' counselor_id=2 %}'">チャット画面へ（カウンセラー02）</button></li>
+        {% comment %} <li><button onclick="location.href='{% url 'chat' counselor_id=1 %}'">チャット画面へ（カウンセラー01）</button></li>
+        <li><button onclick="location.href='{% url 'chat' counselor_id=2 %}'">チャット画面へ（カウンセラー02）</button></li> {% endcomment %}
         <li><button onclick="location.href='{% url 'chat' %}'">チャット画面へ（カウンセラー01）</button></li>
         <li><button onclick="location.href='{% url 'chat' %}'">チャット画面へ（カウンセラー02）</button></li>
         <li><button onclick="location.href='{% url 'home' %}'">メインメニューへ</button></li>
