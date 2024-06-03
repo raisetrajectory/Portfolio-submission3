@@ -31,7 +31,7 @@
     </form>
     <form action="{% url 'profile' counselor_id=2 %}" method="get">
         <button type="submit">プロフィール画面へ（カウンセラー02）</button>
-    <form action="{% url 'home' %}" method="get">
+    <form action="{% url 'counselor_list' %}" method="get">
         <button type="submit">プロフィール画面へ</button>
     </form>
     <li><button onclick="location.href='{% url 'home' %}'">メインメニューへ</button></li>
