@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html>
 <head>
     <title>プロフィール</title>
@@ -26,6 +26,42 @@
         <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラー一覧画面へ</button>（{{ user.username }}）</li>
         <li><button onclick="location.href='{% url 'chat' %}'">チャット画面へ</button>（{{ user.username }}）</li>
         <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラーを変更する</button>（{{ user.username }}）</li>
+    </ul>
+</body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>プロフィール</title>
+    <style>
+        ul {
+            list-style-type: none; /* リストマーカーを非表示にする */
+            padding: 0; /* デフォルトのパディングを削除 */
+        }
+        li {
+            margin: 5px 0; /* リストアイテム間のマージンを設定 */
+        }
+        .username {
+            font-weight: bold; /* ユーザー名を太字にする */
+            color: #333; /* ユーザー名の色を設定 */
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ user.username }}のプロフィール</h1>
+    <p>Email: {{ user.email }}</p>
+    {% if user.profile_picture %}
+    <p><img src="{{ user.profile_picture.url }}" alt="プロフィール画像" style="max-width: 200px; max-height: 200px;"></p>
+    {% else %}
+    <p>プロフィール画像がありません。</p>
+    {% endif %}
+    <p>自己紹介: {{ user.bio|linebreaks }}</p>
+    <ul>
+        <li><button onclick="location.href='{% url 'home' %}'">メインメニューへ戻る</button>（<span class="username">{{ user.username }}</span>）</li>
+        <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラー一覧画面へ</button>（<span class="username">{{ user.username }}</span>）</li>
+        <li><button onclick="location.href='{% url 'chat' %}'">チャット画面へ</button>（<span class="username">{{ user.username }}</span>）</li>
+        <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラーを変更する</button>（<span class="username">{{ user.username }}</span>）</li>
     </ul>
 </body>
 </html>
