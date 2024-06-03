@@ -26,8 +26,8 @@
         <li><button onclick="location.href='{% url 'chat' counselor_id=1 %}'">チャット画面へ（カウンセラー01）</button></li>
         <li><button onclick="location.href='{% url 'chat' counselor_id=2 %}'">チャット画面へ（カウンセラー02）</button></li>
         <li><button onclick="location.href='{% url 'home' %}'">メインメニューへ</button></li>
-        <li><button onclick="location.href='{% url 'profile' counselor_id=1 %}'">プロフィール画面へ（カウンセラー01）</button></li>
-        <li><button onclick="location.href='{% url 'profile' counselor_id=2 %}'">プロフィール画面へ（カウンセラー02）</button></li>
+        {% comment %} <li><button onclick="location.href='{% url 'profile' counselor_id=1 %}'">プロフィール画面へ（カウンセラー01）</button></li>
+        <li><button onclick="location.href='{% url 'profile' counselor_id=2 %}'">プロフィール画面へ（カウンセラー02）</button></li> {% endcomment %}
         <li><button onclick="location.href='{% url 'profile' %}'">プロフィール画面へ</button></li>
     </ul>
 </body>
