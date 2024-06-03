@@ -60,8 +60,7 @@
     <p>自己紹介: {{ user.bio|linebreaks }}</p>
     <p>資格: {{ user.bio|linebreaks }}</p>
     <ul>
-        <li><button onclick="location.href='{% url 'home' %}'">メインメニューへ戻る</button>（{{ user.username }}）</li>
-        <li><button onclick="location.href='{% url 'home' %}'">メインメニューへ戻る</button>（<span class="username">{{ user.username }}</span>）</li>
+        <li><button onclick="location.href='{% url 'home' %}'">メインメニューへ戻る</button>（（{{ user.username }}）</li>
         <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラー一覧画面へ</button>（<span class="username">{{ user.username }}</span>）</li>
         <li><button onclick="location.href='{% url 'chat' %}'">チャット画面へ</button>（<span class="username">{{ user.username }}</span>）</li>
         <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラーを変更する</button>（<span class="username">{{ user.username }}</span>）</li>
