@@ -20,13 +20,14 @@
     <form action="{% url 'chat' counselor_id=1 %}" method="get">
         <button type="submit">チャット画面へ（カウンセラー01）</button>
     </form>
+    <form action="{% url 'chat' counselor_id=2 %}" method="get">
+        <button type="submit">チャット画面へ（カウンセラー02）</button>
+    </form>
     <form action="{% url 'home' %}" method="get">
         <button type="submit">メインメニューへ</button>
     </form>
 
-    <form action="{% url 'chat' counselor_id=2 %}" method="get">
-        <button type="submit">チャット画面へ（カウンセラー02）</button>
-    </form>
+
     <form action="{% url 'profile' counselor_id=1 %}" method="get">
         <button type="submit">プロフィール画面へ（カウンセラー01）</button>
     </form>
