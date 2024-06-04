@@ -53,9 +53,9 @@
 # 1~51の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！
 
 from django.db import models
+from django.contrib.auth.models import User # type: ignore #2024年6月4日追加
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth import get_user_model
-from django.contrib.auth.models import User # type: ignore #2024年6月4日追加
 
 User = get_user_model() # type: ignore
 
