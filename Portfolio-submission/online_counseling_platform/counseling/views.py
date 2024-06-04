@@ -149,9 +149,6 @@ from django.urls import reverse
 
 User = get_user_model()
 
-# def home(request):
-#     return render(request, 'home.html')
-
 def home(request):
     some_condition = not User.objects.filter(username='default_user').exists()
     if some_condition:
