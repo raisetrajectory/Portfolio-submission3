@@ -148,7 +148,7 @@ LOGIN_REDIRECT_URL = 'chat'  # ログイン後のリダイレクト先
 
 STATIC_URL = '/static/'
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/' #メディアファイルを公開する際のURL
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # STATICFILES_DIRSは、追加の静的ファイルディレクトリがある場合に指定します
