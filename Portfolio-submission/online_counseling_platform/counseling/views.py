@@ -143,7 +143,7 @@ from django.template import TemplateDoesNotExist
 from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorForm, ProfileForm, ChatMessageForm
 from .models import Counselor, CounselingSession, ChatMessage
 from django.contrib.auth import get_user_model
-# from django.utils.functional import SimpleLazyObject
+from django.utils.functional import SimpleLazyObject
 
 from django.urls import reverse
 

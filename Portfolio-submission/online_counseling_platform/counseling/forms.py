@@ -44,12 +44,12 @@ from .models import Counselor, ChatMessage
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
-from .models import Profile #2024年6月4日追加
+# from .models import Profile #2024年6月4日追加
 
-class ProfileForm(forms.ModelForm):  #2024年6月4日追加 # type: ignore
-    class Meta:
-        model = Profile
-        fields = ['bio', 'profile_picture']
+# class ProfileForm(forms.ModelForm):  #2024年6月4日追加 # type: ignore
+#     class Meta:
+#         model = Profile
+#         fields = ['bio', 'profile_picture']
 
 class CounselorForm(forms.ModelForm):
     class Meta:
