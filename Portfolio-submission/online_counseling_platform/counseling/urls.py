@@ -60,6 +60,7 @@ urlpatterns = [
     path('send_message/', send_message, name='send_message'),
     path('chat/<int:session_id>/', chat_view, name='chat_view'),
     path('delete_message/<int:message_id>/', views.delete_message, name='delete_message'),
-
     path('chat/', views.chat_view, name='chat_view'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
