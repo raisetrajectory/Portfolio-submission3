@@ -107,12 +107,6 @@ class CounselingSession(models.Model):
     end_time = models.DateTimeField(null=True, blank=True)
 
 # class ChatMessage(models.Model):
-#     session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE)
-#     sender = models.ForeignKey(User, on_delete=models.CASCADE)
-#     message = models.TextField()
-#     timestamp = models.DateTimeField(auto_now_add=True)
-
-# class ChatMessage(models.Model):
 #     sender = models.ForeignKey(User, on_delete=models.CASCADE)
 #     message = models.TextField()
 #     session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE)
