@@ -1,4 +1,4 @@
-{% comment %} <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>プロフィール画面</title>
@@ -35,9 +35,9 @@
         <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラーを変更する</button>（{{ user.username }}）</li>
     </ul>
 </body>
-</html> {% endcomment %}
+</html>
 
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html>
 <head>
     <title>プロフィール画面</title>
@@ -82,4 +82,4 @@
         <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラーを変更する</button>（{{ user.username }}）</li>
     </ul>
 </body>
-</html>
+</html> {% endcomment %}
