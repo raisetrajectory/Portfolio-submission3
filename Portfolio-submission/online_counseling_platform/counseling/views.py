@@ -320,27 +320,6 @@ def counselor_list_view(request):
     counselors = Counselor.objects.all()
     return render(request, 'counselor_list.html', {'counselors': counselors})
 
-# def send_message(request):
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             session_id = form.cleaned_data['session_id']
-#             message_text = form.cleaned_data['message']
-#             session = CounselingSession.objects.get(id=session_id)
-#             user = request.user if request.user.is_authenticated else None
-#             try:
-#                 default_user = User.objects.get(username='default_user')
-#             except User.DoesNotExist:
-#                 default_user = None
-#             sender = user if user else default_user
-#             chat_message = ChatMessage(sender=sender, message=message_text, session=session)
-#             chat_message.save()
-#             messages = ChatMessage.objects.filter(session=session)
-#             return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
-#     else:
-#         form = ChatMessageForm()
-#     return render(request, 'counseling/registration/chat.html', {'form': form})
-
 #313~357の記載内容が正しいです！バックアップです！
 # @login_required
 # def send_message(request):
