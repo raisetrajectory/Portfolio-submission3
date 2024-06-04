@@ -297,17 +297,17 @@ def profile_view(request):
         form = ProfileForm(instance=request.user)
     return render(request, 'profile.html', {'form': form})
 
-@login_required
-def profile_view(request):
-    if request.method == 'POST':
-        form = CustomUserChangeForm(request.POST, request.FILES, instance=request.user)
-        if form.is_valid():
-            form.save()
-            return redirect('profile')
-    else:
-        form = CustomUserChangeForm(instance=request.user)
+# @login_required
+# def profile_view(request):
+#     if request.method == 'POST':
+#         form = CustomUserChangeForm(request.POST, request.FILES, instance=request.user)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('profile')
+#     else:
+#         form = CustomUserChangeForm(instance=request.user)
 
-    return render(request, 'profile.html', {'form': form})
+#     return render(request, 'profile.html', {'form': form})
 
 # @login_required #2024年6月4日追加
 # def profile_view(request):
