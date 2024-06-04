@@ -319,28 +319,6 @@ def profile_view(request):
 #         form = ProfileForm(instance=request.user.profile)
 #     return render(request, 'profile.html', {'form': form})
 
-# @login_required #2024年6月4日追加
-# def profile_view(request):
-#     if request.method == 'POST':
-#         form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('profile')
-#     else:
-#         form = ProfileForm(instance=request.user.profile)
-#     return render(request, 'profile.html', {'form': form})
-
-@login_required #2024年6月4日追加
-def profile_view(request):
-    if request.method == 'POST':
-        form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
-        if form.is_valid():
-            form.save()
-            return redirect('profile')
-    else:
-        form = ProfileForm(instance=request.user.profile)
-    return render(request, 'profile.html', {'form': form})
-
 def counselor_list_view(request):
     counselors = Counselor.objects.all()
     return render(request, 'counselor_list.html', {'counselors': counselors})
