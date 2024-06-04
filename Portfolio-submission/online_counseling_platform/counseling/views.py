@@ -308,7 +308,7 @@ def profile_view(request):
         form = ProfileForm(instance=request.user)
     return render(request, 'profile.html', {'form': form})
 
-@login_required
+@login_required #2024年 6月4日追加
 def profile_view(request):
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
