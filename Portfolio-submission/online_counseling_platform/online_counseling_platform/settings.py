@@ -148,6 +148,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'online_counseling_platform', 'static'),
     # os.path.join(BASE_DIR, 'staticfiles'),
+    # os.path.join(BASE_DIR,'online_counseling_platform', 'staticfiles'),
 ]
 
 # 静的ファイルの収集先
