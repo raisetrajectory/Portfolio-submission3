@@ -61,6 +61,8 @@ urlpatterns = [
     path('chat/<int:session_id>/', chat_view, name='chat_view'),
     path('delete_message/<int:message_id>/', views.delete_message, name='delete_message'),
     path('chat/', views.chat_view, name='chat_view'),
+
+    path('signup/', views.signup, name='signup'), #2024年6月5日追加
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
