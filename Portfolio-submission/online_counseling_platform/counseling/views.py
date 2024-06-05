@@ -145,12 +145,12 @@ from .models import Counselor, CounselingSession, ChatMessage
 from django.contrib.auth import get_user_model
 from django.utils.functional import SimpleLazyObject
 
-# from django.shortcuts import render, redirect
-# from django.core.files.storage import FileSystemStorage
-# from .forms import ProfileForm
-# from .models import Profile
+# from django.shortcuts import render, redirect #2024年6月5日追加
+# from django.core.files.storage import FileSystemStorage #2024年6月5日追加
+# from .forms import ProfileForm #2024年6月5日追加
+# from .models import Profile #2024年6月5日追加
 
-# def profile_view(request):
+# def profile_view(request): #2024年6月5日追加
 #     if request.method == 'POST' and request.FILES['profile_picture']:
 #         # 送られたファイルの取り出し
 #         upload_file = request.FILES['profile_picture']
@@ -172,8 +172,8 @@ from django.utils.functional import SimpleLazyObject
 #     return render(request, 'profile.html', {'form': form})
 
 
-import os
-from django.core.files.storage import FileSystemStorage
+import os #2024年6月5日追加
+from django.core.files.storage import FileSystemStorage #2024年6月5日追加
 # from django.shortcuts import render, redirect　#2024年6月5日追加
 # from .forms import UploadedFileForm　#2024年6月5日追加
 
