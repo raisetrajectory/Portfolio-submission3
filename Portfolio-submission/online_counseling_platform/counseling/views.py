@@ -148,11 +148,7 @@ from django.utils.functional import SimpleLazyObject
 import os
 from django.core.files.storage import FileSystemStorage
 
-from django.urls import reverse
-
-User = get_user_model()
-
-def upload_sample(request):
+def upload_sample(request): #2024年6月5日追加
     if request.method == 'POST' and request.FILES['upload_file']:
         # 送られたファイルの取り出し
         upload_file = request.FILES['upload_file']
@@ -164,6 +160,9 @@ def upload_sample(request):
             'upload_file_url': upload_file_url
         })
 
+from django.urls import reverse
+
+User = get_user_model()
 
 def home(request):
     some_condition = not User.objects.filter(username='default_user').exists()
