@@ -147,6 +147,8 @@ from django.utils.functional import SimpleLazyObject
 
 import os
 from django.core.files.storage import FileSystemStorage
+# from django.shortcuts import render, redirect
+# from .forms import UploadedFileForm
 
 def upload_sample(request): #2024年6月5日追加
     if request.method == 'POST' and request.FILES['upload_file']:
