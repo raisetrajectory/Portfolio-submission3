@@ -44,8 +44,8 @@ from .models import Counselor, ChatMessage
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
-# from django import forms #2024年6月5日追加
-# from .models import Profile #2024年6月5日追加
+from django import forms #2024年6月5日追加
+# from .models import Profile # type: ignore #2024年6月5日追加
 
 # class ProfileForm(forms.ModelForm):
 #     class Meta:
