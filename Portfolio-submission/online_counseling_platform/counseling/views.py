@@ -277,6 +277,19 @@ def signup(request):
         form = CustomUserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
+def signup(request): #2024年6月5日追加
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            # ユーザーオブジェクトにbackend属性を追加
+            user.backend = 'django.contrib.auth.backends.ModelBackend'  # 使用しているバックエンドを指定
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            return redirect('home')  # 適切なリダイレクト先に変更
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'signup.html', {'form': form})
+
 def login_view(request):
     return auth_views.LoginView.as_view(authentication_form=CustomAuthenticationForm)(request)
 
