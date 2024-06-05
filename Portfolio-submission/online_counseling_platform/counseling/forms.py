@@ -47,6 +47,9 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django import forms #2024年6月5日追加
 # from .models import Profile # type: ignore #2024年6月5日追加
 
+class UploadFileForm(forms.Form): #2024年6月6日追加
+    upload_file = forms.ImageField()
+
 # class ProfileForm(forms.ModelForm):
 #     class Meta:
 #         model = Profile
