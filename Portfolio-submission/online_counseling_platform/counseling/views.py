@@ -145,9 +145,19 @@ from .models import Counselor, CounselingSession, ChatMessage
 from django.contrib.auth import get_user_model
 from django.utils.functional import SimpleLazyObject
 
+import os
+from django.core.files.storage import FileSystemStorage
+
 from django.urls import reverse
 
 User = get_user_model()
+
+def upload_sample(request):
+    if request.method == 'POST' and request.FILES['upload_file']:
+        # 送られたファイルの取り出し
+        upload_file = request.FILES['upload_file']
+        fs = FileSystemStorage() # ファイルを保存する
+
 
 def home(request):
     some_condition = not User.objects.filter(username='default_user').exists()
