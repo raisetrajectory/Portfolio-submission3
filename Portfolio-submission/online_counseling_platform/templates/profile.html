@@ -58,7 +58,8 @@
     </style>
 </head>
 <body>
-
+    <form method="post" enctype="multipart/form-data">
+    
     <h1>{{ user.username }}のプロフィール</h1>
     <p>Email: {{ user.email }}</p>
     {% if user.profile_picture %}
