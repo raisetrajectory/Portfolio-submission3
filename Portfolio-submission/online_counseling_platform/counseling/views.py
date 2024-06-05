@@ -156,6 +156,9 @@ from django.shortcuts import render #2024年6月5日追加
 from django.http import HttpResponseRedirect #2024年6月5日追加
 from django.urls import reverse #2024年6月5日追加
 
+from .forms import UploadFileForm #2024年6月6日追加
+from django.conf import settings #2024年6月6日追加
+
 def upload_sample(request): #2024年6月5日追加
     if request.method == 'POST' and request.FILES['upload_file']:
         # 送られたファイルの取り出し
