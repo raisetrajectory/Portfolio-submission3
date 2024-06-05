@@ -159,6 +159,7 @@ def upload_sample(request): #2024年6月5日追加
         return render(request, 'online_counseling_platform/profile.html', context={
             'upload_file_url': upload_file_url
         })
+    return render(request, 'online_counseling_platform/profile.html')
 
 from django.urls import reverse
 
