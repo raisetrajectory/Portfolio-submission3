@@ -62,7 +62,7 @@ urlpatterns = [
     path('delete_message/<int:message_id>/', views.delete_message, name='delete_message'),
     path('chat/', views.chat_view, name='chat_view'),
 
-    path('signup/', views.signup, name='signup'), #2024年6月5日追加
+    path('upload_sample/', views.upload_sample, name='upload_sample'), #2024年6月5日追加
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
