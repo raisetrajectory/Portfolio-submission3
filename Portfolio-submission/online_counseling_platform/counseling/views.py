@@ -147,8 +147,19 @@ from django.utils.functional import SimpleLazyObject
 
 import os
 from django.core.files.storage import FileSystemStorage
-# from django.shortcuts import render, redirect
-# from .forms import UploadedFileForm
+# from django.shortcuts import render, redirect　#2024年6月5日追加
+# from .forms import UploadedFileForm　#2024年6月5日追加
+
+# def upload_sample(request):　#2024年6月5日追加
+#     if request.method == 'POST':
+#         form = UploadedFileForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('profile')
+#     else:
+#         form = UploadedFileForm()
+
+#     return render(request, 'online_counseling_platform/upload_file.html', {'form': form})
 
 def upload_sample(request): #2024年6月5日追加
     if request.method == 'POST' and request.FILES['upload_file']:
