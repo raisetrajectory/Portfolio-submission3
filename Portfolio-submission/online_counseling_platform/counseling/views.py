@@ -160,7 +160,9 @@ def upload_sample(request):
         file_path = os.path.join('upload', upload_file.name)
         file =fs.save(file_path, upload_file)
         uploaded_file_url = fs.url(file)
-        return render(request, 'online_counseling_platform')
+        return render(request, 'online_counseling_platform/upload_file.html', context={
+            'upload_file_url': upload_file_url
+        })
 
 
 def home(request):
