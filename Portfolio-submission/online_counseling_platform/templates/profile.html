@@ -38,7 +38,7 @@
 </body>
 </html> {% endcomment %}
 
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -84,4 +84,54 @@
         <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラーを変更する</button>（{{ user.username }}）</li>
     </ul>
 </body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>プロフィール画面</title>
+    <style>
+        ul {
+            list-style-type: none; /* リストマーカーを非表示にする */
+            padding: 0; /* デフォルトのパディングを削除 */
+        }
+        li {
+            margin: 5px 0; /* リストアイテム間のマージンを設定 */
+        }
+        .username {
+            font-weight: bold; /* ユーザー名を太字にする */
+            color: #333; /* ユーザー名の色を設定 */
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ user.username }}のプロフィール</h1>
+    <p>Email: {{ user.email }}</p>
+    {% if user.profile_picture %}
+    <p><img src="{{ user.profile_picture.url }}" alt="プロフィール画像" style="max-width: 200px; max-height: 200px;"></p>
+    {% else %}
+    <p>プロフィール画像がありません。</p>
+    {% endif %}
+    <p>名前:カウンセラー01(男性) {{ user.name }}</p>
+    <p>自己紹介:初めまして！ よろしくお願い致します! {{ user.bio|linebreaks }}</p>
+    <p>資格:臨床心理士 {{ user.qualifications }}</p>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="upload_file"><br>
+        <input type="submit" value="保存">
+    </form>
+    {% if uploaded_file_url %}
+    <p>保存先: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+    {% endif %}
+
+    <ul>
+        <li><button onclick="location.href='{% url 'home' %}'">メインメニューへ戻る</button>（{{ user.username }}）</li>
+        <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラー一覧画面へ</button>（{{ user.username }}）</li>
+        <li><button onclick="location.href='{% url 'chat' %}'">チャット画面へ</button>（{{ user.username }}）</li>
+        <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラーを変更する</button>（{{ user.username }}）</li>
+    </ul>
+</body>
 </html>
+
