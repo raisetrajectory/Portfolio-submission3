@@ -157,6 +157,7 @@ def upload_sample(request):
         # 送られたファイルの取り出し
         upload_file = request.FILES['upload_file']
         fs = FileSystemStorage() # ファイルを保存する
+        file_path = os.path.join('upload', upload_file.name)
 
 
 def home(request):
