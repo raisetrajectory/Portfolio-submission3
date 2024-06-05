@@ -163,18 +163,18 @@ def upload_sample(request):
         return HttpResponseRedirect(reverse('profile') + '?uploaded_file_url=' + uploaded_file_url)
     return render(request, 'online_counseling_platform/profile.html')
 
-def upload_sample(request): #2024年6月5日追加
-    if request.method == 'POST' and request.FILES['upload_file']:
-        # 送られたファイルの取り出し
-        upload_file = request.FILES['upload_file']
-        fs = FileSystemStorage() # ファイルを保存する
-        file_path = os.path.join('upload', upload_file.name)
-        file =fs.save(file_path, upload_file)
-        uploaded_file_url = fs.url(file)
-        return render(request, 'online_counseling_platform/profile.html', context={
-            'upload_file_url': upload_file_url
-        })
-    return render(request, 'online_counseling_platform/profile.html')
+# def upload_sample(request): #2024年6月5日追加
+#     if request.method == 'POST' and request.FILES['upload_file']:
+#         # 送られたファイルの取り出し
+#         upload_file = request.FILES['upload_file']
+#         fs = FileSystemStorage() # ファイルを保存する
+#         file_path = os.path.join('upload', upload_file.name)
+#         file =fs.save(file_path, upload_file)
+#         uploaded_file_url = fs.url(file)
+#         return render(request, 'online_counseling_platform/profile.html', context={
+#             'upload_file_url': upload_file_url
+#         })
+#     return render(request, 'online_counseling_platform/profile.html')
 
 from django.urls import reverse
 
