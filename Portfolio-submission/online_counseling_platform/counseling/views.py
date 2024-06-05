@@ -266,16 +266,16 @@ def edit_counselor_profile(request, pk):
         form = CounselorForm(instance=counselor)
     return render(request, 'edit_counselor_profile.html', {'form': form})
 
-def signup(request):
-    if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('home')
-    else:
-        form = CustomUserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+# def signup(request):
+#     if request.method == 'POST':
+#         form = CustomUserCreationForm(request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             login(request, user)
+#             return redirect('home')
+#     else:
+#         form = CustomUserCreationForm()
+#     return render(request, 'signup.html', {'form': form})
 
 def signup(request): #2024年6月5日追加
     if request.method == 'POST':
