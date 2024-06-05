@@ -145,6 +145,10 @@ from .models import Counselor, CounselingSession, ChatMessage
 from django.contrib.auth import get_user_model
 from django.utils.functional import SimpleLazyObject
 
+from django.urls import reverse
+
+User = get_user_model()
+
 import os #2024年6月5日追加
 from django.core.files.storage import FileSystemStorage #2024年6月5日追加
 
@@ -152,7 +156,7 @@ from django.shortcuts import render #2024年6月5日追加
 from django.http import HttpResponseRedirect #2024年6月5日追加
 from django.urls import reverse #2024年6月5日追加
 
-def upload_sample(request):
+def upload_sample(request): #2024年6月5日追加
     if request.method == 'POST' and request.FILES['upload_file']:
         # 送られたファイルの取り出し
         upload_file = request.FILES['upload_file']
@@ -175,10 +179,6 @@ def upload_sample(request):
 #             'upload_file_url': upload_file_url
 #         })
 #     return render(request, 'online_counseling_platform/profile.html')
-
-from django.urls import reverse
-
-User = get_user_model()
 
 def home(request):
     some_condition = not User.objects.filter(username='default_user').exists()
