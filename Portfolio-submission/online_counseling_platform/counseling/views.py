@@ -145,8 +145,6 @@ from .models import Counselor, CounselingSession, ChatMessage
 from django.contrib.auth import get_user_model
 from django.utils.functional import SimpleLazyObject
 
-
-
 import os #2024年6月5日追加
 from django.core.files.storage import FileSystemStorage #2024年6月5日追加
 
