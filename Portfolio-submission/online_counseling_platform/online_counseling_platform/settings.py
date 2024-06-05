@@ -147,8 +147,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # 例えば、プロジェクト全体で共有される静的ファイルなど
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'online_counseling_platform', 'static'),
-    # os.path.join(BASE_DIR, 'staticfiles'), #2024年6月5日追加
-    # os.path.join(BASE_DIR,'online_counseling_platform', 'staticfiles'),　#2024年6月5日追加
 ]
 
 # 静的ファイルの収集先
