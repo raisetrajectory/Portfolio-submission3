@@ -156,7 +156,7 @@ def upload_sample(request): #2024年6月5日追加
         file_path = os.path.join('upload', upload_file.name)
         file =fs.save(file_path, upload_file)
         uploaded_file_url = fs.url(file)
-        return render(request, 'online_counseling_platform/upload_file.html', context={
+        return render(request, 'online_counseling_platform/profile.html', context={
             'upload_file_url': upload_file_url
         })
 
