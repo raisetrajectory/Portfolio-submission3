@@ -44,6 +44,19 @@ from .models import Counselor, ChatMessage
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
+# from django import forms #2024年6月5日追加
+# from .models import Profile #2024年6月5日追加
+
+# class ProfileForm(forms.ModelForm):
+#     class Meta:
+#         model = Profile
+#         fields = ['image']
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Counselor
+        fields = ['bio']  # 'bio'フィールドのみを含める
+
 # from .models import Profile #2024年6月4日追加
 
 # class ProfileForm(forms.ModelForm):  #2024年6月4日追加 # type: ignore
@@ -56,10 +69,10 @@ class CounselorForm(forms.ModelForm):
         model = Counselor
         fields = ['bio']  # 他の必要なフィールドを追加
 
-class ProfileForm(forms.ModelForm):
-    class Meta:
-        model = Counselor
-        fields = ['bio']  # 'bio'フィールドのみを含める
+# class ProfileForm(forms.ModelForm):
+#     class Meta:
+#         model = Counselor
+#         fields = ['bio']  # 'bio'フィールドのみを含める
 
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(max_length=150, help_text='必須。有効なメールアドレスを入力してください。')
