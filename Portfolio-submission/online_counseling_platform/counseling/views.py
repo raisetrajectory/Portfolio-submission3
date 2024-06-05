@@ -145,6 +145,33 @@ from .models import Counselor, CounselingSession, ChatMessage
 from django.contrib.auth import get_user_model
 from django.utils.functional import SimpleLazyObject
 
+# from django.shortcuts import render, redirect
+# from django.core.files.storage import FileSystemStorage
+# from .forms import ProfileForm
+# from .models import Profile
+
+# def profile_view(request):
+#     if request.method == 'POST' and request.FILES['profile_picture']:
+#         # 送られたファイルの取り出し
+#         upload_file = request.FILES['profile_picture']
+#         fs = FileSystemStorage() # ファイルを保存する
+#         file_path = os.path.join('profile_pictures', upload_file.name)
+#         file = fs.save(file_path, upload_file)
+#         uploaded_file_url = fs.url(file)
+
+#         # フォームの処理
+#         form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+#         if form.is_valid():
+#             profile = form.save(commit=False)
+#             profile.profile_picture = uploaded_file_url
+#             profile.save()
+#             return redirect('profile')
+#     else:
+#         form = ProfileForm(instance=request.user.profile)
+
+#     return render(request, 'profile.html', {'form': form})
+
+
 import os
 from django.core.files.storage import FileSystemStorage
 # from django.shortcuts import render, redirect　#2024年6月5日追加
