@@ -64,6 +64,8 @@
         <input type="submit" value="保存">
     </form>
 
+    {% if upload_file_url %}
+    <p>保存先: <a href="{{ upload_file_url }}">{{ upload_file_url }}</a></p>
 
     <h1>{{ user.username }}のプロフィール</h1>
     <p>Email: {{ user.email }}</p>
