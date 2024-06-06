@@ -209,7 +209,8 @@ User = get_user_model()
 def profile(request): #2024年6月6日追加
     if request.method == 'POST' and request.FILES.get('upload_file'):
         upload_file = request.FILES['upload_file']
-        fs = FileSystemStorage()
+        # fs = FileSystemStorage()
+        fs = FileSystemStorage(location=settings.MEDIA_ROOT)
         file_path = fs.save(upload_file.name, upload_file)
         uploaded_file_url = fs.url(file_path)
         request.session['uploaded_file_url'] = uploaded_file_url  # セッションに保存
