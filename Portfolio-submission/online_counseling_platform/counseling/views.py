@@ -181,19 +181,6 @@ def upload_sample(request): #2024年6月6日追加
 #         return HttpResponseRedirect(reverse('profile') + '?uploaded_file_url=' + uploaded_file_url)
 #     return render(request, 'online_counseling_platform/profile.html')
 
-# def upload_sample(request): #2024年6月5日追加
-#     if request.method == 'POST' and request.FILES['upload_file']:
-#         # 送られたファイルの取り出し
-#         upload_file = request.FILES['upload_file']
-#         fs = FileSystemStorage() # ファイルを保存する
-#         file_path = os.path.join('upload', upload_file.name)
-#         file =fs.save(file_path, upload_file)
-#         uploaded_file_url = fs.url(file)
-#         return render(request, 'online_counseling_platform/profile.html', context={
-#             'upload_file_url': upload_file_url
-#         })
-#     return render(request, 'online_counseling_platform/profile.html')
-
 def home(request):
     some_condition = not User.objects.filter(username='default_user').exists()
     if some_condition:
@@ -311,17 +298,6 @@ def edit_counselor_profile(request, pk):
         form = CounselorForm(instance=counselor)
     return render(request, 'edit_counselor_profile.html', {'form': form})
 
-# def signup(request):
-#     if request.method == 'POST':
-#         form = CustomUserCreationForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             login(request, user)
-#             return redirect('home')
-#     else:
-#         form = CustomUserCreationForm()
-#     return render(request, 'signup.html', {'form': form})
-
 def signup(request): #2024年6月5日追加
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -354,18 +330,6 @@ def profile_view(request):
     else:
         form = ProfileForm(instance=request.user)
     return render(request, 'profile.html', {'form': form})
-
-# @login_required #2024年6月4日追加
-# def profile_view(request):
-#     if request.method == 'POST':
-#         form = CustomUserChangeForm(request.POST, request.FILES, instance=request.user)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('profile')
-#     else:
-#         form = CustomUserChangeForm(instance=request.user)
-
-#     return render(request, 'profile.html', {'form': form})
 
 # @login_required #2024年6月4日追加
 # def profile_view(request):
@@ -409,44 +373,3 @@ def counselor_list_view(request):
 #     if request.user == message.sender:
 #         message.delete()
 #     return redirect('chat_view', session_id=session_id)
-
-
-# from django.shortcuts import render, redirect #2024年6月5日追加
-# from django.core.files.storage import FileSystemStorage #2024年6月5日追加
-# from .forms import ProfileForm #2024年6月5日追加
-# from .models import Profile #2024年6月5日追加
-
-# def profile_view(request): #2024年6月5日追加
-#     if request.method == 'POST' and request.FILES['profile_picture']:
-#         # 送られたファイルの取り出し
-#         upload_file = request.FILES['profile_picture']
-#         fs = FileSystemStorage() # ファイルを保存する
-#         file_path = os.path.join('profile_pictures', upload_file.name)
-#         file = fs.save(file_path, upload_file)
-#         uploaded_file_url = fs.url(file)
-
-#         # フォームの処理
-#         form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
-#         if form.is_valid():
-#             profile = form.save(commit=False)
-#             profile.profile_picture = uploaded_file_url
-#             profile.save()
-#             return redirect('profile')
-#     else:
-#         form = ProfileForm(instance=request.user.profile)
-
-#     return render(request, 'profile.html', {'form': form})
-
-# from django.shortcuts import render, redirect　#2024年6月5日追加
-# from .forms import UploadedFileForm　#2024年6月5日追加
-
-# def upload_sample(request):　#2024年6月5日追加
-#     if request.method == 'POST':
-#         form = UploadedFileForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('profile')
-#     else:
-#         form = UploadedFileForm()
-
-#     return render(request, 'online_counseling_platform/upload_file.html', {'form': form})
