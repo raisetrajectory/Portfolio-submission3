@@ -155,69 +155,6 @@ from django.conf import settings #2024年6月6日追加
 User = get_user_model()
 
 # def profile(request): #2024年6月6日追加
-#     if request.method == 'POST':
-#         form = ProfileForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('profile')  # 保存後にプロフィール画面をリダイレクト
-#     else:
-#         form = ProfileForm()
-#     return render(request, 'profile.html', {'form': form})
-
-# def profile(request): #2024年6月6日追加
-#     if request.method == 'POST' and request.FILES['upload_file']:
-#         upload_file = request.FILES['upload_file']
-#         fs = FileSystemStorage()
-#         file_path = fs.save(upload_file.name, upload_file)
-#         uploaded_file_url = fs.url(file_path)
-#         request.session['uploaded_file_url'] = uploaded_file_url  # セッションに保存
-#         return redirect('profile')
-#     else:
-#         form = UploadFileForm()
-#     return render(request, 'profile.html', {'form': form})
-
-# def profile(request): #2024年6月6日追加
-#     if request.method == 'POST' and 'upload_file' in request.FILES:
-#         upload_file = request.FILES['upload_file']
-#         fs = FileSystemStorage(location=settings.MEDIA_ROOT)  # MEDIA_ROOTを使用
-#         file_path = fs.save(upload_file.name, upload_file)
-#         uploaded_file_url = fs.url(file_path)
-#         request.session['uploaded_file_url'] = uploaded_file_url  # セッションに保存
-#         return redirect('profile')
-#     return render(request, 'profile.html')
-
-# def profile(request): #2024年6月6日追加
-#     if request.method == 'POST' and request.FILES['upload_file']:
-#         upload_file = request.FILES['upload_file']
-#         fs = FileSystemStorage()
-#         file_path = fs.save(upload_file.name, upload_file)
-#         uploaded_file_url = fs.url(file_path)
-#         request.session['uploaded_file_url'] = uploaded_file_url  # セッションに保存
-#         return redirect('profile')
-#     return render(request, 'profile.html')
-
-# def profile(request): #2024年6月6日追加
-#     if request.method == 'POST' and request.FILES.get('upload_file'):
-#         upload_file = request.FILES['upload_file']
-#         fs = FileSystemStorage()
-#         file_path = fs.save(upload_file.name, upload_file)
-#         uploaded_file_url = fs.url(file_path)
-#         request.session['uploaded_file_url'] = uploaded_file_url  # セッションに保存
-#         return redirect('profile')
-#     return render(request, 'profile.html')
-
-# def profile(request): #2024年6月6日追加
-#     if request.method == 'POST' and request.FILES.get('upload_file'):
-#         upload_file = request.FILES['upload_file']
-#         # fs = FileSystemStorage()
-#         fs = FileSystemStorage(location=settings.MEDIA_ROOT)
-#         file_path = fs.save(upload_file.name, upload_file)
-#         uploaded_file_url = fs.url(file_path)
-#         request.session['uploaded_file_url'] = uploaded_file_url  # セッションに保存
-#         return redirect('profile')
-#     return render(request, 'profile.html')
-
-# def profile(request): #2024年6月6日追加
 #     if request.method == 'POST' and request.FILES.get('upload_file'):
 #         upload_file = request.FILES['upload_file']
 #         fs = FileSystemStorage()
