@@ -154,6 +154,16 @@ from django.conf import settings #2024年6月6日追加
 
 User = get_user_model()
 
+def profile(request): #2024年6月6日追加
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')  # 保存後にプロフィール画面をリダイレクト
+    else:
+        form = ProfileForm()
+    return render(request, 'profile.html', {'form': form})
+
 def upload_sample(request): #2024年6月6日追加
     if request.method == 'POST' and request.FILES['upload_file']:
         upload_file = request.FILES['upload_file']
