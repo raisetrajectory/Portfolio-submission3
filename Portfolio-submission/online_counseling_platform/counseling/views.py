@@ -175,6 +175,18 @@ def upload_sample(request): #2024年6月6日追加
         form = UploadFileForm()
     return render(request, 'online_counseling_platform/profile.html', {'form': form})
 
+def upload_sample(request): #2024年6月6日追加
+    if request.method == 'POST' and request.FILES['upload_file']:
+        upload_file = request.FILES['upload_file']
+        fs = FileSystemStorage(location=settings.MEDIA_ROOT)
+        file_path = fs.save(upload_file.name, upload_file)
+        uploaded_file_url = fs.url(file_path)
+        request.session['uploaded_file_url'] = uploaded_file_url  # セッションに保存
+        return HttpResponseRedirect(reverse('profile'))
+    else:
+        form = UploadFileForm()
+    return render(request, 'upload.html', {'form': form})
+
 # def upload_sample(request): #2024年6月5日追加
 #     if request.method == 'POST' and request.FILES['upload_file']:
 #         # 送られたファイルの取り出し
