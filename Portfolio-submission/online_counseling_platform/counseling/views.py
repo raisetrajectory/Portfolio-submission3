@@ -206,16 +206,28 @@ User = get_user_model()
 #         return redirect('profile')
 #     return render(request, 'profile.html')
 
+# def profile(request): #2024年6月6日追加
+#     if request.method == 'POST' and request.FILES.get('upload_file'):
+#         upload_file = request.FILES['upload_file']
+#         # fs = FileSystemStorage()
+#         fs = FileSystemStorage(location=settings.MEDIA_ROOT)
+#         file_path = fs.save(upload_file.name, upload_file)
+#         uploaded_file_url = fs.url(file_path)
+#         request.session['uploaded_file_url'] = uploaded_file_url  # セッションに保存
+#         return redirect('profile')
+#     return render(request, 'profile.html')
+
 def profile(request): #2024年6月6日追加
     if request.method == 'POST' and request.FILES.get('upload_file'):
         upload_file = request.FILES['upload_file']
-        # fs = FileSystemStorage()
-        fs = FileSystemStorage(location=settings.MEDIA_ROOT)
+        fs = FileSystemStorage()
         file_path = fs.save(upload_file.name, upload_file)
         uploaded_file_url = fs.url(file_path)
         request.session['uploaded_file_url'] = uploaded_file_url  # セッションに保存
+        print("uploaded_file_url:", uploaded_file_url)  # ログに出力
         return redirect('profile')
     return render(request, 'profile.html')
+
 
 # def upload_sample(request): #2024年6月6日追加
 #     if request.method == 'POST' and request.FILES['upload_file']:
