@@ -186,7 +186,7 @@ User = get_user_model()
 #         return redirect('profile')
 #     return render(request, 'profile.html')
 
-def profile(request):
+def profile(request): #2024年6月6日追加
     if request.method == 'POST' and request.FILES['upload_file']:
         upload_file = request.FILES['upload_file']
         fs = FileSystemStorage()
