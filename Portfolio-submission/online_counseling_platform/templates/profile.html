@@ -70,7 +70,8 @@
     <p>自己紹介:初めまして！ よろしくお願い致します! {{ user.bio|linebreaks }}</p>
     <p>資格:臨床心理士 {{ user.qualifications }}</p>
 
-    <form method="post" enctype="multipart/form-data">
+    {% comment %} <form method="post" enctype="multipart/form-data"> {% endcomment %}
+    <form method="post" enctype="multipart/form-data" action="{% url 'profile' %}">
         {% csrf_token %}
         <input type="file" name="upload_file"><br>
         <input type="submit" value="保存">
