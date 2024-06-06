@@ -300,6 +300,16 @@ def upload_sample(request):
         form = UploadFileForm()
     return render(request, 'profile.html', {'form': form})
 
+def upload_sample(request):
+    if request.method == 'POST' and request.FILES['upload_file']:
+        upload_file = request.FILES['upload_file']
+        fs = FileSystemStorage(location=settings.MEDIA_ROOT)
+        fs.save(upload_file.name, upload_file)
+        return HttpResponseRedirect(reverse('profile'))
+    else:
+        form = UploadFileForm()
+    return render(request, 'profile.html', {'form': form})
+
 
 # def upload_sample(request): #2024年6月6日追加
 #     if request.method == 'POST' and request.FILES['upload_file']:
