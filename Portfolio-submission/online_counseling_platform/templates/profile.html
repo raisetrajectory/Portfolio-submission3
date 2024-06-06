@@ -82,8 +82,6 @@
     {% if request.session.uploaded_file_url %}
     <p>保存先: <a href="{{ request.session.uploaded_file_url }}">{{ request.session.uploaded_file_url }}</a></p>
     {% endif %}
-
-
     <ul>
         <li><button onclick="location.href='{% url 'home' %}'">メインメニューへ戻る</button>（{{ user.username }}）</li>
         <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラー一覧画面へ</button>（{{ user.username }}）</li>
