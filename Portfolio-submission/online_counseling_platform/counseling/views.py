@@ -237,7 +237,18 @@ def profile(request): #2024年6月6日追加
         request.session['uploaded_file_url'] = uploaded_file_url
     return render(request, 'profile.html', {'user': request.user})
 
-def upload_sample(request): #2024年6月6日追加
+# def upload_sample(request): #2024年6月6日追加
+#     if request.method == 'POST' and request.FILES['upload_file']:
+#         upload_file = request.FILES['upload_file']
+#         fs = FileSystemStorage(location=settings.MEDIA_ROOT)
+#         file_path = fs.save(upload_file.name, upload_file)
+#         uploaded_file_url = fs.url(file_path)
+#         return HttpResponseRedirect(reverse('profile') + '?uploaded_file_url=' + uploaded_file_url)
+#     else:
+#         form = UploadFileForm()
+#     return render(request, 'online_counseling_platform/profile.html', {'form': form})
+
+def upload_sample(request):
     if request.method == 'POST' and request.FILES['upload_file']:
         upload_file = request.FILES['upload_file']
         fs = FileSystemStorage(location=settings.MEDIA_ROOT)
@@ -246,7 +257,7 @@ def upload_sample(request): #2024年6月6日追加
         return HttpResponseRedirect(reverse('profile') + '?uploaded_file_url=' + uploaded_file_url)
     else:
         form = UploadFileForm()
-    return render(request, 'online_counseling_platform/profile.html', {'form': form})
+    return render(request, 'profile.html', {'form': form})
 
 # def upload_sample(request): #2024年6月6日追加
 #     if request.method == 'POST' and request.FILES['upload_file']:
