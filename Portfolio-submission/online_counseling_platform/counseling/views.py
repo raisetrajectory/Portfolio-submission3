@@ -154,7 +154,7 @@ from django.conf import settings #2024年6月6日追加
 
 User = get_user_model()
 
-# from .models import Profile
+# from .models import Profile #2024年6月6日追加
 
 # def profile(request): #2024年6月6日追加
 #     if request.method == 'POST' and request.FILES.get('upload_file'):
