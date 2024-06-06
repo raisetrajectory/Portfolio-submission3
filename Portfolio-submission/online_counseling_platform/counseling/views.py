@@ -154,12 +154,6 @@ from django.conf import settings #2024年6月6日追加
 
 User = get_user_model()
 
-# import os #2024年6月5日追加
-# from django.core.files.storage import FileSystemStorage #2024年6月5日追加
-# from django.http import HttpResponseRedirect #2024年6月5日追加
-# from .forms import UploadFileForm #2024年6月6日追加
-# from django.conf import settings #2024年6月6日追加
-
 def upload_sample(request): #2024年6月6日追加
     if request.method == 'POST' and request.FILES['upload_file']:
         upload_file = request.FILES['upload_file']
