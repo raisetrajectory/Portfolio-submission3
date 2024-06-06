@@ -298,7 +298,7 @@ def edit_counselor_profile(request, pk):
         form = CounselorForm(instance=counselor)
     return render(request, 'edit_counselor_profile.html', {'form': form})
 
-def signup(request): #2024年6月5日追加
+def signup(request): #2024年6月5日追加 ユーザー登録出来ております！
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
