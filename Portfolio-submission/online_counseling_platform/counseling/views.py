@@ -144,20 +144,21 @@ from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorFo
 from .models import Counselor, CounselingSession, ChatMessage
 from django.contrib.auth import get_user_model
 from django.utils.functional import SimpleLazyObject
-
 from django.urls import reverse
-
-User = get_user_model()
 
 import os #2024年6月5日追加
 from django.core.files.storage import FileSystemStorage #2024年6月5日追加
-
-from django.shortcuts import render #2024年6月5日追加
 from django.http import HttpResponseRedirect #2024年6月5日追加
-from django.urls import reverse #2024年6月5日追加
-
 from .forms import UploadFileForm #2024年6月6日追加
 from django.conf import settings #2024年6月6日追加
+
+User = get_user_model()
+
+# import os #2024年6月5日追加
+# from django.core.files.storage import FileSystemStorage #2024年6月5日追加
+# from django.http import HttpResponseRedirect #2024年6月5日追加
+# from .forms import UploadFileForm #2024年6月6日追加
+# from django.conf import settings #2024年6月6日追加
 
 def upload_sample(request): #2024年6月6日追加
     if request.method == 'POST' and request.FILES['upload_file']:
