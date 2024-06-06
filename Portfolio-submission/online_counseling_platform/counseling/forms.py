@@ -60,11 +60,6 @@ class ProfileForm(forms.ModelForm):
         model = Counselor
         fields = ['bio']  # 'bio'フィールドのみを含める
 
-# class ProfileForm(forms.ModelForm):
-#     class Meta:
-#         model = Counselor
-#         fields = ['bio', 'profile_picture']  # 'profile_picture'フィールドを追加
-
 # from .models import Profile #2024年6月4日追加
 
 # class ProfileForm(forms.ModelForm):  #2024年6月4日追加 # type: ignore
