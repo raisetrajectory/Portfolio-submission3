@@ -154,6 +154,8 @@ from django.conf import settings #2024年6月6日追加
 
 User = get_user_model()
 
+# from .models import Profile
+
 # def profile(request): #2024年6月6日追加
 #     if request.method == 'POST' and request.FILES.get('upload_file'):
 #         upload_file = request.FILES['upload_file']
@@ -173,6 +175,13 @@ def profile(request): #2024年6月6日追加
         uploaded_file_url = fs.url(filename)
         request.session['uploaded_file_url'] = uploaded_file_url
     return render(request, 'profile.html', {'user': request.user})
+
+# def profile(request):
+#     if request.method == 'POST' and request.FILES['upload_file']:
+#         uploaded_file = request.FILES['upload_file']
+#         profile = Profile(user=request.user, profile_picture=uploaded_file)
+#         profile.save()
+#     return render(request, 'profile.html', {'user': request.user})
 
 def upload_sample(request): #2024年6月6日追加
     if request.method == 'POST' and request.FILES['upload_file']:
