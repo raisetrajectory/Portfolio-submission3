@@ -80,12 +80,6 @@
     <p>保存先: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
     {% endif %}
 
-    {% comment %} <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">保存</button>
-    </form> {% endcomment %}
-
     <ul>
         <li><button onclick="location.href='{% url 'home' %}'">メインメニューへ戻る</button>（{{ user.username }}）</li>
         <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラー一覧画面へ</button>（{{ user.username }}）</li>
