@@ -154,23 +154,6 @@ from django.conf import settings #2024年6月6日追加
 
 User = get_user_model()
 
-# from django.shortcuts import render, redirect
-# from django.contrib.auth.decorators import login_required
-# from django.core.files.storage.FileSystemStorage
-
-# @login_required
-# def profile(request):
-#     if request.method == 'POST' and request.FILES.get('upload_file'):
-#         upload_file = request.FILES['upload_file']
-#         fs = FileSystemStorage()
-#         filename = fs.save(upload_file.name, upload_file)
-#         uploaded_file_url = fs.url(filename)
-#         request.user.profile_picture = filename
-#         request.user.save()
-#         return redirect('profile')
-#     return render(request, 'online_counseling_platform/profile.html', {'user': request.user})
-
-
 def upload_sample(request): #2024年6月6日追加
     if request.method == 'POST' and request.FILES['upload_file']:
         upload_file = request.FILES['upload_file']
