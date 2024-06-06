@@ -176,10 +176,20 @@ User = get_user_model()
 #         form = UploadFileForm()
 #     return render(request, 'profile.html', {'form': form})
 
-def profile(request): #2024年6月6日追加
-    if request.method == 'POST' and 'upload_file' in request.FILES:
+# def profile(request): #2024年6月6日追加
+#     if request.method == 'POST' and 'upload_file' in request.FILES:
+#         upload_file = request.FILES['upload_file']
+#         fs = FileSystemStorage(location=settings.MEDIA_ROOT)  # MEDIA_ROOTを使用
+#         file_path = fs.save(upload_file.name, upload_file)
+#         uploaded_file_url = fs.url(file_path)
+#         request.session['uploaded_file_url'] = uploaded_file_url  # セッションに保存
+#         return redirect('profile')
+#     return render(request, 'profile.html')
+
+def profile(request):
+    if request.method == 'POST' and request.FILES['upload_file']:
         upload_file = request.FILES['upload_file']
-        fs = FileSystemStorage(location=settings.MEDIA_ROOT)  # MEDIA_ROOTを使用
+        fs = FileSystemStorage()
         file_path = fs.save(upload_file.name, upload_file)
         uploaded_file_url = fs.url(file_path)
         request.session['uploaded_file_url'] = uploaded_file_url  # セッションに保存
