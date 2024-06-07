@@ -90,7 +90,9 @@ class User(AbstractUser):
 
 class Counselor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE) #OneToOneFieldの使用: CounselorモデルとUserモデルの関係性を示す場合、OneToOneFieldを使用することで、1人のユーザーが1人のカウンセラーに関連付けられることを表現できます。
-    bio = models.TextField()
+    bio = models.TextField() #カウンセラーの自己紹介やプロフィールを格納するためのフィールドです。
+    # name = models.CharField(max_length=100) #カウンセラーの名前を保存するためのフィールドです。max_length=100: 最大文字数が100文字と制限されることを意味します。名前の長さが100文字を超える場合、データベースエラーが発生します。
+    # qualifications = models.TextField() #カウンセラーの資格や経歴など、長いテキスト情報を保存するためのフィールドです。TextFieldは、複数行のテキストや段落を保存するのに適しています。
 
 class CounselingSession(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE) #user: セッションを受けるユーザー（クライアント）
