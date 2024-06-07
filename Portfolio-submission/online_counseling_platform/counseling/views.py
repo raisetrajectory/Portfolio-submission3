@@ -270,7 +270,7 @@ def delete_message(request, message_id):
         message.delete()
     return redirect('chat_view', session_id=session_id)
 
-@login_required
+@login_required #2024年6月7日追加
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
     if session_id:
