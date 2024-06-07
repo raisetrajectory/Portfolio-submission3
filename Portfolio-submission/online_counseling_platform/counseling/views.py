@@ -289,7 +289,6 @@ def chat_view(request, session_id=None, counselor_id=None):
         'user': request.user,
     })
 
-
 @login_required
 def create_session(request):
     if request.method == 'POST':
