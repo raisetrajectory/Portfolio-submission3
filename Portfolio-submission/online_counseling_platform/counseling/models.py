@@ -111,10 +111,10 @@ class CounselingSession(models.Model):
 #         self.delete()
 
 class ChatMessage(models.Model):
-    session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE)
+    session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE) #メッセージが関連付けられているカウンセリングセッションを示します。
     sender = models.ForeignKey(User, on_delete=models.CASCADE) #メッセージを送信したユーザーを示します。
-    message = models.TextField()
-    timestamp = models.DateTimeField(auto_now_add=True)
+    message = models.TextField() #チャットメッセージの本文を保持します。TextFieldは長文テキストを保存するためのフィールドで、メッセージの内容がここに保存されます。
+    timestamp = models.DateTimeField(auto_now_add=True) #timestampは、メッセージが送信された日時を記録します。
 
     def __str__(self):
         return f'{self.sender.username}: {self.message}'
