@@ -292,7 +292,7 @@ def send_message(request):
             chat_message = ChatMessage(sender=request.user, message=message_text, session=session)
             chat_message.save()
             return redirect('chat_view', session_id=session.id)  # 正しいリダイレクトURLを設定
-    return redirect('chat_view')
+    return redirect('chat_view') #コメントを入力後にチャット画面にリダイレクト出来ております！
 
 @login_required
 def delete_message(request, message_id):
