@@ -268,7 +268,20 @@ def session_detail(request, session_id):
 #         'user': request.user,
 #     })
 
-@login_required
+# @login_required
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             session_id = form.cleaned_data['session_id']
+#             session = get_object_or_404(CounselingSession, id=session_id)
+#             message_text = form.cleaned_data['message']
+#             chat_message = ChatMessage(sender=request.user, message=message_text, session=session)
+#             chat_message.save()
+#             return redirect('chat_view', session_id=session.id)  # 正しいリダイレクトURLを設定
+#     return redirect('home')
+
+@login_required #2024年6月7日追加
 def send_message(request):
     if request.method == 'POST':
         form = ChatMessageForm(request.POST)
@@ -279,7 +292,7 @@ def send_message(request):
             chat_message = ChatMessage(sender=request.user, message=message_text, session=session)
             chat_message.save()
             return redirect('chat_view', session_id=session.id)  # 正しいリダイレクトURLを設定
-    return redirect('home')
+    return redirect('chat_view')
 
 @login_required
 def delete_message(request, message_id):
