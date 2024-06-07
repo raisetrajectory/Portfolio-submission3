@@ -112,7 +112,7 @@ class CounselingSession(models.Model):
 
 class ChatMessage(models.Model):
     session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE)
-    sender = models.ForeignKey(User, on_delete=models.CASCADE)
+    sender = models.ForeignKey(User, on_delete=models.CASCADE) #メッセージを送信したユーザーを示します。
     message = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
