@@ -90,7 +90,8 @@ class User(AbstractUser):
 
 class Counselor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE) #OneToOneFieldの使用: CounselorモデルとUserモデルの関係性を示す場合、OneToOneFieldを使用することで、1人のユーザーが1人のカウンセラーに関連付けられることを表現できます。
-    name = models.CharField(max_length=100) #カウンセラーの名前を保存するためのフィールドです。
+    # name = models.CharField(max_length=100) #カウンセラーの名前を保存するためのフィールドです。
+    name = models.CharField(max_length=100, default='default_value_here') #カウンセラーの名前を保存するためのフィールドです。
     qualifications = models.TextField() #カウンセラーの資格や経歴など、長いテキスト情報を保存するためのフィールドです。
     bio = models.TextField() #カウンセラーの自己紹介やプロフィールを格納するためのフィールドです。
 
