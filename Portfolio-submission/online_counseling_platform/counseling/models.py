@@ -89,7 +89,7 @@ class User(AbstractUser):
     )
 
 class Counselor(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE) #OneToOneFieldの使用: CounselorモデルとUserモデルの関係性を示す場合、OneToOneFieldを使用することで、1人のユーザーが1人のカウンセラーに関連付けられることを表現できます。
     bio = models.TextField()
 
 class CounselingSession(models.Model):
