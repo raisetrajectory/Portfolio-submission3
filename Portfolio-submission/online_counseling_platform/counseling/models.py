@@ -93,10 +93,10 @@ class Counselor(models.Model):
     bio = models.TextField()
 
 class CounselingSession(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    counselor = models.ForeignKey(Counselor, on_delete=models.CASCADE)
-    start_time = models.DateTimeField(auto_now_add=True)
-    end_time = models.DateTimeField(null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE) #user: セッションを受けるユーザー（クライアント）
+    counselor = models.ForeignKey(Counselor, on_delete=models.CASCADE) #counselor: セッションを行うカウンセラー
+    start_time = models.DateTimeField(auto_now_add=True) #start_time: セッションの開始時刻
+    end_time = models.DateTimeField(null=True, blank=True) #end_time: セッションの終了時刻（未設定の場合もある）
 
 # class ChatMessage(models.Model):
 #     sender = models.ForeignKey(User, on_delete=models.CASCADE)
