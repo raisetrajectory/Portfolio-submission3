@@ -229,25 +229,6 @@ def session_detail(request, session_id):
     messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
     return render(request, 'session_detail.html', {'session': session, 'messages': messages})
 
-# @login_required
-# def chat_view(request, session_id=None, counselor_id=None):
-#     session = None
-#     if session_id:
-#         session = get_object_or_404(CounselingSession, id=session_id)
-#     elif counselor_id:
-#         counselor = get_object_or_404(Counselor, id=counselor_id)
-#         session, created = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
-
-#     form = ChatMessageForm(initial={'session_id': session.id}) if session else ChatMessageForm()
-#     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
-
-#     return render(request, 'counseling/registration/chat.html', {
-#         'form': form,
-#         'messages': messages,
-#         'session': session,
-#         'user': request.user,
-#     })
-
 #193~210の記載内容が正しいです！バックアップです！
 # @login_required
 # def chat_view(request, session_id=None, counselor_id=None):
