@@ -37,12 +37,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'main_app',
-    'counseling',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',  # 必要に応じて他のプロバイダーも追加できます
+    'counseling',
 ]
 
 SITE_ID = 1
