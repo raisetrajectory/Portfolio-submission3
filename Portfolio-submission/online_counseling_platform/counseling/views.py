@@ -339,7 +339,6 @@ def chat_view(request, session_id=None, counselor_id=None):
         'user': request.user,
     })
 
-
 # @login_required #2024年6月7日追加
 # def chat_view(request, session_id=None, counselor_id=None):
 #     session = None
