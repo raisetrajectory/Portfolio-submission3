@@ -272,7 +272,7 @@ def send_message(request):
             message.session = CounselingSession.objects.get(id=form.cleaned_data['session_id'])
             message.save()
             return redirect('chat_view', session_id=message.session.id)
-    return redirect('home')
+    return redirect('chat_view')
 
 @login_required
 def delete_message(request, message_id):
