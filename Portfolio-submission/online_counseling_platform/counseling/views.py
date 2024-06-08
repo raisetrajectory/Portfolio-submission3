@@ -249,18 +249,30 @@ def session_detail(request, session_id):
 #         'user': request.user,
 #     })
 
-@login_required #2024年6月7日追加
+# @login_required #2024年6月7日追加
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             session_id = form.cleaned_data['session_id']
+#             session = get_object_or_404(CounselingSession, id=session_id)
+#             message_text = form.cleaned_data['message']
+#             chat_message = ChatMessage(sender=request.user, message=message_text, session=session)
+#             chat_message.save()
+#             return redirect('chat_view', session_id=session.id)  # 正しいリダイレクトURLを設定
+#     return redirect('chat_view') #コメントを入力後にチャット画面にリダイレクト出来ております！
+
+@login_required #2024年6月8日追加
 def send_message(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ChatMessageForm(request.POST)
         if form.is_valid():
-            session_id = form.cleaned_data['session_id']
-            session = get_object_or_404(CounselingSession, id=session_id)
-            message_text = form.cleaned_data['message']
-            chat_message = ChatMessage(sender=request.user, message=message_text, session=session)
-            chat_message.save()
-            return redirect('chat_view', session_id=session.id)  # 正しいリダイレクトURLを設定
-    return redirect('chat_view') #コメントを入力後にチャット画面にリダイレクト出来ております！
+            message = form.save(commit=False)
+            message.sender = request.user
+            message.session = CounselingSession.objects.get(id=form.cleaned_data['session_id'])
+            message.save()
+            return redirect('chat_view', session_id=message.session.id)
+    return redirect('home')
 
 @login_required
 def delete_message(request, message_id):
