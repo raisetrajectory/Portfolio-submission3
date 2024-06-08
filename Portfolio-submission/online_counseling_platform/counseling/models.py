@@ -96,9 +96,12 @@ class Counselor(models.Model):
 
 class CounselingSession(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE) #user: セッションを受けるユーザー（クライアント）
-    counselor = models.ForeignKey(Counselor, on_delete=models.CASCADE) #counselor: セッションを行うカウンセラー
+    counselor = models.ForeignKey('Counselor', on_delete=models.CASCADE) #2024年6月8日追加
     start_time = models.DateTimeField(auto_now_add=True) #start_time: セッションの開始時刻
     end_time = models.DateTimeField(null=True, blank=True) #end_time: セッションの終了時刻（未設定の場合もある）
+
+    def __str__(self):
+        return f'Session between {self.user.username} and {self.counselor.name}'
 
 # class ChatMessage(models.Model):
 #     sender = models.ForeignKey(User, on_delete=models.CASCADE)
