@@ -93,6 +93,55 @@
 </body>
 </html> {% endcomment %}
 
+{% comment %} <!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>チャットメッセージ</title>
+    <style>
+        #chat-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 300px;
+            overflow-y: scroll;
+        }
+        .message {
+            margin-bottom: 10px;
+        }
+        .message p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>チャットメッセージ</h1>
+    <div id="chat-box">
+        {% for message in messages %}
+            <div class="message">
+                <p><strong>{{ message.sender.username }}:</strong> {{ message.message }}</p>
+                <p><small>{{ message.timestamp }}</small></p>
+            </div>
+        {% empty %}
+            <p>メッセージはありません。</p>
+        {% endfor %}
+    </div>
+
+    <form method="post" action="{% url 'send_message' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="session_id" value="{{ session.id }}">
+        <button type="submit">コメントする</button>
+    </form>
+
+    <form action="{% url 'home' %}" method="get">
+        <button type="submit">メインメニューへ</button>
+    </form>
+    <form action="{% url 'home' %}" method="get">
+        <button type="submit">相談を終了する</button>
+    </form>
+</body>
+</html> {% endcomment %}
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
