@@ -298,8 +298,6 @@ def send_message(request):
             return redirect('chat_view', session_id=chat_message.session.id)
     return redirect('chat_view')
 
-
-
 @login_required
 def delete_message(request, message_id):
     message = get_object_or_404(ChatMessage, id=message_id)
