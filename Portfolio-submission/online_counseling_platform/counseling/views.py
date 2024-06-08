@@ -262,17 +262,43 @@ def session_detail(request, session_id):
 #             return redirect('chat_view', session_id=session.id)  # 正しいリダイレクトURLを設定
 #     return redirect('chat_view') #コメントを入力後にチャット画面にリダイレクト出来ております！
 
+# @login_required #2024年6月8日追加
+# def send_message(request):
+#     if request.method == "POST":
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             message = form.save(commit=False)
+#             message.sender = request.user
+#             message.session = CounselingSession.objects.get(id=form.cleaned_data['session_id'])
+#             message.save()
+#             return redirect('chat_view', session_id=message.session.id)
+#     return redirect('chat_view')
+
+# @login_required #2024年6月8日追加
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
+#             chat_message.save()
+#             return redirect('chat_view', session_id=chat_message.session.id)
+#     return redirect('home')
+
 @login_required #2024年6月8日追加
 def send_message(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         form = ChatMessageForm(request.POST)
         if form.is_valid():
-            message = form.save(commit=False)
-            message.sender = request.user
-            message.session = CounselingSession.objects.get(id=form.cleaned_data['session_id'])
-            message.save()
-            return redirect('chat_view', session_id=message.session.id)
+            chat_message = form.save(commit=False)
+            chat_message.sender = request.user
+            chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
+            chat_message.save()
+            return redirect('chat_view', session_id=chat_message.session.id)
     return redirect('chat_view')
+
+
 
 @login_required
 def delete_message(request, message_id):
