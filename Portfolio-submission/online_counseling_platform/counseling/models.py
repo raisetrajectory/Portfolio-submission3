@@ -103,18 +103,6 @@ class CounselingSession(models.Model):
     def __str__(self):
         return f'Session between {self.user.username} and {self.counselor.name}'
 
-# class ChatMessage(models.Model):
-#     sender = models.ForeignKey(User, on_delete=models.CASCADE)
-#     message = models.TextField()
-#     session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE)
-#     created_at = models.DateTimeField(auto_now_add=True)
-
-#     def __str__(self):
-#         return f'{self.sender.username}: {self.message}'
-
-#     def delete_message(self):
-#         self.delete()
-
 class ChatMessage(models.Model):
     session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE) #メッセージが関連付けられているカウンセリングセッションを示します。
     sender = models.ForeignKey(User, on_delete=models.CASCADE) #メッセージを送信したユーザーを示します。
@@ -138,4 +126,3 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-# 55~129の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！
