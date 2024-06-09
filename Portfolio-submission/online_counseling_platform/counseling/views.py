@@ -270,7 +270,7 @@ def delete_message(request, message_id):
         message.delete()
     return redirect('chat_view', session_id=session_id)
 
-# @login_required #2024年6月9日追加 記載内容のバックアップです！
+# @login_required #2024年6月9日追加 記載内容のバックアップです！ ここに戻りましょう！
 # def chat_view(request, session_id=None, counselor_id=None):
 #     session = None
 #     if session_id:
@@ -340,7 +340,8 @@ def chat_view(request, session_id=None, counselor_id=None):
         if form.is_valid():
             chat_message = form.save(commit=False)
             # LazyUserからUserインスタンスを取得
-            if hasattr(request.user, '_wrapped') and isinstance(request.user._wrapped, get_user_model()):
+            user_model = get_user_model()
+            if hasattr(request.user, '_wrapped') and isinstance(request.user._wrapped, user_model):
                 chat_message.sender = request.user._wrapped
             else:
                 chat_message.sender = request.user
