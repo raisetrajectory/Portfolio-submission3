@@ -355,7 +355,7 @@ def delete_message(request, message_id):
 #         'user': request.user,
 #     })
 
-@login_required
+@login_required #2024年6月10日追加
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
     messages = []
@@ -375,6 +375,8 @@ def chat_view(request, session_id=None, counselor_id=None):
             chat_message.save()
             # 保存したメッセージをリストに追加する
             messages.append(chat_message)
+
+    print(messages)  # メッセージの内容を出力
 
     form = ChatMessageForm(initial={'session_id': session.id}) if session else ChatMessageForm()
     messages.extend(ChatMessage.objects.filter(session=session).order_by('timestamp')) if session else []
