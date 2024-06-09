@@ -326,7 +326,7 @@ def delete_message(request, message_id):
 #         'user': request.user,
 #     })
 
-@login_required #2024年6月9日追加
+@login_required
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
     if session_id:
@@ -339,7 +339,8 @@ def chat_view(request, session_id=None, counselor_id=None):
         form = ChatMessageForm(request.POST)
         if form.is_valid():
             chat_message = form.save(commit=False)
-            chat_message.sender = request.user._wrapped if hasattr(request.user, '_wrapped') else request.user
+            user_model = get_user_model()
+            chat_message.sender = user_model.objects.get(id=request.user.id)  # Userインスタンスを明示的に取得する
             chat_message.session = session
             chat_message.save()
             return redirect('chat_view', session_id=session.id)
