@@ -93,30 +93,30 @@ class CustomUserCreationForm(UserCreationForm):
 class CustomAuthenticationForm(AuthenticationForm):
     username = forms.CharField(label='ユーザーネームまたはメールアドレス')
 
-# class ChatMessageForm(forms.ModelForm):
-#     session_id = forms.CharField(widget=forms.HiddenInput(), required=True)
-
-#     class Meta:
-#         model = ChatMessage
-#         fields = ['message', 'session_id']
-
-class ChatMessageForm(forms.ModelForm): #2024年6月9日追加
+class ChatMessageForm(forms.ModelForm):
     session_id = forms.CharField(widget=forms.HiddenInput(), required=True)
 
     class Meta:
         model = ChatMessage
-        fields = ['message', 'session_id', 'sender']  # sender フィールドを追加
+        fields = ['message', 'session_id']
 
-    def __init__(self, *args, **kwargs):
-        self.sender = kwargs.pop('sender', None)
-        super(ChatMessageForm, self).__init__(*args, **kwargs)
+# class ChatMessageForm(forms.ModelForm): #2024年6月9日追加 記載内容のバックアップです。
+#     session_id = forms.CharField(widget=forms.HiddenInput(), required=True)
 
-    def save(self, commit=True):
-        instance = super(ChatMessageForm, self).save(commit=False)
-        instance.sender = self.sender
-        if commit:
-            instance.save()
-        return instance
+#     class Meta:
+#         model = ChatMessage
+#         fields = ['message', 'session_id', 'sender']  # sender フィールドを追加
+
+#     def __init__(self, *args, **kwargs):
+#         self.sender = kwargs.pop('sender', None)
+#         super(ChatMessageForm, self).__init__(*args, **kwargs)
+
+#     def save(self, commit=True):
+#         instance = super(ChatMessageForm, self).save(commit=False)
+#         instance.sender = self.sender
+#         if commit:
+#             instance.save()
+#         return instance
 
 
 class CommentForm(forms.Form):
