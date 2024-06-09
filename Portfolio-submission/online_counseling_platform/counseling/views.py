@@ -455,6 +455,39 @@ def delete_message(request, message_id):
 #         'user': request.user,
 #     })
 
+# @login_required #2024年6月9日追加
+# def chat_view(request, session_id=None, counselor_id=None):
+#     session = None
+#     if session_id:
+#         session = get_object_or_404(CounselingSession, id=session_id)
+#     elif counselor_id:
+#         counselor = get_object_or_404(Counselor, id=counselor_id)
+#         session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
+
+#     if not session:
+#         # セッションが見つからない場合、エラーメッセージを表示するか、適切な処理を行う
+#         return redirect('home')
+
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.session = session
+#             chat_message.save()
+#             return redirect('chat_view', session_id=session.id)
+#     else:
+#         form = ChatMessageForm(initial={'session_id': session.id})
+
+#     messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
+
+#     return render(request, 'counseling/registration/chat.html', {
+#         'form': form,
+#         'messages': messages,
+#         'session': session,
+#         'user': request.user,
+#     })
+
 @login_required #2024年6月9日追加
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
@@ -466,7 +499,7 @@ def chat_view(request, session_id=None, counselor_id=None):
 
     if not session:
         # セッションが見つからない場合、エラーメッセージを表示するか、適切な処理を行う
-        return redirect('home')
+        return redirect('chat_view')
 
     if request.method == 'POST':
         form = ChatMessageForm(request.POST)
