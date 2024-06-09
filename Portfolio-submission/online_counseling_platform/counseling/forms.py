@@ -100,11 +100,5 @@ class ChatMessageForm(forms.ModelForm): #記載内容のバックアップです
         model = ChatMessage
         fields = ['message', 'session_id']
 
-# class ChatMessageForm(forms.ModelForm): #2024年6月9日追加
-
-#     class Meta:
-#         model = ChatMessage
-#         fields = ['message']
-
 class CommentForm(forms.Form):
     message = forms.CharField(label='コメント', widget=forms.Textarea)
