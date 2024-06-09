@@ -373,10 +373,11 @@ def chat_view(request, session_id=None, counselor_id=None):
             chat_message.sender = request.user
             chat_message.session = session
             chat_message.save()
-            return redirect('chat_view', session_id=session.id)
+            # 保存したメッセージをリストに追加する
+            messages.append(chat_message)
 
-    form = ChatMessageForm()
-    messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
+    form = ChatMessageForm(initial={'session_id': session.id}) if session else ChatMessageForm()
+    messages.extend(ChatMessage.objects.filter(session=session).order_by('timestamp')) if session else []
 
     return render(request, 'counseling/registration/chat.html', {
         'form': form,
