@@ -22,7 +22,7 @@
 {% comment %} 1~20の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！ {% endcomment %}
 
 {% comment %} 2024年6月9日の記載内容のバックアップです!　この記載内容に戻しましょう！ {% endcomment %}
-{% comment %} <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -69,7 +69,7 @@
         <button type="submit">相談を終了する</button>
     </form>
 </body>
-</html> {% endcomment %}
+</html>
 
 {% comment %} 現段階で問題無い記載となっております。バックアップ保存用です！ {% endcomment %}
 {% comment %} <!DOCTYPE html>
@@ -120,51 +120,3 @@
 </body>
 </html> {% endcomment %}
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>チャットメッセージ</title>
-    <style>
-        #chat-box {
-            border: 1px solid #ccc;
-            padding: 10px;
-            height: 300px;
-            overflow-y: scroll;
-        }
-        .message {
-            margin-bottom: 10px;
-        }
-        .message p {
-            margin: 0;
-        }
-    </style>
-</head>
-<body>
-    <h1>チャットメッセージ</h1>
-    <div id="chat-box">
-        {% for message in messages %}
-            <div class="message">
-                <p><strong>{{ message.sender.username }}:</strong> {{ message.message }}</p>
-                <p><small>{{ message.timestamp }}</small></p>
-            </div>
-        {% empty %}
-            <p>メッセージはありません。</p>
-        {% endfor %}
-    </div>
-
-    <form method="post" action="{% url 'chat_view' session_id=session.id %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="hidden" name="session_id" value="{{ session.id }}">
-        <button type="submit">コメントする</button>
-    </form>
-
-    <form action="{% url 'home' %}" method="get">
-        <button type="submit">メインメニューへ</button>
-    </form>
-    <form action="{% url 'home' %}" method="get">
-        <button type="submit">相談を終了する</button>
-    </form>
-</body>
-</html>
