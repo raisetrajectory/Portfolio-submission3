@@ -298,6 +298,31 @@ def chat_view(request, session_id=None, counselor_id=None):
         'user': request.user,
     })
 
+@login_required #2024年6月9日追加
+def chat_view(request, session_id=None, counselor_id=None):
+    session = None
+    if session_id:
+        session = get_object_or_404(CounselingSession, id=session_id)
+    elif counselor_id:
+        counselor = get_object_or_404(Counselor, id=counselor_id)
+        session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
+
+    if request.method == 'POST':
+        form = ChatMessageForm(request.POST, sender=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('chat_view', session_id=session.id)
+
+    form = ChatMessageForm(initial={'session_id': session.id}, sender=request.user) if session else ChatMessageForm(sender=request.user)
+    messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
+
+    return render(request, 'counseling/registration/chat.html', {
+        'form': form,
+        'messages': messages,  # テンプレートにメッセージを渡す
+        'session': session,
+        'user': request.user,
+    })
+
 @login_required
 def create_session(request):
     if request.method == 'POST':
