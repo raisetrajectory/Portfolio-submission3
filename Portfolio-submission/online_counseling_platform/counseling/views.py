@@ -308,7 +308,7 @@ def send_message(request):
             chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
             chat_message.save()
             return redirect('chat_view', session_id=form.cleaned_data['session_id'])
-    return redirect('chat_view')
+    return redirect('chat_view') #コメントを入力後にチャット画面にリダイレクト出来ております！
 
 @login_required
 def delete_message(request, message_id):
