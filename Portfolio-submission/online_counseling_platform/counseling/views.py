@@ -250,7 +250,18 @@ def session_detail(request, session_id):
 #             return redirect('chat_view', session_id=form.cleaned_data['session_id'])
 #     return redirect('chat_view') #コメントを入力後にチャット画面にリダイレクト出来ております！
 
-@login_required
+# @login_required
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
+#             chat_message.save()
+#             return redirect('chat_view', session_id=form.cleaned_data['session_id'])
+#     return redirect('chat_view')
+
 def send_message(request):
     if request.method == 'POST':
         form = ChatMessageForm(request.POST)
@@ -259,8 +270,10 @@ def send_message(request):
             chat_message.sender = request.user
             chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
             chat_message.save()
+            # メッセージを保存した後に直接チャット画面を表示する
             return redirect('chat_view', session_id=form.cleaned_data['session_id'])
     return redirect('chat_view')
+
 
 @login_required
 def delete_message(request, message_id):
@@ -328,9 +341,6 @@ def chat_view(request, session_id=None, counselor_id=None): #2024年6月9日追�
         'session': session,
         'user': request.user,
     })
-
-
-
 
 # @login_required
 # def chat_view(request, session_id=None, counselor_id=None):
