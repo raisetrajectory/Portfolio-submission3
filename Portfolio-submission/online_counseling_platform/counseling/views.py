@@ -339,8 +339,11 @@ def chat_view(request, session_id=None, counselor_id=None):
         form = ChatMessageForm(request.POST)
         if form.is_valid():
             chat_message = form.save(commit=False)
-            user_model = get_user_model()
-            chat_message.sender = user_model.objects.get(id=request.user.id)  # Userインスタンスを明示的に取得する
+            # LazyUserからUserインスタンスを取得
+            if hasattr(request.user, '_wrapped') and isinstance(request.user._wrapped, get_user_model()):
+                chat_message.sender = request.user._wrapped
+            else:
+                chat_message.sender = request.user
             chat_message.session = session
             chat_message.save()
             return redirect('chat_view', session_id=session.id)
