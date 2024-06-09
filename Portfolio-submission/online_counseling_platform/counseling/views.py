@@ -321,7 +321,7 @@ def delete_message(request, message_id):
 #         'user': request.user,
 #     })
 
-@login_required #2024年6月10日追加
+@login_required #2024年6月10日追加 記載内容が正しいです！バックアップです！
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
     messages = []
