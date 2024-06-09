@@ -467,7 +467,35 @@ def delete_message(request, message_id):
 #         'user': request.user,
 #     })
 
-@login_required #2024年6月9日追加 記載内容のバックアップです！
+# @login_required #2024年6月9日追加 記載内容のバックアップです！
+# def chat_view(request, session_id=None, counselor_id=None):
+#     session = None
+#     if session_id:
+#         session = get_object_or_404(CounselingSession, id=session_id)
+#     elif counselor_id:
+#         counselor = get_object_or_404(Counselor, id=counselor_id)
+#         session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
+
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.session = session
+#             chat_message.save()
+#             return redirect('chat_view', session_id=session.id)
+
+#     form = ChatMessageForm(initial={'session_id': session.id}) if session else ChatMessageForm()
+#     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
+
+#     return render(request, 'counseling/registration/chat.html', {
+#         'form': form,
+#         'messages': messages,
+#         'session': session,
+#         'user': request.user,
+#     })
+
+@login_required #2024年6月9日追加
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
     if session_id:
@@ -476,6 +504,9 @@ def chat_view(request, session_id=None, counselor_id=None):
         counselor = get_object_or_404(Counselor, id=counselor_id)
         session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
 
+    form = ChatMessageForm(initial={'session_id': session.id}) if session else ChatMessageForm()
+    messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
+
     if request.method == 'POST':
         form = ChatMessageForm(request.POST)
         if form.is_valid():
@@ -483,10 +514,7 @@ def chat_view(request, session_id=None, counselor_id=None):
             chat_message.sender = request.user
             chat_message.session = session
             chat_message.save()
-            return redirect('chat_view', session_id=session.id)
-
-    form = ChatMessageForm(initial={'session_id': session.id}) if session else ChatMessageForm()
-    messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
+            form = ChatMessageForm(initial={'session_id': session.id})  # Clear form after saving message
 
     return render(request, 'counseling/registration/chat.html', {
         'form': form,
@@ -494,6 +522,7 @@ def chat_view(request, session_id=None, counselor_id=None):
         'session': session,
         'user': request.user,
     })
+
 
 @login_required
 def create_session(request):
