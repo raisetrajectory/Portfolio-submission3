@@ -364,6 +364,8 @@ def chat_view(request, session_id=None, counselor_id=None):
             # 保存したメッセージをリストに追加する
             messages.append(chat_message)
 
+    print(messages)  # メッセージの内容を出力
+
     form = ChatMessageForm(initial={'session_id': session.id}) if session else ChatMessageForm()
     messages.extend(ChatMessage.objects.filter(session=session).order_by('timestamp')) if session else []
 
