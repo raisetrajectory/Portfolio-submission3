@@ -286,7 +286,19 @@ def session_detail(request, session_id):
 #             return redirect('chat_view', session_id=chat_message.session.id)
 #     return redirect('home')
 
-@login_required #2024年6月8日追加
+# @login_required #2024年6月8日追加
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
+#             chat_message.save()
+#             return redirect('chat_view', session_id=chat_message.session.id)
+#     return redirect('chat_view')
+
+@login_required #2024年6月9日追加
 def send_message(request):
     if request.method == 'POST':
         form = ChatMessageForm(request.POST)
@@ -295,7 +307,7 @@ def send_message(request):
             chat_message.sender = request.user
             chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
             chat_message.save()
-            return redirect('chat_view', session_id=chat_message.session.id)
+            return redirect('chat_view', session_id=form.cleaned_data['session_id'])
     return redirect('chat_view')
 
 @login_required
