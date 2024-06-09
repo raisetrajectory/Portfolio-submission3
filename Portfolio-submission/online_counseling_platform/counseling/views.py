@@ -265,9 +265,9 @@ def session_detail(request, session_id):
 #             return redirect('chat_view', session_id=form.cleaned_data['session_id'], chat_message_id=chat_message.id)
 #     return redirect('chat_view')
 
-messages = []  # メッセージの初期化
+messages = []  # メッセージの初期化　#2024年6月9日追加
 
-@login_required
+@login_required #2024年6月9日追加
 def send_message(request):
     global messages  # グローバル変数として定義された messages を使用する
 
