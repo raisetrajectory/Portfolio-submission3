@@ -139,7 +139,6 @@
     </div>
 
     <form method="post" action="{% url 'send_message' %}">
-        {% csrf_token %}
         {{ form.as_p }}
         <input type="hidden" name="session_id" value="{{ session.id }}">
         <button type="submit">コメントする</button>
