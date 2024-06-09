@@ -278,6 +278,8 @@ def delete_message(request, message_id):
 #             chat_message.save()
 #             return redirect('chat_view', session_id=session.id)
 
+    # print(messages)  # メッセージの内容を出力
+
 #     form = ChatMessageForm(initial={'session_id': session.id}) if session else ChatMessageForm()
 #     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
 
@@ -321,10 +323,6 @@ def chat_view(request, session_id=None, counselor_id=None):
         'session': session,
         'user': request.user,
     })
-
-
-
-
 
 @login_required
 def create_session(request):
