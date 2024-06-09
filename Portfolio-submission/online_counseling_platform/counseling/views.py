@@ -363,7 +363,7 @@ def delete_message(request, message_id):
 #         'user': request.user,
 #     })
 
-@login_required
+@login_required #2024年6月9日追加
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
     messages = []
