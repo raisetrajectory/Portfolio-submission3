@@ -250,7 +250,20 @@ def session_detail(request, session_id):
 #             return redirect('chat_view', session_id=form.cleaned_data['session_id'])
 #     return redirect('chat_view') #コメントを入力後にチャット画面にリダイレクト出来ております！
 
-@login_required
+# @login_required
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
+#             chat_message.save()
+#             # メッセージを保存した後に直接チャット画面を表示する
+#             return redirect('chat_view', session_id=form.cleaned_data['session_id'])
+#     return redirect('chat_view')
+
+@login_required #2024年6月9日追加
 def send_message(request):
     if request.method == 'POST':
         form = ChatMessageForm(request.POST)
@@ -299,9 +312,41 @@ def delete_message(request, message_id):
 #         'user': request.user,
 #     })
 
-def chat_view(request, session_id=None, counselor_id=None): #2024年6月9日追加
+# def chat_view(request, session_id=None, counselor_id=None): #2024年6月9日追加
+#     session = None
+#     messages = []  # メッセージの初期化
+
+#     if session_id:
+#         session = get_object_or_404(CounselingSession, id=session_id)
+#     elif counselor_id:
+#         counselor = get_object_or_404(Counselor, id=counselor_id)
+#         session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
+
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.session = session
+#             chat_message.save()
+#             return redirect('chat_view', session_id=session.id)
+
+#     form = ChatMessageForm(initial={'session_id': session.id}) if session else ChatMessageForm()
+#     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
+
+#     print(messages)  # メッセージの内容を出力
+
+#     return render(request, 'counseling/registration/chat.html', {
+#         'form': form,
+#         'messages': messages,
+#         'session': session,
+#         'user': request.user,
+#     })
+
+@login_required #2024年6月9日追加
+def chat_view(request, session_id=None, counselor_id=None):
     session = None
-    messages = []  # メッセージの初期化
+    messages = []
 
     if session_id:
         session = get_object_or_404(CounselingSession, id=session_id)
@@ -316,12 +361,11 @@ def chat_view(request, session_id=None, counselor_id=None): #2024年6月9日追�
             chat_message.sender = request.user
             chat_message.session = session
             chat_message.save()
-            return redirect('chat_view', session_id=session.id)
+            # 保存したメッセージをリストに追加する
+            messages.append(chat_message)
 
     form = ChatMessageForm(initial={'session_id': session.id}) if session else ChatMessageForm()
-    messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
-
-    print(messages)  # メッセージの内容を出力
+    messages.extend(ChatMessage.objects.filter(session=session).order_by('timestamp')) if session else []
 
     return render(request, 'counseling/registration/chat.html', {
         'form': form,
