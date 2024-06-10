@@ -106,6 +106,7 @@
             <p>メッセージはありません。</p>
         {% endfor %}
     </div>
+    {% comment %} 2024年6月10日追加追加
     <form id="chat-form" method="post" action="{% url 'send_message' %}">
         {% csrf_token %}
         {{ form.as_p }}
@@ -196,11 +197,6 @@
             <p>メッセージはありません。</p>
         {% endfor %}
     </div>
-    {% comment %} <form id="chat-form" method="post" action="{% url 'send_message' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">コメントする</button>
-    </form> {% endcomment %}
     {% comment %} 2024年6月10日追加追加 {% endcomment %}
     <form id="chat-form" method="post" action="{% url 'send_message' %}">
     {% csrf_token %}
