@@ -515,17 +515,43 @@ from django.utils.functional import SimpleLazyObject
 #         form = ChatMessageForm()
 #     return render(request, 'counseling/registration/chat.html', {'form': form})
 
-from django.utils.functional import SimpleLazyObject
+# from django.utils.functional import SimpleLazyObject
+
+# @login_required
+# def send_message(request):
+#     if request.method == 'POST':
+#         session_id = request.session.get('session_id')
+#         form = ChatMessageForm(request.POST, session_id=session_id)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user._wrapped if isinstance(request.user, SimpleLazyObject) else request.user
+#             chat_message.session_id = session_id
+#             chat_message.save()
+#             # コメントを入力して画面に表示させる処理
+#             data = {
+#                 'sender': chat_message.sender.username,
+#                 'message': chat_message.message,
+#                 'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
+#                 'success': True,
+#             }
+#             return JsonResponse(data)
+#     else:
+#         form = ChatMessageForm()
+#     return render(request, 'counseling/registration/chat.html', {'form': form})
+
+from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from .forms import ChatMessageForm
+from .models import ChatMessage
 
 @login_required
 def send_message(request):
     if request.method == 'POST':
-        session_id = request.session.get('session_id')
-        form = ChatMessageForm(request.POST, session_id=session_id)
+        form = ChatMessageForm(request.POST)
         if form.is_valid():
             chat_message = form.save(commit=False)
-            chat_message.sender = request.user._wrapped if isinstance(request.user, SimpleLazyObject) else request.user
-            chat_message.session_id = session_id
+            chat_message.sender = request.user
             chat_message.save()
             # コメントを入力して画面に表示させる処理
             data = {
@@ -535,9 +561,13 @@ def send_message(request):
                 'success': True,
             }
             return JsonResponse(data)
+        else:
+            errors = form.errors.get_json_data()
+            return JsonResponse({'success': False, 'errors': errors})
     else:
         form = ChatMessageForm()
     return render(request, 'counseling/registration/chat.html', {'form': form})
+
 
 
 @login_required
