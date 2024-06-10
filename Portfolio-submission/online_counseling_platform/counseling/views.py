@@ -281,7 +281,7 @@ def send_message(request):
             # 保存したメッセージをリストに追加する
             messages = [chat_message]
             return redirect('chat_view', session_id=form.cleaned_data['session_id'])
-#     return redirect('chat_view')
+    return redirect('chat_view')
 
 # @login_required #2024年6月10日追加
 # def send_message(request):
