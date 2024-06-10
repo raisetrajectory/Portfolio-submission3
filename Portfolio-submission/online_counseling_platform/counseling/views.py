@@ -157,13 +157,6 @@ User = get_user_model()
 
 from django.views.decorators.csrf import csrf_exempt
 
-# def get_actual_user(user): #2024年6月10日追加
-#     if isinstance(user, SimpleLazyObject):
-#         user = user._wrapped
-#     if isinstance(user, User):
-#         return user
-#     return None
-
 # from .models import Profile #2024年6月6日追加
 
 # def profile(request): #2024年6月6日追加
@@ -333,103 +326,6 @@ def session_detail(request, session_id):
 #         form = ChatMessageForm(request.POST)
 #         if form.is_valid():
 #             chat_message = form.save(commit=False)
-#             chat_message.sender = request.user
-#             chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
-#             chat_message.save()
-#             return JsonResponse({
-#                 'success': True,
-#                 'message': chat_message.message,
-#                 'sender': chat_message.sender.username,
-#                 'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S')
-#             })
-#         else:
-#             return JsonResponse({'success': False, 'errors': form.errors})
-#     return JsonResponse({'success': False, 'error': 'Invalid request method'})
-
-# @login_required #2024年6月10日追加
-# @csrf_exempt
-# def send_message(request):
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             chat_message = form.save(commit=False)
-#             chat_message.sender = request.user
-#             chat_message.session = get_object_or_404(CounselingSession, id=request.POST.get('session_id'))
-#             chat_message.save()
-#             return JsonResponse({
-#                 'success': True,
-#                 'message': chat_message.message,
-#                 'sender': chat_message.sender.username,
-#                 'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S')
-#             })
-#         else:
-#             return JsonResponse({'success': False, 'errors': form.errors})
-#     return JsonResponse({'success': False, 'error': 'Invalid request method'})
-
-# @login_required
-# def send_message(request):
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             chat_message = form.save(commit=False)
-#             chat_message.sender = request.user
-#             chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
-#             chat_message.save()
-#             return JsonResponse({
-#                 'success': True,
-#                 'message': chat_message.message,
-#                 'sender': chat_message.sender.username,
-#                 'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S')
-#             })
-#         else:
-#             return JsonResponse({'success': False, 'errors': form.errors})
-#     return JsonResponse({'success': False, 'error': 'Invalid request method'})
-
-# @login_required
-# def send_message(request):
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             chat_message = form.save(commit=False)
-#             chat_message.sender = request.user
-#             chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
-#             chat_message.save()
-#             return JsonResponse({
-#                 'success': True,
-#                 'message': chat_message.message,
-#                 'sender': chat_message.sender.username,
-#                 'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S')
-#             })
-#         else:
-#             return JsonResponse({'success': False, 'errors': form.errors})
-#     return JsonResponse({'success': False, 'error': 'Invalid request method'})
-
-# @login_required
-# def send_message(request):
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             # セッションIDをフォームにセット
-#             form.instance.session_id = request.POST.get('session_id')
-#             chat_message = form.save(commit=False)
-#             chat_message.sender = request.user
-#             chat_message.save()
-#             return JsonResponse({
-#                 'success': True,
-#                 'message': chat_message.message,
-#                 'sender': chat_message.sender.username,
-#                 'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S')
-#             })
-#         else:
-#             return JsonResponse({'success': False, 'errors': form.errors})
-#     return JsonResponse({'success': False, 'error': 'Invalid request method'})
-
-# @login_required
-# def send_message(request):
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             chat_message = form.save(commit=False)
 #             chat_message.sender = get_actual_user(request.user)  # senderにrequest.userをセット
 #             chat_message.save()
 #             return redirect('chat_view', session_id=chat_message.session.id)  # チャット画面にリダイレクト
@@ -577,64 +473,6 @@ def delete_message(request, message_id):
 #         session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
 
 #     form = ChatMessageForm(initial={'session_id': session.id}) if session else ChatMessageForm()
-#     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
-
-#     return render(request, 'counseling/registration/chat.html', {
-#         'form': form,
-#         'messages': messages,
-#         'session': session,
-#         'user': request.user,
-#     })
-
-# @login_required
-# def chat_view(request, session_id=None, counselor_id=None):
-#     session = None
-#     if session_id:
-#         session = get_object_or_404(CounselingSession, id=session_id)
-#     elif counselor_id:
-#         counselor = get_object_or_404(Counselor, id=counselor_id)
-#         session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
-
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST, session_id=session_id)
-#         if form.is_valid():
-#             message = form.cleaned_data['message']
-#             form.instance.session_id = session_id
-#             form.instance.sender = get_actual_user(request.user)  # senderにrequest.userをセット
-#             form.save()
-#             return redirect('chat_view', session_id=session_id)  # チャット画面にリダイレクト
-#     else:
-#         form = ChatMessageForm(initial={'session_id': session_id})
-
-#     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
-
-#     return render(request, 'counseling/registration/chat.html', {
-#         'form': form,
-#         'messages': messages,
-#         'session': session,
-#         'user': request.user,
-#     })
-
-# @login_required
-# def chat_view(request, session_id=None, counselor_id=None):
-#     session = None
-#     if session_id:
-#         session = get_object_or_404(CounselingSession, id=session_id)
-#     elif counselor_id:
-#         counselor = get_object_or_404(Counselor, id=counselor_id)
-#         session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
-
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST, session_id=session_id)
-#         if form.is_valid():
-#             message = form.cleaned_data['message']
-#             form.instance.session_id = session_id
-#             form.instance.sender = get_actual_user(request.user)  # senderにrequest.userをセット
-#             form.save()
-#             return redirect('chat_view', session_id=session_id)  # チャット画面にリダイレクト
-#     else:
-#         form = ChatMessageForm(initial={'session_id': session_id})
-
 #     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
 
 #     return render(request, 'counseling/registration/chat.html', {
