@@ -115,24 +115,17 @@ class CustomAuthenticationForm(AuthenticationForm):
 #         model = ChatMessage
 #         fields = ['message']
 
-class ChatMessageForm(forms.ModelForm): #2024年6月10日追加
-    class Meta:
-        model = ChatMessage
-        fields = ['message', 'session_id']  # 'session_id' フィールドを追加
-
-    session_id = forms.IntegerField(widget=forms.HiddenInput())  # HiddenInput を使用して非表示にする
-
-# class ChatMessageForm(forms.ModelForm):
-#     def __init__(self, *args, **kwargs):
-#         session_id = kwargs.pop('session_id', None)
-#         super(ChatMessageForm, self).__init__(*args, **kwargs)
-#         if session_id:
-#             self.fields['session_id'] = forms.IntegerField(initial=session_id, widget=forms.HiddenInput())
-
+# class ChatMessageForm(forms.ModelForm): #2024年6月10日追加
 #     class Meta:
 #         model = ChatMessage
-#         fields = ['message', 'session_id']
+#         fields = ['message', 'session_id']  # 'session_id' フィールドを追加
 
+#     session_id = forms.IntegerField(widget=forms.HiddenInput())  # HiddenInput を使用して非表示にする
+
+class ChatMessageForm(forms.ModelForm):
+    class Meta:
+        model = ChatMessage
+        fields = ['message', 'session']  # session フィールドを追加
 
 class CommentForm(forms.Form):
     message = forms.CharField(label='コメント', widget=forms.Textarea)
