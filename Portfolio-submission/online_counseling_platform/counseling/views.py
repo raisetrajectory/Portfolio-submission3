@@ -281,7 +281,24 @@ def send_message(request):
             # 保存したメッセージをリストに追加する
             messages = [chat_message]
             return redirect('chat_view', session_id=form.cleaned_data['session_id'])
-    return redirect('chat_view')
+#     return redirect('chat_view')
+
+# @login_required #2024年6月10日追加
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.session_id = request.POST.get('session_id')
+#             chat_message.save()
+#             return JsonResponse({
+#                 'success': True,
+#                 'message': chat_message.message,
+#                 'sender': chat_message.sender.username,
+#                 'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S')
+#             })
+#     return JsonResponse({'success': False})
 
 @login_required
 def delete_message(request, message_id):
