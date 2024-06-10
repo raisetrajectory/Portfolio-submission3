@@ -597,7 +597,8 @@ def chat_view(request, session_id=None, counselor_id=None):
         if form.is_valid():
             message = form.cleaned_data['message']
             form.instance.session_id = session_id
-            form.save()
+            # form.save()
+            form.save(session_id=session_id)  # セッションIDを渡して保存
             return redirect('chat_view', session_id=session_id)  # チャット画面にリダイレクト
     else:
         form = ChatMessageForm(initial={'session_id': session_id})
