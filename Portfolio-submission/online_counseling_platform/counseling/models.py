@@ -103,14 +103,24 @@ class CounselingSession(models.Model):
     def __str__(self):
         return f'Session between {self.user.username} and {self.counselor.name}'
 
+# class ChatMessage(models.Model):
+#     session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE) #メッセージが関連付けられているカウンセリングセッションを示します。
+#     sender = models.ForeignKey(User, on_delete=models.CASCADE) #メッセージを送信したユーザーを示します。
+#     message = models.TextField() #チャットメッセージの本文を保持します。TextFieldは長文テキストを保存するためのフィールドで、メッセージの内容がここに保存されます。
+#     timestamp = models.DateTimeField(auto_now_add=True) #timestampは、メッセージが送信された日時を記録します。
+
+#     def __str__(self):
+#         return f'{self.sender.username}: {self.message}'
+
 class ChatMessage(models.Model):
-    session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE) #メッセージが関連付けられているカウンセリングセッションを示します。
-    sender = models.ForeignKey(User, on_delete=models.CASCADE) #メッセージを送信したユーザーを示します。
-    message = models.TextField() #チャットメッセージの本文を保持します。TextFieldは長文テキストを保存するためのフィールドで、メッセージの内容がここに保存されます。
-    timestamp = models.DateTimeField(auto_now_add=True) #timestampは、メッセージが送信された日時を記録します。
+    sender = models.ForeignKey(User, on_delete=models.CASCADE)
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+    session = models.ForeignKey('CounselingSession', on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.sender.username}: {self.message}'
+
 
 class Task(models.Model):
     ASSIGNED_ROLE_CHOICES = [
