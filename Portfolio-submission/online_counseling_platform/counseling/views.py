@@ -564,9 +564,9 @@ def send_message(request):
         else:
             errors = form.errors.get_json_data()
             return JsonResponse({'success': False, 'errors': errors})
-#     else:
-#         form = ChatMessageForm()
-#     return render(request, 'counseling/registration/chat.html', {'form': form})
+    else:
+        form = ChatMessageForm()
+    return render(request, 'counseling/registration/chat.html', {'form': form})
 
 
 
