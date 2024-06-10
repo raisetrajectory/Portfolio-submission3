@@ -230,38 +230,42 @@
     <script>
         // チャットメッセージをリアルタイムに表示するためのJavaScript
         document.getElementById('chat-form').addEventListener('submit', function (event) {
-        event.preventDefault();  // ページのリロードを防止
+            event.preventDefault();  // ページのリロードを防止
 
-    var form = event.target;
-    var formData = new FormData(form);
+            var form = event.target;
+            var formData = new FormData(form);
 
-    fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-            'X-CSRFToken': formData.get('csrfmiddlewaretoken'),
-            'X-Requested-With': 'XMLHttpRequest'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            var messageContainer = document.getElementById('chat-box');
-            var messageElement = document.createElement('div');
-            messageElement.className = 'message';
-            messageElement.innerHTML = `
-                <p><strong>${data.sender}:</strong> ${data.message}</p>
-                <p><small>${data.timestamp}</small></p>
-            `;
-            messageContainer.appendChild(messageElement);
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'X-CSRFToken': formData.get('csrfmiddlewaretoken'),
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    var messageContainer = document.getElementById('chat-box');
+                    var messageElement = document.createElement('div');
+                    messageElement.className = 'message';
+                    messageElement.innerHTML = `
+                        <p><strong>${data.sender}:</strong> ${data.message}</p>
+                        <p><small>${data.timestamp}</small></p>
+                    `;
+                    messageContainer.appendChild(messageElement);
 
-            form.reset();  // 入力フォームをリセット
-        } else {
-            alert('コメントの送信に失敗しました。エラー: ' + JSON.stringify(data.errors || data.error));
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('コメントの送信中にエラーが発生しました。');
-    });
-});
+                    form.reset();  // 入力フォームをリセット
+                } else {
+                    alert('コメントの送信に失敗しました。エラー: ' + JSON.stringify(data.errors || data.error));
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('コメントの送信中にエラーが発生しました。');
+            });
+        });
+    </script>
+</body>
+</html>
+{% endblock %}
