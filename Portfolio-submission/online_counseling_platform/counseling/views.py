@@ -157,6 +157,11 @@ User = get_user_model()
 
 from django.views.decorators.csrf import csrf_exempt
 
+def get_actual_user(user): #2024年6月10日追加
+    if isinstance(user, SimpleLazyObject) and hasattr(user, '_wrapped'):
+        return user._wrapped
+    return user
+
 # from .models import Profile #2024年6月6日追加
 
 # def profile(request): #2024年6月6日追加
