@@ -198,6 +198,7 @@
     </div>
     <form id="chat-form" method="post" action="{% url 'send_message' %}">
         {% csrf_token %}
+        <input type="hidden" name="session_id" value="{{ session.id }}">
         {{ form.as_p }}
         <button type="submit">コメントする</button>
     </form>
