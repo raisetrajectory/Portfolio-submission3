@@ -195,5 +195,17 @@ class ChatMessageForm(forms.ModelForm):
         else:
             self.fields['session_id'].initial = 0  # デフォルト値を設定
 
+# class ChatMessageForm(forms.ModelForm):
+#     def __init__(self, *args, **kwargs):
+#         session_id = kwargs.pop('session_id', None)
+#         super(ChatMessageForm, self).__init__(*args, **kwargs)
+#         if session_id is not None:
+#             self.fields['session_id'].initial = session_id
+#             self.fields['session_id'].widget = forms.HiddenInput()
+
+#     class Meta:
+#         model = ChatMessage
+#         fields = ['message', 'session_id']
+
 class CommentForm(forms.Form):
     message = forms.CharField(label='コメント', widget=forms.Textarea)
