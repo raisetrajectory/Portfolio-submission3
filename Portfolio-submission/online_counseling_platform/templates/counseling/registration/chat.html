@@ -113,6 +113,12 @@
         <input type="hidden" name="session_id" value="{{ session.id }}">
         <button type="submit">コメントする</button>
     </form>
+    <form id="chat-form" method="post" action="{% url 'send_message' %}">
+        {% csrf_token %}
+        <input type="hidden" name="session_id" value="{{ session.id }}">
+        {{ form.as_p }}
+        <button type="submit">コメントする</button>
+    </form>
 
     <form action="{% url 'home' %}" method="get">
         <button type="submit">メインメニューへ</button>
