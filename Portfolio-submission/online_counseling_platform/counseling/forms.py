@@ -207,6 +207,7 @@ class ChatMessageForm(forms.ModelForm):
 #         }
 
 
+
 # class ChatMessageForm(forms.ModelForm):
 #     def __init__(self, *args, **kwargs):
 #         session_id = kwargs.pop('session_id', None)
