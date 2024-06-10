@@ -378,14 +378,34 @@ def session_detail(request, session_id):
 #             return JsonResponse({'success': False, 'errors': form.errors})
 #     return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
+# @login_required
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
+#             chat_message.save()
+#             return JsonResponse({
+#                 'success': True,
+#                 'message': chat_message.message,
+#                 'sender': chat_message.sender.username,
+#                 'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S')
+#             })
+#         else:
+#             return JsonResponse({'success': False, 'errors': form.errors})
+#     return JsonResponse({'success': False, 'error': 'Invalid request method'})
+
 @login_required
 def send_message(request):
     if request.method == 'POST':
         form = ChatMessageForm(request.POST)
         if form.is_valid():
+            # セッションIDをフォームにセット
+            form.instance.session_id = request.POST.get('session_id')
             chat_message = form.save(commit=False)
             chat_message.sender = request.user
-            chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
             chat_message.save()
             return JsonResponse({
                 'success': True,
@@ -396,6 +416,7 @@ def send_message(request):
         else:
             return JsonResponse({'success': False, 'errors': form.errors})
     return JsonResponse({'success': False, 'error': 'Invalid request method'})
+
 
 @login_required
 def delete_message(request, message_id):
