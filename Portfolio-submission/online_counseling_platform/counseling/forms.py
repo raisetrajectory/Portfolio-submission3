@@ -139,6 +139,23 @@ class CustomAuthenticationForm(AuthenticationForm):
 #         self.fields['session_id'].initial = session_id
 #         self.fields['session_id'].widget = forms.HiddenInput()
 
+# class ChatMessageForm(forms.ModelForm):
+#     class Meta:
+#         model = ChatMessage
+#         fields = ['message']
+
+#     def __init__(self, *args, session_id=None, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         self.session_id = session_id
+
+#     def save(self, commit=True):
+#         instance = super().save(commit=False)
+#         if self.session_id:
+#             instance.session_id = self.session_id
+#         if commit:
+#             instance.save()
+#         return instance
+
 class ChatMessageForm(forms.ModelForm):
     class Meta:
         model = ChatMessage
