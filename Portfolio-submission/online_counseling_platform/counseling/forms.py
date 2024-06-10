@@ -139,5 +139,7 @@ class ChatMessageForm(forms.ModelForm): #2024年6月10日追加
         self.fields['session_id'].initial = session_id
         self.fields['session_id'].widget = forms.HiddenInput()
 
+
+
 class CommentForm(forms.Form):
     message = forms.CharField(label='コメント', widget=forms.Textarea)
