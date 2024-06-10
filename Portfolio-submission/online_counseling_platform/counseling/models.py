@@ -126,7 +126,6 @@ class ChatMessage(models.Model):
     message = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
     session_id = models.IntegerField()  # session_id フィールドを追加
-    # session = models.ForeignKey('CounselingSession', on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.sender}: {self.message}'
