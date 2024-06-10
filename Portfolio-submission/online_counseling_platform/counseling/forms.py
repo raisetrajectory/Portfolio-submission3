@@ -115,114 +115,12 @@ class CustomAuthenticationForm(AuthenticationForm):
 #         model = ChatMessage
 #         fields = ['message']
 
-# class ChatMessageForm(forms.ModelForm): #2024年6月10日追加
-#     class Meta:
-#         model = ChatMessage
-#         fields = ['message', 'session_id']  # 'session_id' フィールドを追加
-
-#     session_id = forms.IntegerField(widget=forms.HiddenInput())  # HiddenInput を使用して非表示にする
-
-# class ChatMessageForm(forms.ModelForm):
-#     class Meta:
-#         model = ChatMessage
-#         fields = ['message', 'session']  # session フィールドを追加
-
-# class ChatMessageForm(forms.ModelForm): #2024年6月10日追加
-#     session_id = forms.IntegerField(widget=forms.HiddenInput())
-
-#     class Meta:
-#         model = ChatMessage
-#         fields = ['message', 'session_id']
-
-#     def __init__(self, *args, session_id=None, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         self.fields['session_id'].initial = session_id
-#         self.fields['session_id'].widget = forms.HiddenInput()
-
-# class ChatMessageForm(forms.ModelForm):
-#     class Meta:
-#         model = ChatMessage
-#         fields = ['message']
-
-#     def __init__(self, *args, session_id=None, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         self.session_id = session_id
-
-#     def save(self, commit=True):
-#         instance = super().save(commit=False)
-#         if self.session_id:
-#             instance.session_id = self.session_id
-#         if commit:
-#             instance.sender = self.request.user  # type: ignore # ここで sender に request.user をセット
-#             instance.save()
-#         return instance
-
-# class ChatMessageForm(forms.ModelForm):
-#     session_id = forms.IntegerField(widget=forms.HiddenInput())
-
-#     class Meta:
-#         model = ChatMessage
-#         fields = ['message', 'session_id']
-
-#     def __init__(self, *args, session_id=None, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         if session_id:
-#             self.fields['session_id'].initial = session_id
-
-# class ChatMessageForm(forms.ModelForm):
-#     session_id = forms.IntegerField(widget=forms.HiddenInput())
-
-#     class Meta:
-#         model = ChatMessage
-#         fields = ['message', 'session_id']
-
-#     def __init__(self, *args, session_id=None, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         if session_id:
-#             self.fields['session_id'].initial = session_id
-
-# class ChatMessageForm(forms.ModelForm):
-#     session_id = forms.IntegerField(widget=forms.HiddenInput())
-
-#     class Meta:
-#         model = ChatMessage
-#         fields = ['message', 'session_id']
-
-#     def __init__(self, *args, session_id=None, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         if session_id:
-#             self.fields['session_id'].initial = session_id
-#         else:
-#             self.fields['session_id'].initial = 0  # デフォルト値を設定
-
-# class ChatMessageForm(forms.ModelForm): #2024年6月10日追加
-#     class Meta:
-#         model = ChatMessage
-#         fields = ['message', 'session_id']
-#         widgets = {
-#             'session_id': forms.HiddenInput()
-#         }
-
-class ChatMessageForm(forms.ModelForm):
+class ChatMessageForm(forms.ModelForm): #2024年6月10日追加
     session_id = forms.IntegerField(widget=forms.HiddenInput())
 
     class Meta:
         model = ChatMessage
         fields = ['message', 'session_id']
-
-
-
-# class ChatMessageForm(forms.ModelForm):
-#     def __init__(self, *args, **kwargs):
-#         session_id = kwargs.pop('session_id', None)
-#         super(ChatMessageForm, self).__init__(*args, **kwargs)
-#         if session_id is not None:
-#             self.fields['session_id'].initial = session_id
-#             self.fields['session_id'].widget = forms.HiddenInput()
-
-#     class Meta:
-#         model = ChatMessage
-#         fields = ['message', 'session_id']
 
 class CommentForm(forms.Form):
     message = forms.CharField(label='コメント', widget=forms.Textarea)
