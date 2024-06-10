@@ -593,10 +593,9 @@ def chat_view(request, session_id=None, counselor_id=None):
         session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
 
     if request.method == 'POST':
-        form = ChatMessageForm(request.POST, initial={'session_id': session_id})
+        form = ChatMessageForm(request.POST)
         if form.is_valid():
             message = form.cleaned_data['message']
-            # セッションIDをフォームにセット
             form.instance.session_id = session_id
             form.save()
             return redirect('chat_view', session_id=session_id)  # チャット画面にリダイレクト
@@ -611,7 +610,6 @@ def chat_view(request, session_id=None, counselor_id=None):
         'session': session,
         'user': request.user,
     })
-
 
 @login_required
 def create_session(request):
