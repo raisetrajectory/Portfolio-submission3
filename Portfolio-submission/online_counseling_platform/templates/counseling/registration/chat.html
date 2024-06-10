@@ -303,18 +303,18 @@
             <p>メッセージはありません。</p>
         {% endfor %}
     </div>
-    {% comment %} <form id="chat-form" method="post" action="{% url 'send_message' %}">
+    <form id="chat-form" method="post" action="{% url 'send_message' %}">
         {% csrf_token %}
         <input type="hidden" name="session_id" value="{{ session.id }}">
         {{ form.as_p }}
         <button type="submit">コメントする</button>
-    </form> {% endcomment %}
+    </form>
     {% comment %} 6月11日追加 {% endcomment %}
-    <form method="post" action="{% url 'chat_view' session_id=session.id %}">
+    {% comment %} <form method="post" action="{% url 'chat_view' session_id=session.id %}">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">コメントを送信する</button>
-    </form>
+    </form> {% endcomment %}
     {% comment %} 6月11日追加 {% endcomment %}
     <form action="{% url 'home' %}" method="get">
         <button type="submit">メインメニューへ</button>
