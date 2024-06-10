@@ -93,12 +93,21 @@ class CustomUserCreationForm(UserCreationForm):
 class CustomAuthenticationForm(AuthenticationForm):
     username = forms.CharField(label='ユーザーネームまたはメールアドレス')
 
-class ChatMessageForm(forms.ModelForm): #記載内容のバックアップです。ここに戻りましょう！
-    session_id = forms.CharField(widget=forms.HiddenInput(), required=True)
+# class ChatMessageForm(forms.ModelForm): #記載内容のバックアップです。ここに戻りましょう！
+#     session_id = forms.CharField(widget=forms.HiddenInput(), required=True)
+
+#     class Meta:
+#         model = ChatMessage
+#         fields = ['message', 'session_id']
+
+class ChatMessageForm(forms.ModelForm):
+    # セッションIDのフィールドを追加
+    session_id = forms.IntegerField(widget=forms.HiddenInput())
 
     class Meta:
         model = ChatMessage
-        fields = ['message', 'session_id']
+        fields = ['message', 'session_id']  # 'session_id' フィールドを追加
+
 
 # class ChatMessageForm(forms.ModelForm): #2024年6月9日追加
 #     session_id = forms.CharField(widget=forms.HiddenInput(), required=True)
