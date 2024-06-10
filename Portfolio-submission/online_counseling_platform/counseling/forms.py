@@ -127,7 +127,7 @@ class CustomAuthenticationForm(AuthenticationForm):
 #         model = ChatMessage
 #         fields = ['message', 'session']  # session フィールドを追加
 
-class ChatMessageForm(forms.ModelForm):
+class ChatMessageForm(forms.ModelForm): #2024年6月10日追加
     session_id = forms.IntegerField(widget=forms.HiddenInput())
 
     class Meta:
