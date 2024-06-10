@@ -398,6 +398,7 @@ def chat_view(request, session_id=None, counselor_id=None):
             chat_message.sender = request.user
             chat_message.session = session
             chat_message.save()
+            messages.append(chat_message)  # 保存したメッセージをリストに追加する
             return redirect('chat_view', session_id=session.id)
 
     form = ChatMessageForm(initial={'session_id': session.id}) if session else ChatMessageForm()
