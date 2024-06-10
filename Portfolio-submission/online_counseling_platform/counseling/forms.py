@@ -100,22 +100,7 @@ class CustomAuthenticationForm(AuthenticationForm):
 #         model = ChatMessage
 #         fields = ['message', 'session_id']
 
-# class ChatMessageForm(forms.ModelForm):　#2024年6月10日追加
-#     # セッションIDのフィールドを追加
-#     session_id = forms.IntegerField(widget=forms.HiddenInput())
-
-#     class Meta:
-#         model = ChatMessage
-#         fields = ['message', 'session_id']  # 'session_id' フィールドを追加
-
-# class ChatMessageForm(forms.ModelForm): #2024年6月9日追加
-#     session_id = forms.CharField(widget=forms.HiddenInput(), required=True)
-
-#     class Meta:
-#         model = ChatMessage
-#         fields = ['message']
-
-class ChatMessageForm(forms.ModelForm): #2024年6月10日追加
+class ChatMessageForm(forms.ModelForm): #2024年6月11日追加
     session_id = forms.IntegerField(widget=forms.HiddenInput())
 
     class Meta:
