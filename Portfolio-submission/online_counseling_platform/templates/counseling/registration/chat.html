@@ -106,7 +106,7 @@
             <p>メッセージはありません。</p>
         {% endfor %}
     </div>
-    {% comment %} 2024年6月9日追加
+    {% comment %} 2024年6月9日追加 記載内容のコピーです！
     <form id="chat-form" method="post" action="{% url 'send_message' %}">
         {% csrf_token %}
         {{ form.as_p }}
