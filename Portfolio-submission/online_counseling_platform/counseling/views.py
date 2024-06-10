@@ -1061,7 +1061,8 @@ def chat_view(request, session_id=None, counselor_id=None):
             message.sender = request.user
             message.session = session
             message.save()
-            return redirect('chat_view', session_id=session.id)  # チャット画面にリダイレクト
+            # return redirect('chat_view', session_id=session.id)  # チャット画面にリダイレクト
+            return redirect('chat_view', session_id=session.id if session else None)
         else:
             print(form.errors)  # フォームのエラーをデバッグ出力
     else:
