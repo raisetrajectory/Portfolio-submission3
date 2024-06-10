@@ -195,7 +195,7 @@ class CustomAuthenticationForm(AuthenticationForm):
 #         else:
 #             self.fields['session_id'].initial = 0  # デフォルト値を設定
 
-class ChatMessageForm(forms.ModelForm):
+class ChatMessageForm(forms.ModelForm): #2024年6月10日追加
     class Meta:
         model = ChatMessage
         fields = ['message', 'session_id']
