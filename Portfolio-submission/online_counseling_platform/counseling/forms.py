@@ -100,12 +100,24 @@ class CustomAuthenticationForm(AuthenticationForm):
 #         model = ChatMessage
 #         fields = ['message', 'session_id']
 
-class ChatMessageForm(forms.ModelForm): #2024年6月11日追加
+# class ChatMessageForm(forms.ModelForm): #2024年6月11日追加
+#     session_id = forms.IntegerField(widget=forms.HiddenInput())
+
+#     class Meta:
+#         model = ChatMessage
+#         fields = ['message', 'session_id']
+
+class ChatMessageForm(forms.ModelForm):
     session_id = forms.IntegerField(widget=forms.HiddenInput())
 
     class Meta:
         model = ChatMessage
         fields = ['message', 'session_id']
+
+    def __init__(self, *args, session_id=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        if session_id:
+            self.fields['session_id'].initial = session_id
 
 class CommentForm(forms.Form):
     message = forms.CharField(label='コメント', widget=forms.Textarea)
