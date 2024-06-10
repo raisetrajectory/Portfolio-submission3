@@ -181,30 +181,27 @@ class CustomAuthenticationForm(AuthenticationForm):
 #         if session_id:
 #             self.fields['session_id'].initial = session_id
 
-class ChatMessageForm(forms.ModelForm):
-    session_id = forms.IntegerField(widget=forms.HiddenInput())
-
-    class Meta:
-        model = ChatMessage
-        fields = ['message', 'session_id']
-
-    def __init__(self, *args, session_id=None, **kwargs):
-        super().__init__(*args, **kwargs)
-        if session_id:
-            self.fields['session_id'].initial = session_id
-        else:
-            self.fields['session_id'].initial = 0  # デフォルト値を設定
-
-# from django import forms
-# from .models import ChatMessage
-
 # class ChatMessageForm(forms.ModelForm):
+#     session_id = forms.IntegerField(widget=forms.HiddenInput())
+
 #     class Meta:
 #         model = ChatMessage
 #         fields = ['message', 'session_id']
-#         widgets = {
-#             'session_id': forms.HiddenInput()
-#         }
+
+#     def __init__(self, *args, session_id=None, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         if session_id:
+#             self.fields['session_id'].initial = session_id
+#         else:
+#             self.fields['session_id'].initial = 0  # デフォルト値を設定
+
+class ChatMessageForm(forms.ModelForm):
+    class Meta:
+        model = ChatMessage
+        fields = ['message', 'session_id']
+        widgets = {
+            'session_id': forms.HiddenInput()
+        }
 
 
 
