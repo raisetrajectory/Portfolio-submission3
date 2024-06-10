@@ -515,6 +515,8 @@ from django.utils.functional import SimpleLazyObject
 #         form = ChatMessageForm()
 #     return render(request, 'counseling/registration/chat.html', {'form': form})
 
+from django.utils.functional import SimpleLazyObject
+
 @login_required
 def send_message(request):
     if request.method == 'POST':
