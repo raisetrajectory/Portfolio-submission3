@@ -119,6 +119,18 @@
         {{ form.as_p }}
         <button type="submit">コメントする</button>
     </form>
+    <form id="chat-form" method="post" action="{% url 'send_message' %}">
+    {% csrf_token %}
+    <input type="hidden" name="session_id_1" value="{{ session.id }}">
+    {{ form.as_p }}
+    <button type="submit">コメントする</button>
+    </form>
+    <form id="chat-form-2" method="post" action="{% url 'send_message' %}">
+    {% csrf_token %}
+    <input type="hidden" name="session_id_2" value="{{ session.id }}">
+    {{ form.as_p }}
+    <button type="submit">コメントする</button>
+    </form>
 
     <form action="{% url 'home' %}" method="get">
         <button type="submit">メインメニューへ</button>
@@ -209,19 +221,6 @@
         {{ form.as_p }}
         <button type="submit">コメントする</button>
     </form>
-    <form id="chat-form" method="post" action="{% url 'send_message' %}">
-    {% csrf_token %}
-    <input type="hidden" name="session_id_1" value="{{ session.id }}">
-    {{ form.as_p }}
-    <button type="submit">コメントする</button>
-    </form>
-    <form id="chat-form-2" method="post" action="{% url 'send_message' %}">
-    {% csrf_token %}
-    <input type="hidden" name="session_id_2" value="{{ session.id }}">
-    {{ form.as_p }}
-    <button type="submit">コメントする</button>
-    </form>
-
     <form action="{% url 'home' %}" method="get">
         <button type="submit">メインメニューへ</button>
     </form>
