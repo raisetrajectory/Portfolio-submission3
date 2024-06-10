@@ -572,7 +572,7 @@ def chat_view(request, session_id=None, counselor_id=None):
             form.save()
             return redirect('chat_view', session_id=session.id)  # チャット画面にリダイレクト
     else:
-        form = ChatMessageForm(session_id=session.id if session else None)
+        form = ChatMessageForm(initial={'session_id': session_id})
 
     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
 
