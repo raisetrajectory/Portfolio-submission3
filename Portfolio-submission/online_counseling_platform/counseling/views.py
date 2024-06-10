@@ -283,23 +283,23 @@ def session_detail(request, session_id):
 #             return redirect('chat_view', session_id=form.cleaned_data['session_id'])
 #     return redirect('chat_view')
 
-# messages = []  # メッセージの初期化　#2024年6月9日追加
+messages = []  # メッセージの初期化　#2024年6月9日追加
 
-# @login_required
-# def send_message(request):
-#     global messages
+@login_required
+def send_message(request):
+    global messages
 
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             chat_message = form.save(commit=False)
-#             chat_message.sender = request.user
-#             chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
-#             chat_message.save()
-#             messages = [chat_message]
-#             return HttpResponseRedirect(reverse('chat_view', kwargs={'session_id': form.cleaned_data['session_id']}))
+    if request.method == 'POST':
+        form = ChatMessageForm(request.POST)
+        if form.is_valid():
+            chat_message = form.save(commit=False)
+            chat_message.sender = request.user
+            chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
+            chat_message.save()
+            messages = [chat_message]
+            return HttpResponseRedirect(reverse('chat_view', kwargs={'session_id': form.cleaned_data['session_id']}))
 
-#     return HttpResponseRedirect(reverse('chat_view'))
+    return HttpResponseRedirect(reverse('chat_view'))
 
 # @login_required #2024年6月10日追加
 # def send_message(request):
@@ -318,24 +318,24 @@ def session_detail(request, session_id):
 #             })
 #     return JsonResponse({'success': False})
 
-@login_required
-def send_message(request):
-    if request.method == 'POST':
-        form = ChatMessageForm(request.POST)
-        if form.is_valid():
-            chat_message = form.save(commit=False)
-            chat_message.sender = request.user
-            chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
-            chat_message.save()
-            return JsonResponse({
-                'success': True,
-                'message': chat_message.message,
-                'sender': chat_message.sender.username,
-                'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S')
-            })
-        else:
-            return JsonResponse({'success': False, 'errors': form.errors})
-    return JsonResponse({'success': False, 'error': 'Invalid request method'})
+# @login_required
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.session = get_object_or_404(CounselingSession, id=form.cleaned_data['session_id'])
+#             chat_message.save()
+#             return JsonResponse({
+#                 'success': True,
+#                 'message': chat_message.message,
+#                 'sender': chat_message.sender.username,
+#                 'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S')
+#             })
+#         else:
+#             return JsonResponse({'success': False, 'errors': form.errors})
+#     return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
 @login_required
 def delete_message(request, message_id):
