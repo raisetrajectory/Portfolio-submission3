@@ -198,12 +198,12 @@
         {% endfor %}
     </div>
     {% comment %} 2024年6月10日追加追加 {% endcomment %}
-    <form id="chat-form" method="post" action="{% url 'send_message' %}">
+    {% comment %} <form id="chat-form" method="post" action="{% url 'send_message' %}">
     {% csrf_token %}
     <input type="hidden" name="session_id" value="{{ session.id }}">
     {{ form.as_p }}
     <button type="submit">コメントする</button>
-    </form>
+    </form> {% endcomment %}
     {% comment %} 2024年6月10日追加追加 {% endcomment %}
     <form id="chat-form-2" method="post" action="{% url 'send_message' %}">
     {% csrf_token %}
@@ -218,7 +218,6 @@
     <form action="{% url 'home' %}" method="get">
         <button type="submit">相談を終了する</button>
     </form>
-
     <script>
         // チャットメッセージをリアルタイムに表示するためのJavaScript
         document.getElementById('chat-form').addEventListener('submit', function (event) {
