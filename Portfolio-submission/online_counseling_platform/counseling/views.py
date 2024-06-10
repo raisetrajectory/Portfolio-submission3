@@ -568,13 +568,36 @@ from .models import ChatMessage
 #         form = ChatMessageForm()
 #     return render(request, 'counseling/registration/chat.html', {'form': form})
 
+# @login_required
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.save()
+#             # コメントを入力して画面に表示させる処理
+#             data = {
+#                 'sender': chat_message.sender.username,
+#                 'message': chat_message.message,
+#                 'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
+#                 'success': True,
+#             }
+#             return JsonResponse(data)
+#         else:
+#             errors = form.errors.get_json_data()
+#             return JsonResponse({'success': False, 'errors': errors})
+#     return JsonResponse({'success': False, 'error': 'Invalid request method'})
+
 @login_required
 def send_message(request):
     if request.method == 'POST':
-        form = ChatMessageForm(request.POST)
+        session_id = request.POST.get('session_id')
+        form = ChatMessageForm(request.POST, session_id=session_id)
         if form.is_valid():
             chat_message = form.save(commit=False)
             chat_message.sender = request.user
+            chat_message.session = get_object_or_404(CounselingSession, id=session_id)
             chat_message.save()
             # コメントを入力して画面に表示させる処理
             data = {
@@ -588,7 +611,6 @@ def send_message(request):
             errors = form.errors.get_json_data()
             return JsonResponse({'success': False, 'errors': errors})
     return JsonResponse({'success': False, 'error': 'Invalid request method'})
-
 
 
 @login_required
