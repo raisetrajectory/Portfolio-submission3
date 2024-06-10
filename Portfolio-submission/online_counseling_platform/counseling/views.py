@@ -155,6 +155,8 @@ from django.conf import settings #2024年6月6日追加
 
 User = get_user_model()
 
+from django.views.decorators.csrf import csrf_exempt
+
 # from .models import Profile #2024年6月6日追加
 
 # def profile(request): #2024年6月6日追加
