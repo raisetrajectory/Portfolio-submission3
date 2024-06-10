@@ -309,6 +309,13 @@
         {{ form.as_p }}
         <button type="submit">コメントする</button>
     </form>
+    {% comment %} 6月11日追加 {% endcomment %}
+    <form method="post" action="{% url 'chat_view' session_id=session.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">コメントを送信する</button>
+    </form>
+    {% comment %} 6月11日追加 {% endcomment %}
     <form action="{% url 'home' %}" method="get">
         <button type="submit">メインメニューへ</button>
     </form>
