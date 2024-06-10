@@ -370,7 +370,7 @@ def chat_view(request, session_id=None, counselor_id=None):
             chat_message.sender = request.user
             chat_message.session = session
             chat_message.save()
-            return redirect('chat_view', session_id=session.id)
+            return redirect('chat_view', session_id=session.id)  # ここを修正
 
     form = ChatMessageForm(initial={'session_id': session.id}) if session else ChatMessageForm()
     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
@@ -381,6 +381,7 @@ def chat_view(request, session_id=None, counselor_id=None):
         'session': session,
         'user': request.user,
     })
+
 
 @login_required
 def create_session(request):
