@@ -536,7 +536,7 @@ def delete_message(request, message_id):
 #         'user': request.user,
 #     })
 
-# @login_required
+# @login_required #記載内容のバックアップです！ この記載内容に戻りましょう！
 # def chat_view(request, session_id=None, counselor_id=None):
 #     session = None
 #     if session_id:
