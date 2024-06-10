@@ -597,7 +597,7 @@ def send_message(request):
         if form.is_valid():
             chat_message = form.save(commit=False)
             chat_message.sender = request.user
-            chat_message.session = get_object_or_404(CounselingSession, id=session_id)
+            chat_message.session_id = session_id
             chat_message.save()
             # コメントを入力して画面に表示させる処理
             data = {
