@@ -654,16 +654,15 @@ def chat_view(request, session_id=None, counselor_id=None):
         session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
 
     if request.method == 'POST':
-        form = ChatMessageForm(request.POST, session_id=session_id)
+        form = ChatMessageForm(request.POST, session_id=session.id)
         if form.is_valid():
-            form.instance.session_id = session_id
-            form.instance.sender = get_actual_user(request.user)
-            if form.instance.sender is None:
-                return HttpResponse("Invalid user.", status=400)
-            form.save()
-            return redirect('chat_view', session_id=session_id)
+            message = form.save(commit=False)
+            message.sender = request.user
+            message.session = session
+            message.save()
+            return redirect('chat_view', session_id=session.id)  # チャット画面にリダイレクト
     else:
-        form = ChatMessageForm(initial={'session_id': session_id})
+        form = ChatMessageForm(session_id=session.id if session else None)
 
     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
 
