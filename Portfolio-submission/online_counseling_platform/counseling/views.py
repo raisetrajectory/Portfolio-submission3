@@ -331,18 +331,32 @@ def session_detail(request, session_id):
 #             return redirect('chat_view', session_id=chat_message.session.id)  # チャット画面にリダイレクト
 #     return redirect('chat_view')  # フォームが無効の場合、チャット画面にリダイレクト
 
+# @login_required
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = get_actual_user(request.user)
+#             if chat_message.sender is None:
+#                 return HttpResponse("Invalid user.", status=400)
+#             chat_message.save()
+#             return redirect('chat_view', session_id=chat_message.session.id)
+#     return redirect('chat_view')
+
 @login_required
 def send_message(request):
     if request.method == 'POST':
         form = ChatMessageForm(request.POST)
         if form.is_valid():
             chat_message = form.save(commit=False)
-            chat_message.sender = get_actual_user(request.user)
-            if chat_message.sender is None:
-                return HttpResponse("Invalid user.", status=400)
+            chat_message.sender = request.user
+            chat_message.session_id = request.session.get('session_id')
             chat_message.save()
-            return redirect('chat_view', session_id=chat_message.session.id)
-    return redirect('chat_view')
+            return redirect('chat_view', session_id=request.session.get('session_id'))
+    else:
+        form = ChatMessageForm()
+    return render(request, 'counseling/registration/chat.html', {'form': form})
 
 
 @login_required
