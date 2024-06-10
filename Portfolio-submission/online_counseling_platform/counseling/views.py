@@ -545,6 +545,29 @@ from django.shortcuts import render
 from .forms import ChatMessageForm
 from .models import ChatMessage
 
+# @login_required
+# def send_message(request):
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.save()
+#             # コメントを入力して画面に表示させる処理
+#             data = {
+#                 'sender': chat_message.sender.username,
+#                 'message': chat_message.message,
+#                 'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
+#                 'success': True,
+#             }
+#             return JsonResponse(data)
+#         else:
+#             errors = form.errors.get_json_data()
+#             return JsonResponse({'success': False, 'errors': errors})
+#     else:
+#         form = ChatMessageForm()
+#     return render(request, 'counseling/registration/chat.html', {'form': form})
+
 @login_required
 def send_message(request):
     if request.method == 'POST':
@@ -564,11 +587,7 @@ def send_message(request):
         else:
             errors = form.errors.get_json_data()
             return JsonResponse({'success': False, 'errors': errors})
-    else:
-        form = ChatMessageForm()
-    return render(request, 'counseling/registration/chat.html', {'form': form})
-
-
+    return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
 
 
