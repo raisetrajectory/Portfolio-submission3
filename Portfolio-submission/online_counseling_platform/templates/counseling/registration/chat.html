@@ -310,6 +310,15 @@
         <button type="submit">コメントする</button>
     </form>
     {% comment %} 6月11日追加 {% endcomment %}
+    <form id="chat-form" method="post" action="{% url 'send_message' %}">
+    {% csrf_token %}
+    <input type="hidden" name="session_id" value="{{ session.id }}">
+    {{ form.as_p }}
+    <button type="submit">コメントする</button>
+    </form>
+    {% comment %} 6月11日追加 {% endcomment %}
+
+    {% comment %} 6月11日追加 {% endcomment %}
     {% comment %} <form method="post" action="{% url 'chat_view' session_id=session.id %}">
     {% csrf_token %}
     {{ form.as_p }}
