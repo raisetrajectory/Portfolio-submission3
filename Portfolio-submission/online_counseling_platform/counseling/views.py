@@ -738,7 +738,7 @@ def delete_message(request, message_id):
 #         'user': request.user,
 #     })
 
-@login_required
+@login_required #2024年6月10日追加
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
     if session_id:
@@ -759,7 +759,12 @@ def chat_view(request, session_id=None, counselor_id=None):
             print(form.errors)  # フォームのエラーをデバッグ出力
 
     else:
-        form = ChatMessageForm(session_id=session.id if session else None)
+        if session:
+            initial = {'session_id': session.id}
+        else:
+            initial = None
+
+        form = ChatMessageForm(initial=initial)
 
     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
 
@@ -769,6 +774,8 @@ def chat_view(request, session_id=None, counselor_id=None):
         'session': session,
         'user': request.user,
     })
+
+
 
 @login_required
 def create_session(request):
