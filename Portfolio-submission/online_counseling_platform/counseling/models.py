@@ -112,14 +112,23 @@ class CounselingSession(models.Model):
 #     def __str__(self):
 #         return f'{self.sender.username}: {self.message}'
 
+# class ChatMessage(models.Model):
+#     sender = models.ForeignKey(User, on_delete=models.CASCADE)
+#     message = models.TextField()
+#     timestamp = models.DateTimeField(auto_now_add=True)
+#     session = models.ForeignKey('CounselingSession', on_delete=models.CASCADE)
+
+#     def __str__(self):
+#         return f'{self.sender.username}: {self.message}'
+
 class ChatMessage(models.Model):
     sender = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
-    session = models.ForeignKey('CounselingSession', on_delete=models.CASCADE)
+    session_id = models.IntegerField()  # session_id フィールドを追加
 
     def __str__(self):
-        return f'{self.sender.username}: {self.message}'
+        return f'{self.sender}: {self.message}'
 
 
 class Task(models.Model):
