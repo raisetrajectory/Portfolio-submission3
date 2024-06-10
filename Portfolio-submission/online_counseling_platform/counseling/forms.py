@@ -153,27 +153,21 @@ class CustomAuthenticationForm(AuthenticationForm):
 #         if self.session_id:
 #             instance.session_id = self.session_id
 #         if commit:
+#             instance.sender = self.request.user  # type: ignore # ここで sender に request.user をセット
 #             instance.save()
 #         return instance
 
 class ChatMessageForm(forms.ModelForm):
+    session_id = forms.IntegerField(widget=forms.HiddenInput())
+
     class Meta:
         model = ChatMessage
-        fields = ['message']
+        fields = ['message', 'session_id']
 
     def __init__(self, *args, session_id=None, **kwargs):
         super().__init__(*args, **kwargs)
-        self.session_id = session_id
-
-    def save(self, commit=True):
-        instance = super().save(commit=False)
-        if self.session_id:
-            instance.session_id = self.session_id
-        if commit:
-            instance.sender = self.request.user  # type: ignore # ここで sender に request.user をセット
-            instance.save()
-        return instance
-
+        if session_id:
+            self.fields['session_id'].initial = session_id
 
 class CommentForm(forms.Form):
     message = forms.CharField(label='コメント', widget=forms.Textarea)
