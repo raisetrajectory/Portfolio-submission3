@@ -143,6 +143,18 @@ class CustomAuthenticationForm(AuthenticationForm):
 #         if session_id:
 #             self.fields['session_id'].initial = session_id
 
+# class ChatMessageForm(forms.ModelForm):
+#     session_id = forms.IntegerField(widget=forms.HiddenInput())
+
+#     class Meta:
+#         model = ChatMessage
+#         fields = ['message', 'session_id']
+
+#     def __init__(self, *args, session_id=None, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         if session_id:
+#             self.fields['session_id'].initial = session_id
+
 class ChatMessageForm(forms.ModelForm):
     session_id = forms.IntegerField(widget=forms.HiddenInput())
 
@@ -150,7 +162,8 @@ class ChatMessageForm(forms.ModelForm):
         model = ChatMessage
         fields = ['message', 'session_id']
 
-    def __init__(self, *args, session_id=None, **kwargs):
+    def __init__(self, *args, **kwargs):
+        session_id = kwargs.pop('session_id', None)
         super().__init__(*args, **kwargs)
         if session_id:
             self.fields['session_id'].initial = session_id
