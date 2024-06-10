@@ -122,10 +122,22 @@ class CustomAuthenticationForm(AuthenticationForm):
 
 #     session_id = forms.IntegerField(widget=forms.HiddenInput())  # HiddenInput を使用して非表示にする
 
+# class ChatMessageForm(forms.ModelForm):
+#     class Meta:
+#         model = ChatMessage
+#         fields = ['message', 'session']  # session フィールドを追加
+
 class ChatMessageForm(forms.ModelForm):
+    session_id = forms.IntegerField(widget=forms.HiddenInput())
+
     class Meta:
         model = ChatMessage
-        fields = ['message', 'session']  # session フィールドを追加
+        fields = ['message', 'session_id']
+
+    def __init__(self, *args, session_id=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['session_id'].initial = session_id
+        self.fields['session_id'].widget = forms.HiddenInput()
 
 class CommentForm(forms.Form):
     message = forms.CharField(label='コメント', widget=forms.Textarea)
