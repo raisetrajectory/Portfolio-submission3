@@ -198,12 +198,12 @@
         {% endfor %}
     </div>
     {% comment %} 2024年6月10日追加追加 {% endcomment %}
-    <form id="chat-form" method="post" action="{% url 'send_message' %}">
+    {% comment %} <form id="chat-form" method="post" action="{% url 'send_message' %}">
     {% csrf_token %}
     <input type="hidden" name="session_id" value="{{ session.id }}">
     {{ form.as_p }}
     <button type="submit">コメントする</button>
-    </form>
+    </form> {% endcomment %}
     {% comment %} 2024年6月10日追加追加 {% endcomment %}
     <form id="chat-form-2" method="post" action="{% url 'send_message' %}">
     {% csrf_token %}
