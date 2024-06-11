@@ -302,14 +302,6 @@ def send_message(request):
             return JsonResponse({'success': False, 'errors': errors})
     return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
-@login_required
-def delete_message(request, message_id):
-    message = get_object_or_404(ChatMessage, id=message_id)
-    session_id = message.session.id
-    if request.user == message.sender:
-        message.delete()
-    return redirect('chat_view', session_id=session_id)
-
 # @login_required #2024年6月9日追加 記載内容のバックアップです！ ここに戻りましょう！
 # def chat_view(request, session_id=None, counselor_id=None):
 #     session = None
@@ -489,3 +481,11 @@ def profile_view(request):
 def counselor_list_view(request):
     counselors = Counselor.objects.all()
     return render(request, 'counselor_list.html', {'counselors': counselors})
+
+@login_required
+def delete_message(request, message_id):
+    message = get_object_or_404(ChatMessage, id=message_id)
+    session_id = message.session.id
+    if request.user == message.sender:
+        message.delete()
+    return redirect('chat_view', session_id=session_id)
