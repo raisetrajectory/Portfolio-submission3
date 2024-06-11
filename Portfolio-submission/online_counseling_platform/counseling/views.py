@@ -49,17 +49,6 @@
 #     messages = ChatMessage.objects.filter(session=session).order_by('-timestamp') if session else []
 #     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
 
-# @login_required
-# def create_session(request):
-#     if request.method == 'POST':
-#         counselor_id = request.POST.get('counselor')
-#         counselor = get_object_or_404(Counselor, id=counselor_id)
-#         session = CounselingSession.objects.create(user=request.user, counselor=counselor)
-#         return redirect('chat_view', counselor_id=counselor.id) # type: ignore
-
-#     counselors = Counselor.objects.all()
-#     return render(request, 'create_session.html', {'counselors': counselors})
-
 # 1~130の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！
 
 # counseling/views.py
