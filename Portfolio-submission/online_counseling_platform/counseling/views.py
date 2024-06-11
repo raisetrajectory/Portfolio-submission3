@@ -16,6 +16,38 @@ from django.conf import settings #2024年6月6日追加
 
 User = get_user_model()
 
+@login_required #2024年6月11日追加　質問内容の記載内容となります。
+def chat_view(request, session_id=None, counselor_id=None):
+    session = None
+    if session_id:
+        session = get_object_or_404(CounselingSession, id=session_id)
+    elif counselor_id:
+        counselor = get_object_or_404(Counselor, id=counselor_id)
+        session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
+
+    if request.method == 'POST':
+        form = ChatMessageForm(request.POST)
+        if form.is_valid():
+            message = form.save(commit=False)
+            message.sender = request.user
+            message.session = session
+            message.save()
+            return redirect('chat_view', session_id=session.id) # type: ignore
+        else:
+            print(form.errors)
+    else:
+        initial = {'session_id': session.id} if session else {} # type: ignore
+        form = ChatMessageForm(initial=initial)
+
+    messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
+
+    return render(request, 'counseling/registration/chat.html', {
+        'form': form,
+        'messages': messages,
+        'session': session,
+        'user': request.user,
+    })
+
 def profile(request): #2024年6月6日追加
     if request.method == 'POST' and request.FILES['upload_file']:
         uploaded_file = request.FILES['upload_file']
@@ -105,37 +137,37 @@ def send_message(request):
 #         'user': request.user,
 #     })
 
-@login_required #2024年6月11日追加
-def chat_view(request, session_id=None, counselor_id=None):
-    session = None
-    if session_id:
-        session = get_object_or_404(CounselingSession, id=session_id)
-    elif counselor_id:
-        counselor = get_object_or_404(Counselor, id=counselor_id)
-        session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
+# @login_required #2024年6月11日追加
+# def chat_view(request, session_id=None, counselor_id=None):
+#     session = None
+#     if session_id:
+#         session = get_object_or_404(CounselingSession, id=session_id)
+#     elif counselor_id:
+#         counselor = get_object_or_404(Counselor, id=counselor_id)
+#         session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
 
-    if request.method == 'POST':
-        form = ChatMessageForm(request.POST)
-        if form.is_valid():
-            message = form.save(commit=False)
-            message.sender = request.user
-            message.session = session
-            message.save()
-            return redirect('chat_view', session_id=session.id) # type: ignore
-        else:
-            print(form.errors)
-    else:
-        initial = {'session_id': session.id} if session else {} # type: ignore
-        form = ChatMessageForm(initial=initial)
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             message = form.save(commit=False)
+#             message.sender = request.user
+#             message.session = session
+#             message.save()
+#             return redirect('chat_view', session_id=session.id) # type: ignore
+#         else:
+#             print(form.errors)
+#     else:
+#         initial = {'session_id': session.id} if session else {} # type: ignore
+#         form = ChatMessageForm(initial=initial)
 
-    messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
+#     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
 
-    return render(request, 'counseling/registration/chat.html', {
-        'form': form,
-        'messages': messages,
-        'session': session,
-        'user': request.user,
-    })
+#     return render(request, 'counseling/registration/chat.html', {
+#         'form': form,
+#         'messages': messages,
+#         'session': session,
+#         'user': request.user,
+#     })
 
 # def chat_view(request, session_id):
 #     form = ChatMessageForm(request.POST or None)
