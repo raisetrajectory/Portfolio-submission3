@@ -338,7 +338,6 @@ def chat_view(request, session_id=None, counselor_id=None):
         'user': request.user,
     })
 
-
 # def chat_view(request, session_id):
 #     form = ChatMessageForm(request.POST or None)
 #     if request.method == 'POST' and form.is_valid():
