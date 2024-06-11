@@ -60,10 +60,6 @@
 #     counselors = Counselor.objects.all()
 #     return render(request, 'create_session.html', {'counselors': counselors})
 
-# def counselor_profile(request, pk):
-#     counselor = get_object_or_404(Counselor, pk=pk)
-#     return render(request, 'counselor_profile.html', {'counselor': counselor})
-
 # 1~130の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！
 
 # counseling/views.py
