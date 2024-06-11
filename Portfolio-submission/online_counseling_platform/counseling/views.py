@@ -64,31 +64,6 @@
 #     counselor = get_object_or_404(Counselor, pk=pk)
 #     return render(request, 'counselor_profile.html', {'counselor': counselor})
 
-# def edit_counselor_profile(request, pk):
-#     counselor = get_object_or_404(Counselor, pk=pk)
-#     if request.method == 'POST':
-#         form = CounselorForm(request.POST, instance=counselor)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('counselor_profile', pk=counselor.pk)
-#     else:
-#         form = CounselorForm(instance=counselor)
-#     return render(request, 'edit_counselor_profile.html', {'form': form})
-
-# def signup(request):
-#     if request.method == 'POST':
-#         form = CustomUserCreationForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             login(request, user)
-#             return redirect('home')
-#     else:
-#         form = CustomUserCreationForm()
-#     return render(request, 'signup.html', {'form': form})
-
-# def login_view(request):
-#     return auth_views.LoginView.as_view(authentication_form=CustomAuthenticationForm)(request)
-
 # 1~130の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！
 
 # counseling/views.py
