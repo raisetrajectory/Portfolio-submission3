@@ -394,49 +394,49 @@ def delete_message(request, message_id):
 #         'user': request.user,
 #     })
 
-@login_required
-def chat_view(request, session_id=None, counselor_id=None):
-    session = None
-    if session_id:
-        session = get_object_or_404(CounselingSession, id=session_id)
-    elif counselor_id:
-        counselor = get_object_or_404(Counselor, id=counselor_id)
-        session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
+# @login_required
+# def chat_view(request, session_id=None, counselor_id=None):
+#     session = None
+#     if session_id:
+#         session = get_object_or_404(CounselingSession, id=session_id)
+#     elif counselor_id:
+#         counselor = get_object_or_404(Counselor, id=counselor_id)
+#         session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
 
-    if request.method == 'POST':
-        form = ChatMessageForm(request.POST)
-        if form.is_valid():
-            message = form.save(commit=False)
-            message.sender = request.user
-            message.session = session
-            message.save()
-            return redirect('chat_view', session_id=session.id)
-        else:
-            print(form.errors)
-    else:
-        initial = {'session_id': session.id} if session else {}
-        form = ChatMessageForm(initial=initial)
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             message = form.save(commit=False)
+#             message.sender = request.user
+#             message.session = session
+#             message.save()
+#             return redirect('chat_view', session_id=session.id)
+#         else:
+#             print(form.errors)
+#     else:
+#         initial = {'session_id': session.id} if session else {}
+#         form = ChatMessageForm(initial=initial)
 
-    messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
+#     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
 
-    return render(request, 'counseling/registration/chat.html', {
-        'form': form,
-        'messages': messages,
-        'session': session,
-        'user': request.user,
-    })
+#     return render(request, 'counseling/registration/chat.html', {
+#         'form': form,
+#         'messages': messages,
+#         'session': session,
+#         'user': request.user,
+#     })
 
-# def chat_view(request, session_id):
-#     form = ChatMessageForm(request.POST or None)
-#     if request.method == 'POST' and form.is_valid():
-#         message = form.save(commit=False)
-#         message.sender = request.user
-#         message.session_id = session_id  # セッション ID を設定
-#         message.save()
-#         return redirect('chat', session_id=session_id)
+def chat_view(request, session_id):
+    form = ChatMessageForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        message = form.save(commit=False)
+        message.sender = request.user
+        message.session_id = session_id  # セッション ID を設定
+        message.save()
+        return redirect('counseling/registration/chat.html', session_id=session_id)
 
-#     messages = ChatMessage.objects.filter(session_id=session_id).order_by('timestamp')
-#     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session_id': session_id})
+    messages = ChatMessage.objects.filter(session_id=session_id).order_by('timestamp')
+    return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session_id': session_id})
 
 
 @login_required
