@@ -201,26 +201,6 @@ def session_detail(request, session_id):
     messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
     return render(request, 'session_detail.html', {'session': session, 'messages': messages})
 
-#193~210の記載内容が正しいです！バックアップです！
-# @login_required
-# def chat_view(request, session_id=None, counselor_id=None):
-#     session = None
-#     if session_id:
-#         session = get_object_or_404(CounselingSession, id=session_id)
-#     elif counselor_id:
-#         counselor = get_object_or_404(Counselor, id=counselor_id)
-#         session, created = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
-
-#     form = ChatMessageForm(initial={'session_id': session.id}) if session else ChatMessageForm()
-#     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
-
-#     return render(request, 'counseling/registration/chat.html', {
-#         'form': form,
-#         'messages': messages,
-#         'session': session,
-#         'user': request.user,
-#     })
-
 # @login_required #2024年6月9日追加
 # def send_message(request):
 #     if request.method == 'POST':
@@ -245,56 +225,6 @@ def session_detail(request, session_id):
 #             chat_message.session_id = session_id
 #             chat_message.save()
 #             # コメントを入力して画面に表示させる処理
-#             data = {
-#                 'sender': chat_message.sender.username,
-#                 'message': chat_message.message,
-#                 'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
-#                 'success': True,
-#             }
-#             return JsonResponse(data)
-#         else:
-#             errors = form.errors.get_json_data()
-#             return JsonResponse({'success': False, 'errors': errors})
-#     return JsonResponse({'success': False, 'error': 'Invalid request method'})
-
-# @login_required
-# def send_message(request):
-#     if request.method == 'POST':
-#         session_id = request.POST.get('session_id')
-#         if not session_id:
-#             return JsonResponse({'success': False, 'error': 'セッションIDを設定してください。'})
-
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             chat_message = form.save(commit=False)
-#             chat_message.sender = request.user
-#             chat_message.session_id = session_id
-#             chat_message.save()
-#             data = {
-#                 'sender': chat_message.sender.username,
-#                 'message': chat_message.message,
-#                 'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
-#                 'success': True,
-#             }
-#             return JsonResponse(data)
-#         else:
-#             errors = form.errors.get_json_data()
-#             return JsonResponse({'success': False, 'errors': errors})
-#     return JsonResponse({'success': False, 'error': 'Invalid request method'})
-
-# @login_required
-# def send_message(request):
-#     if request.method == 'POST':
-#         session_id = request.POST.get('session_id')
-#         if not session_id:
-#             return JsonResponse({'success': False, 'error': 'セッションIDを設定してください。'})
-
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             chat_message = form.save(commit=False)
-#             chat_message.sender = request.user
-#             chat_message.session_id = session_id
-#             chat_message.save()
 #             data = {
 #                 'sender': chat_message.sender.username,
 #                 'message': chat_message.message,
