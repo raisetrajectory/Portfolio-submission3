@@ -566,7 +566,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </body>
 </html> {% endcomment %}
 
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -652,6 +652,103 @@ document.addEventListener('DOMContentLoaded', function() {
                     messageContainer.appendChild(messageElement);
 
                     form.reset();  // 入力フォームをリセット
+                } else {
+                    alert('コメントの送信に失敗しました。エラー: ' + JSON.stringify(data.errors || data.error));
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('コメントの送信中にエラーが発生しました。');
+            });
+        });
+    </script>
+</body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>チャットメッセージ</title>
+    <style>
+        #chat-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 300px;
+            overflow-y: scroll;
+        }
+        .message {
+            margin-bottom: 10px;
+        }
+        .message p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>チャットメッセージ</h1>
+    <div id="chat-box">
+        {% for message in messages %}
+            <div class="message">
+                <p><strong>{{ message.sender.username }}:</strong> {{ message.message }}</p>
+                <p><small>{{ message.timestamp }}</small></p>
+            </div>
+        {% empty %}
+            <p>メッセージはありません。</p>
+        {% endfor %}
+    </div>
+
+    <form id="chat-form" method="post" action="{% url 'send_message' %}">
+        {% csrf_token %}
+        <input type="hidden" name="session_id" value="{{ session.id }}">
+        {{ form.as_p }}
+        <button type="submit">コメントする</button>
+    </form>
+
+    <form action="{% url 'home' %}" method="get">
+        <button type="submit">メインメニューへ</button>
+    </form>
+    <form action="{% url 'home' %}" method="get">
+        <button type="submit">相談を終了する</button>
+    </form>
+
+    <script>
+        document.getElementById('chat-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var form = event.target;
+            var formData = new FormData(form);
+
+            var session_id = document.querySelector('input[name="session_id"]').value;
+            if (!session_id) {
+                alert('セッション ID を設定してください。');
+                return;
+            }
+            formData.set('session_id', session_id);
+
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'X-CSRFToken': formData.get('csrfmiddlewaretoken'),
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    var messageContainer = document.getElementById('chat-box');
+                    var messageElement = document.createElement('div');
+                    messageElement.className = 'message';
+                    var sender = data.sender ? `<strong>${data.sender}:</strong> ` : '';
+                    messageElement.innerHTML = `
+                        <p>${sender}${data.message}</p>
+                        <p><small>${data.timestamp}</small></p>
+                    `;
+                    messageContainer.appendChild(messageElement);
+
+                    form.reset();
                 } else {
                     alert('コメントの送信に失敗しました。エラー: ' + JSON.stringify(data.errors || data.error));
                 }
