@@ -304,7 +304,6 @@
         {% endfor %}
     </div>
 
-    {% comment %} 6月11日追加 {% endcomment %}
     <form id="chat-form" method="post" action="{% url 'send_message' %}">
     {% csrf_token %}
     <input type="hidden" name="session_id" value="{{ session.id }}">
@@ -312,7 +311,6 @@
     {{ form.as_p }}
     <button type="submit">コメントする</button>
     </form>
-    {% comment %} 6月11日追加 {% endcomment %}
 
     <form action="{% url 'home' %}" method="get">
         <button type="submit">メインメニューへ</button>
