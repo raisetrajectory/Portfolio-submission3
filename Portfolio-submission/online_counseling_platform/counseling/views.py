@@ -438,21 +438,17 @@ def chat_view(request, session_id=None, counselor_id=None):
 #     messages = ChatMessage.objects.filter(session_id=session_id).order_by('timestamp')
 #     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session_id': session_id})
 
+def chat_view(request, session_id):
+    form = ChatMessageForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        message = form.save(commit=False)
+        message.sender = request.user
+        message.session_id = session_id  # セッション ID を設定
+        message.save()
+        return redirect('chat', session_id=session_id)
 
-# def chat_view(request, session_id):
-#     form = ChatMessageForm(request.POST or None)
-#     if request.method == 'POST' and form.is_valid():
-#         message = form.save(commit=False)
-#         message.sender = request.user
-#         message.session_id = session_id  # セッション ID を設定
-#         message.save()
-#         return redirect('chat', session_id=session_id)
-
-#     messages = ChatMessage.objects.filter(session_id=session_id).order_by('timestamp')
-#     # return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session_id': session_id})
-#     return redirect('chat', session_id=session_id)
-
-
+    messages = ChatMessage.objects.filter(session_id=session_id).order_by('timestamp')
+    return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session_id': session_id})
 
 @login_required
 def create_session(request):
