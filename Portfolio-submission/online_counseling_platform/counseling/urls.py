@@ -33,6 +33,8 @@ urlpatterns = [
     path('chat/<int:counselor_id>/start/', chat_view, name='chat_start'),
     path('send_message/', send_message, name='send_message'),
     path('chat/<int:session_id>/', chat_view, name='chat_view'),
+
+    # path('post_comments/<int:theme_id>/', views.post_comments, name='post_comments'), # type: ignore
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
