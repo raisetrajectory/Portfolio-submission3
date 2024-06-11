@@ -1,13 +1,13 @@
-# from django.shortcuts import render, get_object_or_404, redirect
-# from django.contrib.auth.forms import UserCreationForm
-# from django.contrib.auth import login, logout, authenticate  # authenticateを追加
-# from django.contrib.auth.decorators import login_required
-# from django.http import JsonResponse
-# from django.template.loader import get_template
-# from django.template import TemplateDoesNotExist
-# from django.contrib.auth import views as auth_views
-# from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorForm, ProfileForm, ChatMessageForm  # すべてのフォームを一行でインポート
-# from .models import Counselor, CounselingSession, ChatMessage
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, logout, authenticate  # authenticateを追加
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from django.template.loader import get_template
+from django.template import TemplateDoesNotExist
+from django.contrib.auth import views as auth_views
+from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorForm, ProfileForm, ChatMessageForm  # すべてのフォームを一行でインポート
+from .models import Counselor, CounselingSession, ChatMessage
 
 # @login_required
 # def chat_view(request, session_id=None, counselor_id=None):
@@ -72,7 +72,7 @@ def upload_sample(request): #2024年6月6日追加
 def home(request):
     some_condition = not User.objects.filter(username='default_user').exists()
     if some_condition:
-        User.objects.create_user(username='default_user', password='defaultpassword')
+        User.objects.create_user(username='default_user', password='defaultpassword') # type: ignore
     return render(request, 'home.html')
 
 @login_required
@@ -154,11 +154,11 @@ def chat_view(request, session_id=None, counselor_id=None):
             message.sender = request.user
             message.session = session
             message.save()
-            return redirect('chat_view', session_id=session.id)
+            return redirect('chat_view', session_id=session.id) # type: ignore
         else:
             print(form.errors)
     else:
-        initial = {'session_id': session.id} if session else {}
+        initial = {'session_id': session.id} if session else {} # type: ignore
         form = ChatMessageForm(initial=initial)
 
     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
@@ -237,7 +237,7 @@ def counselor_list_view(request):
 @login_required
 def delete_message(request, message_id):
     message = get_object_or_404(ChatMessage, id=message_id)
-    session_id = message.session.id
+    session_id = message.session.id # type: ignore
     if request.user == message.sender:
         message.delete()
     return redirect('chat_view', session_id=session_id)
