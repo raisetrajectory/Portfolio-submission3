@@ -66,8 +66,8 @@ urlpatterns = [
 
     path('upload_sample/', views.upload_sample, name='upload_sample'), #2024年6月5日追加
     path('profile/', views.profile, name='profile'),#2024年6月6日追加
-    path('chat/<int:session_id>/', views.chat_view, name='chat'), #2024年6月11日追加
-    path('chat/<int:session_id>/', chat_view, name='chat'),
+    # path('chat/<int:session_id>/', views.chat_view, name='chat'), #2024年6月11日追加
+    # path('chat/<int:session_id>/', chat_view, name='chat'),
     path('chat/<int:counselor_id>/start/', chat_view, name='chat_start'),
     path('send_message/', send_message, name='send_message'),
 ]
