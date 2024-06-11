@@ -9,7 +9,7 @@ User = get_user_model() # type: ignore
 #     def fetch_by_theme_id(self, theme_id):
 #         return self.filter(theme_id=theme_id).order_by('id').all()
 
-# class Comments(models.Model):
+# class Comments(models.Model):　#2024年6月11日追加
 
 #     comment = models.CharField(max_length=1000)
 #     user = models.ForeignKey(
