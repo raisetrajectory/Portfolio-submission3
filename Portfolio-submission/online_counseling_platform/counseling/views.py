@@ -324,6 +324,7 @@ def send_message(request):
             return JsonResponse({'success': False, 'errors': errors})
     return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
+
 @login_required
 def delete_message(request, message_id):
     message = get_object_or_404(ChatMessage, id=message_id)
@@ -410,7 +411,7 @@ def delete_message(request, message_id):
 #             message.sender = request.user
 #             message.session = session
 #             message.save()
-#             return redirect('chat_view', session_id=session.id if session else None)
+#             return redirect('chat_view', session_id=session.id)
 #         else:
 #             print(form.errors)
 #     else:
@@ -457,6 +458,7 @@ def chat_view(request, session_id=None, counselor_id=None):
         'session': session,
         'user': request.user,
     })
+
 
 @login_required
 def create_session(request):
