@@ -1,14 +1,3 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login, logout, authenticate  # authenticateを追加
-from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
-from django.template.loader import get_template
-from django.template import TemplateDoesNotExist
-from django.contrib.auth import views as auth_views
-from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorForm, ProfileForm, ChatMessageForm  # すべてのフォームを一行でインポート
-from .models import Counselor, CounselingSession, ChatMessage
-
 # @login_required
 # def chat_view(request, session_id=None, counselor_id=None):
 #     session = None
@@ -33,7 +22,7 @@ from .models import Counselor, CounselingSession, ChatMessage
 
 # counseling/views.py
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate  # authenticateを追加
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.contrib.auth import views as auth_views
