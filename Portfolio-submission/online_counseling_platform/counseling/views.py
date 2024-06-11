@@ -18,6 +18,7 @@ User = get_user_model()
 
 from . import forms #2024年6月11日追加
 from django.core.exceptions import ValidationError #2024年6月11日追加
+# from .models import UserActivateTokens # type: ignore #2024年6月11日追加
 
 # def post_comments(request, theme_id):
 #     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
