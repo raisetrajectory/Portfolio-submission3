@@ -277,11 +277,36 @@ def session_detail(request, session_id):
 #             return JsonResponse({'success': False, 'errors': errors})
 #     return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
+# @login_required
+# def send_message(request):
+#     if request.method == 'POST':
+#         session_id = request.POST.get('session_id')
+#         form = ChatMessageForm(request.POST, session_id=session_id)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.session_id = session_id
+#             chat_message.save()
+#             data = {
+#                 'sender': chat_message.sender.username,
+#                 'message': chat_message.message,
+#                 'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
+#                 'success': True,
+#             }
+#             return JsonResponse(data)
+#         else:
+#             errors = form.errors.get_json_data()
+#             return JsonResponse({'success': False, 'errors': errors})
+#     return JsonResponse({'success': False, 'error': 'Invalid request method'})
+
 @login_required
 def send_message(request):
     if request.method == 'POST':
         session_id = request.POST.get('session_id')
-        form = ChatMessageForm(request.POST, session_id=session_id)
+        if not session_id:
+            return JsonResponse({'success': False, 'error': 'セッションIDを設定してください。'})
+
+        form = ChatMessageForm(request.POST)
         if form.is_valid():
             chat_message = form.save(commit=False)
             chat_message.sender = request.user
