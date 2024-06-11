@@ -56,7 +56,6 @@ urlpatterns = [
     path('chat/<int:session_id>/', views.chat_view, name='chat_view'),
     path('chat/<int:counselor_id>/', views.chat_view, name='chat'),
     path('profile/<int:counselor_id>/', views.profile_view, name='profile'),  # カウンセラーIDに基づくプロフィールビュー
-    # path('send_message/', views.send_message, name='send_message'),
     path('session/<int:session_id>/', views.session_detail, name='session_detail'),
     path('chat/session/<int:session_id>/', views.chat_view, name='chat_session'),
     path('chat/counselor/<int:counselor_id>/', views.chat_view, name='chat_counselor'),
@@ -65,8 +64,6 @@ urlpatterns = [
 
     path('upload_sample/', views.upload_sample, name='upload_sample'), #2024年6月5日追加
     path('profile/', views.profile, name='profile'),#2024年6月6日追加
-    # path('chat/<int:session_id>/', views.chat_view, name='chat'), #2024年6月11日追加
-    # path('chat/<int:session_id>/', chat_view, name='chat'),
 
     path('chat/<int:counselor_id>/start/', chat_view, name='chat_start'),
     path('send_message/', send_message, name='send_message'),
