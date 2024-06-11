@@ -89,33 +89,6 @@
 # def login_view(request):
 #     return auth_views.LoginView.as_view(authentication_form=CustomAuthenticationForm)(request)
 
-# def logout_view(request):
-#     if request.method == 'POST':
-#         logout(request)
-#         return redirect('home')
-#     return render(request, 'logout.html')
-
-# @login_required
-# def profile_view(request):
-#     if request.method == 'POST':
-#         form = ProfileForm(request.POST, request.FILES, instance=request.user)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('profile')
-#     else:
-#         form = ProfileForm(instance=request.user)
-#     return render(request, 'profile.html', {'form': form})
-
-# def counselor_list_view(request):
-#     counselors = Counselor.objects.all()
-#     return render(request, 'counselor_list.html', {'counselors': counselors})
-
-# def get_messages(request):
-#     messages = ChatMessage.objects.values('user', 'content')
-#     return JsonResponse({'messages': list(messages)})
-
-
-
 # 1~130の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！
 
 # counseling/views.py
