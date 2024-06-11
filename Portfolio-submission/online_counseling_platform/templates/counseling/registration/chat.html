@@ -804,11 +804,11 @@ document.addEventListener('DOMContentLoaded', function() {
         <button type="submit">コメントする</button>
     </form>
 
-    <form method="post" action="{% url 'chat' session_id=session_id %}">
+    {% comment %} <form method="post" action="{% url 'chat' session_id=session_id %}">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">コメントする</button>
-    </form>
+    </form> {% endcomment %}
 
     <form action="{% url 'home' %}" method="get">
         <button type="submit">メインメニューへ</button>
