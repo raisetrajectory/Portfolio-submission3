@@ -11,12 +11,6 @@
 # from .models import Counselor, CounselingSession, ChatMessage
 
 # @login_required
-# def session_detail(request, session_id):
-#     session = get_object_or_404(CounselingSession, id=session_id)
-#     messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
-#     return render(request, 'session_detail.html', {'session': session, 'messages': messages})
-
-# @login_required
 # def chat_view(request, session_id=None, counselor_id=None):
 #     session = None
 #     if session_id:
