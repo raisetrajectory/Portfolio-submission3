@@ -420,31 +420,3 @@ def profile_view(request):
 def counselor_list_view(request):
     counselors = Counselor.objects.all()
     return render(request, 'counselor_list.html', {'counselors': counselors})
-
-#313~357の記載内容が正しいです！バックアップです！
-# @login_required
-# def send_message(request):
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             session_id = form.cleaned_data['session_id']
-#             session = get_object_or_404(CounselingSession, id=session_id)
-#             message_text = form.cleaned_data['message']
-#             chat_message = ChatMessage(sender=request.user, message=message_text, session=session)
-#             chat_message.save()
-#             return redirect('chat_view', session_id=session.id)
-#         else:
-#             session_id = request.POST.get('session_id')
-#             if session_id:
-#                 session = get_object_or_404(CounselingSession, id=session_id)
-#                 messages_list = ChatMessage.objects.filter(session=session).order_by('timestamp')
-#                 return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages_list, 'session': session})
-#     return redirect('home')
-
-# @login_required
-# def delete_message(request, message_id):
-#     message = get_object_or_404(ChatMessage, id=message_id)
-#     session_id = message.session.id
-#     if request.user == message.sender:
-#         message.delete()
-#     return redirect('chat_view', session_id=session_id)
