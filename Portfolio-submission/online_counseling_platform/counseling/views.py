@@ -324,23 +324,6 @@ def send_message(request):
             return JsonResponse({'success': False, 'errors': errors})
     return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
-# def send_message(request): #2024年6月11日追加
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             session_id = request.POST.get('session_id')  # Assuming the session_id is sent in the POST data
-#             session = CounselingSession.objects.get(pk=session_id)
-#             message = form.cleaned_data['message']
-#             sender = request.user
-#             chat_message = ChatMessage(session=session, sender=sender, message=message)
-#             chat_message.save()
-#             return redirect('chat_view')
-#     else:
-#         form = ChatMessageForm()
-
-#     return render(request, 'chat_view', {'form': form})
-
-
 @login_required
 def delete_message(request, message_id):
     message = get_object_or_404(ChatMessage, id=message_id)
