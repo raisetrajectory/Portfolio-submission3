@@ -130,7 +130,6 @@ class ChatMessage(models.Model):
     def __str__(self):
         return f'{self.sender}: {self.message}'
 
-
 class Task(models.Model):
     ASSIGNED_ROLE_CHOICES = [
         ('user', 'User'),
