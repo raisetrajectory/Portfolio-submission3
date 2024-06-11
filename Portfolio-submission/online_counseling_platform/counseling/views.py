@@ -324,6 +324,22 @@ def send_message(request):
             return JsonResponse({'success': False, 'errors': errors})
     return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
+# def send_message(request): #2024年6月11日追加
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             session_id = request.POST.get('session_id')  # Assuming the session_id is sent in the POST data
+#             session = CounselingSession.objects.get(pk=session_id)
+#             message = form.cleaned_data['message']
+#             sender = request.user
+#             chat_message = ChatMessage(session=session, sender=sender, message=message)
+#             chat_message.save()
+#             return redirect('chat_view')
+#     else:
+#         form = ChatMessageForm()
+
+#     return render(request, 'chat_view', {'form': form})
+
 
 @login_required
 def delete_message(request, message_id):
@@ -385,38 +401,6 @@ def delete_message(request, message_id):
 #             print(form.errors)  # フォームのエラーをデバッグ出力
 #     else:
 #         form = ChatMessageForm(initial={'session_id': session.id if session else None})
-
-#     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
-
-#     return render(request, 'counseling/registration/chat.html', {
-#         'form': form,
-#         'messages': messages,
-#         'session': session,
-#         'user': request.user,
-#     })
-
-# @login_required
-# def chat_view(request, session_id=None, counselor_id=None):
-#     session = None
-#     if session_id:
-#         session = get_object_or_404(CounselingSession, id=session_id)
-#     elif counselor_id:
-#         counselor = get_object_or_404(Counselor, id=counselor_id)
-#         session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
-
-#     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST)
-#         if form.is_valid():
-#             message = form.save(commit=False)
-#             message.sender = request.user
-#             message.session = session
-#             message.save()
-#             return redirect('chat_view', session_id=session.id)
-#         else:
-#             print(form.errors)
-#     else:
-#         initial = {'session_id': session.id} if session else {}
-#         form = ChatMessageForm(initial=initial)
 
 #     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
 
