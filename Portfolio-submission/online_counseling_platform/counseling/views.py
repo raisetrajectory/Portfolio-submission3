@@ -254,7 +254,30 @@ def session_detail(request, session_id):
 #             return redirect('chat_view', session_id=form.cleaned_data['session_id'])
 #     return redirect('chat_view') #コメントを入力後にチャット画面にリダイレクト出来ております！
 
-@login_required #2024年6月11日追加 この記載内容に戻りましょう！
+# @login_required #2024年6月11日追加 この記載内容に戻りましょう！
+# def send_message(request):
+#     if request.method == 'POST':
+#         session_id = request.POST.get('session_id')
+#         form = ChatMessageForm(request.POST, session_id=session_id)
+#         if form.is_valid():
+#             chat_message = form.save(commit=False)
+#             chat_message.sender = request.user
+#             chat_message.session_id = session_id
+#             chat_message.save()
+#             # コメントを入力して画面に表示させる処理
+#             data = {
+#                 'sender': chat_message.sender.username,
+#                 'message': chat_message.message,
+#                 'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
+#                 'success': True,
+#             }
+#             return JsonResponse(data)
+#         else:
+#             errors = form.errors.get_json_data()
+#             return JsonResponse({'success': False, 'errors': errors})
+#     return JsonResponse({'success': False, 'error': 'Invalid request method'})
+
+@login_required
 def send_message(request):
     if request.method == 'POST':
         session_id = request.POST.get('session_id')
@@ -264,7 +287,6 @@ def send_message(request):
             chat_message.sender = request.user
             chat_message.session_id = session_id
             chat_message.save()
-            # コメントを入力して画面に表示させる処理
             data = {
                 'sender': chat_message.sender.username,
                 'message': chat_message.message,
@@ -315,7 +337,39 @@ def delete_message(request, message_id):
 #         'user': request.user,
 #     })
 
-@login_required #2024年6月11日追加 記載内容のバックアップです！ ここに戻りましょう！
+# @login_required #2024年6月11日追加 記載内容のバックアップです！ ここに戻りましょう！
+# def chat_view(request, session_id=None, counselor_id=None):
+#     session = None
+#     if session_id:
+#         session = get_object_or_404(CounselingSession, id=session_id)
+#     elif counselor_id:
+#         counselor = get_object_or_404(Counselor, id=counselor_id)
+#         session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
+
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST, initial={'session_id': session.id if session else None})
+#         if form.is_valid():
+#             message = form.save(commit=False)
+#             message.sender = request.user
+#             message.session = session
+#             message.save()
+#             # return redirect('chat_view', session_id=session.id)  # チャット画面にリダイレクト
+#             return redirect('chat_view', session_id=session.id if session else None)
+#         else:
+#             print(form.errors)  # フォームのエラーをデバッグ出力
+#     else:
+#         form = ChatMessageForm(initial={'session_id': session.id if session else None})
+
+#     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
+
+#     return render(request, 'counseling/registration/chat.html', {
+#         'form': form,
+#         'messages': messages,
+#         'session': session,
+#         'user': request.user,
+#     })
+
+@login_required
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
     if session_id:
@@ -325,18 +379,17 @@ def chat_view(request, session_id=None, counselor_id=None):
         session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
 
     if request.method == 'POST':
-        form = ChatMessageForm(request.POST, initial={'session_id': session.id if session else None})
+        form = ChatMessageForm(request.POST, session_id=session.id if session else None)
         if form.is_valid():
             message = form.save(commit=False)
             message.sender = request.user
             message.session = session
             message.save()
-            # return redirect('chat_view', session_id=session.id)  # チャット画面にリダイレクト
             return redirect('chat_view', session_id=session.id if session else None)
         else:
-            print(form.errors)  # フォームのエラーをデバッグ出力
+            print(form.errors)
     else:
-        form = ChatMessageForm(initial={'session_id': session.id if session else None})
+        form = ChatMessageForm(session_id=session.id if session else None)
 
     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
 
