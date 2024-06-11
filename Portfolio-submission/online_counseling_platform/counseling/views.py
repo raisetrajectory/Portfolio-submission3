@@ -204,7 +204,7 @@ def session_detail(request, session_id):
 #             return JsonResponse({'success': False, 'errors': errors})
 #     return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
-@login_required
+@login_required #2024年6月11日追加です！
 def send_message(request):
     if request.method == 'POST':
         session_id = request.POST.get('session_id')
