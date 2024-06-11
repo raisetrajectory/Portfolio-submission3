@@ -379,7 +379,7 @@ def delete_message(request, message_id):
 #         session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
 
 #     if request.method == 'POST':
-#         form = ChatMessageForm(request.POST, session_id=session.id if session else None)
+#         form = ChatMessageForm(request.POST)
 #         if form.is_valid():
 #             message = form.save(commit=False)
 #             message.sender = request.user
@@ -389,7 +389,8 @@ def delete_message(request, message_id):
 #         else:
 #             print(form.errors)
 #     else:
-#         form = ChatMessageForm(session_id=session.id if session else None)
+#         initial = {'session_id': session.id} if session else {}
+#         form = ChatMessageForm(initial=initial)
 
 #     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
 
@@ -416,7 +417,7 @@ def chat_view(request, session_id=None, counselor_id=None):
             message.sender = request.user
             message.session = session
             message.save()
-            return redirect('chat_view', session_id=session.id if session else None)
+            return redirect('chat_view', session_id=session.id)
         else:
             print(form.errors)
     else:
