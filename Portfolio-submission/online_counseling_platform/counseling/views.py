@@ -456,17 +456,6 @@ def logout_view(request):
         return redirect('home')
     return render(request, 'logout.html')
 
-@login_required
-def profile_view(request):
-    if request.method == 'POST':
-        form = ProfileForm(request.POST, request.FILES, instance=request.user)
-        if form.is_valid():
-            form.save()
-            return redirect('profile')
-    else:
-        form = ProfileForm(instance=request.user)
-    return render(request, 'profile.html', {'form': form})
-
 # @login_required #2024年6月4日追加
 # def profile_view(request):
 #     if request.method == 'POST':
@@ -489,3 +478,14 @@ def delete_message(request, message_id):
     if request.user == message.sender:
         message.delete()
     return redirect('chat_view', session_id=session_id)
+
+@login_required
+def profile_view(request):
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = ProfileForm(instance=request.user)
+    return render(request, 'profile.html', {'form': form})
