@@ -120,8 +120,15 @@ class CustomAuthenticationForm(AuthenticationForm):
 #         if session_id:
 #             self.fields['session_id'].initial = session_id
 
+# class ChatMessageForm(forms.ModelForm):
+#     session_id = forms.IntegerField(widget=forms.HiddenInput())
+
+#     class Meta:
+#         model = ChatMessage
+#         fields = ['message', 'session_id']
+
 class ChatMessageForm(forms.ModelForm):
-    session_id = forms.IntegerField(widget=forms.HiddenInput())
+    session_id = forms.IntegerField(widget=forms.HiddenInput(), required=False)
 
     class Meta:
         model = ChatMessage
