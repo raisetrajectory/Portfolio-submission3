@@ -35,6 +35,12 @@ urlpatterns = [
     path('chat/<int:session_id>/', chat_view, name='chat_view'),
 
     # path('post_comments/<int:theme_id>/', views.post_comments, name='post_comments'), # type: ignore　# 2024年6月11日追加
+    # path('create_theme/', views.create_theme, name='create_theme'), # 2024年6月11日追加
+    # path('list_themes/', views.list_themes, name='list_themes'), # 2024年6月11日追加
+    # path('edit_theme/<int:id>/', views.edit_theme, name='edit_theme'), # 2024年6月11日追加
+    # path('delete_theme/<int:id>/', views.delete_theme, name='delete_theme'), # 2024年6月11日追加
+    # path('save_comment/', views.save_comment, name='save_comment'), # type: ignore # 2024年6月11日追加
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
