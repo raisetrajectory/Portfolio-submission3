@@ -523,6 +523,14 @@ document.addEventListener('DOMContentLoaded', function() {
             var form = event.target;
             var formData = new FormData(form);
 
+            // session_id フィールドに適切な値を設定する
+            var session_id = document.querySelector('input[name="session_id"]').value;
+            if (!session_id) {
+                alert('セッション ID を設定してください。');
+                return;
+            }
+            formData.set('session_id', session_id);
+
             fetch(form.action, {
             method: form.method,
             body: formData,
