@@ -60,7 +60,6 @@ urlpatterns = [
     path('session/<int:session_id>/', views.session_detail, name='session_detail'),
     path('chat/session/<int:session_id>/', views.chat_view, name='chat_session'),
     path('chat/counselor/<int:counselor_id>/', views.chat_view, name='chat_counselor'),
-    path('chat/<int:session_id>/', chat_view, name='chat_view'),
     path('delete_message/<int:message_id>/', views.delete_message, name='delete_message'),
     path('chat/', views.chat_view, name='chat_view'),
 
@@ -68,8 +67,10 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),#2024年6月6日追加
     # path('chat/<int:session_id>/', views.chat_view, name='chat'), #2024年6月11日追加
     # path('chat/<int:session_id>/', chat_view, name='chat'),
+
     path('chat/<int:counselor_id>/start/', chat_view, name='chat_start'),
     path('send_message/', send_message, name='send_message'),
+    path('chat/<int:session_id>/', chat_view, name='chat_view'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
