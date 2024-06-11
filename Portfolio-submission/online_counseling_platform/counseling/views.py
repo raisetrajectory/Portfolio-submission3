@@ -133,29 +133,21 @@
 
 # counseling/views.py
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.contrib.auth import views as auth_views
-from django.template.loader import get_template
-from django.template import TemplateDoesNotExist
 from .forms import CustomUserCreationForm, CustomAuthenticationForm, CounselorForm, ProfileForm, ChatMessageForm
 from .models import Counselor, CounselingSession, ChatMessage
 from django.contrib.auth import get_user_model
-from django.utils.functional import SimpleLazyObject
 from django.urls import reverse
-from django.contrib import messages
 
-import os #2024年6月5日追加
 from django.core.files.storage import FileSystemStorage #2024年6月5日追加
 from django.http import HttpResponseRedirect #2024年6月5日追加
 from .forms import UploadFileForm #2024年6月6日追加
 from django.conf import settings #2024年6月6日追加
 
 User = get_user_model()
-
-from django.views.decorators.csrf import csrf_exempt
 
 # from .models import Profile #2024年6月6日追加
 
@@ -196,18 +188,6 @@ def upload_sample(request): #2024年6月6日追加
     else:
         form = UploadFileForm()
     return render(request, 'online_counseling_platform/profile.html', {'form': form})
-
-# def upload_sample(request): #2024年6月6日追加
-#     if request.method == 'POST' and request.FILES['upload_file']:
-#         upload_file = request.FILES['upload_file']
-#         fs = FileSystemStorage(location=settings.MEDIA_ROOT)
-#         file_path = fs.save(upload_file.name, upload_file)
-#         uploaded_file_url = fs.url(file_path)
-#         request.session['uploaded_file_url'] = uploaded_file_url  # セッションに保存
-#         return HttpResponseRedirect(reverse('profile'))
-#     else:
-#         form = UploadFileForm()
-#     return render(request, 'upload.html', {'form': form})
 
 def home(request):
     some_condition = not User.objects.filter(username='default_user').exists()
@@ -572,17 +552,6 @@ def logout_view(request):
         return redirect('home')
     return render(request, 'logout.html')
 
-# @login_required #2024年6月4日追加
-# def profile_view(request):
-#     if request.method == 'POST':
-#         form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('profile')
-#     else:
-#         form = ProfileForm(instance=request.user.profile)
-#     return render(request, 'profile.html', {'form': form})
-
 def counselor_list_view(request):
     counselors = Counselor.objects.all()
     return render(request, 'counselor_list.html', {'counselors': counselors})
@@ -595,7 +564,7 @@ def delete_message(request, message_id):
         message.delete()
     return redirect('chat_view', session_id=session_id)
 
-@login_required
+@login_required #2024年6月4日追加
 def profile_view(request):
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=request.user)
