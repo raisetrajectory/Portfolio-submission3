@@ -433,7 +433,7 @@ def chat_view(request, session_id=None, counselor_id=None):
 #         message.sender = request.user
 #         message.session_id = session_id  # セッション ID を設定
 #         message.save()
-#         return redirect('chat_view', session_id=session_id)
+#         return redirect('chat', session_id=session_id)
 
 #     messages = ChatMessage.objects.filter(session_id=session_id).order_by('timestamp')
 #     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session_id': session_id})
