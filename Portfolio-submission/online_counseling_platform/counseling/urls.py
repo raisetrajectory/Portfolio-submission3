@@ -64,7 +64,7 @@ urlpatterns = [
 
     path('upload_sample/', views.upload_sample, name='upload_sample'), #2024年6月5日追加
     path('profile/', views.profile, name='profile'),#2024年6月6日追加
-    path('chat/<int:session_id>/', views.chat_view, name='chat'),
+    path('chat/<int:session_id>/', views.chat_view, name='chat'), #2024年6月11日追加
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
