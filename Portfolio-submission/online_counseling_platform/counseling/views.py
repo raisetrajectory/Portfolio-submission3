@@ -149,19 +149,6 @@ from django.conf import settings #2024年6月6日追加
 
 User = get_user_model()
 
-# from .models import Profile #2024年6月6日追加
-
-# def profile(request): #2024年6月6日追加
-#     if request.method == 'POST' and request.FILES.get('upload_file'):
-#         upload_file = request.FILES['upload_file']
-#         fs = FileSystemStorage()
-#         file_path = fs.save(upload_file.name, upload_file)
-#         uploaded_file_url = fs.url(file_path)
-#         request.session['uploaded_file_url'] = uploaded_file_url  # セッションに保存
-#         print("uploaded_file_url:", uploaded_file_url)  # ログに出力
-#         return redirect('profile')
-#     return render(request, 'profile.html')
-
 def profile(request): #2024年6月6日追加
     if request.method == 'POST' and request.FILES['upload_file']:
         uploaded_file = request.FILES['upload_file']
