@@ -22,7 +22,7 @@
 
 # counseling/views.py
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth import login, logout, authenticate  # authenticateを追加
+from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.contrib.auth import views as auth_views
