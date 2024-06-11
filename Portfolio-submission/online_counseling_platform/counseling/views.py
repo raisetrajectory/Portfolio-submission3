@@ -48,6 +48,31 @@ def chat_view(request, session_id=None, counselor_id=None):
         'user': request.user,
     })
 
+@login_required #2024年6月11日追加です！
+def send_message(request):
+    if request.method == 'POST':
+        session_id = request.POST.get('session_id')
+        if not session_id:
+            return JsonResponse({'success': False, 'error': 'セッションIDを設定してください。'})
+
+        form = ChatMessageForm(request.POST)
+        if form.is_valid():
+            chat_message = form.save(commit=False)
+            chat_message.sender = request.user
+            chat_message.session_id = session_id
+            chat_message.save()
+            data = {
+                'sender': chat_message.sender.username,
+                'message': chat_message.message,
+                'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
+                'success': True,
+            }
+            return JsonResponse(data)
+        else:
+            errors = form.errors.get_json_data()
+            return JsonResponse({'success': False, 'errors': errors})
+    return JsonResponse({'success': False, 'error': 'Invalid request method'})
+
 def profile(request): #2024年6月6日追加
     if request.method == 'POST' and request.FILES['upload_file']:
         uploaded_file = request.FILES['upload_file']
@@ -79,31 +104,6 @@ def session_detail(request, session_id):
     session = get_object_or_404(CounselingSession, id=session_id)
     messages = ChatMessage.objects.filter(session=session).order_by('timestamp')
     return render(request, 'session_detail.html', {'session': session, 'messages': messages})
-
-@login_required #2024年6月11日追加です！
-def send_message(request):
-    if request.method == 'POST':
-        session_id = request.POST.get('session_id')
-        if not session_id:
-            return JsonResponse({'success': False, 'error': 'セッションIDを設定してください。'})
-
-        form = ChatMessageForm(request.POST)
-        if form.is_valid():
-            chat_message = form.save(commit=False)
-            chat_message.sender = request.user
-            chat_message.session_id = session_id
-            chat_message.save()
-            data = {
-                'sender': chat_message.sender.username,
-                'message': chat_message.message,
-                'timestamp': chat_message.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
-                'success': True,
-            }
-            return JsonResponse(data)
-        else:
-            errors = form.errors.get_json_data()
-            return JsonResponse({'success': False, 'errors': errors})
-    return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
 @login_required
 def create_session(request):
