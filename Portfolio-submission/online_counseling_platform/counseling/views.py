@@ -26,9 +26,9 @@ from django.contrib.auth.decorators import login_required #2024年6月11日追�
 from django.contrib.auth import update_session_auth_hash #2024年6月11日追加
 
 # def post_comments(request, theme_id):
-#     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
+#     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '') # type: ignore
 #     post_comment_form = forms.PostCommentForm(request.POST or None, initial={'comment': saved_comment})     # type: ignore
-#     theme = get_object_or_404(Themes, id=theme_id)
+#     theme = get_object_or_404(Themes, id=theme_id) # type: ignore
 #     comments = Comments.objects.fetch_by_theme_id(theme_id) # type: ignore
 #     if post_comment_form.is_valid():
 #         if not request.user.is_authenticated:
