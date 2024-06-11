@@ -796,20 +796,12 @@ document.addEventListener('DOMContentLoaded', function() {
             <p>メッセージはありません。</p>
         {% endfor %}
     </div>
-
     <form id="chat-form" method="post" action="{% url 'send_message' %}">
         {% csrf_token %}
         <input type="hidden" name="session_id" value="{{ session.id }}">
         {{ form.as_p }}
         <button type="submit">コメントする</button>
     </form>
-
-    {% comment %} <form method="post" action="{% url 'chat' session_id=session_id %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">コメントする</button>
-    </form> {% endcomment %}
-
     <form action="{% url 'home' %}" method="get">
         <button type="submit">メインメニューへ</button>
     </form>
