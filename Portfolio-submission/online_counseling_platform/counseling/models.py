@@ -5,6 +5,25 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model() # type: ignore
 
+# class CommentsManager(models.Manager):　#2024年6月11日追加
+#     def fetch_by_theme_id(self, theme_id):
+#         return self.filter(theme_id=theme_id).order_by('id').all()
+
+# class Comments(models.Model):
+
+#     comment = models.CharField(max_length=1000)
+#     user = models.ForeignKey(
+#         'accounts.Users', on_delete=models.CASCADE
+#     )
+#     theme = models.ForeignKey(
+#         'Themes', on_delete=models.CASCADE
+#     )
+#     objects = CommentsManager()
+
+#     class Meta:
+#         db_table = 'comments'
+
+
 class Profile(models.Model): #2024年6月4日追加
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to='profile_pictures', null=True, blank=True)
