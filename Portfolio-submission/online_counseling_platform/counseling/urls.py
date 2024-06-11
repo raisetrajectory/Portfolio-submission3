@@ -9,9 +9,6 @@ from .views import send_message, chat_view, delete_message
 from django.conf import settings #2024年6月4日追加
 from django.conf.urls.static import static #2024年6月4日追加
 
-from django.urls import path
-from .views import chat_view, send_message
-
 urlpatterns = [
     path('', views.home, name='home'),  # ホームビューのルーティング # type: ignore
     path('signup/', views.signup, name='signup'),
