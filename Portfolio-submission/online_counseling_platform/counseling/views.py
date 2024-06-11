@@ -32,8 +32,6 @@
 #     messages = ChatMessage.objects.filter(session=session).order_by('-timestamp') if session else []
 #     return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session': session})
 
-# 1~130の記載内容に関しては、現段階で問題無い記載となっております。バックアップ保存用です！
-
 # counseling/views.py
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login, logout
