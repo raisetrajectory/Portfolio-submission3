@@ -5,6 +5,19 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 # from .models import Themes, Comments # type: ignore
 
+# class DeleteThemeForm(forms.ModelForm):
+
+#     class Meta:
+#         model = Themes
+#         fields = []
+
+# class PostCommentForm(forms.ModelForm):
+#     comment = forms.CharField(label='', widget=forms.Textarea(attrs={'rows': 5, 'cols': 60}))
+
+#     class Meta:
+#         model = Comments
+#         fields = ('comment', )
+
 class UploadFileForm(forms.Form): #2024年6月6日追加
     upload_file = forms.ImageField(label='画像ファイルを選択してください')
 
