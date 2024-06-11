@@ -3,6 +3,7 @@ from django import forms
 from .models import Counselor, ChatMessage
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+# from .models import Themes, Comments # type: ignore
 
 class UploadFileForm(forms.Form): #2024年6月6日追加
     upload_file = forms.ImageField(label='画像ファイルを選択してください')

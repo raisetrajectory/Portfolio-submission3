@@ -16,6 +16,9 @@ from django.conf import settings #2024年6月6日追加
 
 User = get_user_model()
 
+def post_comments(request, theme_id):
+    post_comment_form = forms.PostCommentForm(request.POST or None, initial={'comment': saved_comment})     # type: ignore
+
 @login_required #2024年6月11日追加　質問内容の記載内容となります。
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
