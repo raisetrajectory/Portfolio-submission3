@@ -436,7 +436,9 @@ def chat_view(request, session_id):
         return redirect('chat', session_id=session_id)
 
     messages = ChatMessage.objects.filter(session_id=session_id).order_by('timestamp')
-    return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session_id': session_id})
+    # return render(request, 'counseling/registration/chat.html', {'form': form, 'messages': messages, 'session_id': session_id})
+    return redirect('chat', session_id=session_id)
+
 
 
 @login_required
