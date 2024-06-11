@@ -306,7 +306,7 @@ def send_message(request):
 #         'user': request.user,
 #     })
 
-@login_required
+@login_required #2024年6月11日追加
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
     if session_id:
