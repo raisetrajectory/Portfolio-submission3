@@ -5,6 +5,18 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model() # type: ignore
 
+# class Themes(models.Model): #2024年6月11日追加
+
+#     title = models.CharField(max_length=255)
+#     user = models.ForeignKey(
+#         'accounts.Users', on_delete=models.CASCADE
+#     )
+
+#     objects = ThemesManager()
+
+#     class Meta:
+#         db_table = 'themes'
+
 # class CommentsManager(models.Manager):　#2024年6月11日追加
 #     def fetch_by_theme_id(self, theme_id):
 #         return self.filter(theme_id=theme_id).order_by('id').all()
