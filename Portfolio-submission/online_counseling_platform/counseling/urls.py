@@ -4,8 +4,6 @@ from django.contrib.auth import views as auth_views
 from . import views
 from .views import create_session, chat_view, send_message, session_detail, delete_message  # 追加
 from counseling.forms import CustomAuthenticationForm
-from .views import send_message, chat_view, delete_message
-
 from django.conf import settings #2024年6月4日追加
 from django.conf.urls.static import static #2024年6月4日追加
 
