@@ -10,7 +10,7 @@ from django.contrib.auth.models import (
     AbstractBaseUser, PermissionsMixin
 ) #6月12日追加
 from django.db.models.signals import post_save #6月12日追加
-
+from django.dispatch import receiver #6月12日追加
 
 # class Themes(models.Model): #2024年6月11日追加
 
