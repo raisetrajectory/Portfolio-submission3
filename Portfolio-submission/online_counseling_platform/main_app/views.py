@@ -16,9 +16,6 @@ from django.http import Http404 #6月12日追加
 from django.core.cache import cache #6月12日追加
 from django.http import JsonResponse #6月12日追加
 
-# counseling #6月12日追加
-app_name = 'main_app' #6月12日追加
-
 def create_theme(request): #6月12日追加
         create_theme_form = forms.CreateThemeForm(request.POST or None)
         if create_theme_form.is_valid():
