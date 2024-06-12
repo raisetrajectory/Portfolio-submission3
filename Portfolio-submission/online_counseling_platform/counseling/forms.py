@@ -68,7 +68,7 @@ class LoginForm(forms.Form): #6月12日追加
     email = forms.CharField(label="メールアドレス")
     password = forms.CharField(label="パスワード", widget=forms.PasswordInput())
 
-# class PasswordChangeForm(forms.ModelForm):
+# class PasswordChangeForm(forms.ModelForm): #6月12日追加
 
 #     password = forms.CharField(label='パスワード', widget=forms.PasswordInput())
 #     confirm_password = forms.CharField(label='パスワード再入力', widget=forms.PasswordInput())
