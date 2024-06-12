@@ -3,28 +3,6 @@ from django import forms
 from .models import Counselor, ChatMessage
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-# from .models import Themes, Comments  #2024年6月12日追加
-
-# class CreateThemeForm(forms.ModelForm): #2024年6月12日追加
-#     title = forms.CharField(label='タイトル')
-
-#     class Meta:
-#         model = Themes
-#         fields = ('title',)
-
-
-# class DeleteThemeForm(forms.ModelForm):#2024年6月12日追加
-
-#     class Meta:
-#         model = Themes
-#         fields = []
-
-# class PostCommentForm(forms.ModelForm):#2024年6月12日追加
-#     comment = forms.CharField(label='', widget=forms.Textarea(attrs={'rows': 5, 'cols': 60}))
-
-#     class Meta:
-#         model = Comments
-#         fields = ('comment', )
 
 class UploadFileForm(forms.Form): #2024年6月6日追加
     upload_file = forms.ImageField(label='画像ファイルを選択してください')
