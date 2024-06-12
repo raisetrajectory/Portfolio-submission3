@@ -19,7 +19,6 @@ from django.http import JsonResponse #6月12日追加
 # counseling #6月12日追加
 app_name = 'main_app' #6月12日追加
 
-# Create your views here.
 def create_theme(request): #6月12日追加
         create_theme_form = forms.CreateThemeForm(request.POST or None)
         if create_theme_form.is_valid():
@@ -30,6 +29,14 @@ def create_theme(request): #6月12日追加
         return render(
         request, 'main_app/create_theme.html', context={
             'create_theme_form': create_theme_form,
+        }
+    )
+
+def list_themes(request): #6月12日追加
+    themes = Themes.objects.fetch_all_themes() # type: ignore
+    return render(
+        request, 'main_app/list_themes.html', context={
+            'themes': themes
         }
     )
 
