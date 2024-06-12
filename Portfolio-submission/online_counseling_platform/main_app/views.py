@@ -71,6 +71,27 @@ def delete_theme(request, id): #6月12日追加
         }
     )
 
+# def post_comments(request, theme_id): #6月12日追加
+#     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
+#     post_comment_form = forms.PostCommentForm(request.POST or None, initial={'comment': saved_comment})     # type: ignore
+#     theme = get_object_or_404(Themes, id=theme_id)
+#     comments = Comments.objects.fetch_by_theme_id(theme_id) # type: ignore
+#     if post_comment_form.is_valid():
+#         if not request.user.is_authenticated:
+#             raise Http404
+#         post_comment_form.instance.theme = theme
+#         post_comment_form.instance.user = request.user
+#         post_comment_form.save()
+#         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')
+#         return redirect('boards:post_comments', theme_id= theme_id)
+#     return render(
+#         request, 'boards/post_comments.html', context={
+#             'post_comment_form': post_comment_form,
+#             'theme': theme,
+#             'comments': comments,
+#         }
+#     )
+
 
 def home(request):
     return render(request, 'home.html')
