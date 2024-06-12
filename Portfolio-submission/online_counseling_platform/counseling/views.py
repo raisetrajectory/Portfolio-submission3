@@ -71,6 +71,13 @@ def user_login(request): #6月12日追加
         }
     )
 
+@login_required # type: ignore
+def user_logout(request):
+    logout(request)
+    messages.success(request, 'ログアウトしました')
+    return redirect('accounts:home')
+
+
 @login_required #2024年6月11日追加　質問内容の記載内容となります。
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
