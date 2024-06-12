@@ -41,6 +41,10 @@ class UserEditForm(forms.ModelForm): #6月12日追加
         model = Users
         fields = ('username', 'age', 'email', 'picture')
 
+class LoginForm(forms.Form): #6月12日追加
+    email = forms.CharField(label="メールアドレス")
+    password = forms.CharField(label="パスワード", widget=forms.PasswordInput())
+
 # class PasswordChangeForm(forms.ModelForm): #6月12日追加
 
 #     password = forms.CharField(label='パスワード', widget=forms.PasswordInput())
@@ -63,10 +67,6 @@ class UserEditForm(forms.ModelForm): #6月12日追加
 #         user.set_password(self.cleaned_data['password'])
 #         user.save()
 #         return user
-
-class LoginForm(forms.Form): #6月12日追加
-    email = forms.CharField(label="メールアドレス")
-    password = forms.CharField(label="パスワード", widget=forms.PasswordInput())
 
 # class PasswordChangeForm(forms.ModelForm): #6月12日追加
 
