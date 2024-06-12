@@ -71,6 +71,16 @@ class UserActivateTokens(models.Model): #6月12日追加
     class Meta:
         db_table = 'user_activate_tokens'
 
+@receiver(post_save, sender=Users) #6月12日追加
+def publish_token(sender, instance, **kwargs):
+    print(str(uuid4()))
+    print(datetime.now() + timedelta(days=1))
+    user_activate_token = UserActivateTokens.objects.create(
+        user=instance, token=str(uuid4()), expired_at=datetime.now() + timedelta(days=1)
+    )
+    # メールでURLを送る方がよい
+    print(f'http://127.0.0.1:8000/accounts/activate_user/{user_activate_token.token}')
+
 
 class Profile(models.Model): #2024年6月4日追加
     user = models.OneToOneField(User, on_delete=models.CASCADE)
