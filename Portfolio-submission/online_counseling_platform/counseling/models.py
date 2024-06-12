@@ -5,6 +5,13 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model() # type: ignore
 
+from django.db import models #6月12日追加
+from django.contrib.auth.models import (
+    AbstractBaseUser, PermissionsMixin
+) #6月12日追加
+from django.db.models.signals import post_save #6月12日追加
+
+
 # class Themes(models.Model): #2024年6月11日追加
 
 #     title = models.CharField(max_length=255)
