@@ -31,15 +31,15 @@ class RegistForm(forms.ModelForm): #6月12日追加
         user.save()
         return user
 
-# class UserEditForm(forms.ModelForm): #6月12日追加
-#     username = forms.CharField(label='名前')
-#     age = forms.IntegerField(label='年齢', min_value=0)
-#     email = forms.EmailField(label='メールアドレス')
-#     picture = forms.FileField(label='写真', required=False)
+class UserEditForm(forms.ModelForm): #6月12日追加
+    username = forms.CharField(label='名前')
+    age = forms.IntegerField(label='年齢', min_value=0)
+    email = forms.EmailField(label='メールアドレス')
+    picture = forms.FileField(label='写真', required=False)
 
-#     class Meta:
-#         model = Users
-#         fields = ('username', 'age', 'email', 'picture')
+    class Meta:
+        model = Users
+        fields = ('username', 'age', 'email', 'picture')
 
 # class PasswordChangeForm(forms.ModelForm): #6月12日追加
 
