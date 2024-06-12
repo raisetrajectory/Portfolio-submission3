@@ -3,7 +3,7 @@ from django import forms
 from .models import Counselor, ChatMessage
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-# from .models import Users #6月12日追加
+from .models import Users #6月12日追加
 from django.contrib.auth.password_validation import validate_password #6月12日追加
 
 # class RegistForm(forms.ModelForm): #6月12日追加
