@@ -4,6 +4,7 @@ from .models import Counselor, ChatMessage
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 # from .models import Users #6月12日追加
+from django.contrib.auth.password_validation import validate_password
 
 class UploadFileForm(forms.Form): #2024年6月6日追加
     upload_file = forms.ImageField(label='画像ファイルを選択してください')
