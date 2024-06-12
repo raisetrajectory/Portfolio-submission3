@@ -71,7 +71,7 @@ def user_login(request): #6月12日追加
         }
     )
 
-@login_required # type: ignore
+@login_required #6月12日追加
 def user_logout(request):
     logout(request)
     messages.success(request, 'ログアウトしました')
