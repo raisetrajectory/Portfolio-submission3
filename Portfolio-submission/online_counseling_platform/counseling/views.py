@@ -75,7 +75,9 @@ def user_login(request): #6月12日追加
 def user_logout(request):
     logout(request)
     messages.success(request, 'ログアウトしました')
-    return redirect('accounts:home')
+    return redirect('counseling:home')
+
+
 
 
 @login_required #2024年6月11日追加　質問内容の記載内容となります。
