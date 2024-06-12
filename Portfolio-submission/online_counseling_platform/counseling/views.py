@@ -30,6 +30,20 @@ from django.contrib.auth import update_session_auth_hash #2024年6月11日追加
 #         request, 'counseling/home.html'
 #     )
 
+def regist(request): #6月12日追加
+    regist_form = forms.RegistForm(request.POST or None) # type: ignore
+    if regist_form.is_valid():
+        try:
+            regist_form.save()
+            return redirect('accounts:home')
+        except ValidationError as e:
+            regist_form.add_error('password', e)
+    return render(
+        request, 'counseling/regist.html', context={
+            'regist_form': regist_form,
+        }
+    )
+
 @login_required #2024年6月11日追加　質問内容の記載内容となります。
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
