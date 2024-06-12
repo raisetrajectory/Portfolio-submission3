@@ -47,7 +47,7 @@ class Users(AbstractBaseUser, PermissionsMixin): #6月12日追加
     class Meta:
         db_table = 'users'
 
-class UserActivateTokensManager(models.Manager):
+class UserActivateTokensManager(models.Manager): #6月12日追加
 
     def activate_user_by_token(self, token):
         user_activate_token = self.filter( # type: ignore
