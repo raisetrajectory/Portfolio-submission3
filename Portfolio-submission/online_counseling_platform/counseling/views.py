@@ -50,7 +50,7 @@ def activate_user(request, token): #6月12日追加
         request, 'counseling/activate_user.html'
     )
 
-def user_login(request):
+def user_login(request): #6月12日追加
     login_form = forms.LoginForm(request.POST or None)
     if login_form.is_valid():
         email = login_form.cleaned_data.get('email')
