@@ -103,6 +103,11 @@ def change_password(request):
         }
     )
 
+def show_error_page(request, exception):
+    return render(
+        request, '404.html'
+    )
+
 
 @login_required #2024年6月11日追加　質問内容の記載内容となります。
 def chat_view(request, session_id=None, counselor_id=None):
