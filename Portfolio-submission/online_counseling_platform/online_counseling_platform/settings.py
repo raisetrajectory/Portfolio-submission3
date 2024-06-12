@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',  # 必要に応じて他のプロバイダーも追加できます
     'counseling',
+    # 'accounts',  # これを追加
 ]
 
 SITE_ID = 1
