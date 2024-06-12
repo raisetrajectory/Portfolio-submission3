@@ -47,6 +47,17 @@ class Users(AbstractBaseUser, PermissionsMixin): #6月12日追加
     class Meta:
         db_table = 'users'
 
+class UserActivateTokensManager(models.Manager):
+
+    def activate_user_by_token(self, token):
+        user_activate_token = self.filter( # type: ignore
+            token=token,
+            expired_at__gte=datetime.now()
+        ).first()
+        user = user_activate_token.user # type: ignore
+        user.is_active =True
+        user.save()
+
 
 class Profile(models.Model): #2024年6月4日追加
     user = models.OneToOneField(User, on_delete=models.CASCADE)
