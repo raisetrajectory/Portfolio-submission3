@@ -56,6 +56,22 @@ def edit_theme(request, id): #6月12日追加
         }
     )
 
+def delete_theme(request, id): #6月12日追加
+    theme = get_object_or_404(Themes, id=id)
+    if theme.user.id != request.user.id:
+        raise Http404
+    delete_theme_form = forms.DeleteThemeForm(request.POST or None)
+    if delete_theme_form.is_valid(): # csrf check
+        theme.delete()
+        messages.success(request, '掲示板を削除しました。')
+        return redirect('main_app:list_themes')
+    return render(
+        request, 'main_app/delete_theme.html', context={
+            'delete_theme_form': delete_theme_form,
+        }
+    )
+
+
 def home(request):
     return render(request, 'home.html')
 
