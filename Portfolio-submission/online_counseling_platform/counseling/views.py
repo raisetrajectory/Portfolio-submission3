@@ -44,6 +44,12 @@ def regist(request): #6月12日追加
         }
     )
 
+def activate_user(request, token): #6月12日追加
+    user_activate_token = UserActivateTokens.objects.activate_user_by_token(token) # type: ignore
+    return render(
+        request, 'counseling/activate_user.html'
+    )
+
 @login_required #2024年6月11日追加　質問内容の記載内容となります。
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
