@@ -15,35 +15,21 @@ from uuid import uuid4 #6月12日追加
 from datetime import datetime, timedelta #6月12日追加
 from django.contrib.auth.models import UserManager #6月12日追加
 
-# class Themes(models.Model): #2024年6月11日追加
+# class Users(AbstractBaseUser, PermissionsMixin): #6月12日追加
+#     username = models.CharField(max_length=255)
+#     age = models.PositiveIntegerField()
+#     email = models.EmailField(max_length=255, unique=True)
+#     is_active = models.BooleanField(default=False)
+#     is_staff = models.BooleanField(default=False)
+#     picture = models.FileField(null=True, upload_to='picture/')
 
-#     title = models.CharField(max_length=255)
-#     user = models.ForeignKey(
-#         'accounts.Users', on_delete=models.CASCADE
-#     )
+#     objects = UserManager()
 
-#     objects = ThemesManager()
-
-#     class Meta:
-#         db_table = 'themes'
-
-# class CommentsManager(models.Manager):　#2024年6月11日追加
-#     def fetch_by_theme_id(self, theme_id):
-#         return self.filter(theme_id=theme_id).order_by('id').all()
-
-# class Comments(models.Model):　#2024年6月11日追加
-
-#     comment = models.CharField(max_length=1000)
-#     user = models.ForeignKey(
-#         'accounts.Users', on_delete=models.CASCADE
-#     )
-#     theme = models.ForeignKey(
-#         'Themes', on_delete=models.CASCADE
-#     )
-#     objects = CommentsManager()
+#     USERNAME_FIELD = 'email'
+#     REQUIRED_FIELDS = ['username']
 
 #     class Meta:
-#         db_table = 'comments'
+#         db_table = 'users'
 
 
 class Profile(models.Model): #2024年6月4日追加
