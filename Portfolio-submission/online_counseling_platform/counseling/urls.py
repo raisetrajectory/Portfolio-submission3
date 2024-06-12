@@ -7,6 +7,8 @@ from counseling.forms import CustomAuthenticationForm
 from django.conf import settings #2024年6月4日追加
 from django.conf.urls.static import static #2024年6月4日追加
 
+# app_name = 'counseling' 6月12日追加
+
 urlpatterns = [
     path('', views.home, name='home'),  # ホームビューのルーティング # type: ignore
     path('signup/', views.signup, name='signup'),
