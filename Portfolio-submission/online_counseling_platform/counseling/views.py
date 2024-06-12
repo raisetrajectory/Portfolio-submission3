@@ -87,6 +87,22 @@ def user_edit(request):
         'user_edit_form': user_edit_form,
     })
 
+@login_required #6月12日追加
+def change_password(request):
+    password_change_form = forms.PasswordChangeForm(request.POST or None, instance=request.user) # type: ignore
+    if password_change_form.is_valid():
+        try:
+            password_change_form.save()
+            messages.success(request, 'パスワード更新完了しました。')
+            update_session_auth_hash(request, request.user)
+        except ValidationError as e:
+            password_change_form.add_error('password', e)
+    return render(
+        request, 'counseling/change_password.html', context={
+            'password_change_form': password_change_form,
+        }
+    )
+
 
 @login_required #2024年6月11日追加　質問内容の記載内容となります。
 def chat_view(request, session_id=None, counselor_id=None):
