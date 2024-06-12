@@ -37,10 +37,10 @@ urlpatterns = [
     path('chat/<int:session_id>/', chat_view, name='chat_view'),
 
     path('', views.home, name='home'), #6月12日追加
-    # path('regist/', views.regist, name='regist'), #6月12日追加 # type: ignore
-    # path('activate_user/<uuid:token>/', views.activate_user, name='activate_user'), #6月12日追加 # type: ignore
-    # path('user_login/', views.user_login, name='user_login'), #6月12日追加 # type: ignore
-    # path('user_logout/', views.user_logout, name='user_logout'), #6月12日追加 # type: ignore
+    path('regist/', views.regist, name='regist'), #6月12日追加
+    path('activate_user/<uuid:token>/', views.activate_user, name='activate_user'), #6月12日追加
+    path('user_login/', views.user_login, name='user_login'), #6月12日追加
+    path('user_logout/', views.user_logout, name='user_logout'), #6月12日追加
     # path('user_edit/', views.user_edit, name='user_edit'), #6月12日追加 # type: ignore
     # path('change_password/', views.change_password, name='change_password') #6月12日追加 # type: ignore
 ]
