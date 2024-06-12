@@ -58,7 +58,7 @@ class UserActivateTokensManager(models.Manager): #6月12日追加
         user.is_active =True
         user.save()
 
-class UserActivateTokens(models.Model):
+class UserActivateTokens(models.Model): #6月12日追加
 
     token = models.UUIDField(db_index=True)
     expired_at = models.DateTimeField()
