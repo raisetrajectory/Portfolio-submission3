@@ -14,7 +14,7 @@ class ThemesManager(models.Manager): #2024年6月12日追加
 
 #     title = models.CharField(max_length=255)
 #     user = models.ForeignKey(
-#         'accounts.Users', on_delete=models.CASCADE
+#         'counseling.Users', on_delete=models.CASCADE
 #     )
 
 #     objects = ThemesManager()
