@@ -3,6 +3,7 @@ from django.urls import path, include
 from django.contrib.auth.views import LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
+# from accounts.views import show_error_page #2024年6月12日追加
 
 urlpatterns = [
     path("admin/", admin.site.urls),
