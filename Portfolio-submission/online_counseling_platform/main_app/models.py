@@ -26,19 +26,19 @@ class CommentsManager(models.Manager): #2024年6月12日追加
     def fetch_by_theme_id(self, theme_id):
         return self.filter(theme_id=theme_id).order_by('id').all()
 
-# class Comments(models.Model): #2024年6月12日追加
+class Comments(models.Model): #2024年6月12日追加
 
-#     comment = models.CharField(max_length=1000)
-#     user = models.ForeignKey(
-#         'accounts.Users', on_delete=models.CASCADE
-#     )
-#     theme = models.ForeignKey(
-#         'Themes', on_delete=models.CASCADE
-#     )
-#     objects = CommentsManager()
+    comment = models.CharField(max_length=1000)
+    user = models.ForeignKey(
+        'counseling.Users', on_delete=models.CASCADE
+    )
+    theme = models.ForeignKey(
+        'Themes', on_delete=models.CASCADE
+    )
+    objects = CommentsManager()
 
-#     class Meta:
-#         db_table = 'comments'
+    class Meta:
+        db_table = 'comments'
 
 class User(AbstractUser):
     is_counselor = models.BooleanField(default=False)
