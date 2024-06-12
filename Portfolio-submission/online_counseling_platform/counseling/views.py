@@ -25,6 +25,11 @@ from django.contrib import messages #2024年6月11日追加
 from django.contrib.auth.decorators import login_required #2024年6月11日追加
 from django.contrib.auth import update_session_auth_hash #2024年6月11日追加
 
+# def home(request): #6月12日追加
+#     return render(
+#         request, 'counseling/home.html'
+#     )
+
 @login_required #2024年6月11日追加　質問内容の記載内容となります。
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
