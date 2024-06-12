@@ -31,6 +31,16 @@ from django.contrib.auth.password_validation import validate_password #6月12日
 #         user.save()
 #         return user
 
+# class UserEditForm(forms.ModelForm): #6月12日追加
+#     username = forms.CharField(label='名前')
+#     age = forms.IntegerField(label='年齢', min_value=0)
+#     email = forms.EmailField(label='メールアドレス')
+#     picture = forms.FileField(label='写真', required=False)
+
+#     class Meta:
+#         model = Users
+#         fields = ('username', 'age', 'email', 'picture')
+
 class LoginForm(forms.Form): #6月12日追加
     email = forms.CharField(label="メールアドレス")
     password = forms.CharField(label="パスワード", widget=forms.PasswordInput())
