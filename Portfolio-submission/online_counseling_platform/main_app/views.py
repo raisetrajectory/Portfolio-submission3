@@ -92,6 +92,15 @@ def post_comments(request, theme_id): #6月12日追加
         }
     )
 
+def save_comment(request): #6月12日追加
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        comment = request.GET.get('comment')
+        theme_id = request.GET.get('theme_id')
+        if comment and theme_id:
+            cache.set(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', comment)
+            return JsonResponse({'message': '一時保存しました！'})
+    return JsonResponse({'message': 'エラーが発生しました。'})
+
 
 def home(request):
     return render(request, 'home.html')
