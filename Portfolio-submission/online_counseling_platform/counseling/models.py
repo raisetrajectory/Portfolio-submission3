@@ -58,6 +58,19 @@ class UserActivateTokensManager(models.Manager): #6月12日追加
         user.is_active =True
         user.save()
 
+class UserActivateTokens(models.Model):
+
+    token = models.UUIDField(db_index=True)
+    expired_at = models.DateTimeField()
+    user = models.ForeignKey(
+        'Users', on_delete=models.CASCADE
+    )
+
+    objects = UserActivateTokensManager() # type: ignore
+
+    class Meta:
+        db_table = 'user_activate_tokens'
+
 
 class Profile(models.Model): #2024年6月4日追加
     user = models.OneToOneField(User, on_delete=models.CASCADE)
