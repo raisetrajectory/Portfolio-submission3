@@ -15,21 +15,37 @@ from uuid import uuid4 #6月12日追加
 from datetime import datetime, timedelta #6月12日追加
 from django.contrib.auth.models import UserManager #6月12日追加
 
-# class Users(AbstractBaseUser, PermissionsMixin): #6月12日追加
-#     username = models.CharField(max_length=255)
-#     age = models.PositiveIntegerField()
-#     email = models.EmailField(max_length=255, unique=True)
-#     is_active = models.BooleanField(default=False)
-#     is_staff = models.BooleanField(default=False)
-#     picture = models.FileField(null=True, upload_to='picture/')
+class Users(AbstractBaseUser, PermissionsMixin): #6月12日追加
+    username = models.CharField(max_length=255)
+    age = models.PositiveIntegerField()
+    email = models.EmailField(max_length=255, unique=True)
+    is_active = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
+    picture = models.FileField(null=True, upload_to='picture/')
 
-#     objects = UserManager()
+    objects = UserManager()
 
-#     USERNAME_FIELD = 'email'
-#     REQUIRED_FIELDS = ['username']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
 
-#     class Meta:
-#         db_table = 'users'
+    groups = models.ManyToManyField(
+        'auth.Group',
+        related_name='counseling_users_groups',  # related_name を変更
+        blank=True,
+        help_text='The groups this user belongs to.',
+        verbose_name='groups',
+    )
+
+    user_permissions = models.ManyToManyField(
+        'auth.Permission',
+        related_name='counseling_users_permissions',  # related_name を変更
+        blank=True,
+        help_text='Specific permissions for this user.',
+        verbose_name='user permissions',
+    )
+
+    class Meta:
+        db_table = 'users'
 
 
 class Profile(models.Model): #2024年6月4日追加
