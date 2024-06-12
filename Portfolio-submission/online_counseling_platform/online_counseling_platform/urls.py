@@ -13,6 +13,7 @@ urlpatterns = [
     path('', include('counseling.urls')),  # counselingアプリのルーティングを追加
     path('logout/', LogoutView.as_view(), name='logout'),  # ログアウト機能の追加
     path('counseling/', include('counseling.urls')),
+    # path('main_app/', include('main_app.urls')),
 ]
 # handler404 = show_error_page　#2024年6月12日追加
 
