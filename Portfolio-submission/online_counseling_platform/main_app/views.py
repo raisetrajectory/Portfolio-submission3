@@ -16,6 +16,23 @@ from django.http import Http404 #6月12日追加
 from django.core.cache import cache #6月12日追加
 from django.http import JsonResponse #6月12日追加
 
+# counseling
+app_name = 'main_app'
+
+# Create your views here.
+def create_theme(request):
+        create_theme_form = forms.CreateThemeForm(request.POST or None)
+        if create_theme_form.is_valid():
+            create_theme_form.instance.user = request.user
+            create_theme_form.save()
+            messages.success(request, '掲示板を作成しました。')
+            return redirect('main_app:list_themes')
+        return render(
+        request, 'main_app/create_theme.html', context={
+            'create_theme_form': create_theme_form,
+        }
+    )
+
 def home(request):
     return render(request, 'home.html')
 
