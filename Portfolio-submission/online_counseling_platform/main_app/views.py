@@ -8,6 +8,13 @@ from django.contrib.auth import logout
 from django.views.decorators.csrf import csrf_exempt
 from .models import CounselingSession, ChatMessage, User
 
+from django.shortcuts import render, redirect, get_object_or_404 #6月12日追加
+from . import forms #6月12日追加
+from django.contrib import messages #6月12日追加
+from .models import Themes, Comments #6月12日追加
+from django.http import Http404 #6月12日追加
+from django.core.cache import cache #6月12日追加
+from django.http import JsonResponse #6月12日追加
 
 def home(request):
     return render(request, 'home.html')
