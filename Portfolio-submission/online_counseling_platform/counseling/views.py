@@ -50,6 +50,27 @@ def activate_user(request, token): #6月12日追加
         request, 'counseling/activate_user.html'
     )
 
+def user_login(request):
+    login_form = forms.LoginForm(request.POST or None)
+    if login_form.is_valid():
+        email = login_form.cleaned_data.get('email')
+        password = login_form.cleaned_data.get('password')
+        user = authenticate(email=email, password=password)
+        if user:
+            if user.is_active:
+                login(request, user)
+                messages.success(request, 'ログイン完了しました。')
+                return redirect('counseling:home')
+            else:
+                messages.warning(request, 'ユーザがアクティブでありません')
+        else:
+            messages.warning(request, 'ユーザがパスワードが間違っています' )
+    return render(
+        request, 'counseling/user_login.html', context={
+            'login_form':login_form,
+        }
+    )
+
 @login_required #2024年6月11日追加　質問内容の記載内容となります。
 def chat_view(request, session_id=None, counselor_id=None):
     session = None
