@@ -77,7 +77,15 @@ def user_logout(request):
     messages.success(request, 'ログアウトしました')
     return redirect('counseling:home')
 
-
+@login_required #6月12日追加
+def user_edit(request):
+    user_edit_form = forms.UserEditForm(request.POST or None, request.FILES or None, instance=request.user) # type: ignore
+    if user_edit_form.is_valid():
+        messages.success(request, '更新完了しました。')
+        user_edit_form.save()
+    return render(request, 'counseling/user_edit.html', context={
+        'user_edit_form': user_edit_form,
+    })
 
 
 @login_required #2024年6月11日追加　質問内容の記載内容となります。
