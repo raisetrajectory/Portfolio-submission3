@@ -12,5 +12,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),  # ログアウト機能の追加
     path('counseling/', include('counseling.urls')),
 ]
+# handler404 = show_error_page　#2024年6月12日追加
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
