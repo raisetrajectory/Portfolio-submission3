@@ -10,5 +10,5 @@ urlpatterns = [
     path('delete_theme/<int:id>/', views.delete_theme, name='delete_theme'), # type: ignore
     path('post_comments/<int:theme_id>/', views.post_comments, name='post_comments'), # type: ignore
     path('save_comment/', views.save_comment, name='save_comment'), # type: ignore
-    # path('home/', views.home, name='home'),  # counselingアプリケーション用のURLパターン　#6月13日追加
+    # path('home2/', views.home, name='home2'),  # counselingアプリケーション用のURLパターン　#6月13日追加
 ]
