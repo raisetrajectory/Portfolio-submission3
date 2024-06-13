@@ -81,7 +81,6 @@ def publish_token(sender, instance, **kwargs):
     # メールでURLを送る方がよい
     print(f'http://127.0.0.1:8000/accounts/activate_user/{user_activate_token.token}')
 
-
 class Profile(models.Model): #2024年6月4日追加
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to='profile_pictures', null=True, blank=True)
@@ -134,15 +133,6 @@ class ChatMessage(models.Model):
 
     def __str__(self):
         return f'{self.sender}: {self.message}'
-
-# class ChatMessage(models.Model): #6月13日追加
-#     sender = models.ForeignKey(User, on_delete=models.CASCADE)
-#     message = models.TextField()
-#     timestamp = models.DateTimeField(auto_now_add=True)
-#     session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE)  # session_id フィールドを追加
-
-#     def __str__(self):
-#         return f'{self.sender}: {self.message}'
 
 class Task(models.Model):
     ASSIGNED_ROLE_CHOICES = [
