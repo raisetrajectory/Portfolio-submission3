@@ -43,14 +43,6 @@
         {{ form.as_p }}
         <button type="submit">コメントする</button>
 
-    <form id="chat-form" method="post" action="{% url 'send_message' %}">
-    {% csrf_token %}
-    <input type="hidden" name="session_id" value="{{ session.id }}">
-    <input type="text" name="message" placeholder="メッセージを入力してください" required>
-    <button type="submit">コメントする</button>
-    </form>
-
-
     </form>
     <form action="{% url 'home' %}" method="get">
         <button type="submit">メインメニューへ</button>
