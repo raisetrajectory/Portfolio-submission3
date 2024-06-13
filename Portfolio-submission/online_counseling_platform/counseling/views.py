@@ -181,6 +181,9 @@ def chat_view(request,session_id=None, counselor_id=None):
 
     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
 
+    # デバッグ用のプリント文
+    print(f'Session ID: {session.id}' if session else 'No session') # type: ignore
+
     return render(request, 'counseling/registration/chat.html', {
         'form': form,
         'messages': messages,
