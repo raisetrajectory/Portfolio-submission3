@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 
 app_name = 'main_app'
+app_name = 'counseling' #6月12日追加
 
 urlpatterns = [
     path('create_theme/', views.create_theme, name='create_theme'), # type: ignore
