@@ -32,6 +32,10 @@
             <p>メッセージはありません。</p>
         {% endfor %}
     </div>
+
+    <!-- Debug line to check session.id -->
+    <p>セッションID: {{ session.id }}</p>
+
     <form id="chat-form" method="post" action="{% url 'send_message' %}">
         {% csrf_token %}
         <input type="hidden" name="session_id" value="{{ session.id }}">
