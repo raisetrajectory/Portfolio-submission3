@@ -37,11 +37,19 @@
     <!-- Debug line to check session.id -->
     <p>セッションID: {{ session.id }}</p>
 
-    <form id="chat-form" method="post" action="{% url 'send_message' %}">
+    {% comment %} <form id="chat-form" method="post" action="{% url 'send_message' %}">
         {% csrf_token %}
         <input type="hidden" name="session_id" value="{{ session.id }}">
         {{ form.as_p }}
-        <button type="submit">コメントする</button>
+        <button type="submit">コメントする</button> {% endcomment %}
+
+    <form id="chat-form" method="post" action="{% url 'send_message' %}">
+    {% csrf_token %}
+    <input type="hidden" name="session_id" value="{{ session.id }}">
+    <input type="text" name="message" placeholder="メッセージを入力してください" required>
+    <button type="submit">コメントする</button>
+    </form>
+
     </form>
     <form action="{% url 'home' %}" method="get">
         <button type="submit">メインメニューへ</button>
