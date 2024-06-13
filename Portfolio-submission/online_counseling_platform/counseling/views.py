@@ -170,6 +170,7 @@ def chat_view(request,session_id=None, counselor_id=None):
             message = form.save(commit=False)
             message.sender = request.user
             message.session = session
+            message.session_id = session.id  # type: ignore # session_id を設定
             message.save()
             return redirect('chat_view', session_id=session.id) # type: ignore
         else:
