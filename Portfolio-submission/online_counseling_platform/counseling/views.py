@@ -35,7 +35,7 @@ def regist(request): #6月12日追加
     if regist_form.is_valid():
         try:
             regist_form.save()
-            return redirect('accounts:home')
+            return redirect('counseling:home')
         except ValidationError as e:
             regist_form.add_error('password', e)
     return render(
