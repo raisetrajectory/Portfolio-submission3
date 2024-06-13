@@ -155,7 +155,7 @@ def show_error_page(request, exception):
     )
 
 
-@login_required #2024年6月11日追加　質問内容の記載内容となります。
+@login_required #2024年6月11日追加　
 def chat_view(request,session_id=None, counselor_id=None):
     session = None
     if session_id:
