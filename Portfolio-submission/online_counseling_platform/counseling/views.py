@@ -30,12 +30,31 @@ def home(request): # type: ignore #6月12日追加
         request, 'counseling/home2.html'
     )
 
-def regist(request): #6月12日追加
+def home(request): # type: ignore #6月12日追加
+    return render(
+        request, 'counseling/home.html'
+    )
+
+def regist(request): # type: ignore #6月12日追加
     regist_form = forms.RegistForm(request.POST or None) # type: ignore
     if regist_form.is_valid():
         try:
             regist_form.save()
             return redirect('counseling:home2')
+        except ValidationError as e:
+            regist_form.add_error('password', e)
+    return render(
+        request, 'counseling/regist.html', context={
+            'regist_form': regist_form,
+        }
+    )
+
+def regist(request): #6月12日追加
+    regist_form = forms.RegistForm(request.POST or None) # type: ignore
+    if regist_form.is_valid():
+        try:
+            regist_form.save()
+            return redirect('counseling:home')
         except ValidationError as e:
             regist_form.add_error('password', e)
     return render(
@@ -71,11 +90,38 @@ def user_login(request): #6月12日追加
         }
     )
 
+def user_login(request): #6月12日追加
+    login_form = forms.LoginForm(request.POST or None)
+    if login_form.is_valid():
+        email = login_form.cleaned_data.get('email')
+        password = login_form.cleaned_data.get('password')
+        user = authenticate(email=email, password=password)
+        if user:
+            if user.is_active:
+                login(request, user)
+                messages.success(request, 'ログイン完了しました。')
+                return redirect('counseling:home')
+            else:
+                messages.warning(request, 'ユーザがアクティブでありません')
+        else:
+            messages.warning(request, 'ユーザがパスワードが間違っています' )
+    return render(
+        request, 'counseling/user_login.html', context={
+            'login_form':login_form,
+        }
+    )
+
+@login_required #6月12日追加
+def user_logout(request): # type: ignore
+    logout(request)
+    messages.success(request, 'ログアウトしました')
+    return redirect('counseling:home2')
+
 @login_required #6月12日追加
 def user_logout(request):
     logout(request)
     messages.success(request, 'ログアウトしました')
-    return redirect('counseling:home2')
+    return redirect('counseling:home')
 
 @login_required #6月12日追加
 def user_edit(request):
