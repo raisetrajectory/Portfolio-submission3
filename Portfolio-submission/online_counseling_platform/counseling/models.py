@@ -126,11 +126,11 @@ class CounselingSession(models.Model):
     def __str__(self):
         return f'Session between {self.user.username} and {self.counselor.name}'
 
-class ChatMessage(models.Model):
+class ChatMessage(models.Model): #6月13日追加
     sender = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
-    session_id = models.IntegerField()  # session_id フィールドを追加
+    session = models.ForeignKey(CounselingSession, on_delete=models.CASCADE)  # session_id フィールドを追加
 
     def __str__(self):
         return f'{self.sender}: {self.message}'
