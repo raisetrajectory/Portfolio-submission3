@@ -27,7 +27,7 @@ from django.contrib.auth import update_session_auth_hash #2024年6月11日追加
 
 def home(request): # type: ignore #6月12日追加
     return render(
-        request, 'counseling/home.html'
+        request, 'counseling/home2.html'
     )
 
 def regist(request): #6月12日追加
@@ -35,7 +35,7 @@ def regist(request): #6月12日追加
     if regist_form.is_valid():
         try:
             regist_form.save()
-            return redirect('counseling:home')
+            return redirect('counseling:home2')
         except ValidationError as e:
             regist_form.add_error('password', e)
     return render(
@@ -60,7 +60,7 @@ def user_login(request): #6月12日追加
             if user.is_active:
                 login(request, user)
                 messages.success(request, 'ログイン完了しました。')
-                return redirect('counseling:home')
+                return redirect('counseling:home2')
             else:
                 messages.warning(request, 'ユーザがアクティブでありません')
         else:
@@ -75,7 +75,7 @@ def user_login(request): #6月12日追加
 def user_logout(request):
     logout(request)
     messages.success(request, 'ログアウトしました')
-    return redirect('counseling:home')
+    return redirect('counseling:home2')
 
 @login_required #6月12日追加
 def user_edit(request):
