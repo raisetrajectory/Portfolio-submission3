@@ -155,8 +155,44 @@ def show_error_page(request, exception):
     )
 
 
-@login_required #2024年6月11日追加　質問内容の記載内容となります。
-def chat_view(request,session_id=None, counselor_id=None):
+# @login_required #2024年6月11日追加　質問内容の記載内容となります。
+# def chat_view(request,session_id=None, counselor_id=None):
+#     session = None
+#     if session_id:
+#         session = get_object_or_404(CounselingSession, id=session_id)
+#     elif counselor_id:
+#         counselor = get_object_or_404(Counselor, id=counselor_id)
+#         session, _ = CounselingSession.objects.get_or_create(user=request.user, counselor=counselor)
+
+#     if request.method == 'POST':
+#         form = ChatMessageForm(request.POST)
+#         if form.is_valid():
+#             message = form.save(commit=False)
+#             message.sender = request.user
+#             message.session = session
+#             message.session_id = session.id  # type: ignore # session_id を設定
+#             message.save()
+#             return redirect('chat_view', session_id=session.id) # type: ignore
+#         else:
+#             print(form.errors)
+#     else:
+#         initial = {'session_id': session.id} if session else {} # type: ignore
+#         form = ChatMessageForm(initial=initial)
+
+#     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
+
+#     # デバッグ用のプリント文
+#     print(f'Session ID: {session.id}' if session else 'No session') # type: ignore
+
+#     return render(request, 'counseling/registration/chat.html', {
+#         'form': form,
+#         'messages': messages,
+#         'session': session,
+#         'user': request.user,
+#     })
+
+@login_required
+def chat_view(request, session_id=None, counselor_id=None):
     session = None
     if session_id:
         session = get_object_or_404(CounselingSession, id=session_id)
@@ -170,14 +206,12 @@ def chat_view(request,session_id=None, counselor_id=None):
             message = form.save(commit=False)
             message.sender = request.user
             message.session = session
-            message.session_id = session.id  # type: ignore # session_id を設定
             message.save()
             return redirect('chat_view', session_id=session.id) # type: ignore
         else:
             print(form.errors)
     else:
-        initial = {'session_id': session.id} if session else {} # type: ignore
-        form = ChatMessageForm(initial=initial)
+        form = ChatMessageForm()
 
     messages = ChatMessage.objects.filter(session=session).order_by('timestamp') if session else []
 
@@ -190,6 +224,7 @@ def chat_view(request,session_id=None, counselor_id=None):
         'session': session,
         'user': request.user,
     })
+
 
 @login_required #2024年6月11日追加です！
 def send_message(request):
