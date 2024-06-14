@@ -5,7 +5,6 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model() # type: ignore
 
-from django.db import models #6月12日追加
 from django.contrib.auth.models import (
     AbstractBaseUser, PermissionsMixin
 ) #6月12日追加
