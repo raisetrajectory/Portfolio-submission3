@@ -39,11 +39,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'django.contrib.sites',
     'main_app',
+    'counseling',
     # 'allauth',
     'allauth.account',
     # 'allauth.socialaccount',
     # 'allauth.socialaccount.providers.google',  # 必要に応じて他のプロバイダーも追加できます
-    'counseling',
 ]
 
 SITE_ID = 1
