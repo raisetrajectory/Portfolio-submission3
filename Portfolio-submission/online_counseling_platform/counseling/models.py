@@ -72,7 +72,7 @@ class UserActivateTokens(models.Model): #6月12日追加
     class Meta:
         db_table = 'user_activate_tokens'
 
-@receiver(post_save, sender=Users) #6月12日追加
+@receiver(post_save, sender=Users) #6月追加
 def publish_token(sender, instance, **kwargs):
     # print(str(uuid4()))
     # print(datetime.now() + timedelta(days=1))
