@@ -1,15 +1,25 @@
 {% comment %} Portfolio-submission/online_counseling_platform/templates/user_login.html {% endcomment %}
 {% comment %} 不要ならば削除して大丈夫です！ {% endcomment %}
-{% extends "base.html" %}
-{% block content %}
-{% if messages %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ユーザーログイン画面です！</title>
+</head>
+<body>
+    {% block content %}
+    {% if messages %}
     {% for message in messages %}
         <div>{{ message.message }}</div>
     {% endfor %}
-{% endif %}
-<form method="POST">
+    {% endif %}
+    <form method="POST">
     {% csrf_token %}
     {{ login_form.as_p }}
     <input type="submit" value="ログイン">
-</form>
-{% endblock %}
+    </form>
+    {% endblock %}
+    オンラインカウンセリングプラットフォームの始まりです！
+    ホーム画面です
+    <p><a href="{% url 'home' %}">ホーム画面に戻ります</a></p>
+</body>
+</html>
