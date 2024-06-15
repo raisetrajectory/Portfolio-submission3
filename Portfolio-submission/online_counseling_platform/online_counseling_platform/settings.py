@@ -166,7 +166,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/' #メディアファイルを公開する際のURL
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # メディアファイルの保存先ディレクトリ
 
-# AUTH_USER_MODEL = 'counseling.Users'　#6月追加
+AUTH_USER_MODEL = 'counseling.Users' #6月追加
 
 # STATICFILES_DIRSは、追加の静的ファイルディレクトリがある場合に指定します
 # 例えば、プロジェクト全体で共有される静的ファイルなど
