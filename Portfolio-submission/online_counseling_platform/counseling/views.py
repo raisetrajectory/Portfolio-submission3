@@ -25,15 +25,15 @@ from django.contrib import messages #2024年6月11日追加
 from django.contrib.auth.decorators import login_required #2024年6月11日追加
 from django.contrib.auth import update_session_auth_hash #2024年6月11日追加
 
-def home(request): # type: ignore #6月12日追加
-    return render(
-        request, 'counseling/home2.html'
-    )
-
 # def home(request): # type: ignore #6月12日追加
 #     return render(
-#         request, 'counseling/home.html'
+#         request, 'counseling/home2.html'
 #     )
+
+def home(request): # type: ignore #6月12日追加
+    return render(
+        request, 'counseling/home.html'
+    )
 
 def regist(request): # type: ignore #6月12日追加
     regist_form = forms.RegistForm(request.POST or None) # type: ignore
