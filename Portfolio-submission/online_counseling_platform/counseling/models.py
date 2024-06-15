@@ -82,6 +82,27 @@ def publish_token(sender, instance, **kwargs):
     # メールでURLを送る方がよい
     print(f'http://127.0.0.1:8000/counseling/activate_user/{user_activate_token.token}')
 
+# def user_login(request):
+#     login_form = forms.LoginForm(request.POST or None)
+#     if login_form.is_valid():
+#         email = login_form.cleaned_data.get('email')
+#         password = login_form.cleaned_data.get('password')
+#         user = authenticate(email=email, password=password)
+#         if user:
+#             if user.is_active:
+#                 login(request, user)
+#                 messages.success(request, 'ログイン完了しました。')
+#                 return redirect('accounts:home')
+#             else:
+#                 messages.warning(request, 'ユーザがアクティブでありません')
+#         else:
+#             messages.warning(request, 'ユーザがパスワードが間違っています' )
+#     return render(
+#         request, 'accounts/user_login.html', context={
+#             'login_form':login_form,
+#         }
+#     )
+
 class Profile(models.Model): #2024年6月4日追加
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to='profile_pictures', null=True, blank=True)
