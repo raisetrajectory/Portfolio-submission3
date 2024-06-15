@@ -36,15 +36,14 @@ urlpatterns = [
     path('send_message/', send_message, name='send_message'),
     path('chat/<int:session_id>/', chat_view, name='chat_view'),
 
-    path('', views.home, name='home'), #6月12日追加
-    path('regist/', views.regist, name='regist'), #6月12日追加
-    path('activate_user/<uuid:token>/', views.activate_user, name='activate_user'), #6月12日追加
-    path('user_login/', views.user_login, name='user_login'), #6月12日追加
+    path('', views.home, name='home'), #6月追加
+    path('regist/', views.regist, name='regist'), #6月追加
+    path('activate_user/<uuid:token>/', views.activate_user, name='activate_user'), #6月追加
+    path('user_login/', views.user_login, name='user_login'), #6月追加
     path('user_logout/', views.user_logout, name='user_logout'), #6月12日追加
     path('user_edit/', views.user_edit, name='user_edit'), #6月12日追加
-    path('change_password/', views.change_password, name='change_password'), #6月12日追加
-    # path('home2/', views.home, name='home2'),  # counselingアプリケーション用のURLパターン　#6月13日追加 不要の場合は削除して大丈夫です！
-    path('base/', views.base, name='base'),  # 新しいURLパターンを追加
+    path('change_password/', views.change_password, name='change_password'), #6月追加
+    path('base/', views.base, name='base'), #6月追加
 
 ]
 
