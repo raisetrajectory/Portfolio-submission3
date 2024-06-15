@@ -84,7 +84,7 @@ def user_logout(request): # type: ignore
     messages.success(request, 'ログアウトしました')
     return redirect('home')
 
-@login_required #6月12日追加
+@login_required #6月追加
 def user_edit(request):
     user_edit_form = forms.UserEditForm(request.POST or None, request.FILES or None, instance=request.user) # type: ignore
     if user_edit_form.is_valid():
