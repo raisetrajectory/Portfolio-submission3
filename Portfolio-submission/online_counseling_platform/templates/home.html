@@ -22,6 +22,9 @@
     </style>
 </head>
 <body>
+    {% comment %} <nav class="navbar navbar-expand-lg navbar-light bg-light"> {% endcomment %}
+
+    {% comment %} </nav> {% endcomment %}
     <h1>オンラインカウンセリングプラットフォームへようこそ！</h1>
     <h1>チャットメッセージ</h1>
     <div id="chat-box">
@@ -35,7 +38,6 @@
         <button type="submit">送信</button>
     </form>
     <ul>
-        {% comment %} <li><button onclick="location.href='{% url 'base' %}'">ユーザー登録</button></li> {% endcomment %}
         <li><button onclick="location.href='{% url 'signup' %}'">ユーザー登録</button></li>
         <li><button onclick="location.href='{% url 'login' %}'">ログイン</button></li>
         <li><button onclick="location.href='{% url 'chat' %}'">チャット画面へ</button></li>
@@ -43,5 +45,6 @@
         <li><button onclick="location.href='{% url 'profile' %}'">プロフィール画面へ</button></li>
         <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラー一覧画面へ</button></li>
     </ul>
+    {% comment %} {% block content %}{% endblock %} {% endcomment %}
     </body>
 </html>
