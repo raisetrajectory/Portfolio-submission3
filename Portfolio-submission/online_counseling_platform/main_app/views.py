@@ -45,9 +45,9 @@ def edit_theme(request, id): #6月12日追加
     if edit_theme_form.is_valid():
         edit_theme_form.save()
         messages.success(request, '掲示板を更新しました。')
-        return redirect('main_app:list_themes')
+        return redirect('list_themes')
     return render(
-        request, 'main_app/edit_theme.html', context={
+        request, 'edit_theme.html', context={
             'edit_theme_form': edit_theme_form,
             'id': id,
         }
@@ -61,9 +61,9 @@ def delete_theme(request, id): #6月12日追加
     if delete_theme_form.is_valid(): # csrf check
         theme.delete()
         messages.success(request, '掲示板を削除しました。')
-        return redirect('main_app:list_themes')
+        return redirect('list_themes')
     return render(
-        request, 'main_app/delete_theme.html', context={
+        request, 'delete_theme.html', context={
             'delete_theme_form': delete_theme_form,
         }
     )
@@ -80,9 +80,9 @@ def post_comments(request, theme_id): #6月12日追加
         post_comment_form.instance.user = request.user
         post_comment_form.save()
         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')
-        return redirect('main_app:post_comments', theme_id= theme_id)
+        return redirect('post_comments', theme_id= theme_id)
     return render(
-        request, 'main_app/post_comments.html', context={
+        request, 'post_comments.html', context={
             'post_comment_form': post_comment_form,
             'theme': theme,
             'comments': comments,
