@@ -1,1 +1,9 @@
 {% comment %} Portfolio-submission/online_counseling_platform/templates/regist.html {% endcomment %}
+{% extends "base.html" %}
+{% block content %}
+<form method="POST">
+{% csrf_token %}
+{{ regist_form.as_p }}
+<input type="submit" value="ユーザ登録">
+</form>
+{% endblock %}
