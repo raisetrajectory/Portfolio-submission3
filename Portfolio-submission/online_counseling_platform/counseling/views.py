@@ -32,7 +32,7 @@ from django.contrib.auth import update_session_auth_hash #2024年6月11日追加
 
 def home(request): # type: ignore #6月12日追加
     return render(
-        request, 'counseling/home.html'
+        request, 'counseling/base.html'
     )
 
 def regist(request): # type: ignore #6月12日追加
