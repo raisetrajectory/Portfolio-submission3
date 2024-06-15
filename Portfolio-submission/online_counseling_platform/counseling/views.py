@@ -18,12 +18,12 @@ User = get_user_model()
 
 from . import forms #6月追加
 from django.core.exceptions import ValidationError #6月追加
-from .models import UserActivateTokens # type: ignore #6月追加
-from django.shortcuts import render, redirect #2024年6月11日追加
-from django.contrib.auth import authenticate, login, logout #2024年6月11日追加
-from django.contrib import messages #2024年6月11日追加
-from django.contrib.auth.decorators import login_required #2024年6月11日追加
-from django.contrib.auth import update_session_auth_hash #2024年6月11日追加
+from .models import UserActivateTokens #6月追加
+from django.shortcuts import render, redirect #6月追加
+from django.contrib.auth import authenticate, login, logout #6月追加
+from django.contrib import messages #6月追加
+from django.contrib.auth.decorators import login_required #6月追加
+from django.contrib.auth import update_session_auth_hash #6月追加
 
 def home(request):  # type: ignore
     return render(request, 'home.html')
