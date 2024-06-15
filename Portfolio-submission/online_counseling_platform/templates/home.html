@@ -44,6 +44,7 @@
         <li><button onclick="location.href='{% url 'base' %}'">オンラインカウンセリングプラットフォームの始まりです！</button></li>
         {% if user.is_authenticated %}
         <li><button onclick="location.href='{% url 'user_logout' %}'">ログアウト</button></li>
+        <li><button onclick="location.href='{% url 'user_edit' %}'">ユーザ情報更新</button></li>
         {% else %}
         <li><button onclick="location.href='{% url 'user_login' %}'">ログイン</button></li>
         <li><button onclick="location.href='{% url 'regist' %}'">ユーザ登録画面へ</button></li>
