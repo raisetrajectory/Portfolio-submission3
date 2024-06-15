@@ -8,9 +8,9 @@
 <body>
     {% block content %}
     {% if messages %}
-    {% for message in messages %}
-        <div>{{ message.message }}</div>
-    {% endfor %}
+        {% for message in messages %}
+            <div>{{ message.message }}</div>
+        {% endfor %}
     {% endif %}
     <form method="POST">
     {% csrf_token %}
