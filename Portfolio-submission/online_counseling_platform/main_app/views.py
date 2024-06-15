@@ -32,7 +32,7 @@ def create_theme(request): #6月12日追加
 def list_themes(request): #6月12日追加
     themes = Themes.objects.fetch_all_themes() # type: ignore
     return render(
-        request, 'main_app/list_themes.html', context={
+        request, 'list_themes.html', context={
             'themes': themes
         }
     )
