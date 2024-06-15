@@ -70,7 +70,7 @@ def activate_user(request, token): #6月12日追加
     )
 
 def user_login(request): # type: ignore #6月12日追加
-    login_form = forms.LoginForm(request.POST or None)
+    login_form = forms.LoginForm(request.POST or None) # type: ignore
     if login_form.is_valid():
         email = login_form.cleaned_data.get('email')
         password = login_form.cleaned_data.get('password')
