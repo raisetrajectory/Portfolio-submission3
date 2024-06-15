@@ -12,7 +12,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),  # Allauthのルーティングを追加
     path('', include('counseling.urls')),  # counselingアプリのルーティングを追加
     path('logout/', LogoutView.as_view(), name='logout'),  # ログアウト機能の追加
-    path('counseling/', include('counseling.urls')),
+    path('counseling/', include('counseling.urls')), #テンプレートの実装
     path('main_app/', include('main_app.urls')),
 ]
 handler404 = show_error_page #6月12日追加
