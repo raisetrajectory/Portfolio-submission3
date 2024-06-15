@@ -48,8 +48,14 @@ def regist(request): # type: ignore #6月追加　遷移出来ています！
 def activate_user(request, token): #6月12日追加
     user_activate_token = UserActivateTokens.objects.activate_user_by_token(token) # type: ignore
     return render(
-        request, 'counseling/activate_user.html'
+        request, 'activate_user.html'
     )
+
+# def activate_user(request, token): #6月12日追加
+#     user_activate_token = UserActivateTokens.objects.activate_user_by_token(token) # type: ignore
+#     return render(
+#         request, 'counseling/activate_user.html'
+#     )
 
 def user_login(request): # type: ignore #6月12日追加
     login_form = forms.LoginForm(request.POST or None)
