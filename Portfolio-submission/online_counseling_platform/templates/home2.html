@@ -1,0 +1,10 @@
+{% comment %} Portfolio-submission/online_counseling_platform/templates/home2.html {% endcomment %}
+{% extends "base.html" %}
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+        <div>{{ message.message }}</div>
+    {% endfor %}
+{% endif %}
+ホーム画面です
+{% endblock %}
