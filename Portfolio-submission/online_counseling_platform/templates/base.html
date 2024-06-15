@@ -1,13 +1,13 @@
 {% comment %} 不要ならば、削除しても大丈夫です！ {% endcomment %}
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"> {% endcomment %}
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> {% endcomment %}
     {% comment %} <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> {% endcomment %}
-</head>
-<body>
+{% comment %} </head>
+<body> {% endcomment %}
 {% comment %} <nav class="navbar navbar-expand-lg navbar-light bg-light"> {% endcomment %}
     {% comment %} <a class="navbar-brand" href="{% url 'counseling:home' %}">ホーム</a> {% endcomment %}
     {% comment %} <a class="navbar-brand" href="{% url 'counseling:home2' %}">ホーム</a> {% endcomment %}
@@ -23,5 +23,5 @@
 {% comment %} </nav> {% endcomment %}
     {% comment %} {% block content %}{% endblock %} {% endcomment %}
     {% comment %} {% block javascript %}{% endblock %} {% endcomment %}
-    </body>
-</html>
+    {% comment %} </body>
+</html> {% endcomment %}
