@@ -5,12 +5,12 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-class ThemesManager(models.Manager): #2024年6月12日追加
+class ThemesManager(models.Manager): #6月追加
 
     def fetch_all_themes(self):
         return self.order_by('id').all()
 
-class Themes(models.Model): #2024年6月12日追加
+class Themes(models.Model): #6月追加
 
     title = models.CharField(max_length=255)
     user = models.ForeignKey(
