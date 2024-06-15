@@ -99,17 +99,11 @@ def user_login(request): # type: ignore #6月12日追加
 #         }
 #     )
 
-@login_required #6月12日追加
+@login_required #6月追加
 def user_logout(request): # type: ignore
     logout(request)
     messages.success(request, 'ログアウトしました')
-    return redirect('counseling:home2')
-
-# @login_required #6月12日追加
-# def user_logout(request):
-#     logout(request)
-#     messages.success(request, 'ログアウトしました')
-#     return redirect('counseling:home')
+    return redirect('home')
 
 @login_required #6月12日追加
 def user_edit(request):
