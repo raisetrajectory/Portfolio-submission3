@@ -43,8 +43,9 @@ urlpatterns = [
     path('user_logout/', views.user_logout, name='user_logout'), #6月12日追加
     path('user_edit/', views.user_edit, name='user_edit'), #6月12日追加
     path('change_password/', views.change_password, name='change_password'), #6月12日追加
-
     # path('home2/', views.home, name='home2'),  # counselingアプリケーション用のURLパターン　#6月13日追加 不要の場合は削除して大丈夫です！
+
 ]
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
