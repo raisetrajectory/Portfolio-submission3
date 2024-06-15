@@ -1,9 +1,0 @@
-{% comment %} 不要ならば、削除しても大丈夫です！ {% endcomment %}
-{% extends "base.html" %}
-{% block content %}
-<form method="POST">
-{% csrf_token %}
-{{ regist_form.as_p }}
-<input type="submit" value="ユーザ登録">
-</form>
-{% endblock %}
