@@ -31,7 +31,7 @@ def home(request):  # type: ignore
 def base(request):
     return render(request, 'base.html')
 
-def regist(request): # type: ignore #6月12日追加
+def regist(request): # type: ignore #6月追加
     regist_form = forms.RegistForm(request.POST or None) # type: ignore
     if regist_form.is_valid():
         try:
