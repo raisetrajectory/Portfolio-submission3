@@ -22,11 +22,11 @@ class Themes(models.Model): #6月追加
     class Meta:
         db_table = 'themes'
 
-class CommentsManager(models.Manager): #2024年6月12日追加
+class CommentsManager(models.Manager): #6月追加
     def fetch_by_theme_id(self, theme_id):
         return self.filter(theme_id=theme_id).order_by('id').all()
 
-class Comments(models.Model): #2024年6月12日追加
+class Comments(models.Model): #6月追加
 
     comment = models.CharField(max_length=1000)
     user = models.ForeignKey(
