@@ -80,7 +80,7 @@ def publish_token(sender, instance, **kwargs):
         user=instance, token=str(uuid4()), expired_at=datetime.now() + timedelta(days=1)
     )
     # メールでURLを送る方がよい
-    print(f'http://127.0.0.1:8000/accounts/activate_user/{user_activate_token.token}')
+    print(f'http://127.0.0.1:8000/counseling/activate_user/{user_activate_token.token}')
 
 class Profile(models.Model): #2024年6月4日追加
     user = models.OneToOneField(User, on_delete=models.CASCADE)
