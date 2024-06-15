@@ -30,10 +30,13 @@ from django.contrib.auth import update_session_auth_hash #2024年6月11日追加
 #         request, 'counseling/home2.html'
 #     )
 
-def home(request): # type: ignore #6月12日追加
-    return render(
-        request, 'counseling/base.html'
-    )
+# def home(request): # type: ignore #6月12日追加
+#     return render(
+#         request, 'counseling/base.html'
+#     )
+
+def home(request):  # type: ignore
+    return render(request, 'home.html')
 
 def base(request):  # 新しいビューを追加
     return render(request, 'counseling/base.html')
