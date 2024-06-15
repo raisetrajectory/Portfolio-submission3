@@ -34,6 +34,7 @@ class Users(AbstractBaseUser, PermissionsMixin): #6月12日追加
         help_text='The groups this user belongs to.',
         verbose_name='groups',
     )
+    # AUTH_USER_MODEL = 'counseling.Users'と同じ意味です。
 
     user_permissions = models.ManyToManyField(
         'auth.Permission',
@@ -42,6 +43,7 @@ class Users(AbstractBaseUser, PermissionsMixin): #6月12日追加
         help_text='Specific permissions for this user.',
         verbose_name='user permissions',
     )
+    # AUTH_USER_MODEL = 'counseling.Users'と同じ意味です。
 
     class Meta:
         db_table = 'users'
