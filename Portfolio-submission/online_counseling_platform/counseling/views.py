@@ -105,7 +105,7 @@ def change_password(request):
         except ValidationError as e:
             password_change_form.add_error('password', e)
     return render(
-        request, 'counseling/change_password.html', context={
+        request, 'change_password.html', context={
             'password_change_form': password_change_form,
         }
     )
