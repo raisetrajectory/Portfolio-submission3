@@ -31,7 +31,7 @@ class RegistForm(forms.ModelForm): #6月12日追加
         user.save()
         return user
 
-class UserEditForm(forms.ModelForm): #6月12日追加
+class UserEditForm(forms.ModelForm): #6月追加
     username = forms.CharField(label='名前')
     age = forms.IntegerField(label='年齢', min_value=0)
     email = forms.EmailField(label='メールアドレス')
@@ -41,11 +41,11 @@ class UserEditForm(forms.ModelForm): #6月12日追加
         model = Users
         fields = ('username', 'age', 'email', 'picture')
 
-class LoginForm(forms.Form): #6月12日追加
+class LoginForm(forms.Form): #6月追加
     email = forms.CharField(label="メールアドレス")
     password = forms.CharField(label="パスワード", widget=forms.PasswordInput())
 
-class PasswordChangeForm(forms.ModelForm): #6月12日追加
+class PasswordChangeForm(forms.ModelForm): #6月追加
 
     password = forms.CharField(label='パスワード', widget=forms.PasswordInput())
     confirm_password = forms.CharField(label='パスワード再入力', widget=forms.PasswordInput())
