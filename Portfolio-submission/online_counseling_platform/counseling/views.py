@@ -90,7 +90,7 @@ def user_edit(request):
     if user_edit_form.is_valid():
         messages.success(request, '更新完了しました。')
         user_edit_form.save()
-    return render(request, 'counseling/user_edit.html', context={
+    return render(request, 'user_edit.html', context={
         'user_edit_form': user_edit_form,
     })
 
