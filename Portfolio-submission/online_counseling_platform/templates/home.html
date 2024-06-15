@@ -42,7 +42,7 @@
         <li><button onclick="location.href='{% url 'profile' %}'">プロフィール画面へ</button></li>
         <li><button onclick="location.href='{% url 'counselor_list' %}'">カウンセラー一覧画面へ</button></li>
         <li><button onclick="location.href='{% url 'base' %}'">オンラインカウンセリングプラットフォームの始まりです！</button></li>
-        <li><button onclick="location.href='{% url 'list_themes' %}'">掲示板一覧</button></li>
+        {% comment %} <li><button onclick="location.href='{% url 'list_themes' %}'">掲示板一覧</button></li> {% endcomment %}
         {% if user.is_authenticated %}
         <li><button onclick="location.href='{% url 'user_logout' %}'">ログアウト</button></li>
         <li><button onclick="location.href='{% url 'user_edit' %}'">ユーザ情報更新</button></li>
