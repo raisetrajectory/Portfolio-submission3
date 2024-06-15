@@ -39,7 +39,7 @@ def home(request):  # type: ignore
     return render(request, 'home.html')
 
 def base(request):  # 新しいビューを追加
-    return render(request, 'counseling/base.html')
+    return render(request, 'base.html')
 
 def regist(request): # type: ignore #6月12日追加
     regist_form = forms.RegistForm(request.POST or None) # type: ignore
