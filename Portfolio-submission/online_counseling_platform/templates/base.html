@@ -8,7 +8,7 @@
     {% comment %} <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> {% endcomment %}
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+{% comment %} <nav class="navbar navbar-expand-lg navbar-light bg-light"> {% endcomment %}
     {% comment %} <a class="navbar-brand" href="{% url 'counseling:home' %}">ホーム</a> {% endcomment %}
     {% comment %} <a class="navbar-brand" href="{% url 'counseling:home2' %}">ホーム</a> {% endcomment %}
     {% comment %} <a class="navbar-brand" href="{% url 'main_app:home2' %}">ホーム</a> {% endcomment %}
@@ -20,8 +20,8 @@
         {% comment %} <a class="navbar-brand" href="{% url 'counseling:user_login' %}">ログイン</a> {% endcomment %}
         {% comment %} <a class="navbar-brand" href="{% url 'counseling:regist' %}">ユーザ登録</a> {% endcomment %}
     {% comment %} {% endif %} {% endcomment %}
-</nav>
-    {% block content %}{% endblock %}
+{% comment %} </nav> {% endcomment %}
+    {% comment %} {% block content %}{% endblock %} {% endcomment %}
     {% comment %} {% block javascript %}{% endblock %} {% endcomment %}
     </body>
 </html>
