@@ -22,9 +22,9 @@ def create_theme(request): #6月12日追加
             create_theme_form.instance.user = request.user
             create_theme_form.save()
             messages.success(request, '掲示板を作成しました。')
-            return redirect('main_app:list_themes')
+            return redirect('list_themes')
         return render(
-        request, 'main_app/create_theme.html', context={
+        request, 'create_theme.html', context={
             'create_theme_form': create_theme_form,
         }
     )
