@@ -1,6 +1,18 @@
 {% comment %} Portfolio-submission/online_counseling_platform/templates/activate_user.html {% endcomment %}
 {% comment %} 不要ならば、削除しても大丈夫です！ {% endcomment %}
-{% extends "base.html" %}
+{% comment %} {% extends "base.html" %}
 {% block content %}
 ユーザーを有効化しました
-{% endblock %}
+{% endblock %} {% endcomment %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>オンラインカウンセリングプラットフォームの始まりです！</title>
+</head>
+<body>
+    オンラインカウンセリングプラットフォームの始まりです！
+    ホーム画面です
+    <p><a href="{% url 'home' %}">ホーム画面に戻ります</a></p>
+</body>
+</html>
