@@ -31,7 +31,7 @@ def home(request):  # type: ignore
 def base(request):
     return render(request, 'base.html')
 
-def regist(request): # type: ignore #6月追加
+def regist(request): # type: ignore #6月追加　遷移出来ています！
     regist_form = forms.RegistForm(request.POST or None) # type: ignore
     if regist_form.is_valid():
         try:
@@ -44,20 +44,6 @@ def regist(request): # type: ignore #6月追加
             'regist_form': regist_form,
         }
     )
-
-# def regist(request): #6月12日追加
-#     regist_form = forms.RegistForm(request.POST or None) # type: ignore
-#     if regist_form.is_valid():
-#         try:
-#             regist_form.save()
-#             return redirect('counseling:home')
-#         except ValidationError as e:
-#             regist_form.add_error('password', e)
-#     return render(
-#         request, 'counseling/regist.html', context={
-#             'regist_form': regist_form,
-#         }
-#     )
 
 def activate_user(request, token): #6月12日追加
     user_activate_token = UserActivateTokens.objects.activate_user_by_token(token) # type: ignore
