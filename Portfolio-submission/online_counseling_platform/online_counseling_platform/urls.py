@@ -14,6 +14,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),  # ログアウト機能の追加
     path('counseling/', include('counseling.urls')), #テンプレートの実装
     path('main_app/', include('main_app.urls')),
+    # path('counseling/', include('counseling.urls', namespace='counseling')),  # 名前空間を追加
 ]
 handler404 = show_error_page #6月12日追加
 
