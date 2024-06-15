@@ -36,11 +36,11 @@ def regist(request): # type: ignore #6月12日追加
     if regist_form.is_valid():
         try:
             regist_form.save()
-            return redirect('counseling:home')
+            return redirect('home')
         except ValidationError as e:
             regist_form.add_error('password', e)
     return render(
-        request, 'counseling/regist.html', context={
+        request, 'regist.html', context={
             'regist_form': regist_form,
         }
     )
