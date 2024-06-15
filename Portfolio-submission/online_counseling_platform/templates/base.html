@@ -4,7 +4,13 @@
     <title>オンラインカウンセリングプラットフォームの始まりです！</title>
 </head>
 <body>
+    {% block content %}
+    {% if messages %}
+    {% for message in messages %}
+        <div>{{ message.message }}</div>
+    {% endfor %}
     ホーム画面です
+    {% endblock %}
     <p><a href="{% url 'home' %}">ホーム画面に戻ります</a></p>
 </body>
 </html>
