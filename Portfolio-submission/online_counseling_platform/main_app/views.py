@@ -21,6 +21,8 @@ from .forms import CreateThemeForm
 from .models import Themes  # UsersではなくUserをインポート
 from django.contrib.auth import get_user_model
 
+User = get_user_model()  # カスタムユーザーモデルを取得
+
 def create_theme(request): #6月追加
         create_theme_form = forms.CreateThemeForm(request.POST or None)
         if create_theme_form.is_valid():
