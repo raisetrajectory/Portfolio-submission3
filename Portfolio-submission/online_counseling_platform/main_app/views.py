@@ -24,8 +24,8 @@ from django.contrib.auth import get_user_model
 def create_theme(request): #6月追加
         create_theme_form = forms.CreateThemeForm(request.POST or None)
         if create_theme_form.is_valid():
-            create_theme_form.instance.user = request.user
-            # create_theme_form.instance.user = Users.objects.get(pk=request.user.pk)  # カスタムユーザーモデルのインスタンスを取得
+            # create_theme_form.instance.user = request.user
+            create_theme_form.instance.user = User.objects.get(pk=request.user.pk)  # カスタムユーザーモデルのインスタンスを取得
             create_theme_form.save()
             messages.success(request, '掲示板を作成しました。')
             return redirect('main_app:list_themes')
