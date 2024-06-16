@@ -21,19 +21,33 @@ from .models import CounselingSession, ChatMessage, User, Themes, Comments
 from django.http import Http404
 from django.core.cache import cache
 
-def create_theme(request): #6月追加
-        create_theme_form = forms.CreateThemeForm(request.POST or None)
-        if create_theme_form.is_valid():
-            create_theme_form.instance.user = request.user
-            # create_theme_form.instance.user = User.objects.get(pk=request.user.pk)  # カスタムユーザーモデルのインスタンスを取得
+# def create_theme(request): #6月追加
+#         create_theme_form = forms.CreateThemeForm(request.POST or None)
+#         if create_theme_form.is_valid():
+#             create_theme_form.instance.user = request.user
+#             # create_theme_form.instance.user = User.objects.get(pk=request.user.pk)  # カスタムユーザーモデルのインスタンスを取得
+#             create_theme_form.save()
+#             messages.success(request, '掲示板を作成しました。')
+#             return redirect('main_app:list_themes')
+#         return render(
+#         request, 'create_theme.html', context={
+#             'create_theme_form': create_theme_form,
+#         }
+#     )
+
+@login_required
+def create_theme(request):
+    create_theme_form = CreateThemeForm(request.POST or None)
+    if create_theme_form.is_valid():
+        try:
+            user = User.objects.get(pk=request.user.pk)  # カスタムユーザーモデルのインスタンスを取得
+            create_theme_form.instance.user = user
             create_theme_form.save()
             messages.success(request, '掲示板を作成しました。')
             return redirect('main_app:list_themes')
-        return render(
-        request, 'create_theme.html', context={
-            'create_theme_form': create_theme_form,
-        }
-    )
+        except User.DoesNotExist:
+            messages.error(request, 'ユーザーが見つかりません。')
+    return render(request, 'create_theme.html', {'create_theme_form': create_theme_form})
 
 def list_themes(request): #6月追加
     themes = Themes.objects.fetch_all_themes() # type: ignore
