@@ -82,7 +82,7 @@ def delete_theme(request, id): #6月追加
     if delete_theme_form.is_valid(): # csrf check
         theme.delete()
         messages.success(request, '掲示板を削除しました。')
-        return redirect('list_themes')
+        return redirect('main_app:list_themes')
     return render(
         request, 'delete_theme.html', context={
             'delete_theme_form': delete_theme_form,
