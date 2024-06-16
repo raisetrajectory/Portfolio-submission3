@@ -50,7 +50,7 @@ SITE_ID = 1
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    # 'allauth.account.auth_backends.AuthenticationBackend',　#問題や不具合無くコメントアウト出来ております！　問題が発生したら戻しましょう！
+    'allauth.account.auth_backends.AuthenticationBackend', #問題や不具合無くコメントアウト出来ます！　問題が発生したら戻しましょう！
     'counseling.backends.EmailOrUsernameModelBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
