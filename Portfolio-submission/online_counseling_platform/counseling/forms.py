@@ -42,7 +42,8 @@ class UserEditForm(forms.ModelForm): #6月追加
         fields = ('username', 'age', 'email', 'picture')
 
 class LoginForm(forms.Form): #6月追加
-    email = forms.CharField(label="メールアドレスまたはユーザー名")
+    # email = forms.CharField(label="メールアドレス")
+    username = forms.CharField(label="メールアドレスまたはユーザー名")
     password = forms.CharField(label="パスワード", widget=forms.PasswordInput())
 
 class PasswordChangeForm(forms.ModelForm): #6月追加
