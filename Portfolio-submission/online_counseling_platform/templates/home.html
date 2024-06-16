@@ -44,7 +44,6 @@
         <li><button onclick="location.href='{% url 'base' %}'">オンラインカウンセリングプラットフォームの始まりです！</button></li>
         <li><button onclick="location.href='{% url 'main_app:create_theme' %}'">掲示板作成【仮】</button></li>
         {% comment %} <li><button onclick="location.href='{% url 'list_themes' %}'">掲示板一覧【仮】</button></li> {% endcomment %}
-        <li><button onclick="location.href='{% url 'regist' %}'">掲示板作成【仮】</button></li>
         {% if user.is_authenticated %}
         <li><button onclick="location.href='{% url 'user_logout' %}'">ログアウトしてしまうから押すな！</button></li>
         <li><button onclick="location.href='{% url 'user_edit' %}'">ユーザ情報更新</button></li>
