@@ -25,6 +25,8 @@ from django.contrib import messages #6月追加
 from django.contrib.auth.decorators import login_required #6月追加
 from django.contrib.auth import update_session_auth_hash #6月追加
 
+from counseling.forms import LoginForm  # 修正
+
 def home(request):  # type: ignore
     return render(request, 'home.html')
 
