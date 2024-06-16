@@ -65,7 +65,7 @@ def edit_theme(request, id): #6月追加
     if edit_theme_form.is_valid():
         edit_theme_form.save()
         messages.success(request, '掲示板を更新しました。')
-        return redirect('list_themes')
+        return redirect('main_app:list_themes')
     return render(
         request, 'edit_theme.html', context={
             'edit_theme_form': edit_theme_form,
