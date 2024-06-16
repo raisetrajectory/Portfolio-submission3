@@ -7,6 +7,9 @@
 <body>
     {% block content %}
     <h3>{{ theme.title }}<</h3>
+    {% for comment in comments %}
+
+    {% endfor %}
     <form method="POST">
     {% csrf_token %}
     {{ post_comment_form.as_p }}
