@@ -19,7 +19,7 @@ class EmailOrUsernameModelBackend(ModelBackend):
         if user.check_password(password) and self.user_can_authenticate(user):
             return user
 
-# class EmailOrUsernameModelBackend(ModelBackend):
+# class EmailOrUsernameModelBackend(ModelBackend): #6月追加
 #     def authenticate(self, request, username=None, password=None, **kwargs):
 #         UserModel = get_user_model()
 #         if username is None:
