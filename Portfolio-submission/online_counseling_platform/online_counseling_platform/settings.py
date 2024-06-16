@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'main_app',
     'counseling',
-    # 'allauth', #問題や不具合無くコメントアウト出来ます！　問題が発生したら戻しましょう！
+    'allauth', #問題や不具合無くコメントアウト出来ます！　問題が発生したら戻しましょう！
     'allauth.account',
-    # 'allauth.socialaccount', #問題や不具合無くコメントアウト出来ます！　問題が発生したら戻しましょう！
+    'allauth.socialaccount', #問題や不具合無くコメントアウト出来ます！　問題が発生したら戻しましょう！
     # 'allauth.socialaccount.providers.google',  #問題や不具合無くコメントアウト出来ます！　問題が発生したら戻しましょう！
 ]
 
