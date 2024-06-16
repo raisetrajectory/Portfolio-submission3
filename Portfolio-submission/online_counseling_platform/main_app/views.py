@@ -21,7 +21,7 @@ from .models import CounselingSession, ChatMessage, User, Themes, Comments
 from django.http import Http404
 from django.core.cache import cache
 
-# def create_theme(request): #6月追加
+# def create_theme(request): #6月追加　エラーが発生します！
 #         create_theme_form = forms.CreateThemeForm(request.POST or None)
 #         if create_theme_form.is_valid():
 #             create_theme_form.instance.user = request.user
