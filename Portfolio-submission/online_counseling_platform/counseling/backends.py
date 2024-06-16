@@ -15,6 +15,19 @@ class EmailOrUsernameModelBackend(ModelBackend):
             try:
                 user = User.objects.get(email=username)
             except User.DoesNotExist:
-                return
+                return None
         if user.check_password(password) and self.user_can_authenticate(user):
             return user
+
+# class EmailOrUsernameModelBackend(ModelBackend):
+#     def authenticate(self, request, username=None, password=None, **kwargs):
+#         UserModel = get_user_model()
+#         if username is None:
+#             username = kwargs.get(UserModel.USERNAME_FIELD)
+#         try:
+#             user = UserModel.objects.get(email=username)
+#         except UserModel.DoesNotExist:
+#             return None
+#         else:
+#             if user.check_password(password) and self.user_can_authenticate(user):
+#                 return user
