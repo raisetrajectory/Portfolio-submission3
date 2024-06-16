@@ -51,10 +51,6 @@
         <td>{{ forloop.counter }}</td>
         <td><{{ theme.title }}</a></td>
         <td>{{ theme.user }}</td>
-        {% comment %} {% if theme.user.id == user.id %} {% endcomment %}
-            {% comment %} <td><a href="{% url 'edit_theme' id=theme.id %}">{{ theme.user }}</a></td> {% endcomment %}
-        {% comment %} {% else %} {% endcomment %}
-        {% comment %} {% endif %} {% endcomment %}
     </tr>
     {% endfor %}
     </tbody>
