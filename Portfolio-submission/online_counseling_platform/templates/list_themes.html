@@ -51,6 +51,7 @@
     <tr>
         <td>{{ forloop.counter }}</td>
         <td><{{ theme.title }}</a></td>
+        {% if theme.user.id == user.id %}
         <td>{{ theme.user }}</td>
     </tr>
     {% endfor %}
