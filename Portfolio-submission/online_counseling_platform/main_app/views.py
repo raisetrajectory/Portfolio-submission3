@@ -16,7 +16,10 @@ from django.http import Http404 #6月追加
 from django.core.cache import cache #6月追加
 from django.http import JsonResponse #6月追加
 
-# from .models import Themes, Users  # type: ignore # カスタムユーザーモデルをインポート
+from django.shortcuts import render, redirect
+from .forms import CreateThemeForm
+from .models import Themes  # UsersではなくUserをインポート
+from django.contrib.auth import get_user_model
 
 def create_theme(request): #6月追加
         create_theme_form = forms.CreateThemeForm(request.POST or None)
