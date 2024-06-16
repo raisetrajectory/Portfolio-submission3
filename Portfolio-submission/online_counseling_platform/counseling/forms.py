@@ -3,8 +3,10 @@ from django import forms
 from .models import Counselor, ChatMessage
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import Users #6月12日追加
-from django.contrib.auth.password_validation import validate_password #6月12日追加
+from .models import Users #6月追加
+from django.contrib.auth.password_validation import validate_password #6月追加
+
+from django.contrib.auth import authenticate #6月追加
 
 class RegistForm(forms.ModelForm): #6月12日追加
     username = forms.CharField(label='名前')
@@ -45,6 +47,16 @@ class LoginForm(forms.Form): #6月追加
     # email = forms.CharField(label="メールアドレス")
     username = forms.CharField(label="メールアドレスまたはユーザー名")
     password = forms.CharField(label="パスワード", widget=forms.PasswordInput())
+
+    def clean(self):
+        cleaned_data = super().clean()
+        username = cleaned_data.get('username')
+        password = cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        if not user:
+            raise forms.ValidationError('ユーザまたはパスワードが間違っています')
+        cleaned_data['user'] = user
+        return cleaned_data
 
 class PasswordChangeForm(forms.ModelForm): #6月追加
 
