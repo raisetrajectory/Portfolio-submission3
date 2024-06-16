@@ -1,5 +1,4 @@
 {% comment %} Portfolio-submission/online_counseling_platform/templates/list_themes.html {% endcomment %}
-{% comment %} 不要ならば削除して大丈夫です！ {% endcomment %}
 
 <!DOCTYPE html>
 <html>
@@ -39,11 +38,6 @@
     {% endfor %}
     {% endif %} {% endcomment %}
     <h3>掲示板作成画面</h3>
-    <form method="POST">
-    {% csrf_token %}
-    {{ create_theme_form.as_p }}
-    <input type="submit" value="掲示板作成">
-    </form>
     {% endblock %}
     <p><a href="{% url 'home' %}">ホーム画面に戻ります</a></p>
 </body>
