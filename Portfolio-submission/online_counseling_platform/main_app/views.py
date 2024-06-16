@@ -101,7 +101,7 @@ def post_comments(request, theme_id): #6月追加
         post_comment_form.instance.user = request.user
         post_comment_form.save()
         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')
-        return redirect('post_comments', theme_id= theme_id)
+        return redirect('main_app:post_comments', theme_id= theme_id)
     return render(
         request, 'post_comments.html', context={
             'post_comment_form': post_comment_form,
