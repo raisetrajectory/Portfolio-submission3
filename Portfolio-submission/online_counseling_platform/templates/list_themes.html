@@ -53,7 +53,9 @@
         <td><{{ theme.title }}</a></td>
         {% if theme.user.id == user.id %}
             <td><a href="{% url 'main_app:edit_theme' id=theme.id %}">{{ theme.user }}</a></td>
+        {% else %}
         <td>{{ theme.user }}</td>
+        {% endif %}
     </tr>
     {% endfor %}
     </tbody>
