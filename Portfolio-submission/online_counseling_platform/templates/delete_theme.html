@@ -12,6 +12,7 @@
     {{ delete_theme_form.as_p }}
     <input type="submit" value="削除する">
     </form>
+    <li><button onclick="location.href='{% url 'main_app:delete_theme.html' %}'">掲示板一覧</button></li>
     {% endblock %}
     <p><a href="{% url 'home' %}">ホーム画面に戻ります</a></p>
 </body>
