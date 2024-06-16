@@ -59,38 +59,38 @@ def activate_user(request, token): #6月追加
 #         request, 'counseling/activate_user.html'
 #     )
 
-# def user_login(request): #6月追加
-#     login_form = forms.LoginForm(request.POST or None)
-#     if login_form.is_valid():
-#         email = login_form.cleaned_data.get('email')
-#         password = login_form.cleaned_data.get('password')
-#         user = authenticate(email=email, password=password)
-#         if user:
-#             if user.is_active:
-#                 login(request, user)
-#                 messages.success(request, 'ログイン完了しました。')
-#                 return redirect('home')
-#             else:
-#                 messages.warning(request, 'ユーザがアクティブでありません')
-#         else:
-#             messages.warning(request, 'ユーザがパスワードが間違っています' )
-#     return render(
-#         request, 'user_login.html', context={
-#             'login_form':login_form,
-#         }
-#     )
-
 def user_login(request): #6月追加
-    login_form = LoginForm(request.POST or None)
-    if request.method == 'POST' and login_form.is_valid():
-        user = login_form.cleaned_data.get('user')
+    login_form = forms.LoginForm(request.POST or None)
+    if login_form.is_valid():
+        email = login_form.cleaned_data.get('email')
+        password = login_form.cleaned_data.get('password')
+        user = authenticate(email=email, password=password)
         if user:
-            login(request, user)
-            messages.success(request, 'ログイン完了しました。')
-            return redirect('home')
+            if user.is_active:
+                login(request, user)
+                messages.success(request, 'ログイン完了しました。')
+                return redirect('home')
+            else:
+                messages.warning(request, 'ユーザがアクティブでありません')
         else:
-            messages.warning(request, 'ユーザまたはパスワードが間違っています')
-    return render(request, 'user_login.html', context={'login_form': login_form})
+            messages.warning(request, 'ユーザがパスワードが間違っています' )
+    return render(
+        request, 'user_login.html', context={
+            'login_form':login_form,
+        }
+    )
+
+# def user_login(request): #6月追加
+#     login_form = LoginForm(request.POST or None)
+#     if request.method == 'POST' and login_form.is_valid():
+#         user = login_form.cleaned_data.get('user')
+#         if user:
+#             login(request, user)
+#             messages.success(request, 'ログイン完了しました。')
+#             return redirect('home')
+#         else:
+#             messages.warning(request, 'ユーザまたはパスワードが間違っています')
+#     return render(request, 'user_login.html', context={'login_form': login_form})
 
 @login_required #6月追加
 def user_logout(request): # type: ignore
