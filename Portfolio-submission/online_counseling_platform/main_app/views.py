@@ -8,18 +8,19 @@ from django.contrib.auth import logout
 from django.views.decorators.csrf import csrf_exempt
 from .models import CounselingSession, ChatMessage, User
 
-from django.shortcuts import render, redirect, get_object_or_404 #6月12日追加
-from . import forms #6月12日追加
-from django.contrib import messages #6月12日追加
-from .models import Themes, Comments #6月12日追加
-from django.http import Http404 #6月12日追加
-from django.core.cache import cache #6月12日追加
-from django.http import JsonResponse #6月12日追加
+from django.shortcuts import render, redirect, get_object_or_404 #6月追加
+from . import forms #6月追加
+from django.contrib import messages #6月追加
+from .models import Themes, Comments #6月追加
+from django.http import Http404 #6月追加
+from django.core.cache import cache #6月追加
+from django.http import JsonResponse #6月追加
 
 def create_theme(request): #6月追加
         create_theme_form = forms.CreateThemeForm(request.POST or None)
         if create_theme_form.is_valid():
             create_theme_form.instance.user = request.user
+            # create_theme_form.instance.user = Users.objects.get(pk=request.user.pk)  # カスタムユーザーモデルのインスタンスを取得
             create_theme_form.save()
             messages.success(request, '掲示板を作成しました。')
             return redirect('main_app:list_themes')
