@@ -45,6 +45,7 @@ def create_theme(request):
             create_theme_form.save()
             messages.success(request, '掲示板を作成しました。')
             return redirect('list_themes')
+            # return redirect('main_app:list_themes')
         except User.DoesNotExist:
             messages.error(request, 'ユーザーが見つかりません。')
     return render(request, 'create_theme.html', {'create_theme_form': create_theme_form})
