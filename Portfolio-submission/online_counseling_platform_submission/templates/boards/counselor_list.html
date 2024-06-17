@@ -6,4 +6,9 @@
     {% endfor %}
 {% endif %}
 オンラインカウンセリングサービスへようこそ！
+<ul>
+    {% for counselor in counselors %}
+        <li>{{ counselor.name }}</li> <!-- カウンセラーの属性に応じて変更 -->
+    {% endfor %}
+</ul>
 {% endblock %}
