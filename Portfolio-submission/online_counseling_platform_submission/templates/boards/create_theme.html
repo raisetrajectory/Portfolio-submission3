@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h3>掲示板作成画面</h3>
+<h3>チャット作成画面</h3>
 <form method="POST">
 {% csrf_token %}
 {{ create_theme_form.as_p }}
