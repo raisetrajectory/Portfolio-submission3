@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from . import forms
 from django.contrib import messages
-from .models import Themes, Comments
+from .models import Themes, Comments, Counselor
 from django.http import Http404
 from django.core.cache import cache
 from django.http import JsonResponse
@@ -59,8 +59,6 @@ def delete_theme(request, id):
         }
     )
 
-
-
 def post_comments(request, theme_id):
     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
     post_comment_form = forms.PostCommentForm(request.POST or None, initial={'comment': saved_comment})     # type: ignore
@@ -92,10 +90,10 @@ def save_comment(request):
             return JsonResponse({'message': '一時保存しました！'})
     return JsonResponse({'message': 'エラーが発生しました。'})
 
-# def counselor_list(request):
-#     counselors = Counselors.objects.all()  # 適切なクエリセットを取得
-#     return render(
-#         request, 'boards/counselor_list.html', context={
-#             'counselors': counselors
-#         }
-#     )
+def counselor_list(request):
+    counselor = Counselor.objects.all()  # 適切なクエリセットを取得
+    return render(
+        request, 'boards/counselor_list.html', context={
+            'counselor': counselor
+        }
+    )
