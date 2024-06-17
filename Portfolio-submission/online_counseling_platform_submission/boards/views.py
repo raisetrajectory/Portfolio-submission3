@@ -97,11 +97,3 @@ def counselor_list(request):
             'counselor': counselor
         }
     )
-
-# def counselor_list(request):
-#     counselors = Counselor.objects.all()  # 適切なクエリセットを取得
-#     return render(
-#         request, 'boards/counselor_list.html', context={
-#             'counselors': counselors
-#         }
-#     )
