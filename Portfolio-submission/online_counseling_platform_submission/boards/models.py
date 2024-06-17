@@ -5,8 +5,6 @@ class ThemesManager(models.Manager):
     def fetch_all_themes(self):
         return self.order_by('id').all()
 
-
-
 class Themes(models.Model):
 
     title = models.CharField(max_length=255)
@@ -19,11 +17,9 @@ class Themes(models.Model):
     class Meta:
         db_table = 'themes'
 
-
 class CommentsManager(models.Manager):
     def fetch_by_theme_id(self, theme_id):
         return self.filter(theme_id=theme_id).order_by('id').all()
-
 
 class Comments(models.Model):
 
@@ -38,3 +34,14 @@ class Comments(models.Model):
 
     class Meta:
         db_table = 'comments'
+
+# ここから新しい Counselor モデルの定義
+class Counselor(models.Model):
+    name = models.CharField(max_length=255)
+    # 他のフィールドがあればここに追加
+    user = models.ForeignKey(
+        'accounts.Users', on_delete=models.CASCADE
+    )
+
+    class Meta:
+        db_table = 'counselors'
