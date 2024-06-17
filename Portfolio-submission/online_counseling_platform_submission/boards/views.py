@@ -83,14 +83,6 @@ def post_comments(request, theme_id):
         }
     )
 
-# def save_comment(request):
-#     if request.is_ajax:
-#         comment = request.GET.get('comment')
-#         theme_id = request.GET.get('theme_id')
-#         if comment and theme_id:
-#             cache.set(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', comment)
-#             return JsonResponse({'message': '一時保存しました！'})
-
 #　下記の記載内容で一時保存出来ました！
 def save_comment(request):
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
