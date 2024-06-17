@@ -20,7 +20,6 @@ def create_theme(request):
         }
     )
 
-
 def list_themes(request):
     themes = Themes.objects.fetch_all_themes() # type: ignore
     return render(
@@ -93,3 +92,10 @@ def save_comment(request):
             return JsonResponse({'message': '一時保存しました！'})
     return JsonResponse({'message': 'エラーが発生しました。'})
 
+# def counselor_list(request):
+#     counselors = Counselors.objects.all()  # 適切なクエリセットを取得
+#     return render(
+#         request, 'boards/counselor_list.html', context={
+#             'counselors': counselors
+#         }
+#     )
