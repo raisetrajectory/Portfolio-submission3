@@ -7,7 +7,6 @@ from django.core.cache import cache
 from django.http import JsonResponse
 from .models import Themes, Comments, Counselors
 
-# Create your views here.
 def create_theme(request):
         create_theme_form = forms.CreateThemeForm(request.POST or None)
         if create_theme_form.is_valid():
@@ -81,7 +80,6 @@ def post_comments(request, theme_id):
         }
     )
 
-#　下記の記載内容で一時保存出来ました！
 def save_comment(request):
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         comment = request.GET.get('comment')
@@ -90,14 +88,6 @@ def save_comment(request):
             cache.set(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', comment)
             return JsonResponse({'message': '一時保存しました！'})
     return JsonResponse({'message': 'エラーが発生しました。'})
-
-# def counselor_list(request):
-#     counselor = Counselor.objects.all()  # 適切なクエリセットを取得
-#     return render(
-#         request, 'boards/counselor_list.html', context={
-#             'counselor': counselor
-#         }
-#     )
 
 def counselor_list(request):
     counselors = Counselors.objects.all()  # 適切なクエリセットを取得
