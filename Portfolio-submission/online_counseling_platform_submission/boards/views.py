@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from . import forms
 from django.contrib import messages
-from .models import Themes, Comments, Counselor
+from .models import Themes, Comments
 from django.http import Http404
 from django.core.cache import cache
 from django.http import JsonResponse
-# from .models import Themes, Comments, Counselors
+from .models import Themes, Comments, Counselors
 
 # Create your views here.
 def create_theme(request):
@@ -91,10 +91,18 @@ def save_comment(request):
             return JsonResponse({'message': '一時保存しました！'})
     return JsonResponse({'message': 'エラーが発生しました。'})
 
-def counselor_list(request):
-    counselor = Counselor.objects.all()  # 適切なクエリセットを取得
-    return render(
-        request, 'boards/counselor_list.html', context={
-            'counselor': counselor
-        }
-    )
+# def counselor_list(request):
+#     counselor = Counselor.objects.all()  # 適切なクエリセットを取得
+#     return render(
+#         request, 'boards/counselor_list.html', context={
+#             'counselor': counselor
+#         }
+#     )
+
+# def counselor_list(request):
+#     # counselors = Counselor.objects.all()  # 適切なクエリセットを取得
+#     return render(
+#         request, 'boards/counselor_list.html', context={
+#             'counselors': counselors
+#         }
+#     )
