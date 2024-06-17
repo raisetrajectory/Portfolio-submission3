@@ -97,11 +97,15 @@ def counselor_list(request):
         }
     )
 
+# def counselor_profile(request, counselor_id):
+#     counselor = get_object_or_404(Counselors, id=counselor_id)
+#     return render(
+#         request, 'boards/counselor_profile.html', context={
+#             'counselor': counselor
+#         }
+#     )
+
 def counselor_profile(request, counselor_id):
-    counselor = get_object_or_404(Counselors, id=counselor_id)
-    return render(
-        request, 'boards/counselor_profile.html', context={
-            'counselor': counselor
-        }
-    )
+    counselor = Counselors.objects.get(id=counselor_id)
+    return render(request, 'boards/counselor_profile.html', {'counselor': counselor})
 
