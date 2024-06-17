@@ -5,6 +5,7 @@ from .models import Themes, Comments, Counselor
 from django.http import Http404
 from django.core.cache import cache
 from django.http import JsonResponse
+# from .models import Themes, Comments, Counselors
 
 # Create your views here.
 def create_theme(request):
