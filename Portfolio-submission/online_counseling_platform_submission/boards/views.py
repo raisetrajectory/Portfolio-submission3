@@ -106,6 +106,6 @@ def counselor_list(request):
 #     )
 
 def counselor_profile(request, counselor_id):
-    counselor = Counselors.objects.get(id=counselor_id)
+    counselor = get_object_or_404(Counselors, pk=counselor_id)
     return render(request, 'boards/counselor_profile.html', {'counselor': counselor})
 
