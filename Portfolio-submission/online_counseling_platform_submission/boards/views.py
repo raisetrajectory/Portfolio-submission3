@@ -90,10 +90,18 @@ def save_comment(request):
             return JsonResponse({'message': '一時保存しました！'})
     return JsonResponse({'message': 'エラーが発生しました。'})
 
+# def counselor_list(request):
+#     counselor = Counselor.objects.all()  # 適切なクエリセットを取得
+#     return render(
+#         request, 'boards/counselor_list.html', context={
+#             'counselor': counselor
+#         }
+#     )
+
 def counselor_list(request):
-    counselor = Counselor.objects.all()  # 適切なクエリセットを取得
+    counselors = Counselor.objects.all()  # 適切なクエリセットを取得
     return render(
         request, 'boards/counselor_list.html', context={
-            'counselor': counselor
+            'counselors': counselors
         }
     )
