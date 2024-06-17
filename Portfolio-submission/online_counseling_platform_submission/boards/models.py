@@ -35,7 +35,6 @@ class Comments(models.Model):
     class Meta:
         db_table = 'comments'
 
-# ここから新しい Counselor モデルの定義
 class Counselors(models.Model):
     name = models.CharField(max_length=255)
     # 他のフィールドがあればここに追加
