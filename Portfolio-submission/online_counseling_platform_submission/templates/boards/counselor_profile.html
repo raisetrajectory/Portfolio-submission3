@@ -1,10 +1,7 @@
 {% extends "base.html" %}
-{% block content %}
-{% if messages %}
-    {% for message in messages %}
-        <div>{{ message.message }}</div>
-    {% endfor %}
-{% endif %}
-オンラインカウンセリングサービスへようこそ！
 
+{% block content %}
+<h1>{{ counselor.name }}</h1>
+<p>{{ counselor.bio }}</p>
+<!-- 他のカウンセラーの情報を表示する場合はここに追加 -->
 {% endblock %}
