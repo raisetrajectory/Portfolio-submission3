@@ -10,7 +10,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="{% url 'accounts:home' %}">ホーム</a>
     <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
-    {% comment %} <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット画面へ</a> {% endcomment %}
     <a class="navbar-brand" href="{% url 'boards:list_themes' %}">プロフィール画面へ</a>
     <a class="navbar-brand" href="{% url 'boards:counselor_list' %}">カウンセラー一覧画面へ</a>
     {% if user.is_authenticated %}
