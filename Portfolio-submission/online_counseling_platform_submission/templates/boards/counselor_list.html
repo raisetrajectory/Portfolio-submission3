@@ -12,6 +12,32 @@
 
 <h2>カウンセラー02</h2>
 
+<div class="profile-section">
+    {% if counselor.picture %}
+        <div class="profile-picture">
+            <img style="float:left;" width="100px" height="100px" src="{{ counselor.picture.url }}">
+        </div>
+    {% endif %}
+    <div class="profile-details">
+        <h2>名前:カウンセラー01 {{ counselor.name }}</h2>
+        <h2>自己紹介:よろしくお願い致します！ {{ counselor.self_introduction }}</h2>
+        <h2>資格:臨床心理士 {{ counselor.qualifications }}</h2>
+    </div>
+</div>
+
+<div class="profile-section">
+    {% if counselor.picture %}
+        <div class="profile-picture">
+            <img style="float:left;" width="100px" height="100px" src="{{ counselor.picture.url }}">
+        </div>
+    {% endif %}
+    <div class="profile-details">
+        <h2>名前:カウンセラー02 {{ counselor.name }}</h2>
+        <h2>自己紹介:よろしくお願い致します！ {{ counselor.self_introduction }}</h2>
+        <h2>資格:臨床心理士 {{ counselor.qualifications }}</h2>
+    </div>
+</div>
+
 <!-- カウンセラー情報のリスト -->
 <ul>
     {% for counselor in counselors %}
