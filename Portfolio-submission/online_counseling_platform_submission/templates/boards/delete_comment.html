@@ -10,3 +10,9 @@
     <a href="{% url 'boards:post_comments' theme.id %}">キャンセル</a>
 </form>
 {% endblock %}
+
+{% comment %} <form method="POST">
+{% csrf_token %}
+<p>{{ object.name }}を削除してよろしいでしょうか？</p>
+<input type="submit" value="削除する">
+</form> {% endcomment %}

@@ -106,6 +106,11 @@ def counselor_profile(request):
 #     template_name = 'delete_comment.html'
 #     success_url = reverse_lazy('boards:post_comments')
 
+# class BookDeleteView(DeleteView):
+#     model = Books
+#     template_name = 'delete_book.html'
+#     success_url = reverse_lazy('store:list_books')
+
 class CommentDeleteView(DeleteView): #仮記載
     model = Comments
     template_name = 'boards/post_comments.html'
