@@ -6,10 +6,6 @@
     {% endfor %}
 {% endif %}
 カウンセラーのプロフィールです！
-{% comment %} {% block content %}
-    <h1>{{ counselor.name }} のプロフィール</h1>
-    <!-- カウンセラーの情報を表示する --> {% endcomment %}
-{% endblock %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
     <a class="navbar-brand" href="{% url 'accounts:home' %}">ホーム</a>
@@ -24,3 +20,9 @@
         <a class="navbar-brand" href="{% url 'accounts:regist' %}">ユーザー登録</a>
     {% endif %}
 </nav>
+
+{% comment %} {% block content %}
+    <h1>{{ counselor.name }} のプロフィール</h1>
+    <!-- カウンセラーの情報を表示する --> {% endcomment %}
+{% endblock %}
+
