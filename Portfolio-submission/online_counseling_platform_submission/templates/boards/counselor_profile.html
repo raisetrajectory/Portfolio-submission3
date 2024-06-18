@@ -1,4 +1,4 @@
-{% comment %} {% extends "base.html" %}
+{% extends "base.html" %}
 {% block content %}
 {% if messages %}
     {% for message in messages %}
@@ -6,23 +6,8 @@
     {% endfor %}
 {% endif %}
 オンラインカウンセリングサービスへようこそ！
-{% block content %}
+{% comment %} {% block content %}
     <h1>{{ counselor.name }} のプロフィール</h1>
-    <!-- カウンセラーの情報を表示する -->
+    <!-- カウンセラーの情報を表示する --> {% endcomment %}
 
-{% endblock %} {% endcomment %}
-
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>カウンセラープロファイル</title>
-</head>
-<body>
-    <h1>{{ counselor.name }}のプロフィール</h1>
-    <!-- ここにカウンセラーの詳細情報を追加 -->
-    <p>名前: {{ counselor.name }}</p>
-    <!-- 他のカウンセラー情報フィールドもここに表示 -->
-</body>
-</html>
+{% endblock %} 
