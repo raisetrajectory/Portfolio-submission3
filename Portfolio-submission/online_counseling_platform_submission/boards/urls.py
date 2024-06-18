@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import CommentDeleteView
+from .views import CommentDeleteView #仮記載です！不要ならば削除しましょう！
 
 app_name = 'boards'
 
@@ -15,6 +15,6 @@ urlpatterns = [
     # path('counselor_profile/<int:counselor_id>/', views.counselor_profile, name='counselor_profile'),
     path('counselor_profile/', views.counselor_profile, name='counselor_profile'),
     path('comment/<int:pk>/delete/', CommentDeleteView.as_view(), name='comment_delete'),
+    # path('comment/<int:comment_id>/delete/', views.delete_comment, name='comment_delete'),
 
-    # path('delete_book/<int:pk>', BookDeleteView.as_view(), name='delete_book'),
 ]
