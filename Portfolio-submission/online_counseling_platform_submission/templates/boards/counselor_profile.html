@@ -8,14 +8,21 @@
 
 <h2>プロフィール画面</h2>
 
-<h2>名前</h2>
-
-<h2>自己紹介</h2>
-
-<h2>資格</h2>
-
     <h1>{{ counselor.name }} のプロフィール</h1>
     <!-- カウンセラーの情報を表示する -->
+
+<div class="profile-section">
+    {% if counselor.picture %}
+        <div class="profile-picture">
+            <img style="float:left;" width="100px" height="100px" src="{{ counselor.picture.url }}">
+        </div>
+    {% endif %}
+    <div class="profile-details">
+        <h2>名前: {{ counselor.name }}</h2>
+        <h2>自己紹介: {{ counselor.self_introduction }}</h2>
+        <h2>資格: {{ counselor.qualifications }}</h2>
+    </div>
+</div>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
     <a class="navbar-brand" href="{% url 'accounts:home' %}">メインメニューへ</a>
