@@ -107,4 +107,4 @@ def counselor_list(request):
 
 def counselor_profile(request):
     counselors = Counselors.objects.all()
-    return render(request, 'boards/counselor_list.html', {'counselors': counselors})
+    return render(request, 'boards/counselor_profile.html', {'counselors': counselors})
