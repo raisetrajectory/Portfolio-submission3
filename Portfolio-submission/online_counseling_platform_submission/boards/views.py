@@ -111,10 +111,10 @@ def counselor_profile(request):
 #     template_name = 'delete_book.html'
 #     success_url = reverse_lazy('store:list_books')
 
-class CommentDeleteView(DeleteView): #仮記載です！不要ならば削除しましょう！
-    model = Comments
-    template_name = 'boards/post_comments.html'
-    success_url = reverse_lazy('boards:post_comments')
+# class CommentDeleteView(DeleteView): #仮記載です！不要ならば削除しましょう！
+#     model = Comments
+#     template_name = 'boards/post_comments.html'
+#     success_url = reverse_lazy('boards:post_comments')
 
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comments, id=comment_id)
