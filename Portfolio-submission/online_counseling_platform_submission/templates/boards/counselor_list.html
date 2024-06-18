@@ -8,6 +8,13 @@
 
 <h2>カウンセラー一覧画面</h2>
 
+<!-- カウンセラー情報のリスト -->
+<ul>
+    {% for counselor in counselors %}
+        <li>{{ counselor.name }}</li> <!-- カウンセラーの属性に応じて変更 -->
+    {% endfor %}
+</ul>
+
 カウンセラー01
 
 カウンセラー02
@@ -18,10 +25,3 @@
     <a class="navbar-brand" href="{% url 'accounts:home' %}">メインメニューへ</a>
     <a class="navbar-brand" href="{% url 'boards:counselor_profile' %}">プロフィール画面へ</a>
 </nav>
-
-<ul>
-    {% for counselor in counselors %}
-        <li>{{ counselor.name }}</li> <!-- カウンセラーの属性に応じて変更 -->
-    {% endfor %}
-</ul>
-{% endblock %}
