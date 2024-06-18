@@ -101,7 +101,12 @@ def counselor_profile(request):
     counselors = Counselors.objects.all()
     return render(request, 'boards/counselor_profile.html', {'counselors': counselors})
 
+# class CommentDeleteView(DeleteView):
+#     model = Comments
+#     template_name = 'delete_comment.html'
+#     success_url = reverse_lazy('boards:post_comments')
+
 class CommentDeleteView(DeleteView):
     model = Comments
-    template_name = 'delete_comment.html'
+    template_name = 'boards/post_comments.html'
     success_url = reverse_lazy('boards:post_comments')
