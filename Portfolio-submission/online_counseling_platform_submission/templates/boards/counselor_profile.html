@@ -1,11 +1,11 @@
-{% comment %} {% extends "base.html" %} {% endcomment %}
+{% extends "base.html" %}
 {% block content %}
 {% comment %} {% if messages %}
     {% for message in messages %}
         <div>{{ message.message }}</div>
     {% endfor %}
 {% endif %} {% endcomment %}
-オンラインカウンセリングサービスへようこそ！
+カウンセラーのプロフィールです！
 {% comment %} {% block content %}
     <h1>{{ counselor.name }} のプロフィール</h1>
     <!-- カウンセラーの情報を表示する --> {% endcomment %}
