@@ -7,9 +7,9 @@ from django.core.cache import cache
 from django.http import JsonResponse
 from .models import Themes, Comments, Counselors
 
-from django.urls import reverse_lazy
-from django.views.generic import DeleteView
-from .models import Comments
+# from django.urls import reverse_lazy
+# from django.views.generic import DeleteView
+# from .models import Comments
 
 def create_theme(request):
         create_theme_form = forms.CreateThemeForm(request.POST or None)
