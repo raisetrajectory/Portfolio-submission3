@@ -12,4 +12,5 @@ urlpatterns = [
     path('save_comment/', views.save_comment, name='save_comment'),
     path('counselor_list/', views.counselor_list, name='counselor_list'),
     path('counselor_profile/<int:counselor_id>/', views.counselor_profile, name='counselor_profile'),
+    path('counselor_profile/', views.counselor_profile, name='counselor_profile'),
 ]
