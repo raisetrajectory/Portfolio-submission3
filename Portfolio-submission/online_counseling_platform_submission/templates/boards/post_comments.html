@@ -28,9 +28,9 @@
 {% endblock %}
 {% block javascript %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-end">
-    <a class="btn btn-primary ml-2" href="{% url 'accounts:home' %}">メインメニューへ</a>
-    <a class="btn btn-primary ml-2" href="{% url 'accounts:home' %}">相談を終了する</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light flex-column align-items-end">
+    <a class="btn btn-primary mb-2" href="{% url 'accounts:home' %}">メインメニューへ</a>
+    <a class="btn btn-primary mb-2" href="{% url 'accounts:home' %}">相談を終了する</a>
 </nav>
 
 <script>
