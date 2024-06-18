@@ -28,13 +28,8 @@
 {% endblock %}
 {% block javascript %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{% url 'accounts:home' %}">メインメニューへ</a>
-    <a class="navbar-brand" href="{% url 'accounts:home' %}">相談を終了する</a>
-</nav>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
-    <a class="btn btn-primary" href="{% url 'accounts:home' %}">メインメニューへ</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light flex-row justify-content-lg-end">
+    <a class="btn btn-secondary" href="{% url 'accounts:home' %}">メインメニューへ</a>
     <a class="btn btn-secondary" href="{% url 'accounts:home' %}">相談を終了する</a>
 </nav>
 
