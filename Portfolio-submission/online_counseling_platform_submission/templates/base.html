@@ -16,7 +16,7 @@
     <a class="navbar-brand" href="{% url 'boards:counselor_list' %}">カウンセラー一覧画面へ</a>
     {% if user.is_authenticated %}
         <a class="navbar-brand" href="{% url 'accounts:user_logout' %}">ログアウト</a>
-        <a class="navbar-brand" href="{% url 'accounts:user_edit' %}">ユーザー情報更新</a>
+        <a class="navbar-brand" href="{% url 'accounts:user_edit' %}">ユーザー情報更新画面へ</a>
     {% else %}
         <a class="navbar-brand" href="{% url 'accounts:user_login' %}">ログイン</a>
         <a class="navbar-brand" href="{% url 'accounts:regist' %}">ユーザー登録</a>
