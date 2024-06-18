@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-{% if messages %}
+{% comment %} {% if messages %}
     {% for message in messages %}
         <div>{{ message.message }}</div>
-    {% endfor %}
+    {% endfor %} {% endcomment %}
 {% endif %}
 オンラインカウンセリングサービスへようこそ！
 {% comment %} {% block content %}
