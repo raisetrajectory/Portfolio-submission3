@@ -27,6 +27,12 @@
 {% endif %}
 {% endblock %}
 {% block javascript %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'accounts:home' %}">メインメニューへ</a>
+    <a class="navbar-brand" href="{% url 'accounts:home' %}">相談を終了する</a>
+</nav>
+
 <script>
 $("#save_comment").click(function(){
     var comment = $("#id_comment").val();
