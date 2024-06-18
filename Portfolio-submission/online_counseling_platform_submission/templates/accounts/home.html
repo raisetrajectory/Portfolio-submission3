@@ -6,7 +6,8 @@
     {% endfor %}
 {% endif %}
 オンラインカウンセリングサービスへようこそ！
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+{% comment %} <nav class="navbar navbar-expand-lg navbar-light bg-light"> {% endcomment %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
     <a class="navbar-brand" href="{% url 'accounts:home' %}">ホーム</a>
     <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
     <a class="navbar-brand" href="{% url 'boards:counselor_profile' %}">プロフィール画面へ</a>
