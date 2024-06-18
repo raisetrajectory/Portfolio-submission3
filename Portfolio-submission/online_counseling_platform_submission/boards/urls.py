@@ -15,5 +15,5 @@ urlpatterns = [
     # path('counselor_profile/<int:counselor_id>/', views.counselor_profile, name='counselor_profile'),
     path('counselor_profile/', views.counselor_profile, name='counselor_profile'),
     path('comment/<int:pk>/delete/', CommentDeleteView.as_view(), name='comment_delete'),
-    # path('comments/<int:pk>/delete/', CommentDeleteView.as_view(), name='comment_delete'),
+    path('comments/<int:pk>/delete/', CommentDeleteView.as_view(), name='comment_delete'),
 ]
