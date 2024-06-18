@@ -7,6 +7,10 @@ from django.core.cache import cache
 from django.http import JsonResponse
 from .models import Themes, Comments, Counselors
 
+from django.urls import reverse_lazy
+from django.views.generic import DeleteView
+from .models import Comments
+
 def create_theme(request):
         create_theme_form = forms.CreateThemeForm(request.POST or None)
         if create_theme_form.is_valid():
@@ -96,3 +100,8 @@ def counselor_list(request):
 def counselor_profile(request):
     counselors = Counselors.objects.all()
     return render(request, 'boards/counselor_profile.html', {'counselors': counselors})
+
+class CommentDeleteView(DeleteView):
+    model = Comments
+    template_name = 'delete_comment.html'
+    success_url = reverse_lazy('boards:post_comments')
