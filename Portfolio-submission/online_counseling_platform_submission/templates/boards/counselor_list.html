@@ -8,9 +8,6 @@
 カウンセラー一覧画面です！
 <ul>
     {% for counselor in counselors %}
-            <li>
-                <a href="{% url 'boards:counselor_profile' counselor.id %}">{{ counselor.name }}</a>
-            </li>
         <li>{{ counselor.name }}</li> <!-- カウンセラーの属性に応じて変更 -->
     {% endfor %}
 </ul>
