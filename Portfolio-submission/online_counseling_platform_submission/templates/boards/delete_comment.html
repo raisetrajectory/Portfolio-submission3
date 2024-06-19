@@ -7,7 +7,7 @@
     {% csrf_token %}
     <p>{{ object.name }}を削除してよろしいでしょうか？</p>
     <input type="submit" value="削除">
-    <a href="{% url 'boards:post_comments' theme.id %}">キャンセル</a>
+    {% comment %} <a href="{% url 'boards:post_comments' theme.id %}">キャンセル</a> {% endcomment %}
 </form>
 {% endblock %}
 
