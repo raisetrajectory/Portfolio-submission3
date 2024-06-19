@@ -7,6 +7,9 @@ from django.core.cache import cache
 from django.http import JsonResponse
 from .models import Themes, Comments, Counselors
 
+import os
+from django.core.files.storage import FileSystemStorage
+
 def create_theme(request):
         create_theme_form = forms.CreateThemeForm(request.POST or None)
         if create_theme_form.is_valid():
