@@ -14,4 +14,5 @@ urlpatterns = [
     # path('counselor_profile/<int:counselor_id>/', views.counselor_profile, name='counselor_profile'),
     path('counselor_profile/', views.counselor_profile, name='counselor_profile'),
     path('comment/<int:comment_id>/delete/', views.delete_comment, name='comment_delete'),
+    path('upload_sample/', views.upload_sample, name='upload_sample'),
 ]
