@@ -7,10 +7,6 @@ from django.core.cache import cache
 from django.http import JsonResponse
 from .models import Themes, Comments, Counselors
 
-# from django.urls import reverse_lazy
-# from django.views.generic import DeleteView
-# from .models import Comments
-
 def create_theme(request):
         create_theme_form = forms.CreateThemeForm(request.POST or None)
         if create_theme_form.is_valid():
@@ -100,21 +96,6 @@ def counselor_list(request):
 def counselor_profile(request):
     counselors = Counselors.objects.all()
     return render(request, 'boards/counselor_profile.html', {'counselors': counselors})
-
-# class CommentDeleteView(DeleteView):　#仮記載です！不要ならば削除しましょう！
-#     model = Comments
-#     template_name = 'delete_comment.html'
-#     success_url = reverse_lazy('boards:post_comments')
-
-# class BookDeleteView(DeleteView):　#仮記載です！不要ならば削除しましょう！
-#     model = Books
-#     template_name = 'delete_book.html'
-#     success_url = reverse_lazy('store:list_books')
-
-# class CommentDeleteView(DeleteView): #仮記載です！不要ならば削除しましょう！
-#     model = Comments
-#     template_name = 'boards/post_comments.html'
-#     success_url = reverse_lazy('boards:post_comments')
 
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comments, id=comment_id)
