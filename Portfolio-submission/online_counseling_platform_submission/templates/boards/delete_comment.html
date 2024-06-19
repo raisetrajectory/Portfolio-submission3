@@ -5,7 +5,7 @@
 <p>本当にこのコメントを削除しますか？</p>
 <form method="POST">
     {% csrf_token %}
-    <p>{{ object.name }}を削除してよろしいでしょうか？</p>
+    {% comment %} <p>{{ object.name }}を削除してよろしいでしょうか？</p> {% endcomment %}
     <input type="submit" value="削除">
     {% comment %} <a href="{% url 'boards:post_comments' theme.id %}">キャンセル</a> {% endcomment %}
 </form>
