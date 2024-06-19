@@ -44,11 +44,6 @@
     <p>保存先: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
     {% endif %}
 
-    <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ counselor_profile_form.as_p }}
-    <input type="submit" value="更新">
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
     <a class="navbar-brand" href="{% url 'accounts:home' %}">メインメニューへ</a>
     <a class="navbar-brand" href="{% url 'boards:counselor_list' %}">カウンセラー一覧画面へ</a>
