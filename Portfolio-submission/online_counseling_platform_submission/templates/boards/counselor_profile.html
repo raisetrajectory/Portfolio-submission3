@@ -35,6 +35,11 @@
     <p>{{ counselor.specialization }}</p>
 </div>
 
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="upload_file"><br>
+    <input type="submit" value="保存">
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
     <a class="navbar-brand" href="{% url 'accounts:home' %}">メインメニューへ</a>
     <a class="navbar-brand" href="{% url 'boards:counselor_list' %}">カウンセラー一覧画面へ</a>
