@@ -122,6 +122,7 @@ def delete_comment(request, comment_id):
         raise Http404
     if request.method == 'POST':
         theme_id = comment.theme.id
+        theme = get_object_or_404(Themes, id=theme_id)  # テーマが存在するか確認
         comment.delete()
         messages.success(request, 'コメントを削除しました。')
         return redirect('boards:post_comments', theme_id=theme_id)
