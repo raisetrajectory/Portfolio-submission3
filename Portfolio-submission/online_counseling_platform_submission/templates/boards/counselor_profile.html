@@ -21,6 +21,22 @@
     </div>
 </div>
 
+<!-- カウンセラー情報のリスト -->
+<div class="profile-section">
+    {% for counselor in counselors %}
+        <div class="profile-details">
+            {% if counselor.picture %}
+                <div class="profile-picture">
+                    <img style="float:left;" width="100px" height="100px" src="{{ counselor.picture.url }}">
+                </div>
+            {% endif %}
+            <h2>名前: {{ counselor.name }}</h2>
+            <h2>自己紹介: {{ counselor.self_introduction }}</h2>
+            <h2>資格: {{ counselor.qualifications }}</h2>
+        </div>
+    {% endfor %}
+</div>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
     <a class="navbar-brand" href="{% url 'accounts:home' %}">メインメニューへ</a>
     <a class="navbar-brand" href="{% url 'boards:counselor_list' %}">カウンセラー一覧画面へ</a>
