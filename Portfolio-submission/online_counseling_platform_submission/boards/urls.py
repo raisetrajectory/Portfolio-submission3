@@ -14,7 +14,5 @@ urlpatterns = [
     path('counselor_list/', views.counselor_list, name='counselor_list'),
     # path('counselor_profile/<int:counselor_id>/', views.counselor_profile, name='counselor_profile'),
     path('counselor_profile/', views.counselor_profile, name='counselor_profile'),
-    # path('comment/<int:pk>/delete/', CommentDeleteView.as_view(), name='comment_delete'),　#仮記載です！不要ならば削除しましょう！
     path('comment/<int:comment_id>/delete/', views.delete_comment, name='comment_delete'),
-
 ]
