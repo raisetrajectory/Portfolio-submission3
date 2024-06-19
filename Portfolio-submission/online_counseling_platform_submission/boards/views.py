@@ -126,6 +126,8 @@ def delete_comment(request, comment_id):
 #         })
 #     return render(request, 'boards/counselor_profile.html')
 
+
+
 def upload_sample(request):
     if request.method == 'POST' and request.FILES['upload_file']:
         # 送られたファイルの取り出し
