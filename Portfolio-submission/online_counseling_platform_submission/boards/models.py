@@ -47,5 +47,5 @@ class Counselors(models.Model):
 
 class User(models.Model):
     name = models.CharField(max_length=50)
-    # age = models.IntegerField()
+    age = models.IntegerField()
     picture = models.FileField(upload_to='picture/')
