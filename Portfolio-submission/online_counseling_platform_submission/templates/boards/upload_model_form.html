@@ -13,7 +13,7 @@
     </form>
     {% if user %}
     <p>name: {{ user.name }}</p>
-    <p>age: {{ user.age }}</p>
+    {% comment %} <p>age: {{ user.age }}</p> {% endcomment %}
     <img src="{{ user.picture.url }}">
     {% endif %}
 
