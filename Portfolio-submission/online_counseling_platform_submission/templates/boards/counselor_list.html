@@ -19,6 +19,10 @@
         <h2>自己紹介:よろしくお願い致します！ {{ counselor.self_introduction }}</h2>
         <h2>資格:臨床心理士 {{ counselor.qualifications }}</h2>
     </div>
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="upload_file"><br>
+    <input type="submit" value="保存">
 </div>
 
 <div class="profile-section">
