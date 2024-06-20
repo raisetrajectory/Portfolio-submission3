@@ -34,13 +34,6 @@
     </div>
 </div>
 
-<!-- カウンセラー情報のリスト -->
-<ul>
-    {% for counselor in counselors %}
-        <li>{{ counselor.name }}</li> <!-- カウンセラーの属性に応じて変更 -->
-    {% endfor %}
-</ul>
-
     <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
