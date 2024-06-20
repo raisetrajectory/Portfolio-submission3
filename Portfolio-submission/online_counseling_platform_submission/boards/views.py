@@ -113,17 +113,6 @@ def delete_comment(request, comment_id):
         return redirect('boards:post_comments', theme_id=theme_id)
     return render(request, 'boards/delete_comment.html', context={'comment': comment})
 
-def base(request):
-    return render(request, 'base.html')
-
-def form_page(request):
-    form = forms.UserInfo() # type: ignore
-    return render(
-        request, 'boards/counselor_list.html', context={
-            'form': form
-        }
-    )
-
 def upload_sample(request):
     if request.method == 'POST' and request.FILES['upload_file']:
         # 送られたファイルの取り出し
