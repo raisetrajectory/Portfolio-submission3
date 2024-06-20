@@ -156,6 +156,6 @@ def upload_model_form(request):
             user = form.save()
     else:
         form = forms.UserForm() # type: ignore
-    return render(request, 'formapp/upload_model_form.html', context={
+    return render(request, 'boards/upload_model_form.html', context={
         'form': form, 'user': user
     })
