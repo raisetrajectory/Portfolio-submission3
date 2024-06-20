@@ -44,3 +44,8 @@ class Counselors(models.Model):
 
     class Meta:
         db_table = 'counselors'
+
+# class User(models.Model):
+#     name = models.CharField(max_length=50)
+#     age = models.IntegerField()
+#     picture = models.FileField(upload_to='picture/')
