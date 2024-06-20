@@ -147,3 +147,15 @@ def upload_sample(request):
 #             'uploaded_file_url': uploaded_file_url
 #         })
 #     return render(request, 'boards/counselor_profile.html')
+
+def upload_model_form(request):
+    user = None
+    if request.method == 'POST':
+        form = forms.UserForm(request.POST, request.FILES) # type: ignore
+        if form.is_valid():
+            user = form.save()
+    else:
+        form = forms.UserForm() # type: ignore
+    return render(request, 'formapp/upload_model_form.html', context={
+        'form': form, 'user': user
+    })
