@@ -1,6 +1,7 @@
 from django import forms
 from .models import Themes, Comments
 
+from .models import User
 
 class CreateThemeForm(forms.ModelForm):
     title = forms.CharField(label='タイトル')
@@ -23,7 +24,12 @@ class PostCommentForm(forms.ModelForm):
         model = Comments
         fields = ('comment', )
 
-class UserInfo(forms.Form):
+class UserInfo(forms.Form): #不要の場合は削除して大丈夫です！
     name = forms.CharField()
     age = forms.IntegerField()
     mail = forms.EmailField()
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = '__all__'
