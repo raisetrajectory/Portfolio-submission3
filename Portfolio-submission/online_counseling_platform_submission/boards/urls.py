@@ -16,5 +16,5 @@ urlpatterns = [
     path('comment/<int:comment_id>/delete/', views.delete_comment, name='comment_delete'),
     path('upload_sample/', views.upload_sample, name='upload_sample'),
     path('', views.base, name='base'),
-    path('counselor_list/', views.counselor_list, name='counselor_list'),
+    path('counselor_list/', views.counselor_list, name='counselor_list'), #不要の場合は削除して大丈夫です！
 ]
