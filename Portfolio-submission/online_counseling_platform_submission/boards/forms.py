@@ -22,3 +22,8 @@ class PostCommentForm(forms.ModelForm):
     class Meta:
         model = Comments
         fields = ('comment', )
+
+class UserInfo(forms.Form):
+    name = forms.CharField()
+    age = forms.IntegerField()
+    mail = forms.EmailField()
