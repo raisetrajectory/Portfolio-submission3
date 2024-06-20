@@ -6,6 +6,10 @@
     {% endfor %}
 {% endif %}
 オンラインカウンセリングサービスへようこそ！
+
+<!-- チャット画面のインクルード -->
+{% include 'boards/post_comments.html' %}
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
     <a class="navbar-brand" href="{% url 'accounts:home' %}">ホーム</a>
     <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
