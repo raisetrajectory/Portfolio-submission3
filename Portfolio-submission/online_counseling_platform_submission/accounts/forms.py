@@ -64,7 +64,7 @@ class PasswordChangeForm(forms.ModelForm):
         user.save()
         return user
 
-class UserInfo(forms.Form):
-    name = forms.CharField()
-    age = forms.IntegerField()
-    mail = forms.EmailField()
+# class UserInfo(forms.Form):
+#     name = forms.CharField()
+#     age = forms.IntegerField()
+#     mail = forms.EmailField()
