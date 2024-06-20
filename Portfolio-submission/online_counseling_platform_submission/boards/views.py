@@ -131,10 +131,10 @@ def upload_sample(request):
         fs = FileSystemStorage() # ファイルを保存する
         file_path = fs.save(upload_file.name, upload_file)
         uploaded_file_url = fs.url(file_path)
-        return  render(request, 'boards/counselor_profile.html', context={
+        return  render(request, 'boards/upload_file.html', context={
             'uploaded_file_url': uploaded_file_url
         })
-    return render(request, 'boards/counselor_profile.html')
+    return render(request, 'boards/upload_file.html')
 
 # def upload_sample(request):
 #     if request.method == 'POST' and request.FILES['upload_file']:
