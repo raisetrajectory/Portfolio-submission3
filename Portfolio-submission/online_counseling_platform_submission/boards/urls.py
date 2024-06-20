@@ -15,6 +15,6 @@ urlpatterns = [
     path('counselor_profile/', views.counselor_profile, name='counselor_profile'),
     path('comment/<int:comment_id>/delete/', views.delete_comment, name='comment_delete'),
     path('upload_sample/', views.upload_sample, name='upload_sample'),
-    # path('', views.base, name='base),
+    # path('', views.base, name='base'),
     path('counselor_list/', views.counselor_list, name='counselor_list'),
 ]
