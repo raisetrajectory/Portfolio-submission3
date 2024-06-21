@@ -26,7 +26,7 @@ from django.conf import settings
 #     }
 #     return render(request, 'accounts/home.html', context)
 
-def home_view(request):
+def home_view(request): #不要となった場合は削除して大丈夫です！
     # テーマやコメントを取得
     theme = Themes.objects.first()  # 適切なテーマを取得
     comments = Comments.objects.filter(theme=theme) if theme else []
