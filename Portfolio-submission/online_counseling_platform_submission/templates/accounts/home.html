@@ -7,8 +7,13 @@
 {% endif %}
 オンラインカウンセリングサービスへようこそ！
 
-<!-- チャット画面のインクルード -->
+{% comment %} <!-- チャット画面のインクルード -->
+{% include 'boards/post_comments.html' %} {% endcomment %}
+
+<!-- デバッグ用 -->
+<p>インクルードの前</p>
 {% include 'boards/post_comments.html' %}
+<p>インクルードの後</p>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
     <a class="navbar-brand" href="{% url 'accounts:home' %}">ホーム</a>
