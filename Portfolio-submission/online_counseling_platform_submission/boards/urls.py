@@ -4,7 +4,7 @@ from . import views
 app_name = 'boards'
 
 urlpatterns = [
-    path('', views.home_view, name='home'),  # ここを修正
+    path('', views.home_view, name='home'),
     path('create_theme/', views.create_theme, name='create_theme'),
     path('list_themes/', views.list_themes, name='list_themes'),
     path('edit_theme/<int:id>/', views.edit_theme, name='edit_theme'),
@@ -17,5 +17,7 @@ urlpatterns = [
     path('comment/<int:comment_id>/delete/', views.delete_comment, name='comment_delete'),
     path('upload_sample/', views.upload_sample, name='upload_sample'),
     path('upload_model_form/', views.upload_model_form, name='upload_model_form'),
+
+    path('', views.home, name='home'), #不要となった場合は削除して大丈夫です！
 
 ]
