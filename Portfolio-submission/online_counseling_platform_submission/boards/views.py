@@ -11,11 +11,6 @@ import os
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 
-# def home(request): #不要となった場合は削除して大丈夫です！
-#     return render(
-#         request, 'accounts/home.html'
-#     )
-
 # def home_view(request):
 #     # テーマやコメントを取得
 #     theme = Themes.objects.first()  # 適切なテーマを取得
