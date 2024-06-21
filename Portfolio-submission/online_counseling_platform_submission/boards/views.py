@@ -16,10 +16,28 @@ def home(request): #不要となった場合は削除して大丈夫です！
         request, 'accounts/home.html'
     )
 
+# def home_view(request):
+#     # テーマやコメントを取得
+#     theme = Themes.objects.first()  # 適切なテーマを取得
+#     comments = Comments.objects.filter(theme=theme)
+
+#     print(theme)  # デバッグ用
+#     print(comments)  # デバッグ用
+
+#     context = {
+#         'theme': theme,
+#         'comments': comments,
+#         'post_comment_form': forms.PostCommentForm(),  # 必要なフォームを渡す
+#     }
+#     return render(request, 'accounts/home.html', context)
+
 def home_view(request):
     # テーマやコメントを取得
     theme = Themes.objects.first()  # 適切なテーマを取得
-    comments = Comments.objects.filter(theme=theme)
+    if theme:
+        comments = Comments.objects.filter(theme=theme)
+    else:
+        comments = []
 
     print(theme)  # デバッグ用
     print(comments)  # デバッグ用
