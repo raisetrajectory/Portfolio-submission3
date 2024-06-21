@@ -11,7 +11,7 @@ import os
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 
-def home(request):
+def home(request): #不要となった場合は削除して大丈夫です！
     return render(
         request, 'accounts/home.html'
     )
