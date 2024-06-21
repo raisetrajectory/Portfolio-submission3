@@ -18,7 +18,7 @@ from django.conf import settings
 #     context = {
 #         'themes': themes,
 #         'comments': comments,
-#         'post_comment_form': post_comment_form,
+#         'post_comment_form': forms.PostCommentForm(),  # 必要なフォームを渡す
 #     }
 #     return render(request, 'accounts/home.html', context)
 
