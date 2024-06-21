@@ -11,17 +11,17 @@ import os
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 
-# def home_view(request):
-#     # テーマやコメントを取得
-#     theme = Themes.objects.first()  # 適切なテーマを取得
-#     comments = Comments.objects.filter(theme=theme)
+def home_view(request):
+    # テーマやコメントを取得
+    theme = Themes.objects.first()  # 適切なテーマを取得
+    comments = Comments.objects.filter(theme=theme)
 
-#     context = {
-#         'theme': theme,
-#         'comments': comments,
-#         'post_comment_form': forms.PostCommentForm(),  # 必要なフォームを渡す
-#     }
-#     return render(request, 'accounts/home.html', context)
+    context = {
+        'theme': theme,
+        'comments': comments,
+        'post_comment_form': forms.PostCommentForm(),  # 必要なフォームを渡す
+    }
+    return render(request, 'accounts/home.html', context)
 
 def create_theme(request):
         create_theme_form = forms.CreateThemeForm(request.POST or None)
