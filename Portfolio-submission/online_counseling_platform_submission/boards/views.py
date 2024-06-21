@@ -34,10 +34,7 @@ def home(request): #不要となった場合は削除して大丈夫です！
 def home_view(request):
     # テーマやコメントを取得
     theme = Themes.objects.first()  # 適切なテーマを取得
-    if theme:
-        comments = Comments.objects.filter(theme=theme)
-    else:
-        comments = []
+    comments = Comments.objects.filter(theme=theme) if theme else []
 
     print(theme)  # デバッグ用
     print(comments)  # デバッグ用
