@@ -17,4 +17,5 @@ urlpatterns = [
     path('upload_sample/', views.upload_sample, name='upload_sample'),
     path('upload_model_form/', views.upload_model_form, name='upload_model_form'),
 
+    path('', views.home_view, name='home'), #不要となった場合は削除して大丈夫です！
 ]
