@@ -11,8 +11,7 @@
     <p>名前: {{ comment.user.username }}</p>
     <p>{{ comment.comment | linebreaks }}</p>
     {% if comment.user == user %}
-        <a href="{% url 'boards:comment_delete' comment.pk %}">削除</a>
-        {% comment %} <a href="{% url 'boards:delete_comment' comment.id %}">コメント削除</a> {% endcomment %}
+        <a href="{% url 'boards:comment_delete' comment.pk %}">コメント削除</a>
     {% endif %}
 </div>
 <div class="col-10 offset-1">
