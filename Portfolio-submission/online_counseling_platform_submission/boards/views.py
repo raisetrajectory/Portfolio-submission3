@@ -16,6 +16,9 @@ def home_view(request):
     theme = Themes.objects.first()  # 適切なテーマを取得
     comments = Comments.objects.filter(theme=theme)
 
+    print(theme)  # デバッグ用
+    print(comments)  # デバッグ用
+
     context = {
         'theme': theme,
         'comments': comments,
