@@ -11,6 +11,17 @@ import os
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 
+# def home(request):
+#     themes = Themes.objects.all()
+#     comments = Comments.objects.filter(theme=theme)  # 必要に応じてクエリを修正します
+#     post_comment_form = PostCommentForm()
+#     context = {
+#         'themes': themes,
+#         'comments': comments,
+#         'post_comment_form': post_comment_form,
+#     }
+#     return render(request, 'accounts/home.html', context)
+
 # def home_view(request):
 #     # テーマやコメントを取得
 #     theme = Themes.objects.first()  # 適切なテーマを取得
