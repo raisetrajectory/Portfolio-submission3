@@ -25,36 +25,6 @@ def home(request):
     }
     return render(request, 'accounts/home.html', context)
 
-# def home_view(request):
-#     # テーマやコメントを取得
-#     theme = Themes.objects.first()  # 適切なテーマを取得
-#     comments = Comments.objects.filter(theme=theme)
-
-#     print(theme)  # デバッグ用
-#     print(comments)  # デバッグ用
-
-#     context = {
-#         'theme': theme,
-#         'comments': comments,
-#         'post_comment_form': forms.PostCommentForm(),  # 必要なフォームを渡す
-#     }
-#     return render(request, 'accounts/home.html', context)
-
-# def home_view(request): #不要となった場合は削除して大丈夫です！
-#     # テーマやコメントを取得
-#     theme = Themes.objects.first()  # 適切なテーマを取得
-#     comments = Comments.objects.filter(theme=theme) if theme else []
-
-#     print(theme)  # デバッグ用
-#     print(comments)  # デバッグ用
-
-#     context = {
-#         'theme': theme,
-#         'comments': comments,
-#         'post_comment_form': forms.PostCommentForm(),  # 必要なフォームを渡す
-#     }
-#     return render(request, 'accounts/home.html', context)
-
 def create_theme(request):
         create_theme_form = forms.CreateThemeForm(request.POST or None)
         if create_theme_form.is_valid():
