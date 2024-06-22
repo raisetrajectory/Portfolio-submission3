@@ -25,20 +25,6 @@ def home(request):
     }
     return render(request, 'accounts/home.html', context)
 
-# def home(request):
-#     # themes = Themes.objects.all()
-#     comments = Comments.objects.fetch_by_theme_id(theme_id) # type: ignore
-#     theme_id = request.GET.get('theme_id')
-#     themes = Themes.objects.fetch_all_themes() # type: ignore
-
-#     post_comment_form = PostCommentForm()
-#     context = {
-#         'themes': themes,
-#         'comments': comments,
-#         'post_comment_form': post_comment_form,
-#     }
-#     return render(request, 'accounts/home.html', context)
-
 def create_theme(request):
         create_theme_form = forms.CreateThemeForm(request.POST or None)
         if create_theme_form.is_valid():
