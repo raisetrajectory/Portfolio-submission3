@@ -7,6 +7,17 @@
 {% endif %}
 オンラインカウンセリングサービスへようこそ！
 
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="保存">
+    </form>
+    {% if user %}
+    <p>name:カウンセラー02 {{ user.name }}</p>
+    <p>age: {{ user.age }}</p>
+    <img src="{{ user.picture.url }}" style="width: 300px; height: 300px;">
+    {% endif %}
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
     <a class="navbar-brand" href="{% url 'accounts:home' %}">ホーム</a>
     <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
