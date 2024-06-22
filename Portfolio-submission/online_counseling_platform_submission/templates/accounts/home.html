@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 {% if messages %}
     {% for message in messages %}
@@ -9,6 +10,7 @@
 {% comment %} <img src="smple-img.jpg" alt=""> {% endcomment %}
 {% comment %} Portfolio-submission/online_counseling_platform_submission/templates/accounts/smple-img.jpg {% endcomment %}
 
+<img src="smple-img.jpg" alt="" width="300" height="300">
 <img src="smple-img.jpg" alt="" width="300" height="300">
 
     <form method="POST" enctype="multipart/form-data">
