@@ -14,14 +14,86 @@ from django.conf import settings
 from boards.forms import PostCommentForm
 from boards.forms import PostCommentForm, CreateThemeForm, DeleteThemeForm
 
+# def home(request):
+#     themes = Themes.objects.all()
+#     comments = Comments.objects.filter(themes=themes)   # 必要に応じてクエリを修正します
+#     post_comment_form = PostCommentForm()
+#     context = {
+#         'themes': themes,
+#         'comments': comments,
+#         'post_comment_form': post_comment_form,
+#     }
+#     return render(request, 'accounts/home.html', context)
+
 def home(request):
+    if request.method == 'POST':
+        if 'create_theme' in request.POST:
+            create_theme_form = CreateThemeForm(request.POST)
+            if create_theme_form.is_valid():
+                create_theme_form.instance.user = request.user
+                create_theme_form.save()
+                messages.success(request, '掲示板を作成しました。')
+                return redirect('home')
+        elif 'edit_theme' in request.POST:
+            theme_id = request.POST.get('theme_id')
+            theme = get_object_or_404(Themes, id=theme_id)
+            if theme.user.id != request.user.id:
+                raise Http404
+            edit_theme_form = CreateThemeForm(request.POST, instance=theme)
+            if edit_theme_form.is_valid():
+                edit_theme_form.save()
+                messages.success(request, '掲示板を更新しました。')
+                return redirect('home')
+        elif 'delete_theme' in request.POST:
+            theme_id = request.POST.get('theme_id')
+            theme = get_object_or_404(Themes, id=theme_id)
+            if theme.user.id != request.user.id:
+                raise Http404
+            delete_theme_form = DeleteThemeForm(request.POST)
+            if delete_theme_form.is_valid():
+                theme.delete()
+                messages.success(request, '掲示板を削除しました。')
+                return redirect('home')
+        elif 'post_comment' in request.POST:
+            theme_id = request.POST.get('theme_id')
+            theme = get_object_or_404(Themes, id=theme_id)
+            saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
+            post_comment_form = PostCommentForm(request.POST, initial={'comment': saved_comment})
+            comments = Comments.objects.filter(theme=theme)
+            if post_comment_form.is_valid():
+                if not request.user.is_authenticated:
+                    raise Http404
+                post_comment_form.instance.theme = theme
+                post_comment_form.instance.user = request.user
+                post_comment_form.save()
+                cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')
+                return redirect('home')
+        elif 'delete_comment' in request.POST:
+            comment_id = request.POST.get('comment_id')
+            comment = get_object_or_404(Comments, id=comment_id)
+            if request.user != comment.user:
+                raise Http404
+            if request.method == 'POST':
+                theme_id = comment.theme.id
+                theme = get_object_or_404(Themes, id=theme_id)
+                comment.delete()
+                messages.success(request, 'コメントを削除しました。')
+                return redirect('home')
+
     themes = Themes.objects.all()
-    comments = Comments.objects.filter(themes=themes)   # 必要に応じてクエリを修正します
+    comments = Comments.objects.filter(theme__in=themes)
     post_comment_form = PostCommentForm()
+    create_theme_form = CreateThemeForm()
+    edit_theme_form = CreateThemeForm()
+    delete_theme_form = DeleteThemeForm()
+
     context = {
         'themes': themes,
         'comments': comments,
         'post_comment_form': post_comment_form,
+        'create_theme_form': create_theme_form,
+        'edit_theme_form': edit_theme_form,
+        'delete_theme_form': delete_theme_form,
     }
     return render(request, 'accounts/home.html', context)
 
