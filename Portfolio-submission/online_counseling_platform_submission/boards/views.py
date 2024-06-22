@@ -15,12 +15,13 @@ from boards.forms import PostCommentForm
 
 def home(request):
     themes = Themes.objects.all()
-    comments_dict = {theme.id: Comments.objects.fetch_by_theme_id(theme.id) for theme in themes} # type: ignore
+    comments = Comments.objects.filter(themes=themes)   # 必要に応じてクエリを修正します
     post_comment_form = PostCommentForm()
     context = {
         'themes': themes,
-        'comments_dict': comments_dict,
+        'comments': comments,
         'post_comment_form': post_comment_form,
+        'post_comment_form': forms.PostCommentForm(),  # 必要なフォームを渡す
     }
     return render(request, 'accounts/home.html', context)
 
