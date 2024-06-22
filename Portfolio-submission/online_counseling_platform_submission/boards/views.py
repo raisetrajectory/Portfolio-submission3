@@ -13,7 +13,7 @@ from django.conf import settings
 
 # def home(request):
 #     themes = Themes.objects.all()
-#     comments = Comments.objects.filter(theme=theme)  # 必要に応じてクエリを修正します
+#     comments = Comments.objects.filter(themes=themes)   # 必要に応じてクエリを修正します
 #     post_comment_form = PostCommentForm()
 #     context = {
 #         'themes': themes,
