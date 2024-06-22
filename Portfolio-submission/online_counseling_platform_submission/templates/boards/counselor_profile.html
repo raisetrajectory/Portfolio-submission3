@@ -26,22 +26,14 @@
 
     <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    <input type="file" name="upload_file"><br>
-    <input type="submit" value="保存">
-
-    {% if uploaded_file_url %}
-    <p>保存先: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
-    {% endif %}
-
-    <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="保存">
+    {% comment %} <input type="submit" value="保存"> {% endcomment %}
     </form>
     {% if user %}
     <h2><p>名前:カウンセラー01 {{ user.name }}</p></h2>
     <h2>自己紹介:よろしくお願い致します！ {{ counselor.self_introduction }}</h2>
-    <p>age: {{ user.age }}</p>
+    <h2>資格:臨床心理士 {{ counselor.qualifications }}</h2>
+    {% comment %} <p>age: {{ user.age }}</p> {% endcomment %}
     <img src="{{ user.picture.url }}" style="width: 300px; height: 300px;">
     {% endif %}
 
