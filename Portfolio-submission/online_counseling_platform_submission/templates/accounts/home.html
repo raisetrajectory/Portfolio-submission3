@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+{% comment %} {% load static %} {% endcomment %}
 {% block content %}
 {% if messages %}
     {% for message in messages %}
@@ -7,11 +7,7 @@
     {% endfor %}
 {% endif %}
 オンラインカウンセリングサービスへようこそ！
-{% comment %} <img src="smple-img.jpg" alt=""> {% endcomment %}
-{% comment %} Portfolio-submission/online_counseling_platform_submission/templates/accounts/smple-img.jpg {% endcomment %}
 
-<!-- 画像を表示 -->
-<img src="{% static 'accounts/smple-img.jpg' %}" alt="Sample Image" style="width: 300px; height: 300px;">
 
     <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
