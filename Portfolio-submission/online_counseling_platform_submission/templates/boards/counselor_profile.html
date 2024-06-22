@@ -11,26 +11,13 @@
 
 <h2>プロフィール画面</h2>
 
-<div class="profile-section">
-    {% if counselor.picture %}
-        <div class="profile-picture">
-            <img style="float:left;" width="100px" height="100px" src="{{ counselor.picture.url }}">
-        </div>
-    {% endif %}
-    <div class="profile-details">
-        <h2>名前:カウンセラー01 {{ counselor.name }}</h2>
-        <h2>自己紹介:よろしくお願い致します！ {{ counselor.self_introduction }}</h2>
-        <h2>資格:臨床心理士 {{ counselor.qualifications }}</h2>
-    </div>
-</div>
-
     <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     {% comment %} <input type="submit" value="保存"> {% endcomment %}
     </form>
     {% if user %}
-    <h2><p>名前:カウンセラー01 {{ user.name }}</p></h2>
+    <h2>名前:カウンセラー01 {{ user.name }}</h2>
     <h2>自己紹介:よろしくお願い致します！ {{ counselor.self_introduction }}</h2>
     <h2>資格:臨床心理士 {{ counselor.qualifications }}</h2>
     {% comment %} <p>age: {{ user.age }}</p> {% endcomment %}
