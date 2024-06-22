@@ -12,6 +12,7 @@ from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 
 from boards.forms import PostCommentForm
+from boards.forms import PostCommentForm, CreateThemeForm, DeleteThemeForm
 
 def home(request):
     themes = Themes.objects.all()
