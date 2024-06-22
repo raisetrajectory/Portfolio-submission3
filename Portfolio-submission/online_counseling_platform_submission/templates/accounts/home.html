@@ -11,6 +11,7 @@
 <p>インクルードの前</p>
 <h3>{{ theme.title }}</h3>
 {% include 'boards/post_comments.html' %}
+{% comment %} {% include 'boards/post_comments.html' with theme=theme comments=comments_dict %} {% endcomment %}
 <p>インクルードの後</p>
 
 {% comment %} <p>インクルードの前</p>
