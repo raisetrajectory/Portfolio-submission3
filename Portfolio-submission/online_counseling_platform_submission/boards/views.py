@@ -25,17 +25,6 @@ def home(request):
     }
     return render(request, 'accounts/home.html', context)
 
-# def home(request):
-#     themes = Themes.objects.all()
-#     comments = Comments.objects.filter(themes=themes)   # 必要に応じてクエリを修正します
-#     post_comment_form = PostCommentForm()
-#     context = {
-#         'themes': themes,
-#         'comments': comments,
-#         'post_comment_form': forms.PostCommentForm(),  # 必要なフォームを渡す
-#     }
-#     return render(request, 'accounts/home.html', context)
-
 # def home_view(request):
 #     # テーマやコメントを取得
 #     theme = Themes.objects.first()  # 適切なテーマを取得
