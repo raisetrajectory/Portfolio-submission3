@@ -17,18 +17,6 @@
     <img src="{{ user.picture.url }}" style="width: 300px; height: 300px;">
     {% endif %}
 
-    画像を掲載出来るのかテストです！
-    <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="保存">
-    </form>
-    {% comment %} {% if user %} {% endcomment %}
-    <p>name: {{ user.name }}</p>
-    <p>age: {{ user.age }}</p>
-    <img src="{{ user.picture.url }}" style="width: 300px; height: 300px;">
-    {% comment %} {% endif %} {% endcomment %}
-
     <a class="navbar-brand" href="{% url 'accounts:home' %}">ホーム</a>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
