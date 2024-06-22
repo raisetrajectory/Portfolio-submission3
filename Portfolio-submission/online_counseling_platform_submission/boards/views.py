@@ -37,18 +37,15 @@ from boards.forms import PostCommentForm
 #     return render(request, 'accounts/home.html', context)
 
 def home(request):
-    themes = Themes.objects.all()
-    comments = Comments.objects.all()
-
-    # テーマごとのコメントを辞書にまとめる
-    comments_dict = {}
-    for theme in themes:
-        comments_dict[theme.id] = comments.filter(theme=theme) # type: ignore
+    # themes = Themes.objects.all()
+    comments = Comments.objects.fetch_by_theme_id(theme_id) # type: ignore
+    theme_id = request.GET.get('theme_id')
+    themes = Themes.objects.fetch_all_themes() # type: ignore
 
     post_comment_form = PostCommentForm()
     context = {
         'themes': themes,
-        'comments_dict': comments_dict,
+        'comments': comments,
         'post_comment_form': post_comment_form,
     }
     return render(request, 'accounts/home.html', context)
