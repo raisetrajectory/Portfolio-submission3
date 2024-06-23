@@ -9,6 +9,10 @@
 
 <h2>プロフィール画面</h2>
 
+{% comment %} <div>
+    <img src="{% static 'images/smple5-img.jpg' %}" alt="">
+</div> {% endcomment %}
+
     <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
