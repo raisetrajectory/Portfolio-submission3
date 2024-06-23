@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% comment %} {% load static %} {% endcomment %}
+{% load static %}
 {% block content %}
 {% if messages %}
     {% for message in messages %}
@@ -8,7 +8,6 @@
 {% endif %}
 オンラインカウンセリングサービスへようこそ！
 
-    {% load static %}
     <img src="{% static 'images/smple-img.jpg' %}" alt="" width="300" height="300">
 
 
