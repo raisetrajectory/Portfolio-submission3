@@ -52,32 +52,6 @@
 </style>
 {% endblock %}
 
-    {% comment %} <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="保存">
-    </form>
-    {% if user %}
-    <h2>名前:カウンセラー01 {{ user.name }}</h2>
-    <h2>自己紹介:よろしくお願い致します！ {{ counselor.self_introduction }}</h2>
-    <h2>資格:臨床心理士 {{ counselor.qualifications }}</h2>
-    <p>age: {{ user.age }}</p>
-    <img src="{{ user.picture.url }}" style="width: 300px; height: 300px;">
-    {% endif %} {% endcomment %}
-
-    {% comment %} <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="保存">
-    </form>
-    {% if user %}
-    <h2>名前:カウンセラー02 {{ user.name }}</h2>
-    <h2>自己紹介:よろしくお願い致します！ {{ counselor.self_introduction }}</h2>
-    <h2>資格:臨床心理士 {{ counselor.qualifications }}</h2>
-    <p>age: {{ user.age }}</p>
-    <img src="{{ user.picture.url }}" style="width: 300px; height: 300px;">
-    {% endif %} {% endcomment %}
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
     <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
     <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
