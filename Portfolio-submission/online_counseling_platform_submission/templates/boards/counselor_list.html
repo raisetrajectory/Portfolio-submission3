@@ -45,12 +45,14 @@
     }
     .info-block {
         {% comment %} flex: 1; {% endcomment %}
-        padding: 20px;
+        padding: 10px; /* 内側の余白を小さく */
+        {% comment %} padding: 20px; {% endcomment %}
         border: 1px solid #000;
         background-color: #f0f0f0;
         text-align: left;
         margin-left: 20px; /* 画像とテキストの間の余白 */
-        width: 400px; /* 幅を400ピクセルに設定、必要に応じて変更 */
+        {% comment %} width: 400px; /* 幅を400ピクセルに設定、必要に応じて変更 */ {% endcomment %}
+        width: 300px; /* 幅を300ピクセルに設定 */
     }
     .text-center {
         text-align: center;
