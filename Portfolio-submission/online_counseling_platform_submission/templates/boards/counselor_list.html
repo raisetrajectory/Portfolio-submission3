@@ -11,7 +11,7 @@
     <h1>カウンセラー一覧画面</h1>
 </div>
 
-<div class="image-container">
+{% comment %} <div class="image-container">
     <img src="{% static 'images/smple5-img.jpg' %}" alt="" width="300" height="300">
 </div>
 
@@ -41,6 +41,46 @@
         margin: 20px auto; /* ブロックを中央に配置 */
         background-color: #f0f0f0; /* 背景色を設定 */
         text-align: left; /* テキストを左揃えに変更 */
+    }
+</style>
+{% endblock %} {% endcomment %}
+
+<div class="counselor-container">
+    <div class="image-container">
+        <img src="{% static 'images/smple5-img.jpg' %}" alt="" width="300" height="300">
+    </div>
+    <div class="info-block">
+        <h2>名前: カウンセラー01</h2>
+    </div>
+</div>
+
+<div class="counselor-container">
+    <div class="image-container">
+        <img src="{% static 'images/smple6-img.jpg' %}" alt="" width="300" height="300">
+    </div>
+    <div class="info-block">
+        <h2>名前: カウンセラー02</h2>
+    </div>
+</div>
+
+{% block extra_styles %}
+<style>
+    .counselor-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px auto;
+    }
+    .image-container {
+        flex: 0 0 auto;
+    }
+    .info-block {
+        flex: 1;
+        padding: 20px;
+        border: 1px solid #000;
+        background-color: #f0f0f0;
+        text-align: left;
+        margin-left: 20px; /* 画像とテキストの間の余白 */
     }
 </style>
 {% endblock %}
