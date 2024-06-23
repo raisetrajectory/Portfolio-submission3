@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 {% if messages %}
     {% for message in messages %}
@@ -6,7 +7,13 @@
     {% endfor %}
 {% endif %}
 
-<h2>カウンセラー一覧画面</h2>
+<div class="text-center">
+    <h1>カウンセラー一覧画面</h1>
+</div>
+
+<div class="image-container">
+    <img src="{% static 'images/smple5-img.jpg' %}" alt="" width="300" height="300">
+</div>
 
     <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
