@@ -8,6 +8,9 @@
 {% endif %}
 オンラインカウンセリングサービスへようこそ！
 
+    {% load static %}
+    <img src="{% static 'images/smple-img.jpg' %}" alt="" width="300" height="300">
+
 
     <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
