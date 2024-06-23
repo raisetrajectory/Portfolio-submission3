@@ -15,31 +15,35 @@
     <img src="{% static 'images/smple5-img.jpg' %}" alt="" width="300" height="300">
 </div>
 
-    <form method="POST" enctype="multipart/form-data">
+<div class="image-container">
+    <img src="{% static 'images/smple6-img.jpg' %}" alt="" width="300" height="300">
+</div>
+
+    {% comment %} <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    {% comment %} <input type="submit" value="保存"> {% endcomment %}
+    <input type="submit" value="保存">
     </form>
     {% if user %}
     <h2>名前:カウンセラー01 {{ user.name }}</h2>
     <h2>自己紹介:よろしくお願い致します！ {{ counselor.self_introduction }}</h2>
     <h2>資格:臨床心理士 {{ counselor.qualifications }}</h2>
-    {% comment %} <p>age: {{ user.age }}</p> {% endcomment %}
+    <p>age: {{ user.age }}</p>
     <img src="{{ user.picture.url }}" style="width: 300px; height: 300px;">
-    {% endif %}
+    {% endif %} {% endcomment %}
 
-    <form method="POST" enctype="multipart/form-data">
+    {% comment %} <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    {% comment %} <input type="submit" value="保存"> {% endcomment %}
+    <input type="submit" value="保存">
     </form>
     {% if user %}
     <h2>名前:カウンセラー02 {{ user.name }}</h2>
     <h2>自己紹介:よろしくお願い致します！ {{ counselor.self_introduction }}</h2>
     <h2>資格:臨床心理士 {{ counselor.qualifications }}</h2>
-    {% comment %} <p>age: {{ user.age }}</p> {% endcomment %}
+    <p>age: {{ user.age }}</p>
     <img src="{{ user.picture.url }}" style="width: 300px; height: 300px;">
-    {% endif %}
+    {% endif %} {% endcomment %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
     <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
