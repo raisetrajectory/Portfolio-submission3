@@ -19,6 +19,39 @@
     <img src="{% static 'images/smple6-img.jpg' %}" alt="" width="300" height="300">
 </div>
 
+<h2>名前:カウンセラー01 </h2>
+
+<h2>名前:カウンセラー02 </h2>
+
+<div class="info-block">
+    <h2>名前: カウンセラー01</h2>
+</div>
+<div class="info-block">
+    <h2>自己紹介: よろしくお願い致します！</h2>
+</div>
+<div class="info-block">
+    <h2>資格: 臨床心理士</h2>
+</div>
+
+{% block extra_styles %}
+<style>
+    .image-container {
+        display: flex;
+        justify-content: center; /* 水平方向の中央揃え */
+        align-items: center; /* 垂直方向の中央揃え */
+        height: 100%; /* 必要に応じて高さを調整 */
+    }
+    .info-block {
+        width: 600px; /* 幅を300ピクセルに設定 */
+        padding: 20px; /* 内側の余白を設定 */
+        border: 1px solid #000; /* 枠線を設定 */
+        margin: 20px auto; /* ブロックを中央に配置 */
+        background-color: #f0f0f0; /* 背景色を設定 */
+        text-align: left; /* テキストを左揃えに変更 */
+    }
+</style>
+{% endblock %}
+
     {% comment %} <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
