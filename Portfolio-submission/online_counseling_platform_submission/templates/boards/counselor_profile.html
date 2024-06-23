@@ -16,6 +16,25 @@
     <h2>自己紹介:よろしくお願い致します！</h2>
     <h2>資格:臨床心理士</h2>
 
+<div class="info-block">
+    <h2>名前: カウンセラー01</h2>
+    <h2>自己紹介: よろしくお願い致します！</h2>
+    <h2>資格: 臨床心理士</h2>
+</div>
+
+{% block extra_styles %}
+<style>
+    .info-block {
+        width: 600px; /* 幅を300ピクセルに設定 */
+        padding: 20px; /* 内側の余白を設定 */
+        border: 1px solid #000; /* 枠線を設定 */
+        margin: 20px auto; /* ブロックを中央に配置 */
+        background-color: #f0f0f0; /* 背景色を設定 */
+        text-align: center; /* テキストを中央揃え */
+    }
+</style>
+{% endblock %}
+
     {% comment %} <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
@@ -37,3 +56,4 @@
 </nav>
 
 {% endblock %}
+
