@@ -7,5 +7,7 @@
     {% csrf_token %}
     <input type="submit" value="削除">
     {% comment %} <a href="{% url 'boards:post_comments' theme.id %}">キャンセル</a> {% endcomment %}
+    <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
 </form>
+
 {% endblock %}
