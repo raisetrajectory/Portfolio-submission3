@@ -422,7 +422,7 @@
                 <mxCell id="1031" value="カウンセラー一覧画面へ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" parent="1" vertex="1">
                     <mxGeometry x="130" y="860" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="1036" value="現在チャットによって行われているオンラインカウンセリングサービスが一枚の画像として表示されております。" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fillColor=none;" parent="1" vertex="1">
+                <mxCell id="1036" value="現在チャットによって行われているオンラインカウンセリングサービスが画像として表示されております。" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="190" y="-90" width="280.5" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="1038" value="" style="endArrow=classic;html=1;fontSize=15;" parent="1" edge="1">
