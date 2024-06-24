@@ -6,7 +6,7 @@ from accounts.views import show_error_page
 from django.shortcuts import redirect
 
 urlpatterns = [
-    path('', lambda request: redirect('accounts/', permanent=False)),
+    path('', lambda request: redirect('accounts:user_login', permanent=False)),  # リダイレクト先を'user_login'に変更
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('boards/', include('boards.urls')),
