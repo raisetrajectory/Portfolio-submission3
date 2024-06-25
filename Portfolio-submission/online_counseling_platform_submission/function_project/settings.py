@@ -91,6 +91,18 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'uchiyamatakuro$default',  # あなたのデータベース名（例：uchiyamatakuro$default）
+#         'USER': 'uchiyamatakuro',          # あなたのMySQLユーザー名
+#         'PASSWORD': 'your_mysql_password',  # あなたのMySQLパスワード
+#         'HOST': 'uchiyamatakuro.mysql.pythonanywhere-services.com',  # データベースホストアドレス
+#         'PORT': '',  # デフォルトのポートを使用するため、空白のまま
+#     }
+# }
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 PASSWORD_HASHERS = [
