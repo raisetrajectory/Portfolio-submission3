@@ -84,6 +84,7 @@ WSGI_APPLICATION = "function_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# SQLiteの設定（現在使用中）
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -91,6 +92,7 @@ DATABASES = {
     }
 }
 
+# MySQLの設定（コメントアウトして保留）
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
