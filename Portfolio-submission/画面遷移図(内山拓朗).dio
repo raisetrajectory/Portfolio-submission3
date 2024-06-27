@@ -670,12 +670,12 @@
                     <mxGeometry x="-250" y="630" width="380" height="355" as="geometry"/>
                 </mxCell>
                 <mxCell id="1715" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;プロフィール画面に関しては、名前と自己紹介と資格が表示されております。カウンセラーが増加すればその分だけ、名前と自己紹介と資格を表示する数が増加します。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="1310" y="560" width="320" height="120" as="geometry"/>
+                    <mxGeometry x="1310" y="645" width="320" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="1716" value="" style="endArrow=classic;html=1;fontSize=10;entryX=1.003;entryY=0.449;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="651">
+                <mxCell id="1717" value="" style="endArrow=classic;html=1;fontSize=10;entryX=0.993;entryY=0.657;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="651">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="1400" y="680" as="sourcePoint"/>
-                        <mxPoint x="1370" y="830" as="targetPoint"/>
+                        <mxPoint x="1410" y="765" as="sourcePoint"/>
+                        <mxPoint x="1340" y="935" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
             </root>
