@@ -199,9 +199,6 @@
                 <mxCell id="681" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;メインメニューへ&lt;/font&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="-220" y="860" width="130" height="35" as="geometry"/>
                 </mxCell>
-                <mxCell id="776" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;患者が【チャット画面へ】を押した場合に、カウンセラー０１が対応しているチャット画面に遷移に出来る機能を実装します。&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-560" y="500" width="340" height="96" as="geometry"/>
-                </mxCell>
                 <mxCell id="779" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="-190" y="580" as="sourcePoint"/>
@@ -1031,7 +1028,7 @@
                     <mxGeometry x="-590" y="637" width="300" height="76" as="geometry"/>
                 </mxCell>
                 <mxCell id="1917" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;利用者が【チャット作成画面へ】を押した場合に、チャット作成画面に遷移する機能を実装します。&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-690" y="879" width="300" height="76" as="geometry"/>
+                    <mxGeometry x="-520" y="525" width="300" height="76" as="geometry"/>
                 </mxCell>
                 <mxCell id="1918" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;患者が【チャット画面へ】を押した場合にカウンセラー02が対応しているチャット画面に遷移出来る機能を実装します。&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="1720" y="1830" width="270" height="85" as="geometry"/>
