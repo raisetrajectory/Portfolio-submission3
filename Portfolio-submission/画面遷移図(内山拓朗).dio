@@ -5,7 +5,7 @@
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="105" value="ログイン画面&amp;nbsp; カウンセラー(Counselors)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fontSize=10;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="975" y="327" width="220" height="224" as="geometry"/>
+                    <mxGeometry x="2840" y="2410" width="220" height="224" as="geometry"/>
                 </mxCell>
                 <mxCell id="106" value="ユーザーネーム" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="105" vertex="1">
                     <mxGeometry y="26" width="220" height="26" as="geometry"/>
@@ -677,6 +677,48 @@
                         <mxPoint x="1410" y="765" as="sourcePoint"/>
                         <mxPoint x="1340" y="935" as="targetPoint"/>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="1718" value="ログイン画面&amp;nbsp; カウンセラー(Counselors)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fontSize=10;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="2540" y="2400" width="220" height="224" as="geometry"/>
+                </mxCell>
+                <mxCell id="1719" value="ユーザーネーム" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1718">
+                    <mxGeometry y="26" width="220" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="1720" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=none;whiteSpace=wrap;" vertex="1" parent="1718">
+                    <mxGeometry y="52" width="220" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="1721" value="メールアドレス" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1718">
+                    <mxGeometry y="82" width="220" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="1722" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=none;whiteSpace=wrap;" vertex="1" parent="1718">
+                    <mxGeometry y="108" width="220" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="1723" value="パスワード" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1718">
+                    <mxGeometry y="138" width="220" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="1724" value="********" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.pwField;strokeColor=#999999;mainText=;align=left;fontColor=#666666;fontSize=17;spacingLeft=3;" vertex="1" parent="1718">
+                    <mxGeometry y="164" width="220" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="1725" value="ログイン" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1718">
+                    <mxGeometry y="194" width="220" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="1726" value="ログイン画面&amp;nbsp; カウンセラー(Counselors)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fontSize=10;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="960" y="340" width="220" height="168" as="geometry"/>
+                </mxCell>
+                <mxCell id="1729" value="メールアドレス" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1726">
+                    <mxGeometry y="26" width="220" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="1730" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=none;whiteSpace=wrap;" vertex="1" parent="1726">
+                    <mxGeometry y="52" width="220" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="1731" value="パスワード" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1726">
+                    <mxGeometry y="82" width="220" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="1732" value="********" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.pwField;strokeColor=#999999;mainText=;align=left;fontColor=#666666;fontSize=17;spacingLeft=3;" vertex="1" parent="1726">
+                    <mxGeometry y="108" width="220" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="1733" value="ログイン" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1726">
+                    <mxGeometry y="138" width="220" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
