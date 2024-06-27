@@ -289,12 +289,6 @@
                 <mxCell id="1043" value="プロフィール画面へ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="1" vertex="1">
                     <mxGeometry x="1050" y="1090" width="170" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="1044" value="" style="endArrow=none;html=1;endFill=0;startArrow=classic;startFill=1;" parent="1" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-577" y="1285" as="sourcePoint"/>
-                        <mxPoint x="-827.004971098266" y="1150" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="1047" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;カウンセラーを変更する&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="1050" y="1010" width="160" height="20" as="geometry"/>
                 </mxCell>
@@ -1040,12 +1034,6 @@
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="-40" y="810" as="sourcePoint"/>
                         <mxPoint x="-290.00497109826574" y="675" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="1922" value="" style="endArrow=none;html=1;endFill=0;startArrow=classic;startFill=1;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-520" y="1195" as="sourcePoint"/>
-                        <mxPoint x="-770.0049710982657" y="1060" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
             </root>
