@@ -450,9 +450,6 @@
                 <mxCell id="1054" value="ログイン【ログアウトしている時は表示されません】" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
                     <mxGeometry x="-710" y="189" width="450" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="1057" value="ログイン【ログアウトしている時は表示されません】" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="-710" y="140" width="450" height="30" as="geometry"/>
-                </mxCell>
                 <mxCell id="854" value="ログアウト" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="-740" y="390" width="450" height="30" as="geometry"/>
                 </mxCell>
@@ -469,7 +466,7 @@
                     <mxGeometry x="-790" y="818" width="450" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="1066" value="メインメニュー(main menu)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;align=center;fontSize=10;" vertex="1" parent="1">
-                    <mxGeometry x="-540" y="-990" width="450" height="712" as="geometry"/>
+                    <mxGeometry x="-540" y="-990" width="450" height="742" as="geometry"/>
                 </mxCell>
                 <mxCell id="1080" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1066">
                     <mxGeometry y="26" width="450" height="26" as="geometry"/>
@@ -528,14 +525,17 @@
                 <mxCell id="1089" value="　　　　　　　　　　　　　　　　　" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1066">
                     <mxGeometry y="592" width="450" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="1090" value="　　　　　　　　　　　　　　　　　" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1066">
+                <mxCell id="1057" value="ログイン【ログアウトしている時は表示されません】" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1066">
                     <mxGeometry y="622" width="450" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="1088" value="　　　　　　　　　　　　　　　　　" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1066">
+                <mxCell id="1090" value="　　　　　　　　　　　　　　　　　" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1066">
                     <mxGeometry y="652" width="450" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="1091" value="　　　　　　　　　　　　　　　　　" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1066">
+                <mxCell id="1088" value="　　　　　　　　　　　　　　　　　" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1066">
                     <mxGeometry y="682" width="450" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="1091" value="　　　　　　　　　　　　　　　　　" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1066">
+                    <mxGeometry y="712" width="450" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="1081" value="ログイン" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
                     <mxGeometry x="-1060" y="-584" width="450" height="30" as="geometry"/>
