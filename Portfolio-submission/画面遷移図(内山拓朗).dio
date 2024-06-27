@@ -147,10 +147,10 @@
                     <mxGeometry x="970" y="574" width="310" height="470" as="geometry"/>
                 </mxCell>
                 <mxCell id="652" value="プロフィール画面(Profile)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="975" y="590" width="270" height="30" as="geometry"/>
+                    <mxGeometry x="995" y="590" width="270" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="653" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.containers.userMale;strokeColor=#666666;strokeColor2=#008cff;" parent="1" vertex="1">
-                    <mxGeometry x="1050" y="630" width="100" height="100" as="geometry"/>
+                    <mxGeometry x="1075" y="633" width="100" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="654" value="名前" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="990" y="760" width="60" height="30" as="geometry"/>
@@ -667,7 +667,7 @@
                     <mxGeometry y="686" width="450" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="1711" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;患者が【チャット画面へ】を押した場合に、カウンセラー０１が対応しているチャット画面に遷移に出来る機能を実装します。&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="1340" y="579" width="340" height="96" as="geometry"/>
+                    <mxGeometry x="1320" y="537" width="340" height="96" as="geometry"/>
                 </mxCell>
                 <mxCell id="668" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="-250" y="630" width="380" height="355" as="geometry"/>
