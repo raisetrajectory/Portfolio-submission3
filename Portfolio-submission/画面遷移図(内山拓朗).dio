@@ -425,7 +425,7 @@
                 <mxCell id="1038" value="" style="endArrow=classic;html=1;fontSize=15;startArrow=none;exitX=0.182;exitY=1.04;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1" source="1036">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="240" y="-30" as="sourcePoint"/>
-                        <mxPoint x="240" y="240" as="targetPoint"/>
+                        <mxPoint x="240" y="310" as="targetPoint"/>
                         <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
@@ -760,7 +760,7 @@
                     <mxGeometry y="686" width="450" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="1262" value="メインメニュー(main menu)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;align=center;fontSize=10;" vertex="1" parent="1">
-                    <mxGeometry x="188.5" y="28" width="450" height="712" as="geometry"/>
+                    <mxGeometry x="188.5" y="128" width="450" height="712" as="geometry"/>
                 </mxCell>
                 <mxCell id="1264" value="&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1262">
                     <mxGeometry y="26" width="450" height="30" as="geometry"/>
