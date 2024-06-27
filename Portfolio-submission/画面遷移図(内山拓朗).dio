@@ -184,10 +184,10 @@
                 <mxCell id="673" value="カウンセラー01" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" parent="1" vertex="1">
                     <mxGeometry x="-150" y="710" width="90" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="674" value="チャット画面へ" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
+                <mxCell id="674" value="チャット作成画面へ" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="-40" y="800" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="677" value="チャット画面へ" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
+                <mxCell id="677" value="チャット作成画面へ" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="-40" y="710" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="678" value="カウンセラー02" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" parent="1" vertex="1">
@@ -225,12 +225,6 @@
                 </mxCell>
                 <mxCell id="943" value="" style="shape=singleArrow;direction=south;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="360" y="860" width="60" height="110" as="geometry"/>
-                </mxCell>
-                <mxCell id="948" value="" style="endArrow=none;html=1;endFill=0;startArrow=classic;startFill=1;" parent="1" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="6.25" y="710" as="sourcePoint"/>
-                        <mxPoint x="-236.25" y="599" as="targetPoint"/>
-                    </mxGeometry>
                 </mxCell>
                 <mxCell id="952" value="" style="shape=singleArrow;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="50" y="448" width="100" height="60" as="geometry"/>
@@ -630,7 +624,7 @@
                     <mxGeometry y="686" width="450" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="668" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="-250" y="630" width="380" height="355" as="geometry"/>
+                    <mxGeometry x="-990" y="508" width="380" height="355" as="geometry"/>
                 </mxCell>
                 <mxCell id="1715" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;プロフィール画面に関しては、名前と自己紹介と資格が表示されております。カウンセラーが増加すればその分だけ、名前と自己紹介と資格を表示する数が増加します。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="1310" y="645" width="320" height="120" as="geometry"/>
@@ -1025,6 +1019,15 @@
                         <mxPoint x="520" y="1790" as="sourcePoint"/>
                         <mxPoint x="520" y="1840" as="targetPoint"/>
                         <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1913" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-250" y="630" width="380" height="355" as="geometry"/>
+                </mxCell>
+                <mxCell id="1915" value="" style="endArrow=none;html=1;endFill=0;startArrow=classic;startFill=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="30" y="712.5" as="sourcePoint"/>
+                        <mxPoint x="-220.00497109826574" y="577.5" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
             </root>
