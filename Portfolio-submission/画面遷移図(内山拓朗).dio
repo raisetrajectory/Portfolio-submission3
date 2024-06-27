@@ -1027,7 +1027,7 @@
                         <mxPoint x="-220.00497109826574" y="577.5" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1916" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;患者が【チャット画面へ】を押した場合にカウンセラー02が対応しているチャット画面に遷移出来る機能を実装します。&lt;br&gt;利用者が【チャット作成画面へ】&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="1916" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;利用者が【チャット作成画面へ】を押した場合にチャット作成画面に遷移する機能を実装します。&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="-690" y="774" width="300" height="85" as="geometry"/>
                 </mxCell>
             </root>
