@@ -531,7 +531,7 @@
                 <mxCell id="1090" value="　　　　　　　　　　　　　　　　　" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1066">
                     <mxGeometry y="652" width="450" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="1088" value="　　　　　　　　　　　　　　　　　" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1066">
+                <mxCell id="1056" value="ログアウト【ログインしている時は表示されません】" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1066">
                     <mxGeometry y="682" width="450" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="1091" value="　　　　　　　　　　　　　　　　　" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1066">
@@ -548,9 +548,6 @@
                 </mxCell>
                 <mxCell id="1083" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;カウンセラー一覧画面へ&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
                     <mxGeometry x="-1050" y="-890" width="450" height="35" as="geometry"/>
-                </mxCell>
-                <mxCell id="1056" value="ログアウト【ログインしている時は表示されません】" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="-1350" y="-310" width="450" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="1085" value="ユーザー登録" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
                     <mxGeometry x="-1070" y="-510" width="450" height="34" as="geometry"/>
