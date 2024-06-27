@@ -687,9 +687,6 @@
                 <mxCell id="1152" value="&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px; background-color: initial;&quot;&gt;メインメニューへ　チャット制作画面へ　プロフィール画面へ　カウンセラー一覧画面へ　ログイン又はログアウト　ユーザー登録&lt;/font&gt;&lt;span style=&quot;font-size: 12px; background-color: initial;&quot;&gt;　&lt;/span&gt;&lt;/div&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=left;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
                     <mxGeometry x="-1750" y="1340" width="850" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="1081" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;メインメニューへ　チャット制作画面へ　プロフィール画面へ　カウンセラー一覧画面へ　ログイン又はログアウト　ユーザー登録&lt;/font&gt;　&lt;/font&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="-1710" y="120" width="850" height="30" as="geometry"/>
-                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
