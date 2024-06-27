@@ -666,11 +666,17 @@
                 <mxCell id="1710" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1688">
                     <mxGeometry y="686" width="450" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="1711" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;患者が【チャット画面へ】を押した場合に、カウンセラー０１が対応しているチャット画面に遷移に出来る機能を実装します。&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="1320" y="537" width="340" height="96" as="geometry"/>
-                </mxCell>
                 <mxCell id="668" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="-250" y="630" width="380" height="355" as="geometry"/>
+                </mxCell>
+                <mxCell id="1715" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;プロフィール画面に関しては、名前と自己紹介と資格が表示されております。カウンセラーが増加すればその分だけ、名前と自己紹介と資格を表示する数が増加します。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1310" y="560" width="320" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="1716" value="" style="endArrow=classic;html=1;fontSize=10;entryX=1.003;entryY=0.449;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="651">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1400" y="680" as="sourcePoint"/>
+                        <mxPoint x="1370" y="830" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>
