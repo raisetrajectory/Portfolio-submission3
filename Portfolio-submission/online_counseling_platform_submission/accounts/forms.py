@@ -28,7 +28,7 @@ class RegistForm(forms.ModelForm):
         return user
 
 class UserEditForm(forms.ModelForm):
-    username = forms.CharField(label='名前')
+    username = forms.CharField(label='ユーザーネーム')
     age = forms.IntegerField(label='年齢', min_value=0)
     email = forms.EmailField(label='メールアドレス')
     picture = forms.FileField(label='写真', required=False)
