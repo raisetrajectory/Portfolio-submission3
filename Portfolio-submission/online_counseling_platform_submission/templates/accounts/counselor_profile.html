@@ -1,9 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+{% if messages %}
+    {% for message in messages %}
+        <div>{{ message.message }}</div>
+    {% endfor %}
+{% endif %}
 
     <div class="image-container">
         <img src="{% static 'images/smple5-img.jpg' %}" alt="" width="300" height="300">
+    </div>
+
+    <div class="image-container">
+        <img src="{{ user.profile.picture.url }}" alt="{{ user.username }}のプロフィール画像" width="300" height="300">
     </div>
 
     <h2>ユーザープロフィール</h2>
