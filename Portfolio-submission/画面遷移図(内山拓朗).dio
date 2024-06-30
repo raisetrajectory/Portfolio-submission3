@@ -517,17 +517,17 @@
                         <mxPoint x="758" y="1060" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1935" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;プロフィール画面に関しては、プロフィール画面を編集出来る機能を追加しております。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="1410" y="850" width="230" height="120" as="geometry"/>
+                <mxCell id="1938" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;プロフィール画面に関しては、プロフィール画面を編集出来る機能を追加しております。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1710" y="2390" width="230" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="1936" value="" style="endArrow=classic;html=1;fontSize=10;entryX=0.993;entryY=0.657;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+                <mxCell id="1939" value="" style="endArrow=classic;html=1;fontSize=10;entryX=0.993;entryY=0.657;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="1412.17" y="900" as="sourcePoint"/>
-                        <mxPoint x="1280" y="1017.79" as="targetPoint"/>
+                        <mxPoint x="2102.17" y="2410" as="sourcePoint"/>
+                        <mxPoint x="1970" y="2527.79" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1937" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;プロフィール内容変更&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="1070" y="1005" width="180" height="20" as="geometry"/>
+                <mxCell id="1940" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;プロフィール内容変更&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="2580" width="180" height="20" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
