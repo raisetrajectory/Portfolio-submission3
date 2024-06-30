@@ -7,6 +7,8 @@
     {% endfor %}
 {% endif %}
 
+    <h2>ユーザープロフィール</h2>
+    <ul style="list-style-type: none;">  <!-- リストのマーカーを無効化 -->
     <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
@@ -14,9 +16,6 @@
     {% if user %}
     <img src="{{ user.picture.url }}" style="width: 300px; height: 300px;">
     {% endif %}
-
-    <h2>ユーザープロフィール</h2>
-    <ul style="list-style-type: none;">  <!-- リストのマーカーを無効化 -->
         <li>ユーザー名:{{ user.username }}</li>
         <li>自己紹介: よろしくお願い致します！</li>
         <li>資格: 臨床心理士</li>
