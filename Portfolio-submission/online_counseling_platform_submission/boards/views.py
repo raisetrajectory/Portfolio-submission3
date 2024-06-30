@@ -11,6 +11,32 @@ import os
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import Http404
+from .models import Comments
+from django import forms  # Djangoのフォームモジュールをインポート
+from django.contrib import messages
+
+# # フォームをビュー内で直接定義
+# class InlineCommentForm(forms.ModelForm):
+#     class Meta:
+#         model = Comments
+#         fields = ['text']  # 必要なフィールドを指定してください
+
+# def edit_comment(request, comment_id):
+#     comment = get_object_or_404(Comments, id=comment_id)
+#     if request.user != comment.user:
+#         raise Http404
+#     if request.method == 'POST':
+#         form = InlineCommentForm(request.POST, instance=comment)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, 'コメントを更新しました。')
+#             return redirect('boards:post_comments', theme_id=comment.theme.id)
+#     else:
+#         form = InlineCommentForm(instance=comment)
+#     return render(request, 'boards/edit_comment.html', {'form': form, 'comment': comment})
+
 def create_theme(request):
         create_theme_form = forms.CreateThemeForm(request.POST or None)
         if create_theme_form.is_valid():
