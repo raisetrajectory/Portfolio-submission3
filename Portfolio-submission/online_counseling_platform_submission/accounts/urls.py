@@ -12,10 +12,5 @@ urlpatterns = [
     path('user_edit/', views.user_edit, name='user_edit'),
     path('change_password/', views.change_password, name='change_password'),
 
-    # path('signup/', views.SignUpView.as_view(), name='signup'),
-    # path('login/', views.LoginView.as_view(), name='login'),
-    # path('', views.IndexView.as_view(), name='index'),
-    # path('logout/', views.LogoutView.as_view(), name='logout'),
-    # path('<slug:username>/', views.ProfileDetailView.as_view(), name='profile'),
-    # path('<slug:username>/edit/', views.ProfileUpdateView.as_view(), name='edit'),
+    # path('counselor_profile/', views.counselor_profile, name='counselor_profile')
 ]

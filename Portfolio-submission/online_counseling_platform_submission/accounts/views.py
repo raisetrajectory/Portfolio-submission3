@@ -7,6 +7,13 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def counselor_profile(request):
+    return render(request, 'accounts/counselor_profile.html', {'user': request.user})
+
 def home(request):
     return render(
         request, 'accounts/home.html'
