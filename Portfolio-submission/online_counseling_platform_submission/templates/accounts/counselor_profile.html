@@ -7,12 +7,19 @@
     {% endfor %}
 {% endif %}
 
-    <div class="image-container">
-        <img src="{% static 'images/smple5-img.jpg' %}" alt="" width="300" height="300">
-    </div>
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="保存">
+    </form>
+    {% if user %}
+    <p>name: {{ user.name }}</p>
+    <p>age: {{ user.age }}</p>
+    <img src="{{ user.picture.url }}" style="width: 300px; height: 300px;">
+    {% endif %}
 
     <div class="image-container">
-        <img src="{{ user.profile.picture.url }}" alt="{{ user.username }}のプロフィール画像" width="300" height="300">
+        <img src="{% static 'images/smple5-img.jpg' %}" alt="" width="300" height="300">
     </div>
 
     <h2>ユーザープロフィール</h2>
