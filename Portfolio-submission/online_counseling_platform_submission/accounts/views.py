@@ -7,15 +7,21 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 
-# from django.views.generic import CreateView, TemplateView, DetailView, UpdateView
-# from .forms import SignUpForm, LoginForm, ProfileEditForm
+from django.views.generic import UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
+from .models import Users
+from .forms import ProfileEditForm
 
-# class ProfileUpdateView(LoginRequiredMixin, UpdateView):
-#     model = User
-#     form_class = ProfileEditForm
-#     template_name = 'users/edit.html'
-#     slug_field = 'username'
-#     slug_url_kwarg = 'username'
+class ProfileUpdateView(LoginRequiredMixin, UpdateView):
+    model = Users
+    form_class = ProfileEditForm
+    template_name = 'users/edit.html'
+    slug_field = 'username'
+    slug_url_kwarg = 'username'
+
+    def get_success_url(self):
+        return reverse_lazy('users:profile', kwargs={'username': self.object.username}) # type: ignore
 
 def home(request):
     return render(
