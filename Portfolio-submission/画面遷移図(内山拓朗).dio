@@ -520,17 +520,14 @@
                 <mxCell id="1938" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;プロフィール画面に関しては、プロフィール画面＆ユーザー登録した情報を編集出来る機能を追加しております。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1410" y="850" width="230" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="1940" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; line-height: 19px;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;プロフィール内容(ユーザー登録)変更&lt;/font&gt;&lt;/div&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#001DBC;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#0050ef;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="1010" y="1005" width="240" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="1941" value="" style="endArrow=classic;html=1;fontSize=10;entryX=0.998;entryY=0.44;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="1940" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="1410" y="890" as="sourcePoint"/>
-                        <mxPoint x="1250" y="1025" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="1942" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;プロフィール内容(ユーザー登録)変更&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="1230" y="1095" width="230" height="20" as="geometry"/>
+                    <mxGeometry x="1045" y="1000" width="230" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="1944" value="" style="endArrow=classic;html=1;fontSize=10;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1410" y="900" as="sourcePoint"/>
+                        <mxPoint x="1275" y="1010" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>
