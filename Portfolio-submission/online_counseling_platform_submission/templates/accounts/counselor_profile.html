@@ -9,16 +9,8 @@
     <h2>ユーザープロフィール</h2>
     <ul style="list-style-type: none;">  <!-- リストのマーカーを無効化 -->
         <li><strong>ユーザー名:</strong> {{ user.username }}</li>
-        <li><strong>メールアドレス:</strong> {{ user.email }}</li>
         <li><strong>自己紹介: よろしくお願い致します！</strong></li>
         <li><strong>資格: 臨床心理士</strong></li>
-
-        <div class="info-block">
-            <h2>自己紹介: よろしくお願い致します！</h2>
-        </div>
-        <div class="info-block">
-            <h2>資格: 臨床心理士</h2>
-        </div>
         <!-- 他のユーザー情報を追加する場合はここに追加 -->
     </ul>
     <a href="{% url 'accounts:user_edit' %}">プロフィール内容変更</a>
