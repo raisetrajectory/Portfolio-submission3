@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="nMnuXORbZ245L0lCiLTD" name="ページ1">
-        <mxGraphModel dx="3945" dy="1967" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="3213" dy="1454" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -284,7 +284,7 @@
                 <mxCell id="1663" value="チャットによって行われているオンラインカウンセリングサービスが画像として表示されております。" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="510" y="-320" width="280.5" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="1715" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;プロフィール画面に関しては、名前と自己紹介と資格が表示されております。カウンセラーが増加すればその分だけ、名前と自己紹介と資格を表示する数が増加します。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="1715" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;プロフィール画面に関しては、名前と自己紹介と資格が表示されております。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1310" y="645" width="320" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="1717" value="" style="endArrow=classic;html=1;fontSize=10;entryX=0.993;entryY=0.657;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="651" edge="1">
@@ -517,17 +517,17 @@
                         <mxPoint x="758" y="1060" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1938" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;プロフィール画面に関しては、プロフィール画面を編集出来る機能を追加しております。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="1938" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;プロフィール画面に関しては、プロフィール画面＆ユーザー登録した情報を編集出来る機能を追加しております。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="1410" y="850" width="230" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="1939" value="" style="endArrow=classic;html=1;fontSize=10;entryX=0.993;entryY=0.657;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="1412.17" y="891.11" as="sourcePoint"/>
-                        <mxPoint x="1280" y="1008.9" as="targetPoint"/>
-                    </mxGeometry>
                 </mxCell>
                 <mxCell id="1940" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;プロフィール内容変更&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
                     <mxGeometry x="1070" y="1005" width="180" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="1941" value="" style="endArrow=classic;html=1;fontSize=10;entryX=0.998;entryY=0.44;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="1940">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1410" y="890" as="sourcePoint"/>
+                        <mxPoint x="1250" y="1025" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>
