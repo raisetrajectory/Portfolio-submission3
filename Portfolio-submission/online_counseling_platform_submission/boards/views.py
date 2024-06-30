@@ -23,19 +23,19 @@ class InlineCommentForm(forms.ModelForm):
         model = Comments
         fields = ['comment']  # 正しいフィールド
 
-# def edit_comment(request, comment_id):
-#     comment = get_object_or_404(Comments, id=comment_id)
-#     if request.user != comment.user:
-#         raise Http404
-#     if request.method == 'POST':
-#         form = InlineCommentForm(request.POST, instance=comment)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, 'コメントを更新しました。')
-#             return redirect('boards:post_comments', theme_id=comment.theme.id)
-#     else:
-#         form = InlineCommentForm(instance=comment)
-#     return render(request, 'boards/edit_comment.html', {'form': form, 'comment': comment})
+def edit_comment(request, comment_id):
+    comment = get_object_or_404(Comments, id=comment_id)
+    if request.user != comment.user:
+        raise Http404
+    if request.method == 'POST':
+        form = InlineCommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'コメントを更新しました。')
+            return redirect('boards:post_comments', theme_id=comment.theme.id)
+    else:
+        form = InlineCommentForm(instance=comment)
+    return render(request, 'boards/edit_comment.html', {'form': form, 'comment': comment})
 
 def create_theme(request):
         create_theme_form = forms.CreateThemeForm(request.POST or None) # type: ignore
