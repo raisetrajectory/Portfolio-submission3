@@ -1,0 +1,12 @@
+<!-- counselor_profile.html -->
+
+{% extends "base.html" %}
+{% block content %}
+    <h2>ユーザープロフィール</h2>
+    <ul>
+        <li><strong>ユーザー名:</strong> {{ user.username }}</li>
+        <li><strong>メールアドレス:</strong> {{ user.email }}</li>
+        <!-- 他のユーザー情報を追加する場合はここに追加 -->
+    </ul>
+    <a href="{% url 'accounts:user_edit' %}">情報を編集する</a>
+{% endblock %}
