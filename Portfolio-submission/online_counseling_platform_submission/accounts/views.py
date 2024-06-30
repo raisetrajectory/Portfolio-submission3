@@ -7,6 +7,16 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 
+# from django.views.generic import CreateView, TemplateView, DetailView, UpdateView
+# from .forms import SignUpForm, LoginForm, ProfileEditForm
+
+# class ProfileUpdateView(LoginRequiredMixin, UpdateView):
+#     model = User
+#     form_class = ProfileEditForm
+#     template_name = 'users/edit.html'
+#     slug_field = 'username'
+#     slug_url_kwarg = 'username'
+
 def home(request):
     return render(
         request, 'accounts/home.html'
