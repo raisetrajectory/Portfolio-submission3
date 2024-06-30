@@ -20,13 +20,33 @@
         <li>ユーザー名:{{ user.username }}</li>
     </div>
     <div class="info-block">
+    <li>自己紹介: よろしくお願い致します！</li>
     </div>
     <div class="info-block">
+    <li>資格: 臨床心理士</li>
     </div>
         <li>自己紹介: よろしくお願い致します！</li>
         <li>資格: 臨床心理士</li>
         <!-- 他のユーザー情報を追加する場合はここに追加 -->
     </ul>
+{% block extra_styles %}
+<style>
+    .image-container {
+        display: flex;
+        justify-content: center; /* 水平方向の中央揃え */
+        align-items: center; /* 垂直方向の中央揃え */
+        height: 100%; /* 必要に応じて高さを調整 */
+    }
+    .info-block {
+        width: 600px; /* 幅を300ピクセルに設定 */
+        padding: 20px; /* 内側の余白を設定 */
+        border: 1px solid #000; /* 枠線を設定 */
+        margin: 20px auto; /* ブロックを中央に配置 */
+        background-color: #f0f0f0; /* 背景色を設定 */
+        text-align: left; /* テキストを左揃えに変更 */
+    }
+</style>
+{% endblock %}
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
         <a class="navbar-brand" href="{% url 'accounts:home' %}">メインメニューへ</a>
