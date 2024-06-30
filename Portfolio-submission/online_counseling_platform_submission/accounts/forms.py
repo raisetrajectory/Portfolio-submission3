@@ -2,37 +2,6 @@ from django import forms
 from .models import Users
 from django.contrib.auth.password_validation import validate_password
 
-from django.core.exceptions import ValidationError
-from django.core.validators import validate_email
-
-class ProfileEditForm(forms.ModelForm):
-    name = forms.CharField(max_length=50, required=True, widget=forms.TextInput(attrs={'placeholder': "ユーザー名"}))
-    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'placeholder': "メールアドレス"}))
-    username = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'placeholder': "ユーザーID"}))
-    about_me = forms.CharField(widget=forms.Textarea(attrs={'placeholder': "自己紹介"}), required=False)
-
-    class Meta:
-        model = Users
-        fields = ('name', 'email', 'username', 'about_me')
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['about_me'].required = False
-
-    def clean_email(self):
-        email = self.cleaned_data["email"]
-
-        try:
-            validate_email(email)
-        except ValidationError:
-            raise ValidationError("正しいメールアドレスを指定してください")
-
-        user = self.instance
-        if Users.objects.filter(email=email).exclude(pk=user.pk).exists():
-            raise ValidationError("このメールアドレスは既に使用されています")
-
-        return email
-
 
 
 class RegistForm(forms.ModelForm):
