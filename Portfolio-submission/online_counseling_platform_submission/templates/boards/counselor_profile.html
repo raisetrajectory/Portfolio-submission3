@@ -7,6 +7,18 @@
     {% endfor %}
 {% endif %}
 
+{% comment %} <h1>@{{ username }}</h1>
+<h3>{{ object.name }}</h3>
+<h6>{{ object.about_me }}</h6>
+
+{% if user.username == username %}
+<a href="{% url 'users:edit' username %}" class="btn btn-info">プロフィール編集</a>
+{% else %}
+<h2>他のユーザーのアカウントです。</h2>
+{% endif %}
+
+{% endblock %} {% endcomment %}
+
 <div class="text-center">
     <h1>プロフィール画面</h1>
 </div>
