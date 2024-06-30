@@ -38,7 +38,7 @@ from django.contrib import messages
 #     return render(request, 'boards/edit_comment.html', {'form': form, 'comment': comment})
 
 def create_theme(request):
-        create_theme_form = forms.CreateThemeForm(request.POST or None)
+        create_theme_form = forms.CreateThemeForm(request.POST or None) # type: ignore
         if create_theme_form.is_valid():
             create_theme_form.instance.user = request.user
             create_theme_form.save()
@@ -62,7 +62,7 @@ def edit_theme(request, id):
     theme = get_object_or_404(Themes, id=id)
     if theme.user.id != request.user.id:
         raise Http404
-    edit_theme_form = forms.CreateThemeForm(request.POST or None, instance=theme)
+    edit_theme_form = forms.CreateThemeForm(request.POST or None, instance=theme) # type: ignore
     if edit_theme_form.is_valid():
         edit_theme_form.save()
         messages.success(request, '掲示板を更新しました。')
@@ -78,7 +78,7 @@ def delete_theme(request, id):
     theme = get_object_or_404(Themes, id=id)
     if theme.user.id != request.user.id:
         raise Http404
-    delete_theme_form = forms.DeleteThemeForm(request.POST or None)
+    delete_theme_form = forms.DeleteThemeForm(request.POST or None) # type: ignore
     if delete_theme_form.is_valid(): # csrf check
         theme.delete()
         messages.success(request, '掲示板を削除しました。')
