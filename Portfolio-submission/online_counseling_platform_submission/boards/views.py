@@ -11,11 +11,11 @@ import os
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 
-# from django.shortcuts import render, get_object_or_404, redirect
-# from django.http import Http404
-# from .models import Comments
-# from django import forms  # Djangoのフォームモジュールをインポート
-# from django.contrib import messages
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import Http404
+from .models import Comments
+from django import forms  # Djangoのフォームモジュールをインポート
+from django.contrib import messages
 
 # # フォームをビュー内で直接定義
 # class InlineCommentForm(forms.ModelForm):
