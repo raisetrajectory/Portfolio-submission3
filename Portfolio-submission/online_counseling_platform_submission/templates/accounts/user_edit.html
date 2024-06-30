@@ -12,29 +12,4 @@
 </form>
 <a href="{% url 'accounts:change_password' %}">パスワード変更</a>
 
-{% comment %} <form role="form" method="post">
-{% csrf_token %}
-<h3>プロフィール変更</h3>
-<div>
-    <label for="id_name">ユーザー名:</label>
-    {{ form.name }}
-
-</div>
-<div>
-    <label for="id_email">メールアドレス：</label>
-    {{ form.email }}
-</div>
-<div>
-    <label for="id_username">ユーザーID：</label>
-    @{{ form.username }}
-</div>
-<div>
-    <label for="id_about_me">プロフィール</label>
-    {{ form.about_me }}
-</div>
-<div>
-    <button class="btn btn-primary" type="submit">変更</button>
-</div>
-</form> {% endcomment %}
-
 {% endblock %}
