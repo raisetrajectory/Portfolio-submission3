@@ -9,6 +9,9 @@
 
     <h2>ユーザープロフィール</h2>
     <ul style="list-style-type: none;">  <!-- リストのマーカーを無効化 -->
+
+<div class="counselor-container">
+    <div class="image-container">
     <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
@@ -16,6 +19,8 @@
     {% if user %}
     <img src="{{ user.picture.url }}" style="width: 300px; height: 300px;">
     {% endif %}
+    </div>
+</div>
     <div class="info-block">
         <li>ユーザー名:{{ user.username }}</li>
     </div>
@@ -25,8 +30,6 @@
     <div class="info-block">
     <li>資格: 臨床心理士</li>
     </div>
-        <li>自己紹介: よろしくお願い致します！</li>
-        <li>資格: 臨床心理士</li>
         <!-- 他のユーザー情報を追加する場合はここに追加 -->
     </ul>
 {% block extra_styles %}
