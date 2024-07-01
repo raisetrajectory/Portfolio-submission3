@@ -17,5 +17,5 @@ urlpatterns = [
     path('upload_sample/', views.upload_sample, name='upload_sample'),
     path('upload_model_form/', views.upload_model_form, name='upload_model_form'),
 
-    path('comment/<int:comment_id>/edit/', views.edit_comment, name='edit_comment'),
+    path('comment/<int:comment_id>/edit/', views.edit_comment, name='edit_comment'), #不要となった場合は削除して大丈夫です！
 ]

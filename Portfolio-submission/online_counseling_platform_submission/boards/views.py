@@ -11,22 +11,22 @@ import os
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import Http404
-from .models import Comments
-from django import forms  # Djangoのフォームモジュールをインポート
-from django.contrib import messages
+from django.shortcuts import render, get_object_or_404, redirect #不要となった場合は削除して大丈夫です！
+from django.http import Http404 #不要となった場合は削除して大丈夫です！
+from .models import Comments #不要となった場合は削除して大丈夫です！
+from django import forms  # Djangoのフォームモジュールをインポート #不要となった場合は削除して大丈夫です！
+from django.contrib import messages #不要となった場合は削除して大丈夫です！
 
-from django.shortcuts import render
-from .forms import PostCommentForm  # 正しいフォームをインポートする
+from django.shortcuts import render #不要となった場合は削除して大丈夫です！
+from .forms import PostCommentForm  # 正しいフォームをインポートする #不要となった場合は削除して大丈夫です！
 
-# フォームをビュー内で直接定義
+# フォームをビュー内で直接定義 #不要となった場合は削除して大丈夫です！
 class InlineCommentForm(forms.ModelForm):
     class Meta:
         model = Comments
         fields = ['comment']  # 正しいフィールド
 
-def edit_comment(request, comment_id):
+def edit_comment(request, comment_id): #不要となった場合は削除して大丈夫です！
     comment = get_object_or_404(Comments, id=comment_id)
     if request.user != comment.user:
         raise Http404
