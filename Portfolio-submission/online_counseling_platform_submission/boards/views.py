@@ -20,7 +20,7 @@ from django.contrib import messages #不要となった場合は削除して大�
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PostCommentForm
 
-def edit_comment(request, comment_id):
+def edit_comment(request, comment_id): #不要となった場合は削除して大丈夫です！
     comment = get_object_or_404(Comments, id=comment_id)
     if request.user != comment.user:
         # ユーザーがコメントの所有者でない場合はアクセスを拒否する
