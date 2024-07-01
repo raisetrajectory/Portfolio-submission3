@@ -12,10 +12,9 @@
     <p>{{ comment.comment | linebreaks }}</p>
     {% if comment.user == user %}
         <a href="{% url 'boards:comment_delete' comment.pk %}">コメント削除</a>
-        {% comment %} <a href="{% url 'boards:comment_delete' comment.pk %}">コメント編集</a> {% endcomment %}
-        {% comment %} <a href="{% url 'boards:edit_comment' comment.pk %}">コメント編集</a>  <!-- 編集リンクを追加 --> {% endcomment %}
+        <a href="{% url 'boards:edit_comment' comment.pk %}">コメント編集</a>  <!-- 編集リンクを追加 -->
         {% comment %} <a href="{% url 'boards:comment_edit' comment.pk %}">コメント削除</a> {% endcomment %}
-        <a href="{% url 'boards:edit_comment' comment.pk %}">コメント編集</a>  <!-- 修正済みのパスを使用 -->
+        {% comment %} <a href="{% url 'boards:edit_comment' comment.pk %}">コメント編集</a>  <!-- 修正済みのパスを使用 --> {% endcomment %}
     {% endif %}
 </div>
 <div class="col-10 offset-1">
