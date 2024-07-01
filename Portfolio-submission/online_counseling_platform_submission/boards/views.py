@@ -14,26 +14,9 @@ from django.conf import settings
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PostCommentForm
 
-# def edit_comment(request, comment_id): #記載内容のバックアップです！
-#     comment = get_object_or_404(Comments, id=comment_id)
-
-#     # コメントの所有者であるかを確認する
-#     if request.user != comment.user:
-#         raise Http404
-
-#     if request.method == 'POST':
-#         form = PostCommentForm(request.POST, instance=comment)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, 'コメントを更新しました。')
-#             return redirect('boards:post_comments', theme_id=comment.theme.id)
-#     else:
-#         form = PostCommentForm(instance=comment)
-
-#     return render(request, 'boards/edit_comment.html', {'form': form, 'comment': comment})
-
-def edit_comment(request, comment_id):
+def edit_comment(request, comment_id): #記載内容のバックアップです！
     comment = get_object_or_404(Comments, id=comment_id)
+    # コメントの所有者であるかを確認する
     if request.user != comment.user:
         raise Http404
     if request.method == 'POST':
@@ -46,6 +29,18 @@ def edit_comment(request, comment_id):
         form = PostCommentForm(instance=comment)
 
     return render(request, 'boards/edit_comment.html', {'form': form, 'comment': comment})
+
+# def edit_comment(request, comment_id):
+#     comment = get_object_or_404(Comments, id=comment_id)
+#     if request.user != comment.user:
+#         raise Http404
+#     if request.method == 'POST':
+#         theme_id = comment.theme.id
+#         theme = get_object_or_404(Themes, id=theme_id)  # テーマが存在するか確認
+#         comment.edit() # type: ignore
+#             messages.success(request, 'コメントを更新しました。')
+#             return redirect('boards:post_comments', theme_id=theme_id)
+#     return render(request, 'boards/edit_comment.html', {'form': form, 'comment': comment})
 
 # def delete_comment(request, comment_id):
 #     comment = get_object_or_404(Comments, id=comment_id)
