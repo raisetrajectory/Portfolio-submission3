@@ -62,7 +62,7 @@ def edit_theme(request, id):
     edit_theme_form = forms.CreateThemeForm(request.POST or None, instance=theme) # type: ignore
     if edit_theme_form.is_valid():
         edit_theme_form.save()
-        messages.success(request, '掲示板を更新しました。')
+        messages.success(request, 'チャット画面を更新しました。')
         return redirect('boards:list_themes')
     return render(
         request, 'boards/edit_theme.html', context={
