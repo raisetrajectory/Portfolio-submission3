@@ -26,7 +26,7 @@ def edit_comment(request, comment_id):
     if edit_comment_form.is_valid():
         edit_comment_form.save()
         messages.success(request, 'コメントを更新しました。')
-        return redirect('boards:list_themes')  # Assuming redirect to a relevant view
+        return redirect('boards:post_comments')  # Assuming redirect to a relevant view
     return render(
         request, 'boards/edit_comment.html', context={
             'edit_comment_form': edit_comment_form,
