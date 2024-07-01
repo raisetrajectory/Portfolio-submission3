@@ -17,8 +17,5 @@ urlpatterns = [
     path('upload_sample/', views.upload_sample, name='upload_sample'),
     path('upload_model_form/', views.upload_model_form, name='upload_model_form'),
 
-    path('edit_comment/<int:id>/', views.edit_theme, name='edit_comment'),
-    path('edit_comment/<int:comment_id>/', views.edit_comment, name='edit_comment'),  # パス名を `edit_comment` に修正
-    path('edit_comment/<int:id>/', views.edit_comment, name='edit_comment'),  # 正しいパスを追加する
     path('comment/<int:comment_id>/edit/', views.edit_comment, name='edit_comment'),
 ]
