@@ -13,6 +13,7 @@
     {% if comment.user == user %}
         <a href="{% url 'boards:comment_delete' comment.pk %}">コメント削除</a>
         <a href="{% url 'boards:edit_comment' comment.pk %}">コメント編集</a>
+        <a href="{% url 'boards:delete_theme' id=theme.id %}">テーマ削除</a>
     {% endif %}
 </div>
 <div class="col-10 offset-1">
