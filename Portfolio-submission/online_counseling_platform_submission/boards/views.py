@@ -11,20 +11,16 @@ import os
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 
-from django.shortcuts import render, get_object_or_404, redirect #不要となった場合は削除して大丈夫です！
-from django.http import Http404 #不要となった場合は削除して大丈夫です！
-from .models import Comments #不要となった場合は削除して大丈夫です！
-from django import forms  # Djangoのフォームモジュールをインポート #不要となった場合は削除して大丈夫です！
-from django.contrib import messages #不要となった場合は削除して大丈夫です！
-
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PostCommentForm
 
-def edit_comment(request, comment_id): #不要となった場合は削除して大丈夫です！
+def edit_comment(request, comment_id):
     comment = get_object_or_404(Comments, id=comment_id)
+
+    # コメントの所有者であるかを確認する
     if request.user != comment.user:
-        # ユーザーがコメントの所有者でない場合はアクセスを拒否する
         raise Http404
+
     if request.method == 'POST':
         form = PostCommentForm(request.POST, instance=comment)
         if form.is_valid():
@@ -33,6 +29,7 @@ def edit_comment(request, comment_id): #不要となった場合は削除して�
             return redirect('boards:post_comments', theme_id=comment.theme.id)
     else:
         form = PostCommentForm(instance=comment)
+
     return render(request, 'boards/edit_comment.html', {'form': form, 'comment': comment})
 
 def create_theme(request):
