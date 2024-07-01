@@ -17,8 +17,8 @@ from .models import Comments #不要となった場合は削除して大丈夫�
 from django import forms  # Djangoのフォームモジュールをインポート #不要となった場合は削除して大丈夫です！
 from django.contrib import messages #不要となった場合は削除して大丈夫です！
 
-from django.shortcuts import render #不要となった場合は削除して大丈夫です！
-from .forms import PostCommentForm  # 正しいフォームをインポートする #不要となった場合は削除して大丈夫です！
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import PostCommentForm
 
 # フォームをビュー内で直接定義 #不要となった場合は削除して大丈夫です！
 class InlineCommentForm(forms.ModelForm):
@@ -26,18 +26,33 @@ class InlineCommentForm(forms.ModelForm):
         model = Comments
         fields = ['comment']  # 正しいフィールド
 
-def edit_comment(request, comment_id): #不要となった場合は削除して大丈夫です！
+# def edit_comment(request, comment_id): #不要となった場合は削除して大丈夫です！
+#     comment = get_object_or_404(Comments, id=comment_id)
+#     if request.user != comment.user:
+#         raise Http404
+#     if request.method == 'POST':
+#         form = InlineCommentForm(request.POST, instance=comment)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, 'コメントを更新しました。')
+#             return redirect('boards:post_comments', theme_id=comment.theme.id)
+#     else:
+#         form = InlineCommentForm(instance=comment)
+#     return render(request, 'boards/edit_comment.html', {'form': form, 'comment': comment})
+
+def edit_comment(request, comment_id):
     comment = get_object_or_404(Comments, id=comment_id)
     if request.user != comment.user:
+        # ユーザーがコメントの所有者でない場合はアクセスを拒否する
         raise Http404
     if request.method == 'POST':
-        form = InlineCommentForm(request.POST, instance=comment)
+        form = PostCommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
             messages.success(request, 'コメントを更新しました。')
             return redirect('boards:post_comments', theme_id=comment.theme.id)
     else:
-        form = InlineCommentForm(instance=comment)
+        form = PostCommentForm(instance=comment)
     return render(request, 'boards/edit_comment.html', {'form': form, 'comment': comment})
 
 def create_theme(request):
