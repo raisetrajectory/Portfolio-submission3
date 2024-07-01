@@ -20,11 +20,11 @@ from django.contrib import messages #不要となった場合は削除して大�
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PostCommentForm
 
-# フォームをビュー内で直接定義 #不要となった場合は削除して大丈夫です！
-class InlineCommentForm(forms.ModelForm):
-    class Meta:
-        model = Comments
-        fields = ['comment']  # 正しいフィールド
+# # フォームをビュー内で直接定義 #不要となった場合は削除して大丈夫です！
+# class InlineCommentForm(forms.ModelForm):
+#     class Meta:
+#         model = Comments
+#         fields = ['comment']  # 正しいフィールド
 
 # def edit_comment(request, comment_id): #不要となった場合は削除して大丈夫です！
 #     comment = get_object_or_404(Comments, id=comment_id)
