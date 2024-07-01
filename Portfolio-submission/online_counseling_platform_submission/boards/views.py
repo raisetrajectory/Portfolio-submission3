@@ -17,26 +17,22 @@ from django.contrib import messages
 from .models import Comments
 from .forms import PostCommentForm
 
-# def edit_comment(request, comment_id):
-#     comment = get_object_or_404(Comments, id=comment_id)
-
-#     # Ensure only the owner of the comment can edit it
-#     if comment.user.id != request.user.id:
-#         raise Http404
-
-#     edit_comment_form = PostCommentForm(request.POST or None, instance=comment)
-
-#     if edit_comment_form.is_valid():
-#         edit_comment_form.save()
-#         messages.success(request, 'コメントを更新しました。')
-#         return redirect('boards:list_themes')  # Assuming redirect to a relevant view
-
-#     return render(
-#         request, 'boards/edit_comment.html', context={
-#             'edit_comment_form': edit_comment_form,
-#             'comment_id': comment_id,
-#         }
-#     )
+def edit_comment(request, comment_id):
+    comment = get_object_or_404(Comments, id=comment_id)
+    # Ensure only the owner of the comment can edit it
+    if comment.user.id != request.user.id:
+        raise Http404
+    edit_comment_form = PostCommentForm(request.POST or None, instance=comment)
+    if edit_comment_form.is_valid():
+        edit_comment_form.save()
+        messages.success(request, 'コメントを更新しました。')
+        return redirect('boards:list_themes')  # Assuming redirect to a relevant view
+    return render(
+        request, 'boards/edit_comment.html', context={
+            'edit_comment_form': edit_comment_form,
+            'comment_id': comment_id,
+        }
+    )
 
 def create_theme(request):
         create_theme_form = forms.CreateThemeForm(request.POST or None) # type: ignore
