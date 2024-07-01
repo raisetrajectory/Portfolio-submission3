@@ -47,7 +47,7 @@ def edit_comment(request, comment_id):
 #     return render(
 #         request, 'boards/edit_comment.html', context={
 #             'edit_comment_form': edit_comment_form,
-#             'comment_id': comment_id,
+#             'id': id,
 #         }
 #     )
 
