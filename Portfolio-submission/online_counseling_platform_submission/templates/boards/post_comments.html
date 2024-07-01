@@ -13,6 +13,7 @@
     {% if comment.user == user %}
         <a href="{% url 'boards:comment_delete' comment.pk %}">コメント削除</a>
         {% comment %} <a href="{% url 'boards:comment_delete' comment.pk %}">コメント編集</a> {% endcomment %}
+        <a href="{% url 'boards:edit_comment' comment.pk %}">コメント編集</a>  <!-- 編集リンクを追加 -->
     {% endif %}
 </div>
 <div class="col-10 offset-1">
