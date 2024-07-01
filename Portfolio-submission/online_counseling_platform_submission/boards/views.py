@@ -27,7 +27,6 @@ def edit_comment(request, comment_id): #記載内容のバックアップです�
             return redirect('boards:post_comments', theme_id=comment.theme.id)
     else:
         form = PostCommentForm(instance=comment)
-
     return render(request, 'boards/edit_comment.html', {'form': form, 'comment': comment})
 
 # def edit_comment(request, comment_id):
