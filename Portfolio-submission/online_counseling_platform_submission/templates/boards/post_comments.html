@@ -12,7 +12,7 @@
     <p>{{ comment.comment | linebreaks }}</p>
     {% if comment.user == user %}
         <a href="{% url 'boards:comment_delete' comment.pk %}">コメント削除</a>
-        <a href="{% url 'boards:comment_delete' comment.pk %}">コメント編集</a>
+        <a href="{% url 'boards:comment_edit' comment.pk %}">コメント編集</a>
     {% endif %}
 </div>
 <div class="col-10 offset-1">
