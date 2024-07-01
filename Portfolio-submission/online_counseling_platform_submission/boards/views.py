@@ -17,6 +17,9 @@ from .models import Comments
 from django import forms  # Djangoのフォームモジュールをインポート
 from django.contrib import messages
 
+from django.shortcuts import render
+from .forms import PostCommentForm  # 正しいフォームをインポートする
+
 # フォームをビュー内で直接定義
 class InlineCommentForm(forms.ModelForm):
     class Meta:
