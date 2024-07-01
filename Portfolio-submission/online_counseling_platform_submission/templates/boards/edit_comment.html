@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h3>チャット編集画面</h3>
+<h3>コメント編集画面</h3>
 <form method="POST">
 {% csrf_token %}
 {{ edit_comment_form.as_p }}
