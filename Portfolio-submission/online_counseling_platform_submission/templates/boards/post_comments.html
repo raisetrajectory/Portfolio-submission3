@@ -16,7 +16,6 @@
         {% comment %} <a href="{% url 'boards:comment_edit' comment.pk %}">コメント削除</a> {% endcomment %}
         {% comment %} <a href="{% url 'boards:edit_comment' comment.pk %}">コメント編集</a>  <!-- 修正済みのパスを使用 --> {% endcomment %}
         <a href="{% url 'boards:delete_theme' id=theme.id %}">テーマ削除</a>
-        <a href="{% url 'boards:delete_theme' id=comment_id %}">テーマ削除</a>
     {% endif %}
 </div>
 <div class="col-10 offset-1">
