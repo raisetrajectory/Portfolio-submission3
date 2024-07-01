@@ -19,4 +19,5 @@ urlpatterns = [
 
     path('edit_comment/<int:id>/', views.edit_theme, name='edit_comment'),
     path('edit_comment/<int:comment_id>/', views.edit_comment, name='edit_comment'),  # パス名を `edit_comment` に修正
+    path('edit_comment/<int:id>/', views.edit_comment, name='edit_comment'),  # 正しいパスを追加する
 ]
