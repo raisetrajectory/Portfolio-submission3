@@ -39,7 +39,7 @@ def create_theme(request):
         if create_theme_form.is_valid():
             create_theme_form.instance.user = request.user
             create_theme_form.save()
-            messages.success(request, '掲示板を作成しました。')
+            messages.success(request, 'チャット画面を作成しました。')
             return redirect('boards:list_themes')
         return render(
         request, 'boards/create_theme.html', context={
@@ -78,7 +78,7 @@ def delete_theme(request, id):
     delete_theme_form = forms.DeleteThemeForm(request.POST or None) # type: ignore
     if delete_theme_form.is_valid(): # csrf check
         theme.delete()
-        messages.success(request, '掲示板を削除しました。')
+        messages.success(request, 'チャット画面を削除しました。')
         return redirect('boards:list_themes')
     return render(
         request, 'boards/delete_theme.html', context={
