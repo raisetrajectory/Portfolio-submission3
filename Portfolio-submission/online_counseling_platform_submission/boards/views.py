@@ -14,10 +14,28 @@ from django.conf import settings
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PostCommentForm
 
+# def edit_comment(request, comment_id):
+#     comment = get_object_or_404(Comments, id=comment_id)
+
+#     # コメントの所有者であるかを確認する
+#     if request.user != comment.user:
+#         raise Http404
+
+#     if request.method == 'POST':
+#         form = PostCommentForm(request.POST, instance=comment)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, 'コメントを更新しました。')
+#             return redirect('boards:post_comments', theme_id=comment.theme.id)
+#     else:
+#         form = PostCommentForm(instance=comment)
+
+#     return render(request, 'boards/edit_comment.html', {'form': form, 'comment': comment})
+
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comments, id=comment_id)
 
-    # コメントの所有者であるかを確認する
+    # ユーザーがコメントの所有者でない場合はアクセスを拒否する
     if request.user != comment.user:
         raise Http404
 
