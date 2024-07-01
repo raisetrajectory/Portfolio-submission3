@@ -12,6 +12,9 @@ from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import Http404
+from django.contrib import messages
+from .models import Comments
 from .forms import PostCommentForm
 
 # def edit_comment(request, comment_id): #記載内容のバックアップです！
