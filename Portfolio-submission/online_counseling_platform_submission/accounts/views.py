@@ -60,12 +60,17 @@ def user_login(request):
         }
     )
 
+# @login_required # type: ignore
+# def user_logout(request):
+#     logout(request)
+#     messages.success(request, 'ログアウトしました')
+#     return redirect('accounts:home')
 
-@login_required # type: ignore
+@login_required
 def user_logout(request):
     logout(request)
     messages.success(request, 'ログアウトしました')
-    return redirect('accounts:home')
+    return redirect('accounts:user_login')
 
 @login_required # type: ignore
 def user_edit(request):
