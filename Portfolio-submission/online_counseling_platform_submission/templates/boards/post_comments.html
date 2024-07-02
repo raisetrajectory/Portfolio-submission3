@@ -34,7 +34,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column align-items-end">
     <a class="btn btn-primary mb-2" href="{% url 'accounts:home' %}">メインメニューへ</a>
     <a class="btn btn-primary mb-2" href="{% url 'accounts:home' %}">相談を終了する</a>
-    <a class="btn btn-primary mb-2" href="{% url 'accounts:home' %}">相談を終了する</a>
+
+    <a class="btn btn-primary mb-2" href="{% url 'boards:delete_theme' id=theme.id %}">相談を終了する</a>
     <a href="{% url 'boards:delete_theme' id=theme.id %}">相談を終了する</a>
 </nav>
 
