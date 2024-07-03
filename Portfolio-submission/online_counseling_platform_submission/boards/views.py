@@ -112,8 +112,8 @@ def post_comments(request, theme_id):
     theme = get_object_or_404(Themes, id=theme_id)
 
     # Ensure only the creator of the theme can access this view
-    if theme.user.id != request.user.id:
-        raise Http404
+    if theme.user != request.user:
+        raise Http404("You do not have permission to view this page.")
 
     # Retrieve saved comment from cache if exists
     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
