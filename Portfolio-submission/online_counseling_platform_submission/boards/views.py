@@ -55,7 +55,7 @@ def list_themes(request):
         }
     )
 
-def edit_theme(request, id):
+def edit_theme(request, id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
     theme = get_object_or_404(Themes, id=id)
     if theme.user.id != request.user.id:
         raise Http404
@@ -71,7 +71,7 @@ def edit_theme(request, id):
         }
     )
 
-def delete_theme(request, id):
+def delete_theme(request, id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
     theme = get_object_or_404(Themes, id=id)
     if theme.user.id != request.user.id:
         raise Http404
