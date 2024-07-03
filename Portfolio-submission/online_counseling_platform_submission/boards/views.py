@@ -73,7 +73,7 @@ def list_themes(request):
 
 def edit_theme(request, id):
     theme = get_object_or_404(Themes, id=id)
-    if theme.user != request.user:  # チャット画面の作成者とログインユーザーを比較
+    if theme.user != request.user:
         raise Http404
     edit_theme_form = forms.CreateThemeForm(request.POST or None, instance=theme)
     if edit_theme_form.is_valid():
@@ -104,10 +104,10 @@ def edit_theme(request, id):
 
 def delete_theme(request, id):
     theme = get_object_or_404(Themes, id=id)
-    if theme.user != request.user:  # チャット画面の作成者とログインユーザーを比較
+    if theme.user != request.user:
         raise Http404
     delete_theme_form = forms.DeleteThemeForm(request.POST or None)
-    if delete_theme_form.is_valid():  # csrf check
+    if delete_theme_form.is_valid():
         theme.delete()
         messages.success(request, 'チャット画面を削除しました。')
         return redirect('boards:list_themes')
@@ -116,6 +116,7 @@ def delete_theme(request, id):
             'delete_theme_form': delete_theme_form,
         }
     )
+
 
 # def post_comments(request, theme_id): #記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
 #     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
@@ -144,7 +145,7 @@ def post_comments(request, theme_id):
     theme = get_object_or_404(Themes, id=theme_id)
     comments = Comments.objects.fetch_by_theme_id(theme_id) # type: ignore
     if post_comment_form.is_valid():
-        if not request.user.is_authenticated:
+        if not request.user.is_authenticated or theme.user != request.user:
             raise Http404
         post_comment_form.instance.theme = theme
         post_comment_form.instance.user = request.user
