@@ -91,11 +91,6 @@ def post_comments(request, theme_id):
     post_comment_form = forms.PostCommentForm(request.POST or None, initial={'comment': saved_comment})     # type: ignore
     theme = get_object_or_404(Themes, id=theme_id)
     comments = Comments.objects.fetch_by_theme_id(theme_id) # type: ignore
-
-    # 作成者確認を追加
-    if theme.user.id != request.user.id:
-        raise Http404
-
     if post_comment_form.is_valid():
         if not request.user.is_authenticated:
             raise Http404
