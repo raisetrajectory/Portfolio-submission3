@@ -19,8 +19,10 @@ from .forms import PostCommentForm
 
 from django.contrib.auth.decorators import login_required
 
+@login_required
 def counselor_list(request):
-    counselors = Counselors.objects.all()
+    # ログインしているユーザーが契約しているカウンセラーを取得する例（具体的なモデルとフィールド名は適宜修正してください）
+    counselors = Counselors.objects.filter(user=request.user)
     return render(request, 'boards/counselor_list.html', {'counselors': counselors})
 
 # def counselor_list(request):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
