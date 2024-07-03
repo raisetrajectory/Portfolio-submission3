@@ -55,27 +55,11 @@ def list_themes(request):
         }
     )
 
-# def edit_theme(request, id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
-#     theme = get_object_or_404(Themes, id=id)
-#     if theme.user.id != request.user.id:
-#         raise Http404
-#     edit_theme_form = forms.CreateThemeForm(request.POST or None, instance=theme) # type: ignore
-#     if edit_theme_form.is_valid():
-#         edit_theme_form.save()
-#         messages.success(request, 'チャット画面を更新しました。')
-#         return redirect('boards:list_themes')
-#     return render(
-#         request, 'boards/edit_theme.html', context={
-#             'edit_theme_form': edit_theme_form,
-#             'id': id,
-#         }
-#     )
-
-def edit_theme(request, id):
+def edit_theme(request, id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
     theme = get_object_or_404(Themes, id=id)
-    if theme.user != request.user:
+    if theme.user.id != request.user.id:
         raise Http404
-    edit_theme_form = forms.CreateThemeForm(request.POST or None, instance=theme)
+    edit_theme_form = forms.CreateThemeForm(request.POST or None, instance=theme) # type: ignore
     if edit_theme_form.is_valid():
         edit_theme_form.save()
         messages.success(request, 'チャット画面を更新しました。')
@@ -87,27 +71,12 @@ def edit_theme(request, id):
         }
     )
 
-# def delete_theme(request, id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
-#     theme = get_object_or_404(Themes, id=id)
-#     if theme.user.id != request.user.id:
-#         raise Http404
-#     delete_theme_form = forms.DeleteThemeForm(request.POST or None) # type: ignore
-#     if delete_theme_form.is_valid(): # csrf check
-#         theme.delete()
-#         messages.success(request, 'チャット画面を削除しました。')
-#         return redirect('boards:list_themes')
-#     return render(
-#         request, 'boards/delete_theme.html', context={
-#             'delete_theme_form': delete_theme_form,
-#         }
-#     )
-
-def delete_theme(request, id):
+def delete_theme(request, id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
     theme = get_object_or_404(Themes, id=id)
-    if theme.user != request.user:
+    if theme.user.id != request.user.id:
         raise Http404
-    delete_theme_form = forms.DeleteThemeForm(request.POST or None)
-    if delete_theme_form.is_valid():
+    delete_theme_form = forms.DeleteThemeForm(request.POST or None) # type: ignore
+    if delete_theme_form.is_valid(): # csrf check
         theme.delete()
         messages.success(request, 'チャット画面を削除しました。')
         return redirect('boards:list_themes')
@@ -117,41 +86,19 @@ def delete_theme(request, id):
         }
     )
 
-
-# def post_comments(request, theme_id): #記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
-#     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
-#     post_comment_form = forms.PostCommentForm(request.POST or None, initial={'comment': saved_comment})     # type: ignore
-#     theme = get_object_or_404(Themes, id=theme_id)
-#     comments = Comments.objects.fetch_by_theme_id(theme_id) # type: ignore
-#     if post_comment_form.is_valid():
-#         if not request.user.is_authenticated:
-#             raise Http404
-#         post_comment_form.instance.theme = theme
-#         post_comment_form.instance.user = request.user
-#         post_comment_form.save()
-#         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')
-#         return redirect('boards:post_comments', theme_id= theme_id)
-#     return render(
-#         request, 'boards/post_comments.html', context={
-#             'post_comment_form': post_comment_form,
-#             'theme': theme,
-#             'comments': comments,
-#         }
-#     )
-
-def post_comments(request, theme_id):
+def post_comments(request, theme_id): #記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
-    post_comment_form = forms.PostCommentForm(request.POST or None, initial={'comment': saved_comment})
+    post_comment_form = forms.PostCommentForm(request.POST or None, initial={'comment': saved_comment})     # type: ignore
     theme = get_object_or_404(Themes, id=theme_id)
     comments = Comments.objects.fetch_by_theme_id(theme_id) # type: ignore
     if post_comment_form.is_valid():
-        if not request.user.is_authenticated or theme.user != request.user:
+        if not request.user.is_authenticated:
             raise Http404
         post_comment_form.instance.theme = theme
         post_comment_form.instance.user = request.user
         post_comment_form.save()
         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')
-        return redirect('boards:post_comments', theme_id=theme_id)
+        return redirect('boards:post_comments', theme_id= theme_id)
     return render(
         request, 'boards/post_comments.html', context={
             'post_comment_form': post_comment_form,
