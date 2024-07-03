@@ -60,7 +60,7 @@ def user_login(request):
         }
     )
 
-# @login_required # type: ignore
+# @login_required # type: ignore #記載内容のバックアップです。
 # def user_logout(request):
 #     logout(request)
 #     messages.success(request, 'ログアウトしました')
