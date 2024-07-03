@@ -86,19 +86,57 @@ def delete_theme(request, id):
         }
     )
 
-def post_comments(request, theme_id): #記載内容のバックアップです！
-    saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
-    post_comment_form = forms.PostCommentForm(request.POST or None, initial={'comment': saved_comment})     # type: ignore
+# def post_comments(request, theme_id): #記載内容のバックアップです！
+#     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
+#     post_comment_form = forms.PostCommentForm(request.POST or None, initial={'comment': saved_comment})     # type: ignore
+#     theme = get_object_or_404(Themes, id=theme_id)
+#     comments = Comments.objects.fetch_by_theme_id(theme_id) # type: ignore
+#     if post_comment_form.is_valid():
+#         if not request.user.is_authenticated:
+#             raise Http404
+#         post_comment_form.instance.theme = theme
+#         post_comment_form.instance.user = request.user
+#         post_comment_form.save()
+#         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')
+#         return redirect('boards:post_comments', theme_id= theme_id)
+#     return render(
+#         request, 'boards/post_comments.html', context={
+#             'post_comment_form': post_comment_form,
+#             'theme': theme,
+#             'comments': comments,
+#         }
+#     )
+
+def post_comments(request, theme_id):
+    # Get the theme object, or raise a 404 error if it does not exist
     theme = get_object_or_404(Themes, id=theme_id)
+
+    # Ensure only the creator of the theme can access this view
+    if theme.user.id != request.user.id:
+        raise Http404
+
+    # Retrieve saved comment from cache if exists
+    saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
+
+    # Initialize the comment form with saved comment if available
+    post_comment_form = forms.PostCommentForm(request.POST or None, initial={'comment': saved_comment})     # type: ignore
+
+    # Retrieve comments associated with the theme
     comments = Comments.objects.fetch_by_theme_id(theme_id) # type: ignore
+
+    # If the form is valid, save the comment and redirect
     if post_comment_form.is_valid():
         if not request.user.is_authenticated:
             raise Http404
         post_comment_form.instance.theme = theme
         post_comment_form.instance.user = request.user
         post_comment_form.save()
+
+        # Delete the saved comment from cache after saving
         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')
         return redirect('boards:post_comments', theme_id= theme_id)
+
+    # Render the post comments page with the form, theme, and comments
     return render(
         request, 'boards/post_comments.html', context={
             'post_comment_form': post_comment_form,
@@ -106,6 +144,7 @@ def post_comments(request, theme_id): #記載内容のバックアップです�
             'comments': comments,
         }
     )
+
 
 def save_comment(request):
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
