@@ -17,6 +17,10 @@ from django.contrib import messages
 from .models import Comments
 from .forms import PostCommentForm
 
+def counselor_list(request):
+    counselors = Counselors.objects.all()
+    return render(request, 'boards/counselor_list.html', {'counselors': counselors})
+
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comments, id=comment_id)
     # Ensure only the owner of the comment can edit it
@@ -116,9 +120,9 @@ def save_comment(request):
             return JsonResponse({'message': '一時保存しました！'})
     return JsonResponse({'message': 'エラーが発生しました。'})
 
-def counselor_list(request):
-    counselors = Counselors.objects.all()
-    return render(request, 'boards/counselor_list.html', {'counselors': counselors})
+# def counselor_list(request):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
+#     counselors = Counselors.objects.all()
+#     return render(request, 'boards/counselor_list.html', {'counselors': counselors})
 
 def counselor_profile(request):
     counselors = Counselors.objects.all()
