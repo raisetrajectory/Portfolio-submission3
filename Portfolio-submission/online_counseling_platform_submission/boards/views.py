@@ -46,7 +46,7 @@ def edit_comment(request, comment_id):
         }
     )
 
-def create_theme(request):
+def create_theme(request):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
         create_theme_form = forms.CreateThemeForm(request.POST or None) # type: ignore
         if create_theme_form.is_valid():
             create_theme_form.instance.user = request.user
