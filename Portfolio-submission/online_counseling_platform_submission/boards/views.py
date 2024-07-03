@@ -108,35 +108,35 @@ def delete_theme(request, id):
 #     )
 
 def post_comments(request, theme_id):
-    # キャッシュから保存されたコメントを取得する
+    # ユーザーがログインしているかどうかを確認
+    if not request.user.is_authenticated:
+        raise Http404
+
+    # テーマを取得するか、存在しない場合は404エラーを返す
+    theme = get_object_or_404(Themes, id=theme_id)
+
+    # ユーザーがテーマの作成者でない場合は404エラーを返す
+    if theme.user != request.user:
+        raise Http404
+
+    # 保存されたコメントをキャッシュから取得
     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
 
-    # コメントフォームを初期化し、保存されたコメントがあればそれを初期値として設定する
+    # ポストコメントフォームを初期化し、保存されたコメントがあれば初期値としてセットする
     post_comment_form = forms.PostCommentForm(request.POST or None, initial={'comment': saved_comment})
-
-    # テーマオブジェクトを取得する。存在しない場合は404エラーを返す
-    theme = get_object_or_404(Themes, id=theme_id)
 
     # テーマに関連するコメントを取得する
     comments = Comments.objects.fetch_by_theme_id(theme_id) # type: ignore
 
-    # コメントフォームが有効であれば、コメントを保存してリダイレクトする
+    # フォームが有効であればコメントを保存しリダイレクトする
     if post_comment_form.is_valid():
-        if not request.user.is_authenticated:
-            raise Http404
-
-        # フォームにテーマとユーザーを関連付けて保存する
         post_comment_form.instance.theme = theme
         post_comment_form.instance.user = request.user
         post_comment_form.save()
-
-        # コメントが保存されたら、保存されたコメントをキャッシュから削除する
         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')
-
-        # チャット画面にリダイレクトする
         return redirect('boards:post_comments', theme_id=theme_id)
 
-    # テンプレートにコメントフォーム、テーマ、コメントを渡してレンダリングする
+    # ポストコメントページをレンダリングする
     return render(
         request, 'boards/post_comments.html', context={
             'post_comment_form': post_comment_form,
