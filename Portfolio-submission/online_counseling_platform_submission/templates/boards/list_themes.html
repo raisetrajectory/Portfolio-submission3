@@ -28,9 +28,9 @@
         </td>
         <td>
             {% if theme.user.id == user.id %}
-                <a href="{% url 'boards:edit_theme' id=theme.id %}">{{ theme.user }}</a>
+                <a href="{% url 'boards:edit_theme' id=theme.id %}">{{ theme.user.username }}</a>
             {% else %}
-                {{ theme.user }}
+                {{ theme.user.username }}
             {% endif %}
         </td>
     </tr>
@@ -38,3 +38,4 @@
     </tbody>
 </table>
 {% endblock %}
+
