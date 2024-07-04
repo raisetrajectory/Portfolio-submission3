@@ -19,11 +19,26 @@ from .forms import PostCommentForm
 
 from django.contrib.auth.decorators import login_required
 
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from .models import Counselors
+
 @login_required
 def counselor_list(request):
-    # ログインしているユーザーが契約しているカウンセラーを取得する例（具体的なモデルとフィールド名は適宜修正してください）
-    counselors = Counselors.objects.filter(user=request.user)
-    return render(request, 'boards/counselor_list.html', {'counselors': counselors})
+    user = request.user
+    counselors = Counselors.objects.all()
+
+    context = {
+        'counselors': counselors,
+        'current_user_email': user.email,  # ログインユーザーのメールアドレスをコンテキストに追加
+    }
+    return render(request, 'boards/counselor_list.html', context)
+
+# @login_required
+# def counselor_list(request):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
+#     # ログインしているユーザーが契約しているカウンセラーを取得する例（具体的なモデルとフィールド名は適宜修正してください）
+#     counselors = Counselors.objects.filter(user=request.user)
+#     return render(request, 'boards/counselor_list.html', {'counselors': counselors})
 
 # def counselor_list(request):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
 #     counselors = Counselors.objects.all()
