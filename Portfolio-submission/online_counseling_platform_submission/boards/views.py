@@ -67,7 +67,7 @@ def create_theme(request):#記載内容のバックアップです！　この�
 #         }
 #     )
 
-def list_themes(request):
+def list_themes(request):#修正完了です！デプロイサイトに記載しましょう！
     themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
     return render(
         request, 'boards/list_themes.html', context={
