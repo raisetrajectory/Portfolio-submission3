@@ -59,13 +59,22 @@ def create_theme(request):#記載内容のバックアップです！　この�
         }
     )
 
-def list_themes(request):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
-    themes = Themes.objects.fetch_all_themes() # type: ignore
+# def list_themes(request):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
+#     themes = Themes.objects.fetch_all_themes() # type: ignore
+#     return render(
+#         request, 'boards/list_themes.html', context={
+#             'themes': themes
+#         }
+#     )
+
+def list_themes(request):
+    themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
     return render(
         request, 'boards/list_themes.html', context={
             'themes': themes
         }
     )
+
 
 def edit_theme(request, id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
     theme = get_object_or_404(Themes, id=id)
