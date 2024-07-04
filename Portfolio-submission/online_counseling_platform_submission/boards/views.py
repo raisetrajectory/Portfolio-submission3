@@ -59,7 +59,7 @@ def create_theme(request):#記載内容のバックアップです！　この�
         }
     )
 
-def list_themes(request):
+def list_themes(request):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
     themes = Themes.objects.fetch_all_themes() # type: ignore
     return render(
         request, 'boards/list_themes.html', context={
