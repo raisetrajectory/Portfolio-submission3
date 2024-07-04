@@ -11,13 +11,12 @@
     <h1>カウンセラー一覧画面</h1>
 </div>
 
-{% for counselor in counselors %}
 <div class="counselor-container">
     <div class="image-container">
-        <img src="{{ counselor.picture.url }}" alt="" width="300" height="300">
+        <img src="{% static 'images/smple5-img.jpg' %}" alt="" width="300" height="300">
     </div>
     <div class="info-block">
-        <h2>名前: {{ counselor.name }}</h2>
+        <h2>名前: カウンセラー01</h2>
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     {% if user.is_authenticated %}
@@ -26,7 +25,21 @@
     {% endif %}
     </nav>
 </div>
-{% endfor %}
+
+<div class="counselor-container">
+    <div class="image-container">
+        <img src="{% static 'images/smple6-img.jpg' %}" alt="" width="300" height="300">
+    </div>
+    <div class="info-block">
+        <h2>名前: カウンセラー02</h2>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    {% if user.is_authenticated %}
+    <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
+    {% else %}
+    {% endif %}
+    </nav>
+</div>
 
 {% block extra_styles %}
 <style>
