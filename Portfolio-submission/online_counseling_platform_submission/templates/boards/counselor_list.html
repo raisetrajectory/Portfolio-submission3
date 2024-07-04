@@ -20,8 +20,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     {% if user.is_authenticated %}
-    <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット画面一覧へ</a>
-    <a class="navbar-brand" href="{% url 'boards:create_theme' %}">チャット制作画面へ</a>
+    <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
     {% else %}
     {% endif %}
     </nav>
@@ -36,8 +35,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     {% if user.is_authenticated %}
-    <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット画面一覧へ</a>
-    <a class="navbar-brand" href="{% url 'boards:create_theme' %}">チャット制作画面へ</a>
+    <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
     {% else %}
     {% endif %}
     </nav>
