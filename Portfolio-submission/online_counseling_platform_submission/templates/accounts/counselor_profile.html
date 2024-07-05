@@ -11,7 +11,7 @@
         <h1>プロフィール画面</h1>
     </div>
 
-    <ul style="list-style-type: none; margin: 0; padding: 0;">  <!-- リストのマーカーを無効化、マージンとパディングをリセット -->
+    <ul style="list-style-type: none;">  <!-- リストのマーカーを無効化 -->
         <div class="counselor-container">
             <div class="image-container">
                 <form method="POST" enctype="multipart/form-data">
@@ -37,7 +37,7 @@
 
     <!-- カウンセラーリストを追加 -->
     <div class="counselor-list">
-        <ul style="list-style-type: none; display: flex; flex-direction: column; align-items: center; margin: 0; padding: 0;"> <!-- リストのマーカーを無効化、縦方向に配置、中央揃え、マージンとパディングをリセット -->
+        <ul style="list-style-type: none; display: flex; flex-direction: column; align-items: center;"> <!-- リストのマーカーを無効化、縦方向に配置、中央揃え -->
             <li class="counselor-item">
                 <div class="counselor-card">
                     <div class="image-container">
@@ -91,7 +91,7 @@
             padding: 10px;
             background-color: #e0e0e0; /* 背景色を設定 */
             box-sizing: border-box; /* 枠線とパディングを含めてボックスサイズを計算 */
-            margin-bottom: 10px; /* カード間の余白を追加 */
+            margin-bottom: 0; /* カード間の余白をなくす */
         }
         .counselor-card {
             display: flex;
