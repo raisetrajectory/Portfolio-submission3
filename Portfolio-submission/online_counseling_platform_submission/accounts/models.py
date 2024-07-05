@@ -75,14 +75,26 @@ def publish_token(sender, instance, **kwargs):
 #     class Meta:
 #         db_table = 'counselors'
 
-class CounselorActivateTokensManager(models.Manager):
+# class CounselorActivateTokensManager(models.Manager):
 
-    def activate_counselor_by_token(self, token):
-        counselor_activate_token = self.filter(
-            token=token,
-            expired_at__gte=datetime.now()
-        ).first()
-        if counselor_activate_token:
-            counselor = counselor_activate_token.counselor
-            counselor.is_active = True
-            counselor.save()
+#     def activate_counselor_by_token(self, token):
+#         counselor_activate_token = self.filter(
+#             token=token,
+#             expired_at__gte=datetime.now()
+#         ).first()
+#         if counselor_activate_token:
+#             counselor = counselor_activate_token.counselor
+#             counselor.is_active = True
+#             counselor.save()
+
+# class CounselorActivateTokens(models.Model):
+#     token = models.UUIDField(db_index=True)
+#     expired_at = models.DateTimeField()
+#     counselor = models.ForeignKey(
+#         'Counselors', on_delete=models.CASCADE
+#     )
+
+#     objects = CounselorActivateTokensManager() # type: ignore
+
+#     class Meta:
+#         db_table = 'counselor_activate_tokens'
