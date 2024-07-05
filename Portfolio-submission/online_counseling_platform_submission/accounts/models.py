@@ -57,3 +57,32 @@ def publish_token(sender, instance, **kwargs):
     )
     # メールでURLを送る方がよい
     print(f'http://127.0.0.1:8000/accounts/activate_user/{user_activate_token.token}')
+
+# class Counselors(AbstractBaseUser, PermissionsMixin):
+#     counselorname = models.CharField(max_length=255)
+#     age = models.PositiveIntegerField()
+#     email = models.EmailField(max_length=255, unique=True)
+#     is_active = models.BooleanField(default=False)
+#     is_staff = models.BooleanField(default=False)
+#     picture = models.FileField(null=True, upload_to='picture/')
+#     users = models.ForeignKey('Users', on_delete=models.CASCADE)  # 外部キーを追加
+
+#     objects = CounselorManager()
+
+#     USERNAME_FIELD = 'email'
+#     REQUIRED_FIELDS = ['counselorname']
+
+#     class Meta:
+#         db_table = 'counselors'
+
+class CounselorActivateTokensManager(models.Manager):
+
+    def activate_counselor_by_token(self, token):
+        counselor_activate_token = self.filter(
+            token=token,
+            expired_at__gte=datetime.now()
+        ).first()
+        if counselor_activate_token:
+            counselor = counselor_activate_token.counselor
+            counselor.is_active = True
+            counselor.save()
