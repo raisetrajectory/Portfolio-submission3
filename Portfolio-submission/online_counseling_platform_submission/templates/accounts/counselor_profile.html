@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block content %}
     {% if messages %}
         {% for message in messages %}
@@ -24,7 +25,7 @@
             </div>
         </div>
         <div class="info-block">
-            <li>ユーザー名:{{ user.username }}</li>
+            <li>ユーザー名: {{ user.username }}</li>
         </div>
         <div class="info-block">
             <li>自己紹介: よろしくお願い致します！</li>
