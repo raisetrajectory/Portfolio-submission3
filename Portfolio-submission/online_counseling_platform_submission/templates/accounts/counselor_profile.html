@@ -39,19 +39,21 @@
 <div class="counselor-list">
     <ul style="list-style-type: none;"> <!-- リストのマーカーを無効化 -->
         <li class="counselor-item">
-            <div class="image-container">
-                <img src="{% static 'images/smple5-img.jpg' %}" alt="カウンセラー01" width="100" height="100">
+            <div class="counselor-card">
+                <div class="image-container">
+                    <img src="{% static 'images/smple5-img.jpg' %}" alt="カウンセラー01" width="100" height="100">
+                </div>
+                <div class="counselor-info">
+                    <span>カウンセラー01</span>
+                </div>
             </div>
-            <div class="counselor-info">
-                <span>カウンセラー01</span>
-            </div>
-        </li>
-        <li class="counselor-item">
-            <div class="image-container">
-                <img src="{% static 'images/smple6-img.jpg' %}" alt="カウンセラー02" width="100" height="100">
-            </div>
-            <div class="counselor-info">
-                <span>カウンセラー02</span>
+            <div class="counselor-card">
+                <div class="image-container">
+                    <img src="{% static 'images/smple6-img.jpg' %}" alt="カウンセラー02" width="100" height="100">
+                </div>
+                <div class="counselor-info">
+                    <span>カウンセラー02</span>
+                </div>
             </div>
         </li>
     </ul>
@@ -66,7 +68,7 @@
         height: 100%; /* 必要に応じて高さを調整 */
     }
     .info-block {
-        width: 600px; /* 幅を300ピクセルに設定 */
+        width: 600px; /* 幅を設定 */
         padding: 20px; /* 内側の余白を設定 */
         border: 1px solid #000; /* 枠線を設定 */
         margin: 20px auto; /* ブロックを中央に配置 */
@@ -75,14 +77,31 @@
     }
     .counselor-list {
         margin-top: 40px; /* リストと上部のコンテンツの間に余白を追加 */
+        display: flex;
+        justify-content: center;
     }
     .counselor-item {
-        margin-bottom: 20px;
         display: flex;
+        justify-content: center;
         align-items: center;
+        width: 320px; /* カードを含む正方形の幅 */
+        height: 320px; /* カードを含む正方形の高さ */
+        border: 1px solid #000; /* 枠線を設定 */
+        padding: 10px;
+        background-color: #e0e0e0; /* 背景色を設定 */
+        box-sizing: border-box; /* 枠線とパディングを含めてボックスサイズを計算 */
+    }
+    .counselor-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 10px; /* カード間の余白 */
+        flex: 1; /* 各カードのサイズを均等に設定 */
     }
     .counselor-info {
-        margin-left: 10px;
+        margin-top: 10px;
+        text-align: center;
     }
 </style>
 {% endblock %}
