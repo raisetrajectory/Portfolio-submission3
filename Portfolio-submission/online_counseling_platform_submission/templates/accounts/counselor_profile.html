@@ -11,30 +11,6 @@
         <h1>プロフィール画面</h1>
     </div>
 
-    <ul style="list-style-type: none;">  <!-- リストのマーカーを無効化 -->
-        <div class="counselor-container">
-            <div class="image-container">
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                </form>
-                {% if user %}
-                    <img src="{{ user.picture.url }}" style="width: 300px; height: 300px;">
-                {% endif %}
-            </div>
-        </div>
-        <div class="info-block">
-            <li>ユーザー名: {{ user.username }}</li>
-        </div>
-        <div class="info-block">
-            <li>自己紹介: よろしくお願い致します！</li>
-        </div>
-        <div class="info-block">
-            <li>資格: 臨床心理士</li>
-        </div>
-        <!-- 他のユーザー情報を追加する場合はここに追加 -->
-    </ul>
-
     <!-- カウンセラーリストを追加 -->
     <div class="counselor-list">
         <ul style="list-style-type: none; display: flex; flex-direction: column; align-items: center;"> <!-- リストのマーカーを無効化、縦方向に配置、中央揃え -->
@@ -61,6 +37,30 @@
             </li>
         </ul>
     </div>
+
+    <ul style="list-style-type: none;">  <!-- リストのマーカーを無効化 -->
+        <div class="counselor-container">
+            <div class="image-container">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                </form>
+                {% if user %}
+                    <img src="{{ user.picture.url }}" style="width: 300px; height: 300px;">
+                {% endif %}
+            </div>
+        </div>
+        <div class="info-block">
+            <li>ユーザー名: {{ user.username }}</li>
+        </div>
+        <div class="info-block">
+            <li>自己紹介: よろしくお願い致します！</li>
+        </div>
+        <div class="info-block">
+            <li>資格: 臨床心理士</li>
+        </div>
+        <!-- 他のユーザー情報を追加する場合はここに追加 -->
+    </ul>
 
     {% block extra_styles %}
     <style>
