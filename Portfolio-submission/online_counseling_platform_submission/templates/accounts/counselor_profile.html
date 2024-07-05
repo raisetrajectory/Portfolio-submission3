@@ -17,15 +17,6 @@
             <ul style="list-style-type: none; display: flex; flex-direction: column; align-items: center;"> <!-- リストのマーカーを無効化、縦方向に配置、中央揃え -->
                 <h2 style="text-align: center;">カウンセラー又は利用者名</h2>
                 {% if user.username != "カウンセラー01" and user.username != "カウンセラー02" %}
-                    <li class="counselor-item">
-                        <div class="counselor-card">
-                            <div class="image-container">
-                                <img src="{% static 'images/smple9-img.jpg' %}" alt="利用者" width="100" height="100">
-                            </div>
-                            <div class="counselor-info">
-                                <span>利用者</span>
-                            </div>
-                        </div>
                     </li>
                     <li class="counselor-item">
                             <div class="counselor-card">
@@ -59,16 +50,6 @@
                             </div>
                         </div>
                     </li>
-                        <li class="counselor-item">
-                            <div class="counselor-card">
-                                <div class="image-container">
-                                    <img src="{% static 'images/smple5-img.jpg' %}" alt="カウンセラー01" width="100" height="100">
-                                </div>
-                                <div class="counselor-info">
-                                    <span>カウンセラー01</span>
-                                </div>
-                            </div>
-                        </li>
                     {% endif %}
                     {% if user.username == "カウンセラー02" %}
                     <li class="counselor-item">
@@ -81,16 +62,6 @@
                             </div>
                         </div>
                     </li>
-                        <li class="counselor-item">
-                            <div class="counselor-card">
-                                <div class="image-container">
-                                    <img src="{% static 'images/smple6-img.jpg' %}" alt="カウンセラー02" width="100" height="100">
-                                </div>
-                                <div class="counselor-info">
-                                    <span>カウンセラー02</span>
-                                </div>
-                            </div>
-                        </li>
                     {% endif %}
                 {% endif %}
             </ul>
