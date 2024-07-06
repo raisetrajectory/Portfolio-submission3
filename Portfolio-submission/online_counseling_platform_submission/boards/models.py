@@ -61,12 +61,10 @@ class Counselors(models.Model):
 #     users = models.ManyToManyField(
 #         'accounts.Users',
 #         related_name='counselors'
-#     )
+#     )#一人のカウンセラーが複数のユーザーと関連付けられます。
 
 #     class Meta:
 #         db_table = 'counselors'
-
-
 
 # class CounselorActivateTokensManager(models.Manager):
 
