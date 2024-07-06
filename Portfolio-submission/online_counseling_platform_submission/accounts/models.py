@@ -16,6 +16,7 @@ class Users(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     picture = models.FileField(null=True, upload_to='picture/')
+    # counselors = models.ManyToManyField(Counselor, related_name='users')
 
     objects = UserManager()
 
