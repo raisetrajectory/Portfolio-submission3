@@ -63,38 +63,38 @@ class Counselors(models.Model):
     class Meta:
         db_table = 'counselors'
 
-class CounselorActivateTokensManager(models.Manager):
+# class CounselorActivateTokensManager(models.Manager):
 
-    def activate_counselor_by_token(self, token):
-        counselor_activate_token = self.filter( # type: ignore
-            token=token,
-            expired_at__gte=datetime.now()
-        ).first()
-        counselor = counselor_activate_token.user # type: ignore
-        counselor.is_active =True
-        counselor.save()
+#     def activate_counselor_by_token(self, token):
+#         counselor_activate_token = self.filter( # type: ignore
+#             token=token,
+#             expired_at__gte=datetime.now()
+#         ).first()
+#         counselor = counselor_activate_token.user # type: ignore
+#         counselor.is_active =True
+#         counselor.save()
 
-class CounselorActivateTokens(models.Model):
-    token = models.UUIDField(db_index=True)
-    expired_at = models.DateTimeField()
-    counselor = models.ForeignKey(
-        'Counselors', on_delete=models.CASCADE
-    )
+# class CounselorActivateTokens(models.Model):
+#     token = models.UUIDField(db_index=True)
+#     expired_at = models.DateTimeField()
+#     counselor = models.ForeignKey(
+#         'Counselors', on_delete=models.CASCADE
+#     )
 
-    objects = CounselorActivateTokensManager() # type: ignore
+#     objects = CounselorActivateTokensManager() # type: ignore
 
-    class Meta:
-        db_table = 'counselor_activate_tokens'
+#     class Meta:
+#         db_table = 'counselor_activate_tokens'
 
-@receiver(post_save, sender=Counselors)
-def publish_token(sender, instance, **kwargs):
-    print(str(uuid4()))
-    print(datetime.now() + timedelta(days=1))
-    counselor_activate_token = CounselorActivateTokens.objects.create(
-        counselor=instance, token=str(uuid4()), expired_at=datetime.now() + timedelta(days=1)
-    )
-    # メールでURLを送る方がよい
-    print(f'http://127.0.0.1:8000/accounts/activate_counselor/{counselor_activate_token.token}')
+# @receiver(post_save, sender=Counselors)
+# def publish_token(sender, instance, **kwargs):
+#     print(str(uuid4()))
+#     print(datetime.now() + timedelta(days=1))
+#     counselor_activate_token = CounselorActivateTokens.objects.create(
+#         counselor=instance, token=str(uuid4()), expired_at=datetime.now() + timedelta(days=1)
+#     )
+#     # メールでURLを送る方がよい
+#     print(f'http://127.0.0.1:8000/accounts/activate_counselor/{counselor_activate_token.token}')
 
 
 class User(models.Model):
