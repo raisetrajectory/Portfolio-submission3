@@ -66,7 +66,7 @@ class Counselors(models.Model):
     users = models.ManyToManyField('accounts.Users',related_name='counselors')#一人のカウンセラーが複数のユーザーと関連付けられます。
 
     objects = CounselorManager()  # カスタムマネージャーを指定する
-    objects = UserManager()
+    # objects = UserManager()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['counselorname']
