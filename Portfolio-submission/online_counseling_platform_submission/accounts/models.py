@@ -19,7 +19,7 @@ from django.contrib.auth.models import UserManager
 #     objects = models.Manager()
 #     objects = UserManager()
 
-#     USERNAME_FIELD = 'email'
+#     COUNSELORNAME_FIELD = 'email'
 #     REQUIRED_FIELDS = ['counselorname']
 
 #     class Meta:
