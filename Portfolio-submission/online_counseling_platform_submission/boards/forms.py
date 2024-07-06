@@ -35,27 +35,37 @@ class UserForm(forms.ModelForm):
 from .models import Counselors
 from django.contrib.auth.password_validation import validate_password
 
-class RegistForm(forms.ModelForm):
-    username = forms.CharField(label='名前')
-    age = forms.IntegerField(label='年齢', min_value=0)
-    email = forms.EmailField(label='メールアドレス')
-    password = forms.CharField(label='パスワード', widget=forms.PasswordInput())
-    confirm_password = forms.CharField(label='パスワード再入力', widget=forms.PasswordInput())
+# class RegistForm(forms.ModelForm):
+#     counselorname = forms.CharField(label='名前')
+#     age = forms.IntegerField(label='年齢', min_value=0)
+#     email = forms.EmailField(label='メールアドレス')
+#     password = forms.CharField(label='パスワード', widget=forms.PasswordInput())
+#     confirm_password = forms.CharField(label='パスワード再入力', widget=forms.PasswordInput())
 
-    class Meta():
-        model = Counselors
-        fields = ('username', 'age', 'email', 'password')
+#     class Meta():
+#         model = Counselors
+#         fields = ('username', 'age', 'email', 'password')
 
-    def clean(self):
-        cleaned_data = super().clean()
-        password = cleaned_data['password']
-        confirm_password = cleaned_data['confirm_password']
-        if password != confirm_password:
-            raise forms.ValidationError('パスワードが異なります')
+#     def clean(self):
+#         cleaned_data = super().clean()
+#         password = cleaned_data['password']
+#         confirm_password = cleaned_data['confirm_password']
+#         if password != confirm_password:
+#             raise forms.ValidationError('パスワードが異なります')
 
-    def save(self, commit=False):
-        counselor =super().save(commit=False)
-        validate_password(self.cleaned_data['password'], counselor)
-        counselor.set_password(self.cleaned_data['password'])
-        counselor.save()
-        return counselor
+#     def save(self, commit=False):
+#         counselor =super().save(commit=False)
+#         validate_password(self.cleaned_data['password'], counselor)
+#         counselor.set_password(self.cleaned_data['password'])
+#         counselor.save()
+#         return counselor
+
+# class CounselorEditForm(forms.ModelForm):
+#     username = forms.CharField(label='ユーザーネーム')
+#     age = forms.IntegerField(label='年齢', min_value=0)
+#     email = forms.EmailField(label='メールアドレス')
+#     picture = forms.FileField(label='写真', required=False)
+
+#     class Meta:
+#         model = Counselors
+#         fields = ('username', 'age', 'email', 'picture')
