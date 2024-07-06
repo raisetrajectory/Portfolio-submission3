@@ -78,19 +78,19 @@ class Counselors(models.Model):
 class CounselorActivateTokensManager(models.Manager):
 
     def activate_Counselor_by_token(self, token):
-        Counselor_activate_token = self.filter( # type: ignore
+        counselor_activate_token = self.filter( # type: ignore
             token=token,
             expired_at__gte=datetime.now()
         ).first()
-        Counselor = Counselor_activate_token.counselor # type: ignore
-        Counselor.is_active =True
-        Counselor.save()
+        counselor = counselor_activate_token.counselor # type: ignore
+        counselor.is_active =True
+        counselor.save()
 
 class CounselorActivateTokens(models.Model):
 
     token = models.UUIDField(db_index=True)
     expired_at = models.DateTimeField()
-    Counselor = models.ForeignKey(
+    counselor = models.ForeignKey(
         'counselors', on_delete=models.CASCADE
     )
 
@@ -103,11 +103,11 @@ class CounselorActivateTokens(models.Model):
 def publish_token(sender, instance, **kwargs):
     print(str(uuid4()))
     print(datetime.now() + timedelta(days=1))
-    Counselor_activate_token = CounselorActivateTokens.objects.create(
-        Counselor=instance, token=str(uuid4()), expired_at=datetime.now() + timedelta(days=1)
+    counselor_activate_token = CounselorActivateTokens.objects.create(
+        counselor=instance, token=str(uuid4()), expired_at=datetime.now() + timedelta(days=1)
     )
     # メールでURLを送る方がよい
-    print(f'http://127.0.0.1:8000/accounts/activate_Counselor/{Counselor_activate_token.token}')
+    print(f'http://127.0.0.1:8000/accounts/activate_counselor/{counselor_activate_token.token}')
 
 class User(models.Model):
     name = models.CharField(max_length=50)
