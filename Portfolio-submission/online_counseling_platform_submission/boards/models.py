@@ -60,6 +60,11 @@ class Counselors(models.Model):
     picture = models.FileField(null=True, upload_to='picture/')
     users = models.ManyToManyField('accounts.Users',related_name='counselors')#一人のカウンセラーが複数のユーザーと関連付けられます。
 
+    # objects = CounselorManager()  # カスタムマネージャーを指定する
+
+    # USERNAME_FIELD = 'email'
+    # REQUIRED_FIELDS = ['counselorname']
+
     class Meta:
         db_table = 'counselors'
 
