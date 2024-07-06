@@ -51,7 +51,7 @@ class Counselors(models.Model):
         db_table = 'counselors'
 
 # class Counselors(AbstractBaseUser, PermissionsMixin):
-#     name = models.CharField(max_length=255)
+#     counselorname = models.CharField(max_length=255)
 #     age = models.PositiveIntegerField()
 #     email = models.EmailField(max_length=255, unique=True)
 #     is_active = models.BooleanField(default=False)
@@ -62,7 +62,7 @@ class Counselors(models.Model):
 #     objects = UserManager()
 
 #     USERNAME_FIELD = 'email'
-#     REQUIRED_FIELDS = ['name']
+#     REQUIRED_FIELDS = ['counselorname']
 
 #     class Meta:
 #         db_table = 'counselors'
