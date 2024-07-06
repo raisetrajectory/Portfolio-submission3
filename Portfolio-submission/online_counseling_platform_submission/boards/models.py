@@ -74,7 +74,7 @@ class Counselors(models.Model):
     class Meta:
         db_table = 'counselors'
 
-# class Users(AbstractBaseUser, PermissionsMixin):
+# class Counselors(AbstractBasecounselor, PermissionsMixin):
 
 # class CounselorActivateTokensManager(models.Manager):
 
