@@ -31,3 +31,7 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = '__all__'
+
+from .models import Counselors
+from django.contrib.auth.password_validation import validate_password
+
