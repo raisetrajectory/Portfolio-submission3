@@ -82,7 +82,6 @@ class Counselors(models.Model):
 #             token=token,
 #             expired_at__gte=datetime.now()
 #         ).first()
-#         if counselor_activate_token: #記載内容の変更点です！
 #         Counselor = counselor_activate_token.counselor # type: ignore
 #         Counselor.is_active =True
 #         Counselor.save()
