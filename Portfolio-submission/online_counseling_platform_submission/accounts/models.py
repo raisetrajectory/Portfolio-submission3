@@ -32,7 +32,12 @@ class Users(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     picture = models.FileField(null=True, upload_to='picture/')
-    # counselors = models.ManyToManyField('boards.Counselors', related_name='users') #一人のカウンセラーが複数のユーザーと関連付けられるようになります。
+    # counselor = models.OneToOneField(
+    #     'boards.Counselors',
+    #     on_delete=models.SET_NULL,
+    #     related_name='user',
+    #     null=True
+    # )#一人のユーザーが一人のカウンセラーに関連付けられます。
 
     objects = UserManager()
 
