@@ -75,7 +75,6 @@ class CounselorManager(models.Manager):
 #     is_active = models.BooleanField(default=False)
 #     is_staff = models.BooleanField(default=False)
 #     picture = models.FileField(null=True, upload_to='picture/')
-#     users = models.ForeignKey('Users', on_delete=models.CASCADE)  # 外部キーを追加
 
 #     objects = CounselorManager()
 
