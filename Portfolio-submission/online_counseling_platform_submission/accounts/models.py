@@ -68,9 +68,6 @@ class CounselorManager(models.Manager):
 
     # 他に必要なカスタムメソッドを追加することができます
 
-
-# from django.contrib.auth.models import CounselorManager
-
 # class Counselors(AbstractBaseUser, PermissionsMixin):
 #     counselorname = models.CharField(max_length=255)
 #     age = models.PositiveIntegerField()
