@@ -22,7 +22,7 @@ from django.contrib.auth.models import UserManager
 #     REQUIRED_FIELDS = ['counselorname']
 
 #     class Meta:
-#         db_table = 'counselors'
+#         db_table = 'accounts.counselors'
 
 # class Counselors(models.Model):
 #     counselorname = models.CharField(max_length=255)
