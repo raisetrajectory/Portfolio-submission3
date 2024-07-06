@@ -59,6 +59,16 @@ def publish_token(sender, instance, **kwargs):
     # メールでURLを送る方がよい
     print(f'http://127.0.0.1:8000/accounts/activate_user/{user_activate_token.token}')
 
+from django.db import models
+
+class CounselorManager(models.Manager):
+
+    def active_counselors(self):
+        return self.get_queryset().filter(is_active=True)
+
+    # 他に必要なカスタムメソッドを追加することができます
+
+
 # from django.contrib.auth.models import CounselorManager
 
 # class Counselors(AbstractBaseUser, PermissionsMixin):
