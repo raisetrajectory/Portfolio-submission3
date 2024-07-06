@@ -44,11 +44,20 @@ class Comments(models.Model):
         db_table = 'comments'
 
 class Counselors(models.Model):
+# class Counselors(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=255)
+    # age = models.PositiveIntegerField()
+    # email = models.EmailField(max_length=255, unique=True)
+    # is_active = models.BooleanField(default=False)
+    # is_staff = models.BooleanField(default=False)
+    # picture = models.FileField(null=True, upload_to='picture/')
+    user = models.ForeignKey('accounts.Users', on_delete=models.CASCADE)
 
-    user = models.ForeignKey(
-        'accounts.Users', on_delete=models.CASCADE
-    )
+    # objects = models.Manager()
+    # objects = UserManager()
+
+    # USERNAME_FIELD = 'email'
+    # REQUIRED_FIELDS = ['name']
 
     class Meta:
         db_table = 'counselors'
