@@ -45,7 +45,7 @@ class Counselors(models.Model):
     class Meta:
         db_table = 'counselors'
 
-# class Counselor(models.Model):
+# class Counselors(models.Model):
 #     counselorname = models.CharField(max_length=255)
 #     age = models.PositiveIntegerField()
 #     email = models.EmailField(max_length=255, unique=True)
