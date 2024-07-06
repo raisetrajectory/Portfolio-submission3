@@ -57,10 +57,9 @@ class Counselors(models.Model):
 #     is_active = models.BooleanField(default=False)
 #     is_staff = models.BooleanField(default=False)
 #     picture = models.FileField(null=True, upload_to='picture/')
-    # user = models.ForeignKey('accounts.Users', on_delete=models.CASCADE)
+#     user = models.ForeignKey('accounts.Users', on_delete=models.CASCADE)
 
-    # objects = models.Manager()
-    # objects = UserManager()
+#     objects = UserManager()
 
 #     USERNAME_FIELD = 'email'
 #     REQUIRED_FIELDS = ['name']
