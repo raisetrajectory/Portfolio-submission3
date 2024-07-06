@@ -46,7 +46,7 @@ class Counselors(models.Model):
         db_table = 'counselors'
 
 # class Counselors(models.Model):
-#     counselorname = models.CharField(max_length=255)
+#     name = models.CharField(max_length=255)
 #     age = models.PositiveIntegerField()
 #     email = models.EmailField(max_length=255, unique=True)
 #     is_active = models.BooleanField(default=False)
@@ -56,10 +56,10 @@ class Counselors(models.Model):
 #     objects = models.Manager()
 
 #     USERNAME_FIELD = 'email'
-#     REQUIRED_FIELDS = ['counselorname']
+#     REQUIRED_FIELDS = ['name']
 
 #     class Meta:
-#         db_table = 'accounts.counselors'
+#         db_table = 'counselors'
 
 # class CounselorActivateTokensManager(models.Manager):
 
