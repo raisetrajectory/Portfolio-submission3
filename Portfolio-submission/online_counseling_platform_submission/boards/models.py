@@ -57,7 +57,7 @@ class Counselors(models.Model):
 #     is_active = models.BooleanField(default=False)
 #     is_staff = models.BooleanField(default=False)
 #     picture = models.FileField(null=True, upload_to='picture/')
-#     user = models.ForeignKey('accounts.Users', on_delete=models.CASCADE)
+# users = models.ManyToManyField('accounts.Users', related_name='counselors')
 
 #     objects = UserManager()
 
