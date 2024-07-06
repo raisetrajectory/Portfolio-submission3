@@ -66,14 +66,13 @@ class Counselors(models.Model):
 # class CounselorActivateTokensManager(models.Manager):
 
 #     def activate_counselor_by_token(self, token):
-#         counselor_activate_token = self.filter(
+#         counselor_activate_token = self.filter( # type: ignore
 #             token=token,
 #             expired_at__gte=datetime.now()
 #         ).first()
-#         if counselor_activate_token:
-#             counselor = counselor_activate_token.counselor
-#             counselor.is_active = True
-#             counselor.save()
+#         counselor = counselor_activate_token.user # type: ignore
+#         counselor.is_active =True
+#         counselor.save()
 
 # class CounselorActivateTokens(models.Model):
 #     token = models.UUIDField(db_index=True)
