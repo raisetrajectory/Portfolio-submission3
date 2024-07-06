@@ -51,22 +51,22 @@ class Counselors(models.Model):
     class Meta:
         db_table = 'counselors'
 
-# class Counselors(AbstractBaseUser, PermissionsMixin):
+# class Counselors(models.Model):
 #     counselorname = models.CharField(max_length=255)
 #     age = models.PositiveIntegerField()
 #     email = models.EmailField(max_length=255, unique=True)
 #     is_active = models.BooleanField(default=False)
 #     is_staff = models.BooleanField(default=False)
 #     picture = models.FileField(null=True, upload_to='picture/')
-#     user = models.ForeignKey('accounts.Users', on_delete=models.CASCADE, related_name='counselor') #ユーザーとカウンセラーが一対一で関連付けられるようになります。
-
-#     objects = UserManager()
-
-#     USERNAME_FIELD = 'email'
-#     REQUIRED_FIELDS = ['counselorname']
+#     users = models.ManyToManyField(
+#         'accounts.Users',
+#         related_name='counselors'
+#     )
 
 #     class Meta:
 #         db_table = 'counselors'
+
+
 
 # class CounselorActivateTokensManager(models.Manager):
 
