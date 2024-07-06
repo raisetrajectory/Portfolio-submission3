@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
                 ),
             ],
             options={
-                "db_table": "Counselor_activate_tokens",
+                "db_table": "counselor_activate_tokens",
             },
         ),
     ]

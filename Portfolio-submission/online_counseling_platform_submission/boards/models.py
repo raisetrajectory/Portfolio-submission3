@@ -97,7 +97,7 @@ class CounselorActivateTokens(models.Model):
     objects = CounselorActivateTokensManager() # type: ignore
 
     class Meta:
-        db_table = 'Counselor_activate_tokens'
+        db_table = 'counselor_activate_tokens'
 
 @receiver(post_save, sender=Counselors)
 def publish_token(sender, instance, **kwargs):
