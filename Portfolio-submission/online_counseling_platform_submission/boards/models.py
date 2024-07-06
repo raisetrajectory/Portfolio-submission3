@@ -63,11 +63,6 @@ class Counselors(models.Model):
 #         related_name='counselors'
 #     )#一人のカウンセラーが複数のユーザーと関連付けられます。
 
-#     objects = models.Manager()
-
-#     COUNSELORNAME_FIELD = 'email'
-#     REQUIRED_FIELDS = ['counselorname']
-
 #     class Meta:
 #         db_table = 'counselors'
 
