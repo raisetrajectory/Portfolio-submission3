@@ -11,9 +11,6 @@ from accounts.models import Users  # assuming Users model is defined in accounts
 # from django.contrib.auth.models import CounselorManager
 from django.contrib.auth.models import BaseUserManager
 
-class CounselorManager(BaseUserManager):
-    pass  # カスタムのマネージャー機能を実装する場合にここに追加
-
 class ThemesManager(models.Manager):
 
     def fetch_all_themes(self):
@@ -55,6 +52,9 @@ class Comments(models.Model):
 
 #     class Meta:
 #         db_table = 'counselors'
+
+class CounselorManager(BaseUserManager):
+    pass  # カスタムのマネージャー機能を実装する場合にここに追加
 
 class Counselors(models.Model):
     counselorname = models.CharField(max_length=255)
