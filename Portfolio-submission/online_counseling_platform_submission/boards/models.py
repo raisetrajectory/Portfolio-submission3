@@ -63,28 +63,28 @@ class Counselors(models.Model):
     class Meta:
         db_table = 'counselors'
 
-# class CounselorActivateTokensManager(models.Manager):
+class CounselorActivateTokensManager(models.Manager):
 
-#     def activate_counselor_by_token(self, token):
-#         counselor_activate_token = self.filter( # type: ignore
-#             token=token,
-#             expired_at__gte=datetime.now()
-#         ).first()
-#         counselor = counselor_activate_token.user # type: ignore
-#         counselor.is_active =True
-#         counselor.save()
+    def activate_counselor_by_token(self, token):
+        counselor_activate_token = self.filter( # type: ignore
+            token=token,
+            expired_at__gte=datetime.now()
+        ).first()
+        counselor = counselor_activate_token.user # type: ignore
+        counselor.is_active =True
+        counselor.save()
 
-# class CounselorActivateTokens(models.Model):
-#     token = models.UUIDField(db_index=True)
-#     expired_at = models.DateTimeField()
-#     counselor = models.ForeignKey(
-#         'Counselors', on_delete=models.CASCADE
-#     )
+class CounselorActivateTokens(models.Model):
+    token = models.UUIDField(db_index=True)
+    expired_at = models.DateTimeField()
+    counselor = models.ForeignKey(
+        'Counselors', on_delete=models.CASCADE
+    )
 
-#     objects = CounselorActivateTokensManager() # type: ignore
+    objects = CounselorActivateTokensManager() # type: ignore
 
-#     class Meta:
-#         db_table = 'counselor_activate_tokens'
+    class Meta:
+        db_table = 'counselor_activate_tokens'
 
 # @receiver(post_save, sender=Counselors)
 # def publish_counselor_token(sender, instance, **kwargs):
