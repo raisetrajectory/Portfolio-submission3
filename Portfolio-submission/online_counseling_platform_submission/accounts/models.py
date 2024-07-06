@@ -17,6 +17,7 @@ from django.contrib.auth.models import UserManager
 #     picture = models.FileField(null=True, upload_to='picture/')
 
 #     objects = models.Manager()
+#     objects = UserManager()
 
 #     USERNAME_FIELD = 'email'
 #     REQUIRED_FIELDS = ['counselorname']
