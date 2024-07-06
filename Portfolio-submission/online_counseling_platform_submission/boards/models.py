@@ -53,7 +53,7 @@ class Counselors(models.Model):
     class Meta:
         db_table = 'counselors'
 
-# class Counselors(models.Model):
+# class Counselors(AbstractBaseUser, PermissionsMixin):
 #     name = models.CharField(max_length=255)
 #     age = models.PositiveIntegerField()
 #     email = models.EmailField(max_length=255, unique=True)
