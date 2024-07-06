@@ -1,6 +1,5 @@
 from django import forms
 from .models import Themes, Comments
-
 from .models import User
 
 class CreateThemeForm(forms.ModelForm):
@@ -9,7 +8,6 @@ class CreateThemeForm(forms.ModelForm):
     class Meta:
         model = Themes
         fields = ('title',)
-
 
 class DeleteThemeForm(forms.ModelForm):
 
