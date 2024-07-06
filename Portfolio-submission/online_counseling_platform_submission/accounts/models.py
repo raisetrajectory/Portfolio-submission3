@@ -7,7 +7,7 @@ from django.dispatch import receiver
 from uuid import uuid4
 from datetime import datetime, timedelta
 from django.contrib.auth.models import UserManager
-# from django.contrib.auth.models import CounselorManager
+
 
 class Users(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=255)
@@ -58,6 +58,8 @@ def publish_token(sender, instance, **kwargs):
     )
     # メールでURLを送る方がよい
     print(f'http://127.0.0.1:8000/accounts/activate_user/{user_activate_token.token}')
+
+# from django.contrib.auth.models import CounselorManager
 
 # class Counselors(AbstractBaseUser, PermissionsMixin):
 #     counselorname = models.CharField(max_length=255)
