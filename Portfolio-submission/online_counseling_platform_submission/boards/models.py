@@ -58,10 +58,7 @@ class Counselors(models.Model):
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     picture = models.FileField(null=True, upload_to='picture/')
-    users = models.ManyToManyField(
-        'accounts.Users',
-        related_name='counselors'
-    )#一人のカウンセラーが複数のユーザーと関連付けられます。
+    users = models.ManyToManyField('accounts.Users',related_name='counselors')#一人のカウンセラーが複数のユーザーと関連付けられます。
 
     class Meta:
         db_table = 'counselors'
