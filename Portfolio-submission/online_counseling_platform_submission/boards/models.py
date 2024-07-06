@@ -44,27 +44,27 @@ class Comments(models.Model):
     class Meta:
         db_table = 'comments'
 
-class Counselors(models.Model):
-    name = models.CharField(max_length=255)
-    user = models.ForeignKey('accounts.Users', on_delete=models.CASCADE)
-
-    class Meta:
-        db_table = 'counselors'
-
 # class Counselors(models.Model):
-#     counselorname = models.CharField(max_length=255)
-#     age = models.PositiveIntegerField()
-#     email = models.EmailField(max_length=255, unique=True)
-#     is_active = models.BooleanField(default=False)
-#     is_staff = models.BooleanField(default=False)
-#     picture = models.FileField(null=True, upload_to='picture/')
-#     users = models.ManyToManyField(
-#         'accounts.Users',
-#         related_name='counselors'
-#     )#一人のカウンセラーが複数のユーザーと関連付けられます。
+#     name = models.CharField(max_length=255)
+#     user = models.ForeignKey('accounts.Users', on_delete=models.CASCADE)
 
 #     class Meta:
 #         db_table = 'counselors'
+
+class Counselors(models.Model):
+    counselorname = models.CharField(max_length=255)
+    age = models.PositiveIntegerField()
+    email = models.EmailField(max_length=255, unique=True)
+    is_active = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
+    picture = models.FileField(null=True, upload_to='picture/')
+    users = models.ManyToManyField(
+        'accounts.Users',
+        related_name='counselors'
+    )#一人のカウンセラーが複数のユーザーと関連付けられます。
+
+    class Meta:
+        db_table = 'counselors'
 
 # class CounselorActivateTokensManager(models.Manager):
 
