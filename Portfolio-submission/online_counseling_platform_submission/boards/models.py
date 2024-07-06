@@ -69,7 +69,7 @@ class Counselors(models.Model):
     objects = CounselorManager()  # カスタムマネージャーを指定する
     # objects = UserManager()
 
-    USERNAME_FIELD = 'email'
+    COUNSELORNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['counselorname']
 
     class Meta:
