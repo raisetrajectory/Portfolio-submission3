@@ -8,6 +8,7 @@ from uuid import uuid4
 from datetime import datetime, timedelta
 from django.contrib.auth.models import UserManager
 from accounts.models import Users  # assuming Users model is defined in accounts.models
+# from django.contrib.auth.models import CounselorManager
 
 class ThemesManager(models.Manager):
 
