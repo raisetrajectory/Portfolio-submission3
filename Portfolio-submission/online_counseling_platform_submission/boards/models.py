@@ -74,50 +74,39 @@ class Counselors(models.Model):
     class Meta:
         db_table = 'counselors'
 
-# class UserActivateTokensManager(models.Manager):
+# class CounselorActivateTokensManager(models.Manager):
 
-#     def activate_user_by_token(self, token):
-#         user_activate_token = self.filter( # type: ignore
+#     def activate_Counselor_by_token(self, token):
+#         Counselor_activate_token = self.filter( # type: ignore
 #             token=token,
 #             expired_at__gte=datetime.now()
 #         ).first()
-#         user = user_activate_token.user # type: ignore
-#         user.is_active =True
-#         user.save()
+#         Counselor = user_activate_token.user # type: ignore
+#         Counselor.is_active =True
+#         Counselor.save()
 
-# class UserActivateTokens(models.Model):
+# class CounselorActivateTokens(models.Model):
 
 #     token = models.UUIDField(db_index=True)
 #     expired_at = models.DateTimeField()
-#     user = models.ForeignKey(
-#         'Users', on_delete=models.CASCADE
+#     Counselor = models.ForeignKey(
+#         'counselors', on_delete=models.CASCADE
 #     )
 
-#     objects = UserActivateTokensManager() # type: ignore
+#     objects = CounselorActivateTokensManager() # type: ignore
 
 #     class Meta:
-#         db_table = 'user_activate_tokens'
+#         db_table = 'Counselor_activate_tokens'
 
 # @receiver(post_save, sender=Counselors)
 # def publish_token(sender, instance, **kwargs):
 #     print(str(uuid4()))
 #     print(datetime.now() + timedelta(days=1))
-#     user_activate_token = UserActivateTokens.objects.create(
-#         user=instance, token=str(uuid4()), expired_at=datetime.now() + timedelta(days=1)
+#     Counselor_activate_token = CounselorActivateTokens.objects.create(
+#         Counselor=instance, token=str(uuid4()), expired_at=datetime.now() + timedelta(days=1)
 #     )
 #     # メールでURLを送る方がよい
-#     print(f'http://127.0.0.1:8000/accounts/activate_user/{user_activate_token.token}')
-
-# @receiver(post_save, sender=Users)
-# def publish_token(sender, instance, **kwargs):
-#     print(str(uuid4()))
-#     print(datetime.now() + timedelta(days=1))
-#     user_activate_token = UserActivateTokens.objects.create(
-#         user=instance, token=str(uuid4()), expired_at=datetime.now() + timedelta(days=1)
-#     )
-#     # メールでURLを送る方がよい
-#     print(f'http://127.0.0.1:8000/accounts/activate_user/{user_activate_token.token}')
-
+#     print(f'http://127.0.0.1:8000/accounts/activate_Counselor/{Counselor_activate_token.token}')
 
 class User(models.Model):
     name = models.CharField(max_length=50)
