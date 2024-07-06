@@ -81,7 +81,7 @@ class Counselors(models.Model):
 #             token=token,
 #             expired_at__gte=datetime.now()
 #         ).first()
-#         Counselor = user_activate_token.user # type: ignore
+#         Counselor = counselor_activate_token.counselor # type: ignore
 #         Counselor.is_active =True
 #         Counselor.save()
 
