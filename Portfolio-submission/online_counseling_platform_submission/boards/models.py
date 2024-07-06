@@ -86,16 +86,16 @@ class CounselorActivateTokens(models.Model):
     class Meta:
         db_table = 'counselor_activate_tokens'
 
-# @receiver(post_save, sender=Counselors)
-# def publish_counselor_token(sender, instance, **kwargs):
-#     if kwargs.get('created', False):  # 新規作成されたときのみトークンを発行
-#         token = str(uuid4())
-#         expired_at = datetime.now() + timedelta(days=1)
-#         counselor_activate_token = CounselorActivateTokens.objects.create(
-#             counselor=instance, token=token, expired_at=expired_at
-#         )
-#         # メールでURLを送る方がよい
-#         print(f'http://127.0.0.1:8000/accounts/activate_counselor/{counselor_activate_token.token}')
+@receiver(post_save, sender=Counselors)
+def publish_token(sender, instance, **kwargs):
+    print(str(uuid4()))
+    print(datetime.now() + timedelta(days=1))
+    counselor_activate_token = CounselorActivateTokens.objects.create(
+        counselor=instance, token=str(uuid4()), expired_at=datetime.now() + timedelta(days=1)
+    )
+    # メールでURLを送る方がよい
+    print(f'http://127.0.0.1:8000/accounts/activate_counselor/{counselor_activate_token.token}')
+
 
 class User(models.Model):
     name = models.CharField(max_length=50)
