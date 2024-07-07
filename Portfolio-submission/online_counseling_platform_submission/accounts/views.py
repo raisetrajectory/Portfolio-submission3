@@ -12,7 +12,17 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def counselor_profile(request):
-    return render(request, 'accounts/counselor_profile.html', {'user': request.user})
+    user_lists = []
+    counselor_lists = []
+
+    # if isinstance(request.user, Users):
+        # user_lists = Users.objects.filter(id=request.user.id)
+    # else:
+        # counselor_lists = Counselor.objects.filter(id=request.user.id)
+
+    return render(request, 'accounts/counselor_profile.html', {
+        # 'user_lists':user_lists, 'counselor_lists':counselor_lists,
+    'user': request.user})
 
 def home(request):
     return render(
