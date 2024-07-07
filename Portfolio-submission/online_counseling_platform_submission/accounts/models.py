@@ -8,28 +8,28 @@ from uuid import uuid4
 from datetime import datetime, timedelta
 from django.contrib.auth.models import UserManager
 
-# class UserManager(BaseUserManager):
+# class UserManager(BaseUserManager): #このメソッドは、一般ユーザーを作成するためのものです。
     #ユーザー作成手法
-    # def create_user(self, username, email, password=True):
+    # def create_user(self, username, email, password=True): #username と email を引数として受け取り、email が指定されていない場合は ValueError を発生させます。
         # if not email:
             # raise ValueError('emailを入力してください')
-        # user = self.model(
+        # user = self.model( #self.model を使用して新しいユーザーオブジェクトを作成し、username と email を設定します。
             # username = username,
             # email = email,
         # )
-        # user.set_password(password)
-        # user.save(using=self._db)
+        # user.set_password(password) #set_password メソッドを使用してパスワードを設定し、ハッシュ化します。
+        # user.save(using=self._db) #save(using=self._db) を呼び出して、データベースにユーザーを保存します。
         # return user
-    # def create_superuser(self, username, email, password=True):
-        # user = self.model(
+    # def create_superuser(self, username, email, password=True): #このメソッドは、スーパーユーザー (管理者) を作成するためのものです。
+        # user = self.model( #username と email を引数として受け取り、create_user メソッドと同様にユーザーオブジェクトを作成します。
             # username = username,
             # email = email,
         # )
-        # user.set_password(password)
+        # user.set_password(password) #set_password メソッドを使用してパスワードを設定し、ハッシュ化します。
         # user.is_staff = True
         # user.is_active = True
-        # user.is_superuser = True
-        # user.save(using=self._db)
+        # user.is_superuser = True #is_staff、is_active、is_superuser のフラグをすべて True に設定して、スーパーユーザーの特権を付与します。
+        # user.save(using=self._db) #save(using=self._db) を呼び出して、データベースにユーザーを保存します。
         # return user
 
 class Users(AbstractBaseUser, PermissionsMixin):
