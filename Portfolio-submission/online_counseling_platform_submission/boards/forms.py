@@ -53,12 +53,12 @@ class CounselorRegistForm(forms.ModelForm):
         if password != confirm_password:
             raise forms.ValidationError('パスワードが異なります')
 
-#     def save(self, commit=False):
-#         counselor =super().save(commit=False)
-#         validate_password(self.cleaned_data['password'], counselor)
-#         counselor.set_password(self.cleaned_data['password'])
-#         counselor.save()
-#         return counselor
+    def save(self, commit=False):
+        counselor =super().save(commit=False)
+        validate_password(self.cleaned_data['password'], counselor)
+        counselor.set_password(self.cleaned_data['password'])
+        counselor.save()
+        return counselor
 
 # class CounselorEditForm(forms.ModelForm):
 #     username = forms.CharField(label='ユーザーネーム')
