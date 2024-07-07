@@ -38,18 +38,19 @@ class UserEditForm(forms.ModelForm):
         model = Users
         fields = ('username', 'age', 'email', 'picture')
 
-# class CounselorEditForm(forms.ModelForm):
-#     username = forms.CharField(label='ユーザーネーム')
-#     age = forms.IntegerField(label='年齢', min_value=0)
-#     email = forms.EmailField(label='メールアドレス')
-#     picture = forms.FileField(label='写真', required=False)
-#     picture2 = forms.ImageField(label='新しい写真', required=False)  # 新しい ImageField を追加します！
-    # introduction = forms.CharField(label='自己紹介', required=False, widget=forms.Textarea)
-    # qualifications = forms.CharField(label='資格', required=False)
+class CounselorEditForm(forms.ModelForm):
+    username = forms.CharField(label='ユーザーネーム')
+    age = forms.IntegerField(label='年齢', min_value=0)
+    email = forms.EmailField(label='メールアドレス')
+    picture = forms.FileField(label='写真', required=False)
+    picture2 = forms.ImageField(label='新しい写真', required=False)  # 新しい ImageField を追加します！
+    introduction = forms.CharField(label='自己紹介', required=False, widget=forms.Textarea)
+    qualifications = forms.CharField(label='資格', required=False)
 
-#     class Meta:
-#         model = Counselor
-#         fields = ('username', 'age', 'email', 'picture')
+    class Meta:
+        model = Counselor
+        fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'qualifications')
+
 
 class LoginForm(forms.Form):
     email = forms.CharField(label="メールアドレス")
