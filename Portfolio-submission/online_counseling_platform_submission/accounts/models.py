@@ -48,6 +48,8 @@ class Users(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
+    # def
+
     class Meta:
         db_table = 'users'
 
