@@ -1,6 +1,7 @@
 from django import forms
 from .models import Users
 from django.contrib.auth.password_validation import validate_password
+from .models import Counselor
 
 class RegistForm(forms.ModelForm):
     username = forms.CharField(label='名前')
