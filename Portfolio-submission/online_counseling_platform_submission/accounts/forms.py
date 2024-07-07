@@ -2,8 +2,6 @@ from django import forms
 from .models import Users
 from django.contrib.auth.password_validation import validate_password
 
-
-
 class RegistForm(forms.ModelForm):
     username = forms.CharField(label='名前')
     age = forms.IntegerField(label='年齢', min_value=0)
