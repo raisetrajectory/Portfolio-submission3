@@ -43,6 +43,11 @@ class Users(AbstractBaseUser, PermissionsMixin):
     counselor = models.OneToOneField('boards.Counselors',on_delete=models.SET_NULL,related_name='user',null=True)#一人のユーザーが一人のカウンセラーに関連付けられます。
     # counselor = models.Foreignkey('Counselor',on_delete=models.SET_NULL,related_name='clinents',null=True, black=True)
 
+    # groups =  models.ManyToManyField(
+        # Group,
+        # related_name='user_groups'
+    # )
+
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
