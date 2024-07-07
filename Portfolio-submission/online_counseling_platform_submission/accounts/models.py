@@ -54,9 +54,9 @@ class Users(AbstractBaseUser, PermissionsMixin):
     class Meta:
         db_table = 'users'
 
-# class Users(AbstractBaseUser, PermissionsMixin):
+# class Counselor(AbstractBaseUser, PermissionsMixin):
 #     username = models.CharField(max_length=255)
-#     age = models.PositiveIntegerField()
+#     age = models.PositiveIntegerField(default=0, null=True)
 #     email = models.EmailField(max_length=255, unique=True)
 #     is_active = models.BooleanField(default=False)
 #     is_staff = models.BooleanField(default=False)
