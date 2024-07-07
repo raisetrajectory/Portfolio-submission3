@@ -20,17 +20,17 @@ from django.contrib.auth.models import UserManager
         # user.set_password(password)
         # user.save(using=self._db)
         # return user
-    # def create_user(self, username, email, password=True):
-        # if not email:
-            # raise ValueError('emailを入力してください')
+    # def create_superuser(self, username, email, password=True):
         # user = self.model(
             # username = username,
             # email = email,
         # )
         # user.set_password(password)
+        # user.is_staff = True
+        # user.is_active = True
+        # user.is_superuser = True
         # user.save(using=self._db)
         # return user
-
 
 class Users(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=255)
