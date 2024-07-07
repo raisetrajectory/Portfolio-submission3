@@ -64,6 +64,7 @@ class Users(AbstractBaseUser, PermissionsMixin):
 #     # introduction = models.CharField(max_length=255, null=True)
 #     counselor = models.OneToOneField('boards.Counselors',on_delete=models.SET_NULL,related_name='user',null=True)#一人のユーザーが一人のカウンセラーに関連付けられます。
 #     # counselor = models.Foreignkey('Counselors',on_delete=models.SET_NULL,related_name='clinents',null=True, black=True)
+#     qualifications = models.CharField(max_length=255, null=True)
 
 class UserActivateTokensManager(models.Manager):
 
