@@ -66,6 +66,14 @@ class Users(AbstractBaseUser, PermissionsMixin):
 #     # counselor = models.Foreignkey('Counselors',on_delete=models.SET_NULL,related_name='clinents',null=True, black=True)
 #     qualifications = models.CharField(max_length=255, null=True)
 
+    # objects = UserManager()
+
+    # def __str__(self):
+        # return self.username
+
+    # class Meta:
+    #     db_table = 'counselor'
+
 class UserActivateTokensManager(models.Manager):
 
     def activate_user_by_token(self, token):
