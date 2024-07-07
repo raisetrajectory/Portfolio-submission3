@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>カウンセラー登録</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ regist_form.as_p }}
+    <input type="submit" value="カウンセラー登録">
+</form>
+{% endblock %}
