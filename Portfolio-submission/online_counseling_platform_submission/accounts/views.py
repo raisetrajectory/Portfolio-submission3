@@ -128,6 +128,16 @@ def user_edit(request):
         'user_edit_form': user_edit_form,
     })
 
+# @login_required # type: ignore
+# def counselor_edit(request):
+#     counselor_edit_form = forms.CounselorEditForm(request.POST or None, request.FILES or None, instance=request.user)
+#     if counselor_edit_form.is_valid():
+#         messages.success(request, '更新完了しました。')
+#         counselor_edit_form.save()
+#     return render(request, 'accounts/counselor_edit.html', context={
+#         'counselor_edit_form': counselor_edit_form,
+#     })
+
 @login_required  # type: ignore
 def change_password(request):
     password_change_form = forms.PasswordChangeForm(request.POST or None, instance=request.user)
