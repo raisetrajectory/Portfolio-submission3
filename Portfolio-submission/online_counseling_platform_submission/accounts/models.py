@@ -39,10 +39,10 @@ class Users(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     picture = models.FileField(null=True, upload_to='picture/')
-    # introduction = models.CharField(max_length=255, null=True)
-    # counselor = models.OneToOneField('boards.Counselors',on_delete=models.SET_NULL,related_name='user',null=True)#一人のユーザーが一人のカウンセラーに関連付けられます。
+    # picture2 = models.ImageField(null=True, upload_to='images/')  # 新しい ImageField を追加 追加します!
+    # introduction = models.CharField(max_length=255, null=True) #追加します!
     # counselor = models.Foreignkey('Counselor',on_delete=models.SET_NULL,related_name='clinents',null=True, black=True)
-    # picture2 = models.ImageField(null=True, upload_to='images/')  # 新しい ImageField を追加
+
 
     # groups =  models.ManyToManyField(
         # Group,
@@ -71,12 +71,14 @@ class Users(AbstractBaseUser, PermissionsMixin):
 #     is_active = models.BooleanField(default=False)
 #     is_staff = models.BooleanField(default=False)
 #     picture = models.FileField(null=True, upload_to='picture/')
-#     # introduction = models.CharField(max_length=255, null=True)
-#     counselor = models.OneToOneField('boards.Counselors',on_delete=models.SET_NULL,related_name='user',null=True)#一人のユーザーが一人のカウンセラーに関連付けられます。
-#     # counselor = models.Foreignkey('Counselors',on_delete=models.SET_NULL,related_name='clinents',null=True, black=True)
-#     qualifications = models.CharField(max_length=255, null=True)
+#     picture2 = models.ImageField(null=True, upload_to='images/')  # 新しい ImageField を追加 追加します!
+#     introduction = models.CharField(max_length=255, null=True)
+#     qualifications = models.CharField(max_length=255, null=True) #ユーザーの職業、学歴、専門知識などを記録するのに便利です。
 
     # objects = UserManager()
+
+    # USERNAME_FIELD = 'email'
+    # REQUIRED_FIELDS = ['username']
 
     # def __str__(self):
         # return self.username
