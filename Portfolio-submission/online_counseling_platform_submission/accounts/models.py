@@ -47,6 +47,10 @@ class Users(AbstractBaseUser, PermissionsMixin):
         # Group,
         # related_name='user_groups'
     # )
+    # user_permissions = models.ManyToManyField(
+        # Permission,
+        # related_name='user_permissions'
+    # )
 
     objects = UserManager()
 
