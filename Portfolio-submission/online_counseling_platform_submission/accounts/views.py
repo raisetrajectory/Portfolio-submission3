@@ -152,12 +152,16 @@ def user_edit(request):
         'user_edit_form': user_edit_form,
     })
 
-# @login_required # type: ignore
+# @login_required  # type: ignore
 # def counselor_edit(request):
 #     counselor_edit_form = forms.CounselorEditForm(request.POST or None, request.FILES or None, instance=request.user)
-#     if counselor_edit_form.is_valid():
-#         messages.success(request, '更新完了しました。')
-#         counselor_edit_form.save()
+
+#     if request.method == 'POST':
+#         if counselor_edit_form.is_valid():
+#             counselor_edit_form.save()
+#             messages.success(request, '更新完了しました。')
+#             return redirect('accounts:counselor_edit')
+
 #     return render(request, 'accounts/counselor_edit.html', context={
 #         'counselor_edit_form': counselor_edit_form,
 #     })
