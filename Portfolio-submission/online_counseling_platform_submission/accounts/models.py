@@ -41,8 +41,7 @@ class Users(AbstractBaseUser, PermissionsMixin):
     picture = models.FileField(null=True, upload_to='picture/')
     # picture2 = models.ImageField(null=True, upload_to='images/')  # 新しい ImageField を追加 追加します!
     # introduction = models.CharField(max_length=255, null=True) #追加します!
-    # counselor = models.Foreignkey('Counselor',on_delete=models.SET_NULL,related_name='clinents',null=True, black=True)
-
+    # counselor = models.Foreignkey('Counselor',on_delete=models.SET_NULL,related_name='clinents',null=True, black=True) #ForeignKeyは、別のモデルと一対多の関係を作ることができるフィールドです。
 
     # groups =  models.ManyToManyField(
         # Group,
