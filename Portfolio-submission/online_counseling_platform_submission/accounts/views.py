@@ -35,14 +35,16 @@ def regist(request):
 
 # def counselor_profile(request):
 #     regist_form = forms.RegistForm(request.POST or None)
-#     if regist_form.is_valid():
-#         try:
-#             regist_form.save()
-#             return redirect('accounts:home')
-#         except ValidationError as e:
-#             regist_form.add_error('password', e)
+
+#     if request.method == 'POST':
+#         if regist_form.is_valid():
+#             try:
+#                 regist_form.save()
+#                 return redirect('accounts:home')
+#             except ValidationError as e:
+#                 regist_form.add_error('password', e)
 #     return render(
-#         request, 'accounts/regist.html', context={
+#         request, 'accounts/regist_counselor.html', context={
 #             'regist_form': regist_form,
 #         }
 #     )
