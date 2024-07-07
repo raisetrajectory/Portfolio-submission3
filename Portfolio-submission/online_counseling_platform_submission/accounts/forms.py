@@ -33,10 +33,13 @@ class UserEditForm(forms.ModelForm):
     age = forms.IntegerField(label='年齢', min_value=0)
     email = forms.EmailField(label='メールアドレス')
     picture = forms.FileField(label='写真', required=False)
+    picture2 = forms.ImageField(label='新しい写真', required=False)
+    introduction = forms.CharField(label='自己紹介', required=False, widget=forms.Textarea)
+    counselor = forms.ModelChoiceField(queryset=Counselor.objects.all(), required=False, label='カウンセラー') #ユーザーはフォームでカウンセラーを選択できるようになりますが、必須ではないため、選択しなくてもフォームを提出できます。
 
     class Meta:
         model = Users
-        fields = ('username', 'age', 'email', 'picture')
+        fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'counselor')
 
 class CounselorEditForm(forms.ModelForm):
     username = forms.CharField(label='ユーザーネーム')
