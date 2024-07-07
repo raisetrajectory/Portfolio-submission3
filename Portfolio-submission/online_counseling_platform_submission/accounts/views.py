@@ -10,30 +10,33 @@ from django.contrib.auth import update_session_auth_hash
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
+from .models import Users
+from .models import Counselor
+
 @login_required
 def counselor_profile(request):
     user_lists = []
     counselor_lists = []
 
-    # if isinstance(request.user, Users):
-        # user_lists = Users.objects.filter(id=request.user.id)
-    # else:
-        # counselor_lists = Counselor.objects.filter(id=request.user.id)
+    if isinstance(request.user, Users):
+        user_lists = Users.objects.filter(id=request.user.id) # type: ignore
+    else:
+        counselor_lists = Counselor.objects.filter(id=request.user.id)
 
     return render(request, 'accounts/counselor_profile.html', {
-        # 'user_lists':user_lists, 'counselor_lists':counselor_lists,
+        'user_lists':user_lists, 'counselor_lists':counselor_lists,
     'user': request.user})
 
-# @login_required
-# def counselor_menu(request):
+@login_required
+def counselor_menu(request):
 
-#     # if isinstance(request.user, Users):
-#         # user_type = 'User'
-#     # else:
-#         # user_type = 'Counselor'
+    if isinstance(request.user, Users):
+        user_type = 'User'
+    else:
+        user_type = 'Counselor'
 
-#     return render(request, 'base.html', {
-#       'user_type': user_type})
+    return render(request, 'base.html', {
+        'user_type': user_type})
 
 def home(request):
     return render(
