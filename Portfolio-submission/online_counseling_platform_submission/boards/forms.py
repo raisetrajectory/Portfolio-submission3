@@ -89,3 +89,10 @@ class CounselorPasswordChangeForm(forms.ModelForm):
         confirm_password = cleaned_data['confirm_password']
         if password != confirm_password:
             raise forms.ValidationError('パスワードが異なります')
+
+    def save(self, commit=False):
+        counselor = super().save(commit=False)
+        validate_password(self.cleaned_data['password'], counselor)
+        counselor.set_password(self.cleaned_data['password'])
+        counselor.save()
+        return counselor
