@@ -43,9 +43,10 @@ class UserEditForm(forms.ModelForm):
 #     age = forms.IntegerField(label='年齢', min_value=0)
 #     email = forms.EmailField(label='メールアドレス')
 #     picture = forms.FileField(label='写真', required=False)
+#     picture2 = forms.ImageField(label='新しい写真', required=False)  # 新しい ImageField を追加します！
 
 #     class Meta:
-#         model = Users
+#         model = Counselor
 #         fields = ('username', 'age', 'email', 'picture')
 
 class LoginForm(forms.Form):
