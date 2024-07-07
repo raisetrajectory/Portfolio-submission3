@@ -35,7 +35,7 @@ class UserForm(forms.ModelForm):
 from .models import Counselors
 from django.contrib.auth.password_validation import validate_password
 
-class RegistForm(forms.ModelForm):
+class CounselorRegistForm(forms.ModelForm):
     counselorname = forms.CharField(label='名前')
     age = forms.IntegerField(label='年齢', min_value=0)
     email = forms.EmailField(label='メールアドレス')
