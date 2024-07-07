@@ -8,6 +8,19 @@ from uuid import uuid4
 from datetime import datetime, timedelta
 from django.contrib.auth.models import UserManager
 
+# class UserManager(BaseUserManager):
+    #ユーザー作成手法
+    # def create_user(self, username, email, password=True):
+        # if not email:
+            # raise ValueError('emailを入力してください')
+        # user = self.model(
+            # username = username,
+            # email = email,
+        # )
+        # user.set_password(password)
+        # user.save(using=self._db)
+        # return user
+
 class Users(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=255)
     age = models.PositiveIntegerField()
