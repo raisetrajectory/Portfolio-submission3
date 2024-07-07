@@ -54,6 +54,17 @@ class Users(AbstractBaseUser, PermissionsMixin):
     class Meta:
         db_table = 'users'
 
+# class Users(AbstractBaseUser, PermissionsMixin):
+#     username = models.CharField(max_length=255)
+#     age = models.PositiveIntegerField()
+#     email = models.EmailField(max_length=255, unique=True)
+#     is_active = models.BooleanField(default=False)
+#     is_staff = models.BooleanField(default=False)
+#     picture = models.FileField(null=True, upload_to='picture/')
+#     # introduction = models.CharField(max_length=255, null=True)
+#     counselor = models.OneToOneField('boards.Counselors',on_delete=models.SET_NULL,related_name='user',null=True)#一人のユーザーが一人のカウンセラーに関連付けられます。
+#     # counselor = models.Foreignkey('Counselors',on_delete=models.SET_NULL,related_name='clinents',null=True, black=True)
+
 class UserActivateTokensManager(models.Manager):
 
     def activate_user_by_token(self, token):
