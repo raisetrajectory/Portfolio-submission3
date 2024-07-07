@@ -134,7 +134,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  # 標準の認証バックエンド
-    'accounts.backends.CustomBackend',  # カスタム認証バックエンドのパスを追加する
+    'accounts.backends.CustomAuthBackend',    # カスタム認証バックエンドのパスを追加する
 ]
 
 
