@@ -69,3 +69,7 @@ class CounselorEditForm(forms.ModelForm):
     class Meta:
         model = Counselors
         fields = ('counselorname', 'age', 'email', 'picture')
+
+class CounselorLoginForm(forms.Form):
+    email = forms.CharField(label="メールアドレス")
+    password = forms.CharField(label="パスワード", widget=forms.PasswordInput())
