@@ -24,6 +24,17 @@ def counselor_profile(request):
         # 'user_lists':user_lists, 'counselor_lists':counselor_lists,
     'user': request.user})
 
+# @login_required
+# def counselor_menu(request):
+
+#     # if isinstance(request.user, Users):
+#         # user_type = 'User'
+#     # else:
+#         # user_type = 'Counselor'
+
+#     return render(request, 'base.html', {
+#       'user_type': user_type})
+
 def home(request):
     return render(
         request, 'accounts/home.html'
