@@ -9,28 +9,28 @@ from datetime import datetime, timedelta
 from django.contrib.auth.models import UserManager
 
 # class UserManager(BaseUserManager): #このメソッドは、一般ユーザーを作成するためのものです。
-    #ユーザー作成手法
-    # def create_user(self, username, email, password=True): #username と email を引数として受け取り、email が指定されていない場合は ValueError を発生させます。
-        # if not email:
-            # raise ValueError('emailを入力してください')
-        # user = self.model( #self.model を使用して新しいユーザーオブジェクトを作成し、username と email を設定します。
-            # username = username,
-            # email = email,
-        # )
-        # user.set_password(password) #set_password メソッドを使用してパスワードを設定し、ハッシュ化します。
-        # user.save(using=self._db) #save(using=self._db) を呼び出して、データベースにユーザーを保存します。
-        # return user
-    # def create_superuser(self, username, email, password=True): #このメソッドは、スーパーユーザー (管理者) を作成するためのものです。
-        # user = self.model( #username と email を引数として受け取り、create_user メソッドと同様にユーザーオブジェクトを作成します。
-            # username = username,
-            # email = email,
-        # )
-        # user.set_password(password) #set_password メソッドを使用してパスワードを設定し、ハッシュ化します。
-        # user.is_staff = True
-        # user.is_active = True
-        # user.is_superuser = True #is_staff、is_active、is_superuser のフラグをすべて True に設定して、スーパーユーザーの特権を付与します。
-        # user.save(using=self._db) #save(using=self._db) を呼び出して、データベースにユーザーを保存します。
-        # return user
+#     #ユーザー作成手法
+#     def create_user(self, username, email, password=True): #username と email を引数として受け取り、email が指定されていない場合は ValueError を発生させます。
+#         if not email:
+#             raise ValueError('emailを入力してください')
+#         user = self.model( #self.model を使用して新しいユーザーオブジェクトを作成し、username と email を設定します。
+#             username = username,
+#             email = email,
+#         )
+#         user.set_password(password) #set_password メソッドを使用してパスワードを設定し、ハッシュ化します。
+#         user.save(using=self._db) #save(using=self._db) を呼び出して、データベースにユーザーを保存します。
+#         return user
+#     def create_superuser(self, username, email, password=True): #このメソッドは、スーパーユーザー (管理者) を作成するためのものです。
+#         user = self.model( #username と email を引数として受け取り、create_user メソッドと同様にユーザーオブジェクトを作成します。
+#             username = username,
+#             email = email,
+#         )
+#         user.set_password(password) #set_password メソッドを使用してパスワードを設定し、ハッシュ化します。
+#         user.is_staff = True
+#         user.is_active = True
+#         user.is_superuser = True #is_staff、is_active、is_superuser のフラグをすべて True に設定して、スーパーユーザーの特権を付与します。
+#         user.save(using=self._db) #save(using=self._db) を呼び出して、データベースにユーザーを保存します。
+#         return user
 
 class Users(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=255)
@@ -39,9 +39,9 @@ class Users(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     picture = models.FileField(null=True, upload_to='picture/')
-    # picture2 = models.ImageField(null=True, upload_to='images/')  # 新しい ImageField を追加 追加します!
+    # picture2 = models.ImageField(null=True, upload_to='images/')  # 新しい ImageField を追加します！
     # introduction = models.CharField(max_length=255, null=True) #追加します!
-    # counselor = models.Foreignkey('Counselor',on_delete=models.SET_NULL,related_name='clinents',null=True, black=True) #ForeignKeyは、別のモデルと一対多の関係を作ることができるフィールドです。
+    # counselor = models.ForeignKey('Counselor', on_delete=models.SET_NULL, related_name='clients', null=True, blank=True)
 
     # groups =  models.ManyToManyField(
         # Group,
@@ -70,7 +70,7 @@ class Users(AbstractBaseUser, PermissionsMixin):
 #     is_active = models.BooleanField(default=False)
 #     is_staff = models.BooleanField(default=False)
 #     picture = models.FileField(null=True, upload_to='picture/')
-#     picture2 = models.ImageField(null=True, upload_to='images/')  # 新しい ImageField を追加 追加します!
+#     picture2 = models.ImageField(null=True, upload_to='images/')  # 新しい ImageField を追加します！
 #     introduction = models.CharField(max_length=255, null=True)
 #     qualifications = models.CharField(max_length=255, null=True) #ユーザーの職業、学歴、専門知識などを記録するのに便利です。
 
@@ -98,7 +98,7 @@ class UserActivateTokensManager(models.Manager):
 
 class UserActivateTokens(models.Model):
 
-    token = models.UUIDField(db_index=True)
+    token = models.UUIDField(db_index=True) # UUIDField を使用してトークンを保存します
     expired_at = models.DateTimeField()
     user = models.ForeignKey(
         'Users', on_delete=models.CASCADE
