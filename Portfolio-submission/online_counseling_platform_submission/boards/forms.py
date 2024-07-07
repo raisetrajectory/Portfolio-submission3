@@ -73,3 +73,12 @@ class CounselorEditForm(forms.ModelForm):
 class CounselorLoginForm(forms.Form):
     email = forms.CharField(label="メールアドレス")
     password = forms.CharField(label="パスワード", widget=forms.PasswordInput())
+
+# class CounselorPasswordChangeForm(forms.ModelForm):
+
+#     password = forms.CharField(label='パスワード', widget=forms.PasswordInput())
+#     confirm_password = forms.CharField(label='パスワード再入力', widget=forms.PasswordInput())
+
+#     class Meta():
+#         model = Users
+#         fields = ('password', )
