@@ -78,6 +78,28 @@ def user_login(request):
         }
     )
 
+def counselor_login(request):
+    if request.method == 'POST':
+        login_form = forms.LoginForm(request.POST or None)
+        if login_form.is_valid():
+            email = login_form.cleaned_data.get('email')
+            password = login_form.cleaned_data.get('password')
+            user = authenticate(email=email, password=password)
+            if user:
+                if user.is_active:
+                    login(request, user)
+                    messages.success(request, 'ログイン完了しました。')
+                    return redirect('accounts:home')
+                else:
+                    messages.warning(request, 'カウンセラーがアクティブでありません')
+            else:
+                messages.warning(request, 'カウンセラーがパスワードが間違っています' )
+    return render(
+        request, 'accounts/counselor_login.html', context={
+            'login_form':login_form,
+        }
+    )
+
 # @login_required # type: ignore #記載内容のバックアップです。
 # def user_logout(request):
 #     logout(request)
