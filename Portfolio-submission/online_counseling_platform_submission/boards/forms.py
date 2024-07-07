@@ -35,16 +35,16 @@ class UserForm(forms.ModelForm):
 from .models import Counselors
 from django.contrib.auth.password_validation import validate_password
 
-# class RegistForm(forms.ModelForm):
-#     counselorname = forms.CharField(label='名前')
-#     age = forms.IntegerField(label='年齢', min_value=0)
-#     email = forms.EmailField(label='メールアドレス')
-#     password = forms.CharField(label='パスワード', widget=forms.PasswordInput())
-#     confirm_password = forms.CharField(label='パスワード再入力', widget=forms.PasswordInput())
+class RegistForm(forms.ModelForm):
+    counselorname = forms.CharField(label='名前')
+    age = forms.IntegerField(label='年齢', min_value=0)
+    email = forms.EmailField(label='メールアドレス')
+    password = forms.CharField(label='パスワード', widget=forms.PasswordInput())
+    confirm_password = forms.CharField(label='パスワード再入力', widget=forms.PasswordInput())
 
-#     class Meta():
-#         model = Counselors
-#         fields = ('username', 'age', 'email', 'password')
+    class Meta():
+        model = Counselors
+        fields = ('counselorname', 'age', 'email', 'password')
 
 #     def clean(self):
 #         cleaned_data = super().clean()
