@@ -41,7 +41,7 @@ class Users(AbstractBaseUser, PermissionsMixin):
     picture = models.FileField(null=True, upload_to='picture/')
     # introduction = models.CharField(max_length=255, null=True)
     counselor = models.OneToOneField('boards.Counselors',on_delete=models.SET_NULL,related_name='user',null=True)#一人のユーザーが一人のカウンセラーに関連付けられます。
-    # counselor = models.Foreignkey('Counselors',on_delete=models.SET_NULL,related_name='clinents',null=True, black=True)
+    # counselor = models.Foreignkey('Counselor',on_delete=models.SET_NULL,related_name='clinents',null=True, black=True)
 
     objects = UserManager()
 
