@@ -44,6 +44,8 @@ class UserEditForm(forms.ModelForm):
 #     email = forms.EmailField(label='メールアドレス')
 #     picture = forms.FileField(label='写真', required=False)
 #     picture2 = forms.ImageField(label='新しい写真', required=False)  # 新しい ImageField を追加します！
+    # introduction = forms.CharField(label='自己紹介', required=False, widget=forms.Textarea)
+    # qualifications = forms.CharField(label='資格', required=False)
 
 #     class Meta:
 #         model = Counselor
