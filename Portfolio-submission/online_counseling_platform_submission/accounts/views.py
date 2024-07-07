@@ -112,6 +112,12 @@ def user_logout(request):
     messages.success(request, 'ログアウトしました')
     return redirect('accounts:user_login')
 
+@login_required
+def counselor_logout(request):
+    logout(request)
+    messages.success(request, 'ログアウトしました')
+    return redirect('accounts:counselor_login')
+
 @login_required # type: ignore
 def user_edit(request):
     user_edit_form = forms.UserEditForm(request.POST or None, request.FILES or None, instance=request.user)
