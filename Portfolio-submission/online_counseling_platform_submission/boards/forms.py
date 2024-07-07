@@ -46,12 +46,12 @@ class RegistForm(forms.ModelForm):
         model = Counselors
         fields = ('counselorname', 'age', 'email', 'password')
 
-#     def clean(self):
-#         cleaned_data = super().clean()
-#         password = cleaned_data['password']
-#         confirm_password = cleaned_data['confirm_password']
-#         if password != confirm_password:
-#             raise forms.ValidationError('パスワードが異なります')
+    def clean(self):
+        cleaned_data = super().clean()
+        password = cleaned_data['password']
+        confirm_password = cleaned_data['confirm_password']
+        if password != confirm_password:
+            raise forms.ValidationError('パスワードが異なります')
 
 #     def save(self, commit=False):
 #         counselor =super().save(commit=False)
