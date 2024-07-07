@@ -213,7 +213,7 @@ from django.contrib.auth.decorators import login_required
 #         except ValidationError as e:
 #             regist_form.add_error('password', e)
 #     return render(
-#         request, 'accounts/regist.html', context={
+#         request, 'boards/regist.html', context={
 #             'regist_form': regist_form,
 #         }
 #     )
