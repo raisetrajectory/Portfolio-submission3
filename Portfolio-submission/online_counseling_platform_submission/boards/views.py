@@ -205,7 +205,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
 # def regist(request):
-#     regist_form = forms.RegistForm(request.POST or None)
+#     regist_form = forms.CounselorRegistForm(request.POST or None)
 #     if regist_form.is_valid():
 #         try:
 #             regist_form.save()
