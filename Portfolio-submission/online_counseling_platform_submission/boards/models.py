@@ -46,68 +46,68 @@ class Comments(models.Model):
     class Meta:
         db_table = 'comments'
 
-# class Counselors(models.Model):
-#     name = models.CharField(max_length=255)
-#     user = models.ForeignKey('accounts.Users', on_delete=models.CASCADE)
-
-#     class Meta:
-#         db_table = 'counselors'
-
-class CounselorManager(BaseUserManager):
-    pass  # カスタムのマネージャー機能を実装する場合にここに追加
-
 class Counselors(models.Model):
-    counselorname = models.CharField(max_length=255)
-    age = models.PositiveIntegerField()
-    email = models.EmailField(max_length=255, unique=True)
-    is_active = models.BooleanField(default=False)
-
-    is_staff = models.BooleanField(default=False)
-    picture = models.FileField(null=True, upload_to='picture/')
-    users = models.ManyToManyField('accounts.Users',related_name='counselors')#一人のカウンセラーが複数のユーザーと関連付けられます。
-
-    objects = CounselorManager()  # カスタムマネージャーを指定する
-    # objects = UserManager()
-
-    COUNSELORNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['counselorname']
+    name = models.CharField(max_length=255)
+    user = models.ForeignKey('accounts.Users', on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'counselors'
 
-class CounselorActivateTokensManager(models.Manager):
+# class CounselorManager(BaseUserManager):
+#     pass  # カスタムのマネージャー機能を実装する場合にここに追加
 
-    def activate_Counselor_by_token(self, token):
-        counselor_activate_token = self.filter( # type: ignore
-            token=token,
-            expired_at__gte=datetime.now()
-        ).first()
-        counselor = counselor_activate_token.counselor # type: ignore
-        counselor.is_active =True
-        counselor.save()
+# class Counselors(models.Model):
+#     counselorname = models.CharField(max_length=255)
+#     age = models.PositiveIntegerField()
+#     email = models.EmailField(max_length=255, unique=True)
+#     is_active = models.BooleanField(default=False)
 
-class CounselorActivateTokens(models.Model):
+#     is_staff = models.BooleanField(default=False)
+#     picture = models.FileField(null=True, upload_to='picture/')
+#     users = models.ManyToManyField('accounts.Users',related_name='counselors')#一人のカウンセラーが複数のユーザーと関連付けられます。
 
-    token = models.UUIDField(db_index=True)
-    expired_at = models.DateTimeField()
-    counselor = models.ForeignKey(
-        'counselors', on_delete=models.CASCADE
-    )
+#     objects = CounselorManager()  # カスタムマネージャーを指定する
+#     # objects = UserManager()
 
-    objects = CounselorActivateTokensManager() # type: ignore
+#     COUNSELORNAME_FIELD = 'email'
+#     REQUIRED_FIELDS = ['counselorname']
 
-    class Meta:
-        db_table = 'counselor_activate_tokens'
+#     class Meta:
+#         db_table = 'counselors'
 
-@receiver(post_save, sender=Counselors)
-def publish_token(sender, instance, **kwargs):
-    print(str(uuid4()))
-    print(datetime.now() + timedelta(days=1))
-    counselor_activate_token = CounselorActivateTokens.objects.create(
-        counselor=instance, token=str(uuid4()), expired_at=datetime.now() + timedelta(days=1)
-    )
-    # メールでURLを送る方がよい
-    print(f'http://127.0.0.1:8000/accounts/activate_counselor/{counselor_activate_token.token}')
+# class CounselorActivateTokensManager(models.Manager):
+
+#     def activate_Counselor_by_token(self, token):
+#         counselor_activate_token = self.filter( # type: ignore
+#             token=token,
+#             expired_at__gte=datetime.now()
+#         ).first()
+#         counselor = counselor_activate_token.counselor # type: ignore
+#         counselor.is_active =True
+#         counselor.save()
+
+# class CounselorActivateTokens(models.Model):
+
+#     token = models.UUIDField(db_index=True)
+#     expired_at = models.DateTimeField()
+#     counselor = models.ForeignKey(
+#         'counselors', on_delete=models.CASCADE
+#     )
+
+#     objects = CounselorActivateTokensManager() # type: ignore
+
+#     class Meta:
+#         db_table = 'counselor_activate_tokens'
+
+# @receiver(post_save, sender=Counselors)
+# def publish_token(sender, instance, **kwargs):
+#     print(str(uuid4()))
+#     print(datetime.now() + timedelta(days=1))
+#     counselor_activate_token = CounselorActivateTokens.objects.create(
+#         counselor=instance, token=str(uuid4()), expired_at=datetime.now() + timedelta(days=1)
+#     )
+#     # メールでURLを送る方がよい
+#     print(f'http://127.0.0.1:8000/accounts/activate_counselor/{counselor_activate_token.token}')
 
 class User(models.Model):
     name = models.CharField(max_length=50)
