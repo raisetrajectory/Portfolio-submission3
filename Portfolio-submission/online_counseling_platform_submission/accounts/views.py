@@ -103,10 +103,10 @@ def user_login(request):
 
 def counselor_login(request):
     if request.method == 'POST':
-        login_form = forms.LoginForm(request.POST or None)
-        if login_form.is_valid():
-            email = login_form.cleaned_data.get('email')
-            password = login_form.cleaned_data.get('password')
+        counselor_login_form = forms.CounselorLoginForm(request.POST or None)
+        if counselor_login_form.is_valid():
+            email = counselor_login_form.cleaned_data.get('email')
+            password = counselor_login_form.cleaned_data.get('password')
             user = authenticate(email=email, password=password)
             if user:
                 if user.is_active:
@@ -119,7 +119,7 @@ def counselor_login(request):
                 messages.warning(request, 'カウンセラーがパスワードが間違っています' )
     return render(
         request, 'accounts/counselor_login.html', context={
-            'login_form':login_form,
+            'counselor_login_form':counselor_login_form,
         }
     )
 
