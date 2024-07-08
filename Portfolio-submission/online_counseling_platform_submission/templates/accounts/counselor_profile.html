@@ -27,7 +27,37 @@
         {% comment %} {% endif %} {% endcomment %}
         </div>
     </li>
+    <li>
+        <div class="info-block">
+            <h3>名前:{{ user.username }}</h3>
+        </div>
+    </li>
+    <li>
+        <div class="info-block">
+            <h3>自己紹介:</h3>
+            <p>{{ user.introduction }}</p>
+        </div>
+    </li>
     </div>
+    <li>
+        {% comment %} <div class="info-block"> {% endcomment %}
+            {% comment %} <h3>契約カウンセラー:{{ user.counselor.username }}</h3> {% endcomment %}
+            {% comment %} {% if user.picture and user.picture.url %} {% endcomment %}
+            {% comment %} <img src="{{ user.counselor.picture }}" alt="" width="100" height="100"> {% endcomment %}
+            {% comment %} {% else %} {% endcomment %}
+            {% comment %} <p>画像がありません。</p> {% endcomment %}
+            {% comment %} {% endif %} {% endcomment %}
+            {% comment %} {% if request.user.counselor %} {% endcomment %}
+            {% comment %} <form method="POST" action="{% url boards:deselect_counselor %}" > {% endcomment %}
+            {% comment %} {% csrf_token %} {% endcomment %}
+            {% comment %} <button type="submit" style="color:red">契約を解除する</button> {% endcomment %}
+            {% comment %} </form> {% endcomment %}
+            {% comment %} {% endif %} {% endcomment %}
+        {% comment %} </div> {% endcomment %}
+    </li>
+    </div>
+    {% comment %} </ul> {% endcomment %}
+    {% comment %} {% endfor %} {% endcomment %}
 
     <!-- カウンセラーリストを追加 -->
     <div class="profile-container">
