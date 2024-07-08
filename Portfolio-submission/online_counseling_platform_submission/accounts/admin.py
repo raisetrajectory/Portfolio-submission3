@@ -1,9 +1,6 @@
 from django.contrib import admin
-
-from .models import Users #不要となった場合は削除して大丈夫です
+from .models import Users
+from .models import Counselor
 # Register your models here.
-admin.site.register(Users) #不要となった場合は削除して大丈夫です
-
-# from django.contrib import Counselor
-from .models import Counselor #不要となった場合は削除して大丈夫です
-admin.site.register(Counselor) #不要となった場合は削除して大丈夫です
+admin.site.register(Users)
+admin.site.register(Counselor)
