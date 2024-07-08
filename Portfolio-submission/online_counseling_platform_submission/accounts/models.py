@@ -118,4 +118,3 @@ def publish_token(sender, instance, **kwargs):
     )
     # メールでURLを送る方がよい
     print(f'http://127.0.0.1:8000/accounts/activate_user/{user_activate_token.token}')
-
