@@ -67,6 +67,10 @@ class LoginForm(forms.Form):
     email = forms.CharField(label="メールアドレス")
     password = forms.CharField(label="パスワード", widget=forms.PasswordInput())
 
+class CounselorLoginForm(forms.Form):
+    email = forms.CharField(label="メールアドレス")
+    password = forms.CharField(label="パスワード", widget=forms.PasswordInput())
+
 class PasswordChangeForm(forms.ModelForm):
 
     password = forms.CharField(label='パスワード', widget=forms.PasswordInput())
