@@ -27,6 +27,11 @@ def counselor_profile(request):
         'user_lists':user_lists, 'counselor_lists':counselor_lists,
     'user': request.user})
 
+def home(request):
+    return render(
+        request, 'accounts/home.html'
+    )
+
 @login_required
 def counselor_menu(request):
 
@@ -37,11 +42,6 @@ def counselor_menu(request):
 
     return render(request, 'base.html', {
         'user_type': user_type})
-
-def home(request):
-    return render(
-        request, 'accounts/home.html'
-    )
 
 def regist(request):
     regist_form = forms.RegistForm(request.POST or None)
