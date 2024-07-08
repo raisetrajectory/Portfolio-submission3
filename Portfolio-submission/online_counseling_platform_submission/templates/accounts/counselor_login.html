@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 {% if messages %}
-    {% for message in messages %}
-        <div>{{ message.message }}</div>
-    {% endfor %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
 {% endif %}
 <form method="POST">
     {% csrf_token %}
     {{ counselor_login_form.as_p }}
-    {% comment %} {{ login_form.as_p }} {% endcomment %}
     <input type="submit" value="ログイン">
 </form>
 {% endblock %}

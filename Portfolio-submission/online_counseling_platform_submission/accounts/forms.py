@@ -35,6 +35,13 @@ class CounselorRegistForm(RegistForm):
         model = Counselor
         fields = ('username', 'age', 'email', 'password')
 
+    def save(self, commit=True):
+        counselor = super().save(commit=False)
+        counselor.is_active = True  # カウンセラーをアクティブに設定
+        if commit:
+            counselor.save()
+        return counselor
+
 # class CounselorRegistForm(RegistForm):
 #     username = forms.CharField(label='カウンセラーネーム')
 
