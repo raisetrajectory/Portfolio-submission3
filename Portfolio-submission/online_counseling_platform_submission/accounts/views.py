@@ -57,9 +57,8 @@ def regist(request):
         }
     )
 
-
 def counselor_regist(request):
-    counselor_regist_form = forms.RegistForm(request.POST or None)
+    counselor_regist_form = forms.CounselorRegistForm(request.POST or None)
 
     if request.method == 'POST':
         if counselor_regist_form.is_valid():
@@ -74,7 +73,6 @@ def counselor_regist(request):
             'counselor_regist_form': counselor_regist_form,
         }
     )
-
 
 def activate_user(request, token):
     user_activate_token = UserActivateTokens.objects.activate_user_by_token(token) # type: ignore
