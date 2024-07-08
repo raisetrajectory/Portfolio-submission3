@@ -44,18 +44,19 @@ def home(request):
     )
 
 def regist(request):
-    regist_form = forms.RegistForm(request.POST or None)
-    if regist_form.is_valid():
+    counselor_regist_form = forms.CounselorRegistForm(request.POST or None)
+    if counselor_regist_form.is_valid():
         try:
-            regist_form.save()
+            counselor_regist_form.save()
             return redirect('accounts:home')
         except ValidationError as e:
-            regist_form.add_error('password', e)
+            counselor_regist_form.add_error('password', e)
     return render(
         request, 'accounts/regist.html', context={
-            'regist_form': regist_form,
+            'counselor_regist_form': counselor_regist_form,
         }
     )
+
 
 def counselor_regist(request):
     regist_form = forms.RegistForm(request.POST or None)
