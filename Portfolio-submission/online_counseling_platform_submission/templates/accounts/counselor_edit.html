@@ -7,7 +7,7 @@
 {% endif %}
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ user_edit_form.as_p }}
+    {{ counselor_edit_form.as_p }}
     <input type="submit" value="更新">
 </form>
 <a href="{% url 'accounts:change_password' %}">パスワード変更</a>
