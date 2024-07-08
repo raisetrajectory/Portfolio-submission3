@@ -145,50 +145,29 @@ def user_login(request):
 #         }
 #     )
 
-# def counselor_login(request): #記載内容のバックアップです!
-#     counselor_login_form = forms.CounselorLoginForm(request.POST or None)
-#     if request.method == 'POST':
-
-#         if counselor_login_form.is_valid():
-#             email = counselor_login_form.cleaned_data.get('email')
-#             password = counselor_login_form.cleaned_data.get('password')
-#             counselor = authenticate(request, email=email, password=password)
-#             if counselor:
-#                 if counselor.is_active:
-#                     login(request, counselor)
-#                     messages.success(request, 'ログイン完了しました。')
-#                     return redirect('accounts:home')
-#                 else:
-#                     messages.warning(request, 'カウンセラーがアクティブでありません')
-#             else:
-#                 messages.warning(request, 'カウンセラーのメールアドレスまたはパスワードが間違っています')
-
-#     return render(
-#         request, 'accounts/counselor_login.html', context={
-#             'counselor_login_form': counselor_login_form,
-#         }
-#     )
-
-def counselor_login(request):
+def counselor_login(request): #記載内容のバックアップです!
     counselor_login_form = forms.CounselorLoginForm(request.POST or None)
-    
     if request.method == 'POST':
+
         if counselor_login_form.is_valid():
             email = counselor_login_form.cleaned_data.get('email')
             password = counselor_login_form.cleaned_data.get('password')
             counselor = authenticate(request, email=email, password=password)
-            
             if counselor:
                 if counselor.is_active:
                     login(request, counselor)
                     messages.success(request, 'ログイン完了しました。')
                     return redirect('accounts:home')
                 else:
-                    messages.warning(request, 'カウンセラーがアクティブでありません。')
+                    messages.warning(request, 'カウンセラーがアクティブでありません')
             else:
-                messages.warning(request, 'カウンセラーのメールアドレスまたはパスワードが間違っています。')
-    
-    return render(request, 'accounts/counselor_login.html', {'counselor_login_form': counselor_login_form})
+                messages.warning(request, 'カウンセラーのメールアドレスまたはパスワードが間違っています')
+
+    return render(
+        request, 'accounts/counselor_login.html', context={
+            'counselor_login_form': counselor_login_form,
+        }
+    )
 
 # def counselor_login(request):
 #     counselor_login_form = forms.CounselorLoginForm(request.POST or None)
