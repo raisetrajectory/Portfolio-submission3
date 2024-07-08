@@ -7,7 +7,7 @@
 {% endif %}
 <form method="POST">
     {% csrf_token %}
-    {{ counselor_login_form.as_p }}
+    {{ regist_form.as_p }}
     <input type="submit" value="ログイン">
 </form>
 {% endblock %}
