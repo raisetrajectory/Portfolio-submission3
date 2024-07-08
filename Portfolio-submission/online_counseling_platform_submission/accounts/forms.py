@@ -35,40 +35,6 @@ class CounselorRegistForm(RegistForm):
         model = Counselor
         fields = ('username', 'age', 'email', 'password')
 
-    def save(self, commit=True):
-        counselor = super().save(commit=False)
-        counselor.is_active = True  # カウンセラーをアクティブに設定
-        if commit:
-            counselor.save()
-        return counselor
-
-# class CounselorRegistForm(RegistForm):
-#     username = forms.CharField(label='カウンセラーネーム')
-
-#     class Meta(RegistForm.Meta):
-#         model = Counselor
-#         fields = ('username', 'age', 'email', 'password')
-
-#     def clean(self):
-#         cleaned_data = super().clean()
-#         password = cleaned_data.get('password') # type: ignore
-#         confirm_password = cleaned_data.get('confirm_password') # type: ignore
-#         if password and confirm_password and password != confirm_password:
-#             raise forms.ValidationError('パスワードが異なります')
-#         return cleaned_data
-
-#     def save(self, commit=True):
-#         user = super().save(commit=False)
-#         password = self.cleaned_data.get('password')
-#         if password:
-#             validate_password(password, user)
-#             user.set_password(password)
-#         if commit:
-#             user.save()
-#         return user
-
-
-
 class UserEditForm(forms.ModelForm):
     username = forms.CharField(label='ユーザーネーム')
     age = forms.IntegerField(label='年齢', min_value=0)
