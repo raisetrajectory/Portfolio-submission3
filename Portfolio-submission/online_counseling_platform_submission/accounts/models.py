@@ -7,6 +7,7 @@ from django.dispatch import receiver
 from uuid import uuid4
 from datetime import datetime, timedelta
 # from django.contrib.auth.models import UserManager
+from django.utils import timezone
 
 class UserManager(BaseUserManager): #このメソッドは、一般ユーザーを作成するためのものです。
     #ユーザー作成手法
@@ -136,7 +137,7 @@ def publish_token(sender, instance, **kwargs):
     user_activate_token = UserActivateTokens.objects.create(
         user=user,
         token=str(uuid4()),
-        expired_at=datetime.now() + timedelta(days=1)
+        expired_at = timezone.now() + timedelta(days=1)
     )
     # メールでURLを送る方がよい
     print(f'http://127.0.0.1:8000/accounts/activate_user/{user_activate_token.token}')
