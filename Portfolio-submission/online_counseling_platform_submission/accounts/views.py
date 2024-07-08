@@ -124,25 +124,40 @@ def user_login(request):
 #     )
 
 def counselor_login(request):
-    login_form = forms.LoginForm(request.POST or None)
-    if login_form.is_valid():
-        email = login_form.cleaned_data.get('email')
-        password = login_form.cleaned_data.get('password')
-        user = authenticate(email=email, password=password)
-        if user:
-            if user.is_active:
-                login(request, user)
-                messages.success(request, 'ログイン完了しました。')
-                return redirect('accounts:home')
-            else:
-                messages.warning(request, 'ユーザがアクティブでありません')
-        else:
-            messages.warning(request, 'ユーザがパスワードが間違っています' )
+    counselor_login_form = forms.CounselorLoginForm(request.POST or None)
+
+    if request.method == 'POST':
+        if counselor_login_form.is_valid():
+            # ログイン処理などを行う
+            return redirect('accounts:home')
+
     return render(
         request, 'accounts/counselor_login.html', context={
-            'login_form':login_form,
+            'counselor_login_form': counselor_login_form,
         }
     )
+
+
+# def counselor_login(request):
+#     login_form = forms.LoginForm(request.POST or None)
+#     if login_form.is_valid():
+#         email = login_form.cleaned_data.get('email')
+#         password = login_form.cleaned_data.get('password')
+#         user = authenticate(email=email, password=password)
+#         if user:
+#             if user.is_active:
+#                 login(request, user)
+#                 messages.success(request, 'ログイン完了しました。')
+#                 return redirect('accounts:home')
+#             else:
+#                 messages.warning(request, 'ユーザがアクティブでありません')
+#         else:
+#             messages.warning(request, 'ユーザがパスワードが間違っています' )
+#     return render(
+#         request, 'accounts/counselor_login.html', context={
+#             'login_form':login_form,
+#         }
+#     )
 
 # @login_required # type: ignore #記載内容のバックアップです。
 # def user_logout(request):
