@@ -110,6 +110,7 @@ class UserActivateTokens(models.Model):
         db_table = 'user_activate_tokens'
 
 @receiver(post_save, sender=Users)
+@receiver(post_save, sender=Counselor)
 def publish_token(sender, instance, **kwargs):
     print(str(uuid4()))
     print(datetime.now() + timedelta(days=1))
