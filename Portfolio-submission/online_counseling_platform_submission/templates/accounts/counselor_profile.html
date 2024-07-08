@@ -14,6 +14,16 @@
     <div class="profile-container">
     {% comment %} {% if user_lists %} {% endcomment %}
     {% comment %} {% for user in user_lists %} {% endcomment %}
+    {% comment %} <ul style="list-style-type: none; "width=" 80%;">  {% endcomment %}
+    {% comment %} <li class="text-center">
+        <h3>ユーザー</h3>
+    </li> {% endcomment %}
+    <li>
+    <div class="image-container">
+        {% comment %} {% if user.picture and user.picture.url %} {% endcomment %}
+        {% comment %} <img src="{{ user.picture.url }}" alt="" width="300" height="300"> {% endcomment %}
+    </div>
+    </li>
     </div>
 
     <!-- カウンセラーリストを追加 -->
