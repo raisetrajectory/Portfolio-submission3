@@ -139,7 +139,7 @@ def counselor_login(request):
         else:
             messages.warning(request, 'ユーザがパスワードが間違っています' )
     return render(
-        request, 'accounts/user_login.html', context={
+        request, 'accounts/counselor_login.html', context={
             'login_form':login_form,
         }
     )
