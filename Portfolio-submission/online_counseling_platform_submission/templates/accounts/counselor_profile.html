@@ -19,10 +19,13 @@
         <h3>ユーザー</h3>
     </li> {% endcomment %}
     <li>
-    <div class="image-container">
+        <div class="image-container">
         {% comment %} {% if user.picture and user.picture.url %} {% endcomment %}
         {% comment %} <img src="{{ user.picture.url }}" alt="" width="300" height="300"> {% endcomment %}
-    </div>
+        {% comment %} {% else %} {% endcomment %}
+        {% comment %} <p>画像がありません。</p> {% endcomment %}
+        {% comment %} {% endif %} {% endcomment %}
+        </div>
     </li>
     </div>
 
