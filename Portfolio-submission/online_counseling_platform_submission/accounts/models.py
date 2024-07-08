@@ -121,11 +121,35 @@ class UserActivateTokens(models.Model):
 #     # メールでURLを送る方がよい
 #     print(f'http://127.0.0.1:8000/accounts/activate_user/{user_activate_token.token}')
 
+# @receiver(post_save, sender=Users)
+# @receiver(post_save, sender=Counselor)
+# def publish_token(sender, instance, **kwargs):
+#     print(str(uuid4()))
+#     print(datetime.now() + timedelta(days=1))
+
+#     # Users インスタンスの場合
+#     if isinstance(instance, Users):
+#         user = instance
+#     # Counselor インスタンスの場合
+#     elif isinstance(instance, Counselor):
+#         user = instance.user  # type: ignore # Counselor インスタンスから関連する Users インスタンスを取得する
+
+#     user_activate_token = UserActivateTokens.objects.create(
+#         user=user,
+#         token=str(uuid4()),
+#         expired_at = timezone.now() + timedelta(days=1)
+#     )
+
+#     # メールでURLを送る方がよい
+#     print(f'http://127.0.0.1:8000/accounts/activate_user/{user_activate_token.token}')
+
+from django.utils import timezone
+
 @receiver(post_save, sender=Users)
 @receiver(post_save, sender=Counselor)
 def publish_token(sender, instance, **kwargs):
     print(str(uuid4()))
-    print(datetime.now() + timedelta(days=1))
+    print(timezone.now() + timedelta(days=1))
 
     # Users インスタンスの場合
     if isinstance(instance, Users):
@@ -134,10 +158,16 @@ def publish_token(sender, instance, **kwargs):
     elif isinstance(instance, Counselor):
         user = instance.user  # type: ignore # Counselor インスタンスから関連する Users インスタンスを取得する
 
-    user_activate_token = UserActivateTokens.objects.create(
-        user=user,
-        token=str(uuid4()),
-        expired_at = timezone.now() + timedelta(days=1)
-    )
+    try:
+        user_activate_token = UserActivateTokens.objects.create(
+            user=user,
+            token=str(uuid4()),
+            expired_at=timezone.now() + timedelta(days=1)
+        )
+    except Exception as e:
+        # エラー処理を追加する
+        print(f"Failed to create UserActivateTokens: {e}")
+        return
+
     # メールでURLを送る方がよい
     print(f'http://127.0.0.1:8000/accounts/activate_user/{user_activate_token.token}')
