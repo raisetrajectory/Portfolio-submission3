@@ -29,7 +29,7 @@ class RegistForm(forms.ModelForm):
         return user
 
 class CounselorRegistForm(forms.ModelForm):
-    username = forms.CharField(label='ユーザーネーム')
+    username = forms.CharField(label='カウンセラーネーム')
     age = forms.IntegerField(label='年齢', min_value=0)
     email = forms.EmailField(label='メールアドレス')
     password = forms.CharField(label='パスワード', widget=forms.PasswordInput())
