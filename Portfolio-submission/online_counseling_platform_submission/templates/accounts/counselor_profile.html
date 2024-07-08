@@ -150,6 +150,7 @@
         {% if user.is_authenticated %}
             <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
             <a class="navbar-brand" href="{% url 'accounts:user_edit' %}">プロフィール内容(ユーザー登録)変更</a>
+            <a class="navbar-brand" href="{% url 'accounts:counselor_edit' %}">プロフィール内容(カウンセラー登録)変更</a>
         {% endif %}
     </nav>
 
