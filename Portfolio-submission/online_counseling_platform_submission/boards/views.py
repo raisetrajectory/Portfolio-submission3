@@ -33,6 +33,19 @@ from accounts.models import Counselor, Users
 #     counselors = Counselor.objects.all()
 #     return render(request, 'boards/counselor_list.html', {'counselors': counselors, 'user_type': user_type,})
 
+# @login_required
+# def select_counselor(request, counselor_id):
+#     user = request.user
+#     counselor = get_object_or_404(Counselor, id=counselor_id)
+#     user.counselor = counselor
+#     user.save()
+#     if isinstance(request.user, Counselor):
+#         user_type = 'Counselor'
+#     else:
+#         user_type = 'User'
+#     counselors = Counselor.objects.all()
+#     return (redirect('boards:list_themes'))
+
 @login_required
 def counselor_list(request):
     user = request.user
