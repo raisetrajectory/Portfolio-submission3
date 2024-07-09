@@ -22,7 +22,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Counselors
 from accounts.models import Counselor, Users
 
-@login_required
+@login_required #記載内容のバックアップです！
 def counselor_list(request):
     user = request.user
     if isinstance(user, Counselor):
