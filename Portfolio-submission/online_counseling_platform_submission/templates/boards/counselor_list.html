@@ -7,6 +7,25 @@
     {% endfor %}
 {% endif %}
 
+{% comment %} 現段階での記載内容となります！ {% endcomment %}
+<div class="text-center">
+    <h1>カウンセラー一覧画面</h1>
+</div>
+{% comment %} {% for counselor in counselors %} {% endcomment %}
+{% comment %} <div class="counselor-container"> {% endcomment %}
+    <div class="image-container">
+        {% comment %} <img src="{{ counselor.picture }}" alt="" width="300" height="300"> {% endcomment %}
+    </div>
+    <div class="info-block">
+        {% comment %} <h2>{{ counselor.username }}</h2> {% endcomment %}
+        <p>自己紹介:</p>
+        {% comment %} <p>{{ counselor.introduction }}</p> {% endcomment %}
+        {% comment %} {% if user_type == 'User' %} {% endcomment %}
+        {% comment %} {% if request.user.counselor is None %} {% endcomment %}
+        
+
+    </div>
+
 <div class="text-center">
     <h1>カウンセラー一覧画面</h1>
 </div>
