@@ -22,6 +22,25 @@ from django.contrib.auth.decorators import login_required
 from .models import Counselors
 from accounts.models import Counselor, Users
 
+@login_required
+def counselor_list(request):
+    user = request.user
+
+    if isinstance(user, Counselor):
+        user_type = 'Counselor'
+    else:
+        user_type = 'User'
+
+    counselors = Counselor.objects.all()
+
+    context = {
+        'counselors': counselors,
+        'user_type': user_type,
+        'current_user_email': user.email,  # ログインユーザーのメールアドレスをコンテキストに追加
+    }
+    return render(request, 'boards/counselor_list.html', context)
+
+
 # @login_required
 # def counselor_list(request):
 #     if isinstance(request.user, Counselor):
@@ -60,23 +79,16 @@ def deselect_counselor(request):
 #         user.save()
 #         return redirect('accounts:home')
 
-# @login_required
-# def deselect_counselor(request):
-#         user = request.user
-#         user.counselor = None
-#         user.save()
-#         return redirect('accounts:home')
+# @login_required　#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
+# def counselor_list(request):
+#     user = request.user
+#     counselors = Counselors.objects.all()
 
-@login_required
-def counselor_list(request):
-    user = request.user
-    counselors = Counselors.objects.all()
-
-    context = {
-        'counselors': counselors,
-        'current_user_email': user.email,  # ログインユーザーのメールアドレスをコンテキストに追加
-    }
-    return render(request, 'boards/counselor_list.html', context)
+#     context = {
+#         'counselors': counselors,
+#         'current_user_email': user.email,  # ログインユーザーのメールアドレスをコンテキストに追加
+#     }
+#     return render(request, 'boards/counselor_list.html', context)
 
 # @login_required
 # def counselor_list(request):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
