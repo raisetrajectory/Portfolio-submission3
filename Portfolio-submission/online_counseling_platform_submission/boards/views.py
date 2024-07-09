@@ -26,15 +26,12 @@ from accounts.models import Counselor, Users
 
 # @login_required
 # def counselor_list(request):
-#     if isinstance(request.user, Users):
-#     user = request.user
-#     counselors = Counselors.objects.all()
-
-#     context = {
-#         'counselors': counselors,
-#         'current_user_email': user.email,  # ログインユーザーのメールアドレスをコンテキストに追加
-#     }
-#     return render(request, 'boards/counselor_list.html', context)
+#     if isinstance(request.user, Counselor):
+#         user_type = 'Counselor'
+#     else:
+#         user_type = 'User'
+#     counselors = Counselor.objects.all()
+#     return render(request, 'boards/counselor_list.html', {'counselors': counselors, 'user_type': user_type,})
 
 @login_required
 def counselor_list(request):
