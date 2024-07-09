@@ -22,9 +22,15 @@
         {% comment %} <p>{{ counselor.introduction }}</p> {% endcomment %}
         {% comment %} {% if user_type == 'User' %} {% endcomment %}
         {% comment %} {% if request.user.counselor is None %} {% endcomment %}
-        
-
+        {% comment %} <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}"> {% endcomment %}
+        {% comment %} {% csrf_token %} {% endcomment %}
+        {% comment %} <button type="submit">選択</button> {% endcomment %}
+        {% comment %} </form> {% endcomment %}
+        {% comment %} {% endif %} {% endcomment %}
+        {% comment %} {% endif %} {% endcomment %}
     </div>
+</div>
+{% comment %} {% endfor %} {% endcomment %}
 
 <div class="text-center">
     <h1>カウンセラー一覧画面</h1>
