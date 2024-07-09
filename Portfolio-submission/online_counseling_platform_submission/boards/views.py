@@ -22,6 +22,19 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Counselors
+from accounts.models import Counselor, Users
+
+# @login_required
+# def counselor_list(request):
+#     if isinstance(request.user, Users):
+#     user = request.user
+#     counselors = Counselors.objects.all()
+
+#     context = {
+#         'counselors': counselors,
+#         'current_user_email': user.email,  # ログインユーザーのメールアドレスをコンテキストに追加
+#     }
+#     return render(request, 'boards/counselor_list.html', context)
 
 @login_required
 def counselor_list(request):
