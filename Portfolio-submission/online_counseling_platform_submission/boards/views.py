@@ -17,8 +17,6 @@ from django.contrib import messages
 from .models import Comments
 from .forms import PostCommentForm
 
-from django.contrib.auth.decorators import login_required
-
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Counselors
@@ -41,6 +39,18 @@ def select_counselor(request, counselor_id):
     user.save()
     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
     return (redirect('boards:list_themes'))
+
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect
+
+@login_required
+def deselect_counselor(request):
+    if request.method == 'POST':  # POSTメソッドをチェックする
+        user = request.user
+        user.counselor = None
+        user.save()
+        return redirect('accounts:home')  # リダイレクト先のURLが正しいか確認
+    return redirect('accounts:home')  # GETリクエストの場合のリダイレクト先を指定
 
 # @login_required #記載内容のバックアップです！
 # def deselect_counselor(request):
