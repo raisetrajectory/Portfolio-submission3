@@ -177,15 +177,24 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
+            {% comment %} align-items: center; {% endcomment %}
+            {% comment %} justify-content: flex-start; {% endcomment %}
             margin: 20px;
+            {% comment %} margin: 20px auto; {% endcomment %}
         }
         .image-container {
+            {% comment %} flex: 0 0 auto; {% endcomment %}
             display: flex;
             justify-content: center; /* 水平方向の中央揃え */
             align-items: center; /* 垂直方向の中央揃え */
             height: 100%; /* 必要に応じて高さを調整 */
         }
         .info-block {
+            {% comment %} padding: 10px; {% endcomment %}
+            {% comment %} border: 1px solid #000; {% endcomment %}
+            {% comment %} background-color: #f0f0f0; /* 背景色を設定 */ {% endcomment %}
+            {% comment %} text-align: left; /* テキストを左揃えに変更 */ {% endcomment %}
+            {% comment %} width: 300px; /* 幅を設定 */ {% endcomment %}
             width: 300px; /* 幅を設定 */
             padding: 10px; /* 内側の余白を設定 */
             border: 1px solid #000; /* 枠線を設定 */
