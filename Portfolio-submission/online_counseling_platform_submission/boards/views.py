@@ -37,7 +37,6 @@ def counselor_list(request):
     }
     return render(request, 'boards/counselor_list.html', context)
 
-
 # @login_required
 # def counselor_list(request):
 #     if isinstance(request.user, Counselor):
