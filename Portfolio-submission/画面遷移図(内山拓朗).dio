@@ -553,6 +553,16 @@
                         <mxPoint x="1200" y="655.95" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
+                <mxCell id="1979" value="オンラインカウンセリングサービスに関する説明が記載されております。" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="899.5" y="-260" width="280.5" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="1980" value="" style="endArrow=classic;html=1;fontSize=15;startArrow=none;exitX=0.182;exitY=1.04;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="947.0010000000013" y="-199.99999999999955" as="sourcePoint"/>
+                        <mxPoint x="780" y="-20" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
