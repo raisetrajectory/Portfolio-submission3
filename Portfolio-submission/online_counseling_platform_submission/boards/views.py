@@ -44,10 +44,11 @@ from accounts.models import Counselor, Users
 
 # @login_required
 # def deselect_counselor(request):
-#     user = request.user
-#     user.counselor = None
-#     user.save()
-#     return redirect('accounts:home')
+#     if request.method == 'POST':
+#         user = request.user
+#         user.counselor = None
+#         user.save()
+#         return redirect('accounts:home')
 
 @login_required
 def counselor_list(request):
