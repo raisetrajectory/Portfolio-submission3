@@ -42,7 +42,15 @@ def select_counselor(request, counselor_id):
     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
     return (redirect('boards:list_themes'))
 
-# @login_required
+# @login_required #記載内容のバックアップです！
+# def deselect_counselor(request):
+#     if request.method == 'POST':
+#         user = request.user
+#         user.counselor = None
+#         user.save()
+#         return redirect('accounts:home')
+
+# @login_required #記載内容のバックアップです！
 # def deselect_counselor(request):
 #     if request.method == 'POST':
 #         user = request.user
