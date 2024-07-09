@@ -39,11 +39,7 @@ from accounts.models import Counselor, Users
 #     counselor = get_object_or_404(Counselor, id=counselor_id)
 #     user.counselor = counselor
 #     user.save()
-#     if isinstance(request.user, Counselor):
-#         user_type = 'Counselor'
-#     else:
-#         user_type = 'User'
-#     counselors = Counselor.objects.all()
+#     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
 #     return (redirect('boards:list_themes'))
 
 @login_required
