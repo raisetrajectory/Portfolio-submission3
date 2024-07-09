@@ -25,14 +25,11 @@ from accounts.models import Counselor, Users
 @login_required
 def counselor_list(request):
     user = request.user
-
     if isinstance(user, Counselor):
         user_type = 'Counselor'
     else:
         user_type = 'User'
-
     counselors = Counselor.objects.all()
-
     context = {
         'counselors': counselors,
         'user_type': user_type,
