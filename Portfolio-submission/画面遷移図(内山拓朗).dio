@@ -484,7 +484,7 @@
                 <mxCell id="1916" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;利用者が【チャット作成画面へ】を押した場合に、チャット作成画面に遷移する機能を実装します。&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-590" y="637" width="300" height="76" as="geometry"/>
                 </mxCell>
-                <mxCell id="1917" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;利用者が【チャット作成画面へ】を押した場合に、チャット作成画面に遷移する機能を実装します。&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="1917" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;カウンセラーの名前と自己紹介等が表示されております。選択＝チャット作成画面を押した場合に、ユーザーがチャット作成画面に遷移する機能を実装します。&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-520" y="525" width="300" height="76" as="geometry"/>
                 </mxCell>
                 <mxCell id="1924" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;チャット制作画面へ&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
