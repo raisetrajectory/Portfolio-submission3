@@ -16,6 +16,8 @@ urlpatterns = [
     path('comment/<int:comment_id>/delete/', views.delete_comment, name='comment_delete'),
     path('upload_sample/', views.upload_sample, name='upload_sample'),
     path('upload_model_form/', views.upload_model_form, name='upload_model_form'),
-
     path('comment/<int:comment_id>/edit/', views.edit_comment, name='edit_comment'),
+    
+    path('select_counselor/<int:counselor_id>/', views.select_counselor, name='select_counselor'),
+    # path('deselect_counselor/', views.deselect_counselor, name='deselect_counselor'),
 ]
