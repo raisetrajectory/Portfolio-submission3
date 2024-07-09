@@ -50,9 +50,8 @@ def select_counselor(request, counselor_id):
 #         user.save()
 #         return redirect('accounts:home')
 
-# @login_required #記載内容のバックアップです！
+# @login_required
 # def deselect_counselor(request):
-#     if request.method == 'POST':
 #         user = request.user
 #         user.counselor = None
 #         user.save()
