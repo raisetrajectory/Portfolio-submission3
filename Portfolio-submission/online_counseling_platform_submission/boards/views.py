@@ -42,6 +42,13 @@ from accounts.models import Counselor, Users
 #     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
 #     return (redirect('boards:list_themes'))
 
+# @login_required
+# def deselect_counselor(request):
+#     user = request.user
+#     user.counselor = None
+#     user.save()
+#     return redirect('accounts:home')
+
 @login_required
 def counselor_list(request):
     user = request.user
