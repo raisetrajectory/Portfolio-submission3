@@ -146,7 +146,7 @@ from django.shortcuts import redirect
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
-# def list_themes(request):
+# def list_themes(request): #この記載内容に戻りましょう!
 #     if request.user.is_authenticated:
 #         if isinstance(request.user, User):
 #             themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
@@ -167,9 +167,14 @@ User = get_user_model()
 @login_required
 def list_themes(request):
     if request.user.is_authenticated:
-        themes = Themes.objects.filter(user=request.user)
-        user_type = 'Counselor' if hasattr(request.user, 'counselor') else 'User'
-        return render(request, 'boards/list_themes.html', {'themes': themes, 'user_type': user_type})
+        # request.user が Users モデルのインスタンスであることを確認
+        if isinstance(request.user, Users):
+            themes = Themes.objects.filter(user=request.user)
+            user_type = 'Counselor' if hasattr(request.user, 'counselor') else 'User'
+            return render(request, 'boards/list_themes.html', {'themes': themes, 'user_type': user_type})
+        else:
+            # request.user が Users モデルのインスタンスでない場合の処理
+            return redirect('accounts:home')
     return redirect('accounts:home')
 
 # @login_required
