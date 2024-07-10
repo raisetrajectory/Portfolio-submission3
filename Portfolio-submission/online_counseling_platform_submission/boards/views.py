@@ -147,13 +147,14 @@ User = get_user_model()
 
 def list_themes(request):
     if request.user.is_authenticated:
-        themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
-
-    # もしカウンセラーでログインしている場合は、そのタイプを設定
-        if hasattr(request.user, 'counselor'):
-            user_type = 'Counselor'
+        if isinstance(request.user, User):
+            themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
+            if hasattr(request.user, 'counselor'):
+                user_type = 'Counselor'
+            else:
+                user_type = 'User'  # デフォルトはユーザーとして設定
         else:
-            user_type = 'User'  # デフォルトはユーザーとして設定
+            return redirect('accounts:home')
     else:
         return redirect('accounts:home')
 
@@ -162,6 +163,22 @@ def list_themes(request):
         'user_type': user_type,
     })
 
+# def list_themes(request): #記載内容のバックアップです!
+#     if request.user.is_authenticated:
+#         themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
+
+#     # もしカウンセラーでログインしている場合は、そのタイプを設定
+#         if hasattr(request.user, 'counselor'):
+#             user_type = 'Counselor'
+#         else:
+#             user_type = 'User'  # デフォルトはユーザーとして設定
+#     else:
+#         return redirect('accounts:home')
+
+#     return render(request, 'boards/list_themes.html', {
+#         'themes': themes,
+#         'user_type': user_type,
+#     })
 
 def edit_theme(request, id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
     theme = get_object_or_404(Themes, id=id)
