@@ -172,12 +172,19 @@ from accounts.models import Users, Counselor  # Counselorモデルもインポ�
 @login_required
 def list_themes(request):
     if request.user.is_authenticated:
-        if isinstance(request.user, Users) or isinstance(request.user, Counselor):
-            themes = Themes.objects.filter(user=request.user)
-            user_type = 'Counselor' if isinstance(request.user, Counselor) else 'User'
+        if isinstance(request.user, Users):
+            user_type = 'Counselor' if hasattr(request.user, 'counselor_profile') else 'User'
+
+            # request.userがCounselorの場合、適切なUsersオブジェクトを取得
+            if user_type == 'Counselor':
+                user_instance = request.user
+            else:
+                user_instance = request.user
+
+            themes = Themes.objects.filter(user=user_instance)
             return render(request, 'boards/list_themes.html', {'themes': themes, 'user_type': user_type})
         else:
-            # request.user が Users または Counselor モデルのインスタンスでない場合の処理
+            # request.user が Users モデルのインスタンスでない場合の処理
             return redirect('accounts:home')
     return redirect('accounts:home')
 
