@@ -18,7 +18,6 @@
     </div>
     <div class="info-block">
         <h2>{{ counselor.username }}</h2>
-        <p>自己紹介:</p>
         <p>{{ counselor.introduction }}</p>
         {% if user_type == 'User' %}
         {% if request.user.counselor is None %}
