@@ -53,3 +53,24 @@ $("#save_comment").click(function(){
 });
 </script>
 {% endblock %}
+
+{% if user.is_authenticated and user.is_counselor %}
+{% for comment in comments %}
+<div class="col-1 offset-1">
+    {% if comment.counselor.picture %}
+        <img style="float:left;" width="50px" height="50px" src="{{ comment.counselor.picture.url }}">
+    {% endif %}
+</div>
+<div class="col-8 offset-2">
+    <p>カウンセラー名: {{ comment.counselor.username }}</p>
+    <p>{{ comment.comment | linebreaks }}</p>
+    {% if comment.counselor == user %}
+        <a href="{% url 'boards:comment_delete' comment.pk %}">コメント削除</a>
+        <a href="{% url 'boards:edit_comment' comment.pk %}">コメント編集</a>
+    {% endif %}
+</div>
+<div class="col-10 offset-1">
+<hr>
+</div>
+{% endfor %}
+{% endif %}
