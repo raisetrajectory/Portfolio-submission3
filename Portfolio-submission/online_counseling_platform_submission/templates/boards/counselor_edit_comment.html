@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>コメント編集画面</h3>
+<p>本当にこのコメントを編集しますか？</p>
+<form method="POST">
+{% csrf_token %}
+{{ edit_comment_form.as_p }}
+<input type="submit" value="更新">
+<button type="button" onclick="goBack()">キャンセル</button>
+</form>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+{% endblock %}
