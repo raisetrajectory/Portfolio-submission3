@@ -1,5 +1,6 @@
 from django.db import models
 from accounts.models import Counselor  # accountsアプリのCounselorモデルをインポート #記載内容の追加です!
+from accounts.models import Users, Counselor
 
 class ThemesManager(models.Manager):
 
