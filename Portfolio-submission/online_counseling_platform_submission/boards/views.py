@@ -167,24 +167,24 @@ def create_theme(request):#記載内容のバックアップです！　この�
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .models import Themes
-from accounts.models import Users, Counselor  # Counselorモデルもインポート
+from accounts.models import Users, Counselor
 
 @login_required
 def list_themes(request):
     if request.user.is_authenticated:
         if isinstance(request.user, Users):
-            user_type = 'Counselor' if hasattr(request.user, 'counselor_profile') else 'User'
+            user_type = 'Counselor' if hasattr(request.user, 'counselor') else 'User'
 
             # request.userがCounselorの場合、適切なUsersオブジェクトを取得
             if user_type == 'Counselor':
-                user_instance = request.user
+                user_instance = request.user.counselor.client if request.user.counselor else None
             else:
                 user_instance = request.user
 
             themes = Themes.objects.filter(user=user_instance)
             return render(request, 'boards/list_themes.html', {'themes': themes, 'user_type': user_type})
         else:
-            # request.user が Users モデルのインスタンスでない場合の処理
+            # request.userがUsersモデルのインスタンスでない場合の処理
             return redirect('accounts:home')
     return redirect('accounts:home')
 
