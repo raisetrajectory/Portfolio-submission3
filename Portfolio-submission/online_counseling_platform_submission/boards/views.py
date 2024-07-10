@@ -164,6 +164,23 @@ def list_themes(request):
         'user_type': user_type,
     })
 
+# @login_required
+# def list_themes(request):
+#     if request.user.is_authenticated:
+#         if hasattr(request.user, 'counselor'):  # Check if the user is a counselor
+#             user_type = 'Counselor'
+#             themes = Themes.objects.filter(user=request.user)
+#         else:
+#             user_type = 'User'
+#             themes = Themes.objects.filter(user=request.user)  # Retrieve themes related to the logged-in user
+#     else:
+#         return redirect('accounts:home')
+
+#     return render(request, 'boards/list_themes.html', {
+#         'themes': themes,
+#         'user_type': user_type,
+#     })
+
 # def list_themes(request): #記載内容のバックアップです!
 #     if request.user.is_authenticated:
 #         themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
