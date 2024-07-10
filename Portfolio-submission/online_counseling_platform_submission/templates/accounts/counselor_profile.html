@@ -13,7 +13,7 @@
 
 {% comment %} 現段階での記載内容となります！ {% endcomment %}
 <!-- カウンセラーリストを追加 -->
-{% comment %} <div class="profile-container">
+<div class="profile-container">
     {% if user_lists %}
     {% for user in user_lists %}
     <ul style="list-style-type: none; "width=" 80%;">
@@ -50,7 +50,7 @@
             <p>画像がありません。</p>
             {% endif %}
             {% if request.user.counselor %}
-            <form method="POST" action="{% url boards:deselect_counselor %}" >
+            {% comment %} <form method="POST" action="{% url boards:deselect_counselor %}" > {% endcomment %}
             {% csrf_token %}
             <button type="submit" style="color:red">契約を解除する</button>
             </form>
@@ -85,7 +85,7 @@
     </ul>
     {% endfor %}
     {% endif %}
-</div> {% endcomment %}
+</div>
 
     <!-- カウンセラーリストを追加 -->
     <div class="profile-container">
