@@ -8,29 +8,29 @@
 {% endif %}
 
 {% comment %} 現段階での記載内容となります！ {% endcomment %}
-{% comment %} <div class="text-center">
+<div class="text-center">
     <h1>カウンセラー一覧画面</h1>
-</div> {% endcomment %}
-{% comment %} {% for counselor in counselors %} {% endcomment %}
-{% comment %} <div class="counselor-container"> {% endcomment %}
-    {% comment %} <div class="image-container"> {% endcomment %}
-        {% comment %} <img src="{{ counselor.picture }}" alt="" width="300" height="300"> {% endcomment %}
-    {% comment %} </div> {% endcomment %}
-    {% comment %} <div class="info-block"> {% endcomment %}
-        {% comment %} <h2>{{ counselor.username }}</h2> {% endcomment %}
-        {% comment %} <p>自己紹介:</p> {% endcomment %}
-        {% comment %} <p>{{ counselor.introduction }}</p> {% endcomment %}
-        {% comment %} {% if user_type == 'User' %} {% endcomment %}
-        {% comment %} {% if request.user.counselor is None %} {% endcomment %}
-        {% comment %} <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}"> {% endcomment %}
-        {% comment %} {% csrf_token %} {% endcomment %}
-        {% comment %} <button type="submit">選択</button> {% endcomment %}
-        {% comment %} </form> {% endcomment %}
-        {% comment %} {% endif %} {% endcomment %}
-        {% comment %} {% endif %} {% endcomment %}
-    {% comment %} </div> {% endcomment %}
-{% comment %} </div> {% endcomment %}
-{% comment %} {% endfor %} {% endcomment %}
+</div>
+{% for counselor in counselors %}
+<div class="counselor-container">
+    <div class="image-container">
+        <img src="{{ counselor.picture }}" alt="" width="300" height="300">
+    </div>
+    <div class="info-block">
+        <h2>{{ counselor.username }}</h2>
+        <p>自己紹介:</p>
+        <p>{{ counselor.introduction }}</p>
+        {% if user_type == 'User' %}
+        {% if request.user.counselor is None %}
+        <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}">
+        {% csrf_token %}
+        <button type="submit">選択</button>
+        </form>
+        {% endif %}
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
 
 <div class="text-center">
     <h1>カウンセラー一覧画面</h1>
