@@ -164,6 +164,11 @@ User = get_user_model()
 #         'user_type': user_type,
 #     })
 
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+from .models import Themes
+from accounts.models import Users  # Usersモデルをインポート
+
 @login_required
 def list_themes(request):
     if request.user.is_authenticated:
@@ -176,6 +181,7 @@ def list_themes(request):
             # request.user が Users モデルのインスタンスでない場合の処理
             return redirect('accounts:home')
     return redirect('accounts:home')
+
 
 # @login_required
 # def list_themes(request):
