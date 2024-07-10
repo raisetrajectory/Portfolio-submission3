@@ -7,7 +7,7 @@ class ThemesManager(models.Manager):
     def fetch_all_themes(self):
         return self.order_by('id').all()
 
-# class Themes(models.Model):
+# class Themes(models.Model): #記載内容のバックアップです！
 
 #     title = models.CharField(max_length=255)
 #     user = models.ForeignKey(
