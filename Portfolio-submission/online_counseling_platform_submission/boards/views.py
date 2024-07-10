@@ -172,6 +172,34 @@ def list_themes(request): #この記載内容に戻りましょう!
 # @login_required
 # def list_themes(request):
 #     if request.user.is_authenticated:
+#         if isinstance(request.user, Users):
+#             user_type = 'User'
+#             user_instance = request.user
+
+#             themes = Themes.objects.filter(user=user_instance)
+#             return render(request, 'boards/list_themes.html', {'themes': themes, 'user_type': user_type})
+#         elif isinstance(request.user, Counselor):
+#             user_type = 'Counselor'
+#             user_instance = request.user
+
+#             themes = Themes.objects.filter(user=request.user)
+#             return render(request, 'boards/list_themes.html', {'themes': themes, 'user_type': user_type})
+#         else:
+#             # その他の場合はリダイレクト
+#             return redirect('accounts:home')
+#     else:
+#         # ログインしていない場合はログインページにリダイレクト
+#         return redirect('accounts:home')
+
+
+# from django.contrib.auth.decorators import login_required
+# from django.shortcuts import render, redirect
+# from .models import Themes
+# from accounts.models import Users, Counselor
+
+# @login_required
+# def list_themes(request):
+#     if request.user.is_authenticated:
 #         if hasattr(request.user, 'counselor'):  # Check if the user is a counselor
 #             user_type = 'Counselor'
 #             themes = Themes.objects.filter(user=request.user)
