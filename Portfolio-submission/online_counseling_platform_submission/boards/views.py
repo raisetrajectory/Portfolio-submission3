@@ -151,7 +151,6 @@ def list_themes(request):
     if hasattr(request.user, 'counselor'):
         user_type = 'Counselor'
 
-
     return render(request, 'boards/list_themes.html', {
         'themes': themes,
         'user_type': user_type,
