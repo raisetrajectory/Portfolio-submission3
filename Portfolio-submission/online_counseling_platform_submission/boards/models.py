@@ -7,15 +7,29 @@ class ThemesManager(models.Manager):
     def fetch_all_themes(self):
         return self.order_by('id').all()
 
-class Themes(models.Model):
+# class Themes(models.Model):
 
+#     title = models.CharField(max_length=255)
+#     user = models.ForeignKey(
+#         'accounts.Users', on_delete=models.CASCADE
+#     )
+#     counselor = models.ForeignKey(
+#         Counselor, on_delete=models.CASCADE, related_name='themes', null=True, blank=True
+#     )  # Counselorモデルを関連付ける #記載内容の追加です!
+
+#     objects = ThemesManager()
+
+#     class Meta:
+#         db_table = 'themes'
+
+class Themes(models.Model):
     title = models.CharField(max_length=255)
     user = models.ForeignKey(
         'accounts.Users', on_delete=models.CASCADE
     )
     counselor = models.ForeignKey(
-        Counselor, on_delete=models.CASCADE, related_name='themes', null=True, blank=True
-    )  # Counselorモデルを関連付ける #記載内容の追加です!
+        'accounts.Counselor', on_delete=models.CASCADE, related_name='themes', null=True, blank=True
+    )
 
     objects = ThemesManager()
 
