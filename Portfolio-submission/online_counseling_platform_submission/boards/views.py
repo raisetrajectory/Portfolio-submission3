@@ -145,6 +145,7 @@ def create_theme(request):#記載内容のバックアップです！　この�
 def list_themes(request):
     themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
     user_type = 'User'  # 仮のユーザータイプ
+    user_type = 'Counselor'
 
     return render(request, 'boards/list_themes.html', {
         'themes': themes,
