@@ -142,52 +142,32 @@ def create_theme(request):#記載内容のバックアップです！　この�
 #         }
 #     )
 
-# from django.shortcuts import redirect #この記載内容に戻りましょう!
-# from django.contrib.auth import get_user_model
-# User = get_user_model()
+from django.shortcuts import redirect #この記載内容に戻りましょう!
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
-# def list_themes(request): #この記載内容に戻りましょう!
-#     if request.user.is_authenticated:
-#         if isinstance(request.user, User):
-#             themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
-#             if hasattr(request.user, 'counselor'):
-#                 user_type = 'Counselor'
-#             else:
-#                 user_type = 'User'  # デフォルトはユーザーとして設定
-#         else:
-#             return redirect('accounts:home')
-#     else:
-#         return redirect('accounts:home')
-
-#     return render(request, 'boards/list_themes.html', {
-#         'themes': themes,
-#         'user_type': user_type,
-#     })
-
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-from .models import Themes
-from accounts.models import Users, Counselor
-
-@login_required
-def list_themes(request):
+def list_themes(request): #この記載内容に戻りましょう!
     if request.user.is_authenticated:
-        if isinstance(request.user, Users):
-            user_type = 'Counselor' if hasattr(request.user, 'counselor') else 'User'
-
-            # request.userがCounselorの場合、適切なUsersオブジェクトを取得
-            if user_type == 'Counselor':
-                user_instance = request.user.counselor.client if request.user.counselor else None
+        if isinstance(request.user, User):
+            themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
+            if hasattr(request.user, 'counselor'):
+                user_type = 'Counselor'
             else:
-                user_instance = request.user
-
-            themes = Themes.objects.filter(user=user_instance)
-            return render(request, 'boards/list_themes.html', {'themes': themes, 'user_type': user_type})
+                user_type = 'User'  # デフォルトはユーザーとして設定
         else:
-            # request.userがUsersモデルのインスタンスでない場合の処理
             return redirect('accounts:home')
-    return redirect('accounts:home')
+    else:
+        return redirect('accounts:home')
 
+    return render(request, 'boards/list_themes.html', {
+        'themes': themes,
+        'user_type': user_type,
+    })
+
+# from django.contrib.auth.decorators import login_required
+# from django.shortcuts import render, redirect
+# from .models import Themes
+# from accounts.models import Users, Counselor
 
 # @login_required
 # def list_themes(request):
