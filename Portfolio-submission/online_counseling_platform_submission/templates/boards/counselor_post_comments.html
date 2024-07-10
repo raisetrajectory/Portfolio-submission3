@@ -3,14 +3,14 @@
 <h3>{{ theme.title }}</h3>
 {% for comment in comments %}
 <div class="col-1 offset-1">
-    {% if comment.user.picture %}
-        <img style="float:left;" width="50px" height="50px" src="{{ comment.user.picture.url }}">
+    {% if comment.counselor.picture %}
+        <img style="float:left;" width="50px" height="50px" src="{{ comment.counselor.picture.url }}">
     {% endif %}
 </div>
 <div class="col-8 offset-2">
-    <p>名前: {{ comment.user.username }}</p>
+    <p>名前: {{ comment.counselor.username }}</p>
     <p>{{ comment.comment | linebreaks }}</p>
-    {% if comment.user == user %}
+    {% if comment.counselor == counselor %}
         <a href="{% url 'boards:comment_delete' comment.pk %}">コメント削除</a>
         <a href="{% url 'boards:edit_comment' comment.pk %}">コメント編集</a>
     {% endif %}
