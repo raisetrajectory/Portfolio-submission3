@@ -22,7 +22,7 @@ class ThemesManager(models.Manager):
 #     class Meta:
 #         db_table = 'themes'
 
-class Themes(models.Model):
+class Themes(models.Model): #記載内容のバックアップです！
     title = models.CharField(max_length=255)
     user = models.ForeignKey(
         'accounts.Users', on_delete=models.CASCADE
