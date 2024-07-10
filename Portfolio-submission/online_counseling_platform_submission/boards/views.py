@@ -134,13 +134,22 @@ def create_theme(request):#記載内容のバックアップです！　この�
 #         }
 #     )
 
-def list_themes(request):#修正完了です！デプロイサイトに記載しましょう！
+# def list_themes(request):#修正完了です！デプロイサイトに記載しましょう！
+#     themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
+#     return render(
+#         request, 'boards/list_themes.html', context={
+#             'themes': themes
+#         }
+#     )
+
+def list_themes(request):
     themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
-    return render(
-        request, 'boards/list_themes.html', context={
-            'themes': themes
-        }
-    )
+    user_type = 'User'  # 仮のユーザータイプ
+
+    return render(request, 'boards/list_themes.html', {
+        'themes': themes,
+        'user_type': user_type,
+    })
 
 
 def edit_theme(request, id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
