@@ -11,6 +11,7 @@ urlpatterns = [
     path('edit_theme/<int:id>/', views.edit_theme, name='edit_theme'),
     # path('counselor_edit_theme/<int:id>/', views.edit_theme, name='edit_theme'),
     path('delete_theme/<int:id>/', views.delete_theme, name='delete_theme'),
+    # path('counselor_elete_theme/<int:id>/', views.delete_theme, name='delete_theme'),
     path('post_comments/<int:theme_id>/', views.post_comments, name='post_comments'),
     path('save_comment/', views.save_comment, name='save_comment'),
     path('counselor_list/', views.counselor_list, name='counselor_list'),
