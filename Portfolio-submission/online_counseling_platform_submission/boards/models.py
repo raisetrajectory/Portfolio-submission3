@@ -1,5 +1,5 @@
 from django.db import models
-# from accounts.models import Counselor  # accountsアプリのCounselorモデルをインポート
+from accounts.models import Counselor  # accountsアプリのCounselorモデルをインポート #記載内容の追加です!
 
 class ThemesManager(models.Manager):
 
@@ -12,6 +12,9 @@ class Themes(models.Model):
     user = models.ForeignKey(
         'accounts.Users', on_delete=models.CASCADE
     )
+    counselor = models.ForeignKey(
+        Counselor, on_delete=models.CASCADE, related_name='themes', null=True, blank=True
+    )  # Counselorモデルを関連付ける #記載内容の追加です!
 
     objects = ThemesManager()
 
@@ -31,6 +34,10 @@ class Comments(models.Model):
     theme = models.ForeignKey(
         'Themes', on_delete=models.CASCADE
     )
+    counselor = models.ForeignKey(
+        Counselor, on_delete=models.CASCADE, related_name='comments', null=True, blank=True
+    )  # Counselorモデルを関連付ける #記載内容の追加です!
+
     objects = CommentsManager()
 
     class Meta:
