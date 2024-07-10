@@ -13,80 +13,79 @@
 
 {% comment %} 現段階での記載内容となります！ {% endcomment %}
     <!-- カウンセラーリストを追加 -->
-    {% comment %} <div class="profile-container"> {% endcomment %}
-    {% comment %} {% if user_lists %} {% endcomment %}
-    {% comment %} {% for user in user_lists %} {% endcomment %}
-    {% comment %} <ul style="list-style-type: none; "width=" 80%;">  {% endcomment %}
-    {% comment %} <li class="text-center">
+    <div class="profile-container">
+    {% if user_lists %}
+    {% for user in user_lists %}
+    <ul style="list-style-type: none; "width=" 80%;">
+    <li class="text-center">
         <h3>ユーザー</h3>
-    </li> {% endcomment %}
-    {% comment %} <li> {% endcomment %}
-        {% comment %} <div class="image-container"> {% endcomment %}
-        {% comment %} {% if user.picture and user.picture.url %} {% endcomment %}
-        {% comment %} <img src="{{ user.picture.url }}" alt="" width="300" height="300"> {% endcomment %}
-        {% comment %} {% else %} {% endcomment %}
-        {% comment %} <p>画像がありません。</p> {% endcomment %}
-        {% comment %} {% endif %} {% endcomment %}
-        {% comment %} </div> {% endcomment %}
-    {% comment %} </li> {% endcomment %}
-    {% comment %} <li> {% endcomment %}
-        {% comment %} <div class="info-block"> {% endcomment %}
-            {% comment %} <h3>名前:{{ user.username }}</h3> {% endcomment %}
-        {% comment %} </div> {% endcomment %}
-    {% comment %} </li> {% endcomment %}
-    {% comment %} <li> {% endcomment %}
-        {% comment %} <div class="info-block"> {% endcomment %}
-            {% comment %} <h3>自己紹介:</h3> {% endcomment %}
-            {% comment %} <p>{{ user.introduction }}</p> {% endcomment %}
-        {% comment %} </div> {% endcomment %}
-    {% comment %} </li> {% endcomment %}
-    {% comment %} </div> {% endcomment %}
-    {% comment %} <li> {% endcomment %}
-        {% comment %} <div class="info-block"> {% endcomment %}
-            {% comment %} <h3>契約カウンセラー:{{ user.counselor.username }}</h3> {% endcomment %}
-            {% comment %} {% if user.picture and user.picture.url %} {% endcomment %}
-            {% comment %} <img src="{{ user.counselor.picture }}" alt="" width="100" height="100"> {% endcomment %}
-            {% comment %} {% else %} {% endcomment %}
-            {% comment %} <p>画像がありません。</p> {% endcomment %}
-            {% comment %} {% endif %} {% endcomment %}
-            {% comment %} {% if request.user.counselor %} {% endcomment %}
-            {% comment %} <form method="POST" action="{% url boards:deselect_counselor %}" > {% endcomment %}
-            {% comment %} {% csrf_token %} {% endcomment %}
-            {% comment %} <button type="submit" style="color:red">契約を解除する</button> {% endcomment %}
-            {% comment %} </form> {% endcomment %}
-            {% comment %} {% endif %} {% endcomment %}
-        {% comment %} </div> {% endcomment %}
-    {% comment %} </li> {% endcomment %}
-    {% comment %} </div> {% endcomment %}
-    {% comment %} </ul> {% endcomment %}
-    {% comment %} {% endfor %} {% endcomment %}
-    {% comment %} {% elif counselor_lists %} {% endcomment %}
-    {% comment %} {% for counselor in counselor_lists %} {% endcomment %}
-    {% comment %} <ul style="list-style-type: none; "width=" 80%;">  {% endcomment %}
-    {% comment %} <li> {% endcomment %}
-        {% comment %} <h3 class="text-center">カウンセラー</h3> {% endcomment %}
-    {% comment %} </li> {% endcomment %}
-    {% comment %} <li> {% endcomment %}
-        {% comment %} <div class="image-container"> {% endcomment %}
-            {% comment %} <img src="{{ counselor.picture }}" alt="" width="300" height="300"> {% endcomment %}
-        {% comment %} </div> {% endcomment %}
-    {% comment %} </li> {% endcomment %}
-    {% comment %} <li> {% endcomment %}
-        {% comment %} <div class="info-block"> {% endcomment %}
-            {% comment %} <h3>名前:{{ counselor.username }}</h3> {% endcomment %}
-        {% comment %} </div> {% endcomment %}
-    {% comment %} </li> {% endcomment %}
-    {% comment %} <li> {% endcomment %}
-        {% comment %} <div class="info-block"> {% endcomment %}
-            {% comment %} <h3>自己紹介:</h3> {% endcomment %}
-            {% comment %} <p>{{ counselor.introduction }}</p> {% endcomment %}
-        {% comment %} </div> {% endcomment %}
-    {% comment %} </li> {% endcomment %}
-    {% comment %} </ul> {% endcomment %}
-    {% comment %} {% endfor %} {% endcomment %}
-    {% comment %} {% endif %} {% endcomment %}
-{% comment %} </div> {% endcomment %}
-
+    </li>
+    <li>
+        <div class="image-container">
+        {% if user.picture and user.picture.url %}
+        <img src="{{ user.picture.url }}" alt="" width="300" height="300">
+        {% else %}
+        <p>画像がありません。</p>
+        {% endif %}
+        </div>
+    </li>
+    <li>
+        <div class="info-block">
+            <h3>名前:{{ user.username }}</h3>
+        </div>
+    </li>
+    <li>
+        <div class="info-block">
+            <h3>自己紹介:</h3>
+            <p>{{ user.introduction }}</p>
+        </div>
+    </li>
+    </div>
+    <li>
+        <div class="info-block">
+            <h3>契約カウンセラー:{{ user.counselor.username }}</h3>
+            {% if user.picture and user.picture.url %}
+            <img src="{{ user.counselor.picture }}" alt="" width="100" height="100">
+            {% else %}
+            <p>画像がありません。</p>
+            {% endif %}
+            {% if request.user.counselor %}
+            <form method="POST" action="{% url boards:deselect_counselor %}" >
+            {% csrf_token %}
+            <button type="submit" style="color:red">契約を解除する</button>
+            </form>
+            {% endif %}
+        </div>
+    </li>
+    </div>
+    </ul>
+    {% endfor %}
+    {% elif counselor_lists %}
+    {% for counselor in counselor_lists %}
+    <ul style="list-style-type: none; "width=" 80%;">
+    <li>
+        <h3 class="text-center">カウンセラー</h3>
+    </li>
+    <li>
+        <div class="image-container">
+            <img src="{{ counselor.picture }}" alt="" width="300" height="300">
+        </div>
+    </li>
+    <li>
+        <div class="info-block">
+            <h3>名前:{{ counselor.username }}</h3>
+        </div>
+    </li>
+    <li>
+        <div class="info-block">
+            <h3>自己紹介:</h3>
+            <p>{{ counselor.introduction }}</p>
+        </div>
+    </li>
+    </ul>
+    {% endfor %}
+    {% endif %}
+</div>
 
     <!-- カウンセラーリストを追加 -->
     <div class="profile-container">
