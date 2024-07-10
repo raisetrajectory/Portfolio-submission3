@@ -22,21 +22,6 @@ class Themes(models.Model): #記載内容のバックアップです！
     class Meta:
         db_table = 'themes'
 
-# class Themes(models.Model): #記載内容の変更内容です!
-
-#     title = models.CharField(max_length=255)
-#     user = models.ForeignKey(
-#         Users, on_delete=models.CASCADE
-#     )
-#     counselor = models.ForeignKey(
-#         Counselor, on_delete=models.CASCADE, related_name='themes', null=True, blank=True
-#     )  # Counselorモデルを関連付ける #記載内容の追加です!
-
-#     objects = ThemesManager()
-
-#     class Meta:
-#         db_table = 'themes'
-
 class CommentsManager(models.Manager):
     def fetch_by_theme_id(self, theme_id):
         return self.filter(theme_id=theme_id).order_by('id').all()
@@ -58,24 +43,6 @@ class Comments(models.Model): #k記載内容のバックアップです！
 
     class Meta:
         db_table = 'comments'
-
-# class Comments(models.Model): #k記載内容の変更内容です!
-
-#     comment = models.CharField(max_length=1000)
-#     user = models.ForeignKey(
-#         Users, on_delete=models.CASCADE
-#     )
-#     theme = models.ForeignKey(
-#         'Themes', on_delete=models.CASCADE
-#     )
-#     counselor = models.ForeignKey(
-#         Counselor, on_delete=models.CASCADE, related_name='comments', null=True, blank=True
-#     )  # Counselorモデルを関連付ける #記載内容の追加です!
-
-#     objects = CommentsManager()
-
-#     class Meta:
-#         db_table = 'comments'
 
 class Counselors(models.Model):
     name = models.CharField(max_length=255)
