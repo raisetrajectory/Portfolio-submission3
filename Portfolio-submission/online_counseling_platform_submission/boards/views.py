@@ -372,57 +372,6 @@ def delete_theme(request, id):
 #         }
 #     )
 
-# from django.contrib.auth import get_user_model
-# from django.shortcuts import render, redirect, get_object_or_404
-# from django.http import Http404
-# from django.contrib import messages
-# from django.core.cache import cache
-# from .models import Themes, Comments
-# from .forms import PostCommentForm
-# from .models import Counselor
-
-# @login_required
-# def post_comments(request, theme_id):
-#     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
-#     post_comment_form = PostCommentForm(request.POST or None, initial={'comment': saved_comment})
-#     theme = get_object_or_404(Themes, id=theme_id)
-#     comments = Comments.objects.filter(theme_id=theme_id)
-
-#     if request.method == 'POST':
-#         if not request.user.is_authenticated:
-#             raise Http404
-
-#         # Save the comment
-#         comment = post_comment_form.save(commit=False)
-#         comment.theme = theme
-
-#         User = get_user_model()
-
-#         # Check if the logged-in user is a User or Counselor
-#         if hasattr(request.user, 'counselorprofile'):  # Counselor instance
-#             comment.counselor = request.user.counselorprofile
-#             comment.user = None
-#         else:  # User instance
-#             comment.user = request.user
-#             comment.counselor = None
-
-#         comment.save()
-
-#         # Clear the saved comment from cache
-#         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')
-
-#         # Redirect back to the post comments view
-#         messages.success(request, 'コメントが投稿されました。')
-#         return redirect('boards:post_comments', theme_id=theme.id) # type: ignore
-
-#     return render(
-#         request, 'boards/post_comments.html', context={
-#             'post_comment_form': post_comment_form,
-#             'theme': theme,
-#             'comments': comments,
-#         }
-#     )
-
 from django.contrib.auth import get_user_model
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404
@@ -473,6 +422,7 @@ def post_comments(request, theme_id):
             'comments': comments,
         }
     )
+
 
 
 def save_comment(request):
