@@ -376,7 +376,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404
 from django.core.cache import cache
-from django.contrib import messages  # 追加
+from django.contrib import messages
 from .models import Themes, Comments
 from .forms import PostCommentForm
 
@@ -395,13 +395,13 @@ def post_comments(request, theme_id):
         comment = post_comment_form.save(commit=False)
         comment.theme = theme
 
-        # Check if the logged-in user is a User or Counselor
+        # Set user or counselor based on the logged-in user
         if hasattr(request.user, 'counselor'):  # Counselor instance
             comment.counselor = request.user.counselor
-            comment.user = None  # カウンセラーの場合、userをNoneにする
+            comment.user = request.user  # カウンセラーでもuserにカウンセラーのインスタンスをセット
         else:  # User instance
             comment.user = request.user
-            comment.counselor = None  # ユーザーの場合、counselorをNoneにする
+            comment.counselor = None
 
         comment.save()
 
