@@ -372,14 +372,67 @@ def delete_theme(request, id):
 #         }
 #     )
 
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.decorators import login_required
-from django.core.cache import cache
-from django.http import Http404
-from django.contrib import messages
-from .models import Themes, Comments
-from .forms import PostCommentForm
-from accounts.models import Users, Counselor
+# from django.shortcuts import render, get_object_or_404, redirect
+# from django.contrib.auth.decorators import login_required
+# from django.core.cache import cache
+# from django.http import Http404
+# from django.contrib import messages
+# from .models import Themes, Comments
+# from .forms import PostCommentForm
+# from accounts.models import Users, Counselor
+
+# @login_required
+# def post_comments(request, theme_id):
+#     theme = get_object_or_404(Themes, id=theme_id)
+
+#     # Check if the theme user is the current user or the current user is a counselor and has this user as a client
+#     if theme.user != request.user:
+#         if not (isinstance(request.user, Counselor) and theme.user in request.user.clients.all()):  # type: ignore
+#             raise Http404
+
+#     # Determine the user type
+#     if isinstance(request.user, Users):
+#         user_type = 'User'
+#     elif isinstance(request.user, Counselor):
+#         user_type = 'Counselor'
+#     else:
+#         return redirect('accounts:home')
+
+#     # Get the saved comment from the cache
+#     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')  # type: ignore
+#     post_comment_form = PostCommentForm(request.POST or None, initial={'comment': saved_comment})
+
+#     # Fetch the comments for the theme
+#     comments = Comments.objects.fetch_by_theme_id(theme_id)  # type: ignore
+
+#     if post_comment_form.is_valid():
+#         if not request.user.is_authenticated:
+#             raise Http404
+
+#         # Save the comment
+#         comment = post_comment_form.save(commit=False)
+#         comment.theme = theme
+#         if user_type == 'User':
+#             comment.user = request.user  # ユーザーがコメントした場合
+#         elif user_type == 'Counselor':
+#             comment.counselor = request.user  # カウンセラーがコメントした場合
+#         comment.save()
+
+#         # Clear the saved comment from the cache
+#         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')  # type: ignore
+
+#         # Redirect back to the post comments view
+#         messages.success(request, 'コメントが投稿されました。')
+#         return redirect('boards:post_comments', theme_id=theme.id)  # type: ignore
+
+#     return render(
+#         request, 'boards/post_comments.html', context={
+#             'post_comment_form': post_comment_form,
+#             'theme': theme,
+#             'user_type': user_type,
+#             'comments': comments,
+#         }
+#     )
 
 @login_required
 def post_comments(request, theme_id):
@@ -403,7 +456,7 @@ def post_comments(request, theme_id):
     post_comment_form = PostCommentForm(request.POST or None, initial={'comment': saved_comment})
 
     # Fetch the comments for the theme
-    comments = Comments.objects.fetch_by_theme_id(theme_id)  # type: ignore
+    comments = Comments.objects.filter(theme_id=theme_id)  # Corrected to filter instead of fetch_by_theme_id
 
     if post_comment_form.is_valid():
         if not request.user.is_authenticated:
@@ -413,17 +466,17 @@ def post_comments(request, theme_id):
         comment = post_comment_form.save(commit=False)
         comment.theme = theme
         if user_type == 'User':
-            comment.user = request.user  # ユーザーがコメントした場合
+            comment.user = request.user
         elif user_type == 'Counselor':
-            comment.counselor = request.user  # カウンセラーがコメントした場合
+            comment.counselor = request.user
         comment.save()
 
         # Clear the saved comment from the cache
-        cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')  # type: ignore
+        cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')  # type: ignore # Corrected indentation
 
         # Redirect back to the post comments view
         messages.success(request, 'コメントが投稿されました。')
-        return redirect('boards:post_comments', theme_id=theme.id)  # type: ignore
+        return redirect('boards:post_comments', theme_id=theme.id) # type: ignore
 
     return render(
         request, 'boards/post_comments.html', context={
