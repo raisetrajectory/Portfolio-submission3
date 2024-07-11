@@ -269,7 +269,7 @@ def list_themes(request):
 
 from .forms import CreateThemeForm
 
-@login_required
+@login_required #修正完了です！
 def edit_theme(request, id):
     if request.user.is_authenticated:
         theme = get_object_or_404(Themes, id=id)
@@ -289,7 +289,7 @@ def edit_theme(request, id):
             edit_theme_form = CreateThemeForm(request.POST, instance=theme)
             if edit_theme_form.is_valid():
                 edit_theme_form.save()
-                messages.success(request, 'テーマが編集されました。')
+                messages.success(request, 'チャット画面を更新しました。')
                 return redirect('boards:list_themes')
         else:
             edit_theme_form = CreateThemeForm(instance=theme)
