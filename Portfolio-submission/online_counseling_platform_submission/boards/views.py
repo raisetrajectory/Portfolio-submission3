@@ -420,6 +420,55 @@ def delete_theme(request, id):
 #         }
 #     )
 
+# from django.contrib.auth.decorators import login_required
+# from django.shortcuts import render, redirect, get_object_or_404
+# from django.http import Http404
+# from django.core.cache import cache
+# from django.contrib import messages
+# from .models import Themes, Comments
+# from .forms import PostCommentForm
+# from accounts.models import Users  # Usersモデルのimportを追加
+
+# @login_required
+# def post_comments(request, theme_id):
+#     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
+#     post_comment_form = PostCommentForm(request.POST or None, initial={'comment': saved_comment})
+#     theme = get_object_or_404(Themes, id=theme_id)
+#     comments = Comments.objects.filter(theme_id=theme_id)
+
+#     if request.method == 'POST':
+#         if not request.user.is_authenticated:
+#             raise Http404
+
+#         # Save the comment
+#         comment = post_comment_form.save(commit=False)
+#         comment.theme = theme
+
+#         # Set user or counselor based on the logged-in user
+#         if hasattr(request.user, 'counselor'):  # Counselor instance
+#             comment.counselor = request.user.counselor
+#             comment.user = Users.objects.get(id=request.user.id)  # ユーザーのインスタンスを取得して設定する
+#         else:  # User instance
+#             comment.user = request.user
+#             comment.counselor = None
+
+#         comment.save()
+
+#         # Clear the saved comment from cache
+#         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')
+
+#         # Redirect back to the post comments view
+#         messages.success(request, 'コメントが投稿されました。')
+#         return redirect('boards:post_comments', theme_id=theme.id) # type: ignore
+
+#     return render(
+#         request, 'boards/post_comments.html', context={
+#             'post_comment_form': post_comment_form,
+#             'theme': theme,
+#             'comments': comments,
+#         }
+#     )
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404
@@ -427,7 +476,7 @@ from django.core.cache import cache
 from django.contrib import messages
 from .models import Themes, Comments
 from .forms import PostCommentForm
-from accounts.models import Users  # Usersモデルのimportを追加
+from accounts.models import Users, Counselor  # Counselorモデルをimportする
 
 @login_required
 def post_comments(request, theme_id):
@@ -446,8 +495,10 @@ def post_comments(request, theme_id):
 
         # Set user or counselor based on the logged-in user
         if hasattr(request.user, 'counselor'):  # Counselor instance
+            # Get the associated user for the counselor
+            user = Users.objects.get(counselor=request.user.counselor)
+            comment.user = user
             comment.counselor = request.user.counselor
-            comment.user = Users.objects.get(id=request.user.id)  # ユーザーのインスタンスを取得して設定する
         else:  # User instance
             comment.user = request.user
             comment.counselor = None
