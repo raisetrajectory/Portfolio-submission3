@@ -372,6 +372,7 @@ def post_comments(request, theme_id): #記載内容のバックアップです�
         }
     )
 
+
 # @login_required
 # def post_comments(request, theme_id):
 #     # ユーザーが以前入力したコメントをキャッシュから取得
