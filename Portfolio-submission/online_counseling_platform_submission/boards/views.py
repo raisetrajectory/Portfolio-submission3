@@ -406,6 +406,10 @@ def post_comments(request, theme_id):
         else:
             raise Http404
 
+        # Ensure either comment.user or comment.counselor is set
+        if not comment.user and not comment.counselor:
+            raise Http404
+
         comment.save()
 
         # Clear the saved comment from cache
@@ -422,6 +426,7 @@ def post_comments(request, theme_id):
             'comments': comments,
         }
     )
+
 
 
 def save_comment(request):
