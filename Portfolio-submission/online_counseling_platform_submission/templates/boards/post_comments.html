@@ -1,89 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 <h3>{{ theme.title }}</h3>
-
-{% for comment in comments %}
-<div class="col-1 offset-1">
-    {% if comment.user.picture %}
-        <img style="float:left;" width="50px" height="50px" src="{{ comment.user.picture.url }}">
-    {% endif %}
-</div>
-<div class="col-8 offset-2">
-    <p>名前: {{ comment.user.username }}</p>
-    <p>{{ comment.content | linebreaks }}</p>
-    {% if comment.user == user %}
-        <a href="{% url 'boards:comment_delete' comment.pk %}">コメント削除</a>
-        <a href="{% url 'boards:edit_comment' comment.pk %}">コメント編集</a>
-    {% endif %}
-</div>
-<div class="col-10 offset-1">
-<hr>
-</div>
-{% endfor %}
-
-{% if user.is_authenticated %}
-<div class="col-4 offset-7">
-    <form method="POST">
-    {% csrf_token %}
-    {{ post_comment_form.as_p }}
-    <input type="submit" value="コメント送信">
-    </form>
-</div>
-{% endif %}
-
-{% endblock %}
-
-{% block javascript %}
-<nav class="navbar navbar-expand-lg navbar-light bg-light flex-column align-items-end">
-    <a class="btn btn-primary mb-2" href="{% url 'accounts:home' %}">メインメニューへ</a>
-    <a class="btn btn-primary mb-2" href="{% url 'boards:delete_theme' id=theme.id %}">相談を終了する</a>
-</nav>
-
-<script>
-$("#save_comment").click(function(){
-    var comment = $("#id_comment").val();
-    $.ajax({
-        url: "{% url 'boards:save_comment' %}",
-        type: "GET",
-        data: {comment: comment, theme_id: "{{ theme.id }}"},
-        dataType: "json",
-        success: function(json){
-            if(json.message){
-                alert(json.message);
-            }
-        }
-    });
-});
-</script>
-{% endblock %}
-
-{% if user.is_authenticated and user.is_counselor %}
-{% for comment in comments %}
-<div class="col-1 offset-1">
-    {% if comment.counselor.picture %}
-        <img style="float:left;" width="50px" height="50px" src="{{ comment.counselor.picture.url }}">
-    {% endif %}
-</div>
-<div class="col-8 offset-2">
-    <p>カウンセラー名: {{ comment.counselor.username }}</p>
-    <p>{{ comment.content | linebreaks }}</p>
-    {% if comment.counselor == user %}
-        <a href="{% url 'boards:comment_delete' comment.pk %}">コメント削除</a>
-        <a href="{% url 'boards:edit_comment' comment.pk %}">コメント編集</a>
-    {% endif %}
-</div>
-<div class="col-10 offset-1">
-<hr>
-</div>
-{% endfor %}
-{% endif %}
-
-
-
-{% comment %} 記載内容のバックアップです! {% endcomment %}
-{% comment %} {% extends "base.html" %}
-{% block content %}
-<h3>{{ theme.title }}</h3>
 {% for comment in comments %}
 <div class="col-1 offset-1">
     {% if comment.user.picture %}
@@ -156,4 +73,4 @@ $("#save_comment").click(function(){
 <hr>
 </div>
 {% endfor %}
-{% endif %} {% endcomment %}
+{% endif %}
