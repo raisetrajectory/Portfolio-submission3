@@ -397,12 +397,12 @@ def post_comments(request, theme_id):
         # Check if the logged-in user is a User or Counselor
         if hasattr(request.user, 'counselor'):  # Counselor instance
             comment.counselor = request.user.counselor
-            comment.user = None
+            comment.user = None  # No user associated
         else:  # User instance
             comment.user = request.user
-            comment.counselor = None
+            comment.counselor = None  # No counselor associated
 
-        comment.save()
+        comment.save()  # Save the comment with correct user/counselor association
 
         # Clear the saved comment from cache
         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')
@@ -418,6 +418,7 @@ def post_comments(request, theme_id):
             'comments': comments,
         }
     )
+
 
 def save_comment(request):
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
