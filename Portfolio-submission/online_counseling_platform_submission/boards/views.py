@@ -372,14 +372,14 @@ def delete_theme(request, id):
 #         }
 #     )
 
-from django.contrib.auth import get_user_model
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import Http404
-from django.contrib import messages
-from django.core.cache import cache
-from .models import Themes, Comments
-from .forms import PostCommentForm
-from .models import Counselor
+# from django.contrib.auth import get_user_model
+# from django.shortcuts import render, redirect, get_object_or_404
+# from django.http import Http404
+# from django.contrib import messages
+# from django.core.cache import cache
+# from .models import Themes, Comments
+# from .forms import PostCommentForm
+# from .models import Counselor
 
 # @login_required
 # def post_comments(request, theme_id):
@@ -423,6 +423,15 @@ from .models import Counselor
 #         }
 #     )
 
+from django.contrib.auth import get_user_model
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import Http404
+from django.contrib import messages
+from django.core.cache import cache
+from django.contrib.auth.decorators import login_required
+from .models import Themes, Comments, Counselor
+from .forms import PostCommentForm
+
 @login_required
 def post_comments(request, theme_id):
     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
@@ -464,6 +473,7 @@ def post_comments(request, theme_id):
             'comments': comments,
         }
     )
+
 
 def save_comment(request):
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
