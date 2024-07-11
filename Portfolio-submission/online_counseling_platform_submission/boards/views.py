@@ -427,7 +427,7 @@ def delete_theme(request, id):
 # from django.contrib import messages
 # from .models import Themes, Comments
 # from .forms import PostCommentForm
-# from accounts.models import Users  # Usersモデルのimportを追加
+# from accounts.models import Users, Counselor  # Counselorモデルをimportする
 
 # @login_required
 # def post_comments(request, theme_id):
@@ -446,8 +446,10 @@ def delete_theme(request, id):
 
 #         # Set user or counselor based on the logged-in user
 #         if hasattr(request.user, 'counselor'):  # Counselor instance
+#             # Get the associated user for the counselor
+#             user = Users.objects.get(counselor=request.user.counselor)
+#             comment.user = user
 #             comment.counselor = request.user.counselor
-#             comment.user = Users.objects.get(id=request.user.id)  # ユーザーのインスタンスを取得して設定する
 #         else:  # User instance
 #             comment.user = request.user
 #             comment.counselor = None
@@ -476,7 +478,7 @@ from django.core.cache import cache
 from django.contrib import messages
 from .models import Themes, Comments
 from .forms import PostCommentForm
-from accounts.models import Users, Counselor  # Counselorモデルをimportする
+from accounts.models import Users, Counselor
 
 @login_required
 def post_comments(request, theme_id):
@@ -494,7 +496,7 @@ def post_comments(request, theme_id):
         comment.theme = theme
 
         # Set user or counselor based on the logged-in user
-        if hasattr(request.user, 'counselor'):  # Counselor instance
+        if hasattr(request.user, 'counselor') and isinstance(request.user.counselor, Counselor):
             # Get the associated user for the counselor
             user = Users.objects.get(counselor=request.user.counselor)
             comment.user = user
