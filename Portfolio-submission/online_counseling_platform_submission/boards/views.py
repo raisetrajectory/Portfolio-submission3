@@ -267,118 +267,6 @@ def edit_theme(request, id):#記載内容のバックアップです！　この
         }
     )
 
-# @login_required
-# def edit_theme(request, id):
-#     if request.user.is_authenticated:
-#         theme = get_object_or_404(Themes, id=id)
-
-#         if isinstance(request.user, Users):
-#             user_type = 'User'
-#             if theme.user == request.user:
-#                 if request.method == 'POST':
-#                     edit_theme_form = forms.EditThemeForm(request.POST, instance=theme) # type: ignore
-#                     if edit_theme_form.is_valid():
-#                         edit_theme_form.save()
-#                         messages.success(request, 'テーマが編集されました。')
-#                         return redirect('boards:list_themes')
-#                 else:
-#                     edit_theme_form = forms.EditThemeForm(instance=theme) # type: ignore
-#                 return render(request, 'boards/edit_theme.html', context={
-#                     'edit_theme_form': edit_theme_form,
-#                     'user_type': user_type
-#                 })
-#             else:
-#                 messages.error(request, 'このテーマを編集する権限がありません。')
-#                 return redirect('boards:list_themes')
-
-#         elif isinstance(request.user, Counselor):
-#             user_type = 'Counselor'
-#             if theme.user in request.user.clients.all(): # type: ignore
-#                 if request.method == 'POST':
-#                     edit_theme_form = forms.EditThemeForm(request.POST, instance=theme) # type: ignore
-#                     if edit_theme_form.is_valid():
-#                         edit_theme_form.save()
-#                         messages.success(request, 'テーマが編集されました。')
-#                         return redirect('boards:list_themes')
-#                 else:
-#                     edit_theme_form = forms.EditThemeForm(instance=theme) # type: ignore
-#                 return render(request, 'boards/edit_theme.html', context={
-#                     'edit_theme_form': edit_theme_form,
-#                     'user_type': user_type
-#                 })
-#             else:
-#                 messages.error(request, 'このテーマを編集する権限がありません。')
-#                 return redirect('boards:list_themes')
-
-#         else:
-#             return redirect('accounts:home')
-#     else:
-#         return redirect('accounts:home')
-
-
-# @login_required
-# def edit_theme(request, id):
-#     if request.user.is_authenticated:
-#         theme = get_object_or_404(Themes, id=id)
-
-#         if isinstance(request.user, Users):
-#             user_type = 'User'
-#             if theme.user == request.user:
-#                 if request.method == 'POST':
-#                     edit_theme_form = forms.CreateThemeForm(request.POST, instance=theme)
-#                     if edit_theme_form.is_valid():
-#                         edit_theme_form.save()
-#                         messages.success(request, 'テーマが編集されました。')
-#                         return redirect('boards:list_themes')
-#                 else:
-#                     edit_theme_form = forms.CreateThemeForm(instance=theme)
-#                 return render(request, 'boards/edit_theme.html', context={
-#                     'edit_theme_form': edit_theme_form,
-#                     'user_type': user_type
-#                 })
-#             else:
-#                 messages.error(request, 'このテーマを編集する権限がありません。')
-#                 return redirect('boards:list_themes')
-
-#         elif isinstance(request.user, Counselor):
-#             user_type = 'Counselor'
-#             if theme.user in request.user.clients.all(): # type: ignore
-#                 if request.method == 'POST':
-#                     edit_theme_form = forms.CreateThemeForm(request.POST, instance=theme)
-#                     if edit_theme_form.is_valid():
-#                         edit_theme_form.save()
-#                         messages.success(request, 'テーマが編集されました。')
-#                         return redirect('boards:list_themes')
-#                 else:
-#                     edit_theme_form = forms.CreateThemeForm(instance=theme)
-#                 return render(request, 'boards/edit_theme.html', context={
-#                     'edit_theme_form': edit_theme_form,
-#                     'user_type': user_type
-#                 })
-#             else:
-#                 messages.error(request, 'このテーマを編集する権限がありません。')
-#                 return redirect('boards:list_themes')
-
-#         else:
-#             return redirect('accounts:home')
-#     else:
-#         return redirect('accounts:home')
-
-# def delete_theme(request, id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
-#     theme = get_object_or_404(Themes, id=id)
-#     if theme.user.id != request.user.id:
-#         raise Http404
-#     delete_theme_form = forms.DeleteThemeForm(request.POST or None) # type: ignore
-#     if delete_theme_form.is_valid(): # csrf check
-#         theme.delete()
-#         messages.success(request, 'チャット画面を削除しました。')
-#         return redirect('boards:list_themes')
-#     return render(
-#         request, 'boards/delete_theme.html', context={
-#             'delete_theme_form': delete_theme_form,
-#         }
-#     )
-
 @login_required
 def delete_theme(request, id):
     if request.user.is_authenticated:
@@ -426,8 +314,6 @@ def delete_theme(request, id):
             return redirect('accounts:home')
     else:
         return redirect('accounts:home')
-
-
 
 def post_comments(request, theme_id): #記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
