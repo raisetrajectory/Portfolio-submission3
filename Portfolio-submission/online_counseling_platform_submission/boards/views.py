@@ -380,7 +380,7 @@ from django.contrib import messages
 from .models import Themes, Comments
 from .forms import PostCommentForm
 
-@login_required
+@login_required #ユーザー側がログインした場合はコメントを入力出来ております！
 def post_comments(request, theme_id):
     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
     post_comment_form = PostCommentForm(request.POST or None, initial={'comment': saved_comment})
