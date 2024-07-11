@@ -351,19 +351,64 @@ def delete_theme(request, id):
     else:
         return redirect('accounts:home')
 
-def post_comments(request, theme_id): #記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
+# def post_comments(request, theme_id): #記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
+#     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
+#     post_comment_form = forms.PostCommentForm(request.POST or None, initial={'comment': saved_comment})     # type: ignore
+#     theme = get_object_or_404(Themes, id=theme_id)
+#     comments = Comments.objects.fetch_by_theme_id(theme_id) # type: ignore
+#     if post_comment_form.is_valid():
+#         if not request.user.is_authenticated:
+#             raise Http404
+#         post_comment_form.instance.theme = theme
+#         post_comment_form.instance.user = request.user
+#         post_comment_form.save()
+#         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')
+#         return redirect('boards:post_comments', theme_id= theme_id)
+#     return render(
+#         request, 'boards/post_comments.html', context={
+#             'post_comment_form': post_comment_form,
+#             'theme': theme,
+#             'comments': comments,
+#         }
+#     )
+
+from django.contrib.auth import get_user_model
+from .forms import PostCommentForm  # 必要に応じて適切なフォームをインポートする
+
+@login_required
+def post_comments(request, theme_id):
     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
-    post_comment_form = forms.PostCommentForm(request.POST or None, initial={'comment': saved_comment})     # type: ignore
+    post_comment_form = PostCommentForm(request.POST or None, initial={'comment': saved_comment})
     theme = get_object_or_404(Themes, id=theme_id)
-    comments = Comments.objects.fetch_by_theme_id(theme_id) # type: ignore
+    comments = Comments.objects.filter(theme_id=theme_id)
+
     if post_comment_form.is_valid():
         if not request.user.is_authenticated:
             raise Http404
-        post_comment_form.instance.theme = theme
-        post_comment_form.instance.user = request.user
-        post_comment_form.save()
-        cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')
-        return redirect('boards:post_comments', theme_id= theme_id)
+
+        # Determine user type
+        user_type = None
+        if isinstance(request.user, get_user_model()):  # User instance
+            user_type = 'User'
+        elif isinstance(request.user, Counselor):  # Counselor instance
+            user_type = 'Counselor'
+
+        # Save the comment
+        comment = post_comment_form.save(commit=False)
+        comment.theme = theme
+        if user_type == 'User':
+            comment.user = request.user
+        elif user_type == 'Counselor':
+            comment.counselor = request.user
+        comment.save()
+
+        # Clear the saved comment from cache
+        cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}') # type: ignore
+
+        # Redirect back to the post comments view
+        messages.success(request, 'コメントが投稿されました。')
+        return redirect('boards:post_comments', theme_id=theme.id) # type: ignore
+
     return render(
         request, 'boards/post_comments.html', context={
             'post_comment_form': post_comment_form,
@@ -371,7 +416,6 @@ def post_comments(request, theme_id): #記載内容のバックアップです�
             'comments': comments,
         }
     )
-
 
 
 def save_comment(request):
