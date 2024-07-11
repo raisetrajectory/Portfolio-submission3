@@ -450,8 +450,8 @@ def post_comments(request, theme_id):
         User = get_user_model()
 
         # Check if the logged-in user is a User or Counselor
-        if hasattr(request.user, 'counselorprofile'):  # Counselor instance
-            comment.counselor = request.user.counselorprofile
+        if hasattr(request.user, 'counselor'):  # Counselor instance
+            comment.counselor = request.user.counselor
             comment.user = None
         else:  # User instance
             comment.user = request.user
