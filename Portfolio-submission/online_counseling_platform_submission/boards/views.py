@@ -142,27 +142,51 @@ def create_theme(request):#記載内容のバックアップです！　この�
 #         }
 #     )
 
-from django.shortcuts import redirect #この記載内容に戻りましょう!
-from django.contrib.auth import get_user_model
-User = get_user_model()
+# from django.shortcuts import redirect #この記載内容に戻りましょう!
+# from django.contrib.auth import get_user_model
+# User = get_user_model()
 
-def list_themes(request): #この記載内容に戻りましょう!
+# def list_themes(request): #この記載内容に戻りましょう!
+#     if request.user.is_authenticated:
+#         if isinstance(request.user, User):
+#             themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
+#             if hasattr(request.user, 'counselor'):
+#                 user_type = 'Counselor'
+#             else:
+#                 user_type = 'User'  # デフォルトはユーザーとして設定
+#         else:
+#             return redirect('accounts:home')
+#     else:
+#         return redirect('accounts:home')
+
+#     return render(request, 'boards/list_themes.html', {
+#         'themes': themes,
+#         'user_type': user_type,
+#     })
+
+@login_required
+def list_themes(request):
     if request.user.is_authenticated:
-        if isinstance(request.user, User):
-            themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
-            if hasattr(request.user, 'counselor'):
-                user_type = 'Counselor'
-            else:
-                user_type = 'User'  # デフォルトはユーザーとして設定
+        if isinstance(request.user, Users):
+            user_type = 'User'
+            user_instance = request.user
+            
+            themes = Themes.objects.filter(user=user_instance)
+            return render(request, 'boards/list_themes.html', {'themes': themes, 'user_type': user_type})
+        elif isinstance(request.user, Counselor):
+            user_type = 'Counselor'
+            # カウンセラーが担当しているクライアントを取得する
+            clients = request.user.clients.all()  # type: ignore # Adjust according to actual related name
+            
+            themes = Themes.objects.filter(user__in=clients)
+            
+            return render(request, 'boards/list_themes.html', {'themes': themes, 'user_type': user_type})
         else:
+            # その他の場合はリダイレクト
             return redirect('accounts:home')
     else:
+        # ログインしていない場合はログインページにリダイレクト
         return redirect('accounts:home')
-
-    return render(request, 'boards/list_themes.html', {
-        'themes': themes,
-        'user_type': user_type,
-    })
 
 # def list_themes(request): #記載内容のバックアップです!
 #     if request.user.is_authenticated:
