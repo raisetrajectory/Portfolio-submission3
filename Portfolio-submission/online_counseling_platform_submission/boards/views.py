@@ -396,8 +396,6 @@ def post_comments(request, theme_id):
         comment = post_comment_form.save(commit=False)
         comment.theme = theme
 
-        User = get_user_model()
-
         # Check if the logged-in user is a User or Counselor
         if hasattr(request.user, 'counselor'):  # Counselor instance
             comment.counselor = request.user.counselor
@@ -422,7 +420,6 @@ def post_comments(request, theme_id):
             'comments': comments,
         }
     )
-
 
 
 def save_comment(request):
