@@ -471,10 +471,11 @@ def post_comments(request, theme_id):
         comment = post_comment_form.save(commit=False)
         comment.theme = theme
         if user_type == 'User':
-            comment.user = request.user
+            comment.user = request.user  # ユーザーがコメントした場合
         elif user_type == 'Counselor':
-            comment.counselor = request.user
+            comment.counselor = request.user  # カウンセラーがコメントした場合
         comment.save()
+
 
         # Clear the saved comment from the cache
         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')  # type: ignore
