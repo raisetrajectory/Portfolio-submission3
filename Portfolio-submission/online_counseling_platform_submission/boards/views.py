@@ -267,20 +267,70 @@ def edit_theme(request, id):#記載内容のバックアップです！　この
         }
     )
 
-def delete_theme(request, id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
-    theme = get_object_or_404(Themes, id=id)
-    if theme.user.id != request.user.id:
-        raise Http404
-    delete_theme_form = forms.DeleteThemeForm(request.POST or None) # type: ignore
-    if delete_theme_form.is_valid(): # csrf check
-        theme.delete()
-        messages.success(request, 'チャット画面を削除しました。')
-        return redirect('boards:list_themes')
-    return render(
-        request, 'boards/delete_theme.html', context={
-            'delete_theme_form': delete_theme_form,
-        }
-    )
+# def delete_theme(request, id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
+#     theme = get_object_or_404(Themes, id=id)
+#     if theme.user.id != request.user.id:
+#         raise Http404
+#     delete_theme_form = forms.DeleteThemeForm(request.POST or None) # type: ignore
+#     if delete_theme_form.is_valid(): # csrf check
+#         theme.delete()
+#         messages.success(request, 'チャット画面を削除しました。')
+#         return redirect('boards:list_themes')
+#     return render(
+#         request, 'boards/delete_theme.html', context={
+#             'delete_theme_form': delete_theme_form,
+#         }
+#     )
+
+@login_required
+def delete_theme(request, id):
+    if request.user.is_authenticated:
+        theme = get_object_or_404(Themes, id=id)
+
+        if isinstance(request.user, Users):
+            user_type = 'User'
+            if theme.user == request.user:
+                if request.method == 'POST':
+                    delete_theme_form = forms.DeleteThemeForm(request.POST or None)
+                    if delete_theme_form.is_valid():
+                        theme.delete()
+                        messages.success(request, 'テーマが削除されました。')
+                        return redirect('boards:list_themes')
+                else:
+                    delete_theme_form = forms.DeleteThemeForm()
+                return render(request, 'boards/delete_theme.html', context={
+                    'delete_theme_form': delete_theme_form,
+                    'user_type': user_type
+                })
+            else:
+                messages.error(request, 'このテーマを削除する権限がありません。')
+                return redirect('boards:list_themes')
+
+        elif isinstance(request.user, Counselor):
+            user_type = 'Counselor'
+            if theme.user in request.user.clients.all(): # type: ignore
+                if request.method == 'POST':
+                    delete_theme_form = forms.DeleteThemeForm(request.POST or None)
+                    if delete_theme_form.is_valid():
+                        theme.delete()
+                        messages.success(request, 'テーマが削除されました。')
+                        return redirect('boards:list_themes')
+                else:
+                    delete_theme_form = forms.DeleteThemeForm()
+                return render(request, 'boards/delete_theme.html', context={
+                    'delete_theme_form': delete_theme_form,
+                    'user_type': user_type
+                })
+            else:
+                messages.error(request, 'このテーマを削除する権限がありません。')
+                return redirect('boards:list_themes')
+
+        else:
+            return redirect('accounts:home')
+    else:
+        return redirect('accounts:home')
+
+
 
 def post_comments(request, theme_id): #記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
