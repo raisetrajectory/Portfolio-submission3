@@ -427,7 +427,7 @@ def delete_theme(request, id):
 # from django.contrib import messages
 # from .models import Themes, Comments
 # from .forms import PostCommentForm
-# from accounts.models import Users, Counselor  # Counselorモデルをimportする
+# from accounts.models import Users, Counselor
 
 # @login_required
 # def post_comments(request, theme_id):
@@ -445,7 +445,7 @@ def delete_theme(request, id):
 #         comment.theme = theme
 
 #         # Set user or counselor based on the logged-in user
-#         if hasattr(request.user, 'counselor'):  # Counselor instance
+#         if hasattr(request.user, 'counselor') and isinstance(request.user.counselor, Counselor):
 #             # Get the associated user for the counselor
 #             user = Users.objects.get(counselor=request.user.counselor)
 #             comment.user = user
@@ -479,6 +479,7 @@ from django.contrib import messages
 from .models import Themes, Comments
 from .forms import PostCommentForm
 from accounts.models import Users, Counselor
+from django.utils.functional import SimpleLazyObject
 
 @login_required
 def post_comments(request, theme_id):
@@ -496,11 +497,11 @@ def post_comments(request, theme_id):
         comment.theme = theme
 
         # Set user or counselor based on the logged-in user
-        if hasattr(request.user, 'counselor') and isinstance(request.user.counselor, Counselor):
+        if isinstance(request.user._wrapped, Counselor):
             # Get the associated user for the counselor
-            user = Users.objects.get(counselor=request.user.counselor)
+            user = Users.objects.get(counselor=request.user)
             comment.user = user
-            comment.counselor = request.user.counselor
+            comment.counselor = request.user
         else:  # User instance
             comment.user = request.user
             comment.counselor = None
