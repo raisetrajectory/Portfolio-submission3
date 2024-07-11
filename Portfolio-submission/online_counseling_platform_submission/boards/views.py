@@ -126,8 +126,8 @@ def edit_comment(request, comment_id):
 #         }
 #     )
 
-@login_required
-def create_theme(request): #修正完了です！
+@login_required #修正完了です！
+def create_theme(request):
     if request.user.is_authenticated:
         if isinstance(request.user, Users):
             user_type = 'User'
@@ -372,49 +372,7 @@ def post_comments(request, theme_id): #記載内容のバックアップです�
         }
     )
 
-# @login_required
-# def post_comments(request, theme_id):
-#     # ユーザーが以前入力したコメントをキャッシュから取得
-#     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
-#     post_comment_form = CreateCommentForm(request.POST or None, initial={'comment': saved_comment})     # type: ignore
-#     theme = get_object_or_404(Themes, id=theme_id)
 
-#     # テーマの所有者か、そのクライアントでない場合は404エラーを返す
-#     if theme.user != request.user:
-#         if not (isinstance(request.user, Counselor) and theme.user in request.user.clients.all()):  # type: ignore
-#             raise Http404
-
-#     # ユーザーのタイプを判定
-#     if isinstance(request.user, Users):
-#         user_type = 'User'
-#     elif isinstance(request.user, Counselor):
-#         user_type = 'Counselor'
-#     else:
-#         return redirect('accounts:home')
-
-#     # POSTリクエストがあった場合の処理
-#     if request.method == 'POST':
-#         if post_comment_form.is_valid():
-#             comment = post_comment_form.save(commit=False)
-#             comment.user = request.user
-#             comment.theme = theme
-#             comment.save()
-#             # キャッシュから保存されたコメントを削除
-#             cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}') # type: ignore
-#             messages.success(request, 'コメントが投稿されました。')
-#             return redirect('boards:post_comments', theme_id=theme.id) # type: ignore
-#         else:
-#             # フォームが無効な場合、現在の入力をキャッシュに保存
-#             cache.set(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', request.POST.get('comment', '')) # type: ignore
-
-#     comments = Comments.objects.filter(theme=theme)
-
-#     return render(request, 'boards/post_comments.html', context={
-#         'post_comment_form': post_comment_form,
-#         'theme': theme,
-#         'user_type': user_type,
-#         'comments': comments,
-#     })
 
 def save_comment(request):
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
