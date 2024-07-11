@@ -418,8 +418,6 @@ def post_comments(request, theme_id):
             comment.counselor = request.user  # カウンセラーがコメントした場合
         comment.save()
 
-
-
         # Clear the saved comment from the cache
         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')  # type: ignore
 
