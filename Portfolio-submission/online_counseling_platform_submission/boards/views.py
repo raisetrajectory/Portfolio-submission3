@@ -397,21 +397,18 @@ def post_comments(request, theme_id):
         comment = post_comment_form.save(commit=False)
         comment.theme = theme
 
-        User = get_user_model()
-
-        if isinstance(request.user, User):  # User instance
-            comment.user = request.user
-            comment.counselor = None
-        elif isinstance(request.user, Counselor):  # Counselor instance
-            comment.counselor = request.user
+        # Check if the logged-in user is a User or Counselor
+        if hasattr(request.user, 'is_counselor') and request.user.is_counselor:
+            comment.counselor = request.user.counselorprofile
             comment.user = None
         else:
-            raise Http404
+            comment.user = request.user
+            comment.counselor = None
 
         comment.save()
 
         # Clear the saved comment from cache
-        cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}') # type: ignore
+        cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')
 
         # Redirect back to the post comments view
         messages.success(request, 'コメントが投稿されました。')
@@ -424,6 +421,7 @@ def post_comments(request, theme_id):
             'comments': comments,
         }
     )
+
 
 
 def save_comment(request):
