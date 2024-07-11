@@ -127,7 +127,7 @@ def edit_comment(request, comment_id):
 #     )
 
 @login_required
-def create_theme(request):
+def create_theme(request): #修正完了です！
     if request.user.is_authenticated:
         if isinstance(request.user, Users):
             user_type = 'User'
