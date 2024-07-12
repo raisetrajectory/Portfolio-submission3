@@ -8,7 +8,7 @@
 {% endif %}
 
 {% comment %} 現段階での記載内容となります！ {% endcomment %}
-<div class="text-center">
+{% comment %} <div class="text-center">
     <h1>カウンセラー一覧画面</h1>
 </div>
 {% for counselor in counselors %}
@@ -21,7 +21,7 @@
         <p>{{ counselor.introduction }}</p>
         {% if user_type == 'User' %}
         {% if request.user.counselor is None %}
-        {% comment %} <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}"> {% endcomment %}
+        <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}">
         {% csrf_token %}
         <button type="submit">選択</button>
         </form>
@@ -29,7 +29,7 @@
         {% endif %}
     </div>
 </div>
-{% endfor %}
+{% endfor %} {% endcomment %}
 
 <div class="text-center">
     <h1>カウンセラー一覧画面</h1>
