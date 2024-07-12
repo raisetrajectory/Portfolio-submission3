@@ -96,7 +96,7 @@ def deselect_counselor(request):
 #     counselors = Counselors.objects.all()
 #     return render(request, 'boards/counselor_list.html', {'counselors': counselors})
 
-def edit_comment(request, comment_id):
+def edit_comment(request, comment_id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
     comment = get_object_or_404(Comments, id=comment_id)
     # Ensure only the owner of the comment can edit it
     if comment.user.id != request.user.id:
