@@ -264,8 +264,7 @@
         <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
         {% if not user.is_counselor %}
             <a class="navbar-brand" href="{% url 'accounts:user_edit' %}">プロフィール内容(ユーザー登録)変更</a>
-        {% endif %}
-        {% if user.is_counselor %}
+        {% else %}
             <a class="navbar-brand" href="{% url 'accounts:counselor_edit' %}">プロフィール内容(カウンセラー登録)変更</a>
         {% endif %}
     {% endif %}
