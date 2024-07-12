@@ -42,7 +42,7 @@
     </li>
     </div>
     <li>
-        <div class="info-block">
+        {% comment %} <div class="info-block">
             <h3>契約カウンセラー:{{ user.counselor.username }}</h3>
             {% if user.picture and user.picture.url %}
             <img src="{{ user.counselor.picture }}" alt="" width="100" height="100">
@@ -50,12 +50,12 @@
             <p>画像がありません。</p>
             {% endif %}
             {% if request.user.counselor %}
-            {% comment %} <form method="POST" action="{% url boards:deselect_counselor %}" > {% endcomment %}
+            <form method="POST" action="{% url boards:deselect_counselor %}" >
             {% csrf_token %}
             <button type="submit" style="color:red">契約を解除する</button>
             </form>
             {% endif %}
-        </div>
+        </div> {% endcomment %}
     </li>
     </div>
     </ul>
@@ -75,11 +75,11 @@
             <img src="{{ user.picture.url }}" style="width: 300px; height: 300px;">
             {% endif %}
     </div>
-    {% comment %} <li>
+    <li>
         <div class="image-container">
             <img src="{{ counselor.picture }}" alt="" width="300" height="300">
         </div>
-    </li> {% endcomment %}
+    </li>
     <li>
         <div class="info-block">
             <h3>名前:{{ counselor.username }}</h3>
