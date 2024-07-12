@@ -257,6 +257,16 @@
         {% endif %}
     </nav>
 
+{% comment %} <div class="info-block">
+        <h2>カウンセラー02</h2>
+        {% comment %} {% if current_user_email == "admin2@sample.com" %} {% endcomment %}
+        {% comment %} {% if current_user_email == "admin31@sample.com" %}
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
+            </nav>
+        {% endif %}
+    </div> {% endcomment %}
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
     <a class="navbar-brand" href="{% url 'accounts:home' %}">メインメニューへ</a>
     <a class="navbar-brand" href="{% url 'boards:counselor_list' %}">カウンセラー一覧画面へ</a>
@@ -268,11 +278,6 @@
             <a class="navbar-brand" href="{% url 'accounts:counselor_edit' %}">プロフィール内容(カウンセラー登録)変更</a>
         {% endif %}
     {% endif %}
-    {% if current_user_email == "admin30@sample.com" %}
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
-            </nav>
-        {% endif %}
 </nav>
 
 {% endblock %}
