@@ -41,12 +41,23 @@
         </td>
         {% comment %} <td>
             {% if theme.user.id == user.id %}
+                <a href="{% url 'boards:edit_theme' id=theme.id %}">{{ theme.user.username }}</a>
+            {% elif theme.counselor.id == counselor.id %}
+                <a href="{% url 'boards:edit_theme' id=theme.id %}">{{ theme.counselor.user.username }}</a>
+            {% else %}
+                {{ theme.user.username }}
+            {% endif %}
+        </td> {% endcomment %}
+        {% comment %} 記載内容のバックアップです {% endcomment %}
+        {% comment %} <td>
+            {% if theme.user.id == user.id %}
                 <a href="{% url 'boards:post_comments' theme_id=theme.id %}">{{ theme.title }}</a>
             {% else %}
                 {{ theme.title }}
             {% endif %}
         </td>
-        <td>
+        {% comment %} 記載内容のバックアップです {% endcomment %}
+        {% comment %} <td>
             {% if theme.user.id == user.id %}
                 <a href="{% url 'boards:edit_theme' id=theme.id %}">{{ theme.user.username }}</a>
             {% else %}
