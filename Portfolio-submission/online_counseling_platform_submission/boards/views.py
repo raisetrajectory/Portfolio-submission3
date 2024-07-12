@@ -512,17 +512,39 @@ def counselor_profile(request):
     counselors = Counselors.objects.all()
     return render(request, 'boards/counselor_profile.html', {'counselors': counselors})
 
-def delete_comment(request, comment_id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
+# def delete_comment(request, comment_id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
+#     comment = get_object_or_404(Comments, id=comment_id)
+#     if request.user != comment.user:
+#         raise Http404
+#     if request.method == 'POST':
+#         theme_id = comment.theme.id
+#         theme = get_object_or_404(Themes, id=theme_id)  # テーマが存在するか確認
+#         comment.delete()
+#         messages.success(request, 'コメントを削除しました。')
+#         return redirect('boards:post_comments', theme_id=theme_id)
+#     return render(request, 'boards/delete_comment.html', context={'comment': comment})
+
+@login_required
+def delete_comment(request, comment_id):
     comment = get_object_or_404(Comments, id=comment_id)
-    if request.user != comment.user:
+
+    # Ensure only the owner of the comment can delete it
+    if isinstance(request.user, Counselor):
+        user = Users.objects.get(counselor=request.user)
+        if comment.user.id != user.id:  # type: ignore
+            raise Http404
+    elif comment.user.id != request.user.id:
         raise Http404
+
     if request.method == 'POST':
         theme_id = comment.theme.id
         theme = get_object_or_404(Themes, id=theme_id)  # テーマが存在するか確認
         comment.delete()
         messages.success(request, 'コメントを削除しました。')
         return redirect('boards:post_comments', theme_id=theme_id)
+
     return render(request, 'boards/delete_comment.html', context={'comment': comment})
+
 
 def upload_sample(request):
     if request.method == 'POST' and request.FILES['upload_file']:
