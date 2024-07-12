@@ -33,13 +33,13 @@
     {% for theme in themes %}
     <tr>
         <td>{{ forloop.counter }}</td>
-        {% comment %} <td>
+        <td>
             <a href="{% url 'boards:post_comments' theme_id=theme.id %}">{{ theme.title }}</a>
         </td>
         <td>
             <a href="{% url 'boards:edit_theme' id=theme.id %}">{{ theme.user.username }}</a>
         </td>
-        <td> {% endcomment %}
+        {% comment %} <td>
             {% if theme.user.id == user.id %}
                 <a href="{% url 'boards:post_comments' theme_id=theme.id %}">{{ theme.title }}</a>
             {% else %}
@@ -52,7 +52,7 @@
             {% else %}
                 {{ theme.user.username }}
             {% endif %}
-        </td>
+        </td> {% endcomment %}
     </tr>
     {% endfor %}
     </tbody>
