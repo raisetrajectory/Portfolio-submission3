@@ -152,7 +152,7 @@ def edit_comment(request, comment_id):
 #         }
 #     )
 
-@login_required #修正完了です！
+@login_required #修正完了です！この記載内容に戻れば大丈夫です！
 def create_theme(request):
     if request.user.is_authenticated:
         if isinstance(request.user, Users):
@@ -199,6 +199,7 @@ def create_theme(request):
             return redirect('accounts:home')
     else:
         return redirect('accounts:home')
+
 
 
 # def list_themes(request):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
