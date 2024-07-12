@@ -138,7 +138,7 @@ def deselect_counselor(request):
 #         }
 #     )
 
-@login_required
+@login_required #修正完了です！
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comments, id=comment_id)
 
