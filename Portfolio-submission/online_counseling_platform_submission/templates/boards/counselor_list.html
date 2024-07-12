@@ -56,7 +56,8 @@
     </div>
     <div class="info-block">
         <h2>カウンセラー02</h2>
-        {% if current_user_email == "admin2@sample.com" %}
+        {% comment %} {% if current_user_email == "admin2@sample.com" %} {% endcomment %}
+        {% if current_user_email == "admin31@sample.com" %}
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
             </nav>
