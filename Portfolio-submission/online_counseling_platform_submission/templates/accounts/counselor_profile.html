@@ -275,10 +275,11 @@
     <a class="navbar-brand" href="{% url 'boards:counselor_list' %}">カウンセラー一覧画面へ</a>
     {% if user.is_authenticated %}
         <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
-        {% if user.is_user %}
+        {% comment %} {% if user.is_user %} {% endcomment %}
+    {% if not user.is_counselor %}
             <a class="navbar-brand" href="{% url 'accounts:user_edit' %}">プロフィール内容(ユーザー登録)変更</a>
         {% endif %}
-        {% if user.email == 'admin30@sample.com' or user.email == 'admin31@sample.com' %}
+    {% if user.email == 'admin30@sample.com' or user.email == 'admin31@sample.com' %}
             <a class="navbar-brand" href="{% url 'accounts:counselor_edit' %}">プロフィール内容(カウンセラー登録)変更</a>
         {% endif %}
     {% endif %}
