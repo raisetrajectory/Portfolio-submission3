@@ -5,30 +5,6 @@
     {% csrf_token %}
     {{ create_theme_form.as_p }}
 
-    {% if user.is_authenticated and user.user_type == 'Counselor' %}
-        <label for="selected_user">ユーザーを選択してください:</label>
-        <select name="selected_user" id="selected_user">
-            {% for user in users %}
-                {% if user.user_type == 'User' %}
-                    <option value="{{ user.id }}">{{ user.username }}</option>
-                {% endif %}
-            {% endfor %}
-        </select>
-    {% endif %}
-
-    <input type="submit" value="チャット画面作成">
-</form>
-{% endblock %}
-
-
-{% comment %} 記載内容のバックアップです! {% endcomment %}
-{% comment %} {% extends "base.html" %}
-{% block content %}
-<h3>チャット作成画面</h3>
-<form method="POST">
-    {% csrf_token %}
-    {{ create_theme_form.as_p }}
-
     {% if user_type == 'Counselor' %}
         <label for="selected_user">ユーザーを選択してください:</label>
         <select name="selected_user" id="selected_user">
@@ -40,7 +16,7 @@
 
     <input type="submit" value="チャット画面作成">
 </form>
-{% endblock %} {% endcomment %}
+{% endblock %}
 
 {% comment %} 記載内容のバックアップです! {% endcomment %}
 {% comment %} {% extends "base.html" %}
