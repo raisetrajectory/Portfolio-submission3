@@ -278,15 +278,4 @@
     {% endif %}
 </nav>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
-    {% if user.is_authenticated %}
-        {% if user.is_user %}
-            <a class="navbar-brand" href="{% url 'accounts:user_edit' %}">プロフィール内容(ユーザー登録)変更</a>
-        {% endif %}
-        {% if user.email == 'admin30@sample.com' or user.email == 'admin31@sample.com' %}
-            <a class="navbar-brand" href="{% url 'accounts:counselor_edit' %}">プロフィール内容(カウンセラー登録)変更</a>
-        {% endif %}
-    {% endif %}
-</nav>
-
 {% endblock %}
