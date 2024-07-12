@@ -10,7 +10,7 @@
     {% if request.user.is_counselor %}
         <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">チャット画面を新たに作成する</a></p>
     {% else %}
-        <p>カウンセラーと契約するとチャット画面を作成できるようになります</p>
+        {% comment %} <p>カウンセラーと契約するとチャット画面を作成できるようになります</p> {% endcomment %}
     {% endif %}
 {% endif %}
 
