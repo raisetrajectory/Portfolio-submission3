@@ -512,7 +512,7 @@ def counselor_profile(request):
     counselors = Counselors.objects.all()
     return render(request, 'boards/counselor_profile.html', {'counselors': counselors})
 
-def delete_comment(request, comment_id):
+def delete_comment(request, comment_id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
     comment = get_object_or_404(Comments, id=comment_id)
     if request.user != comment.user:
         raise Http404
