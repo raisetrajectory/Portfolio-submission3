@@ -298,6 +298,7 @@ def create_theme(request):
 @login_required #ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
 def list_themes(request):
     themes = Themes.objects.fetch_all_themes() # type: ignore
+    themes = Themes.objects.all()
     if request.user.is_authenticated:
         if isinstance(request.user, Users):
             user_type = 'User'
