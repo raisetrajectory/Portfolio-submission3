@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import theme_list #新規追加
+# from .views import theme_list #新規追加
 
 app_name = 'boards'
 
@@ -21,5 +21,5 @@ urlpatterns = [
     path('select_counselor/<int:counselor_id>/', views.select_counselor, name='select_counselor'),
     path('deselect_counselor/', views.deselect_counselor, name='deselect_counselor'),
 
-    path('themes/', theme_list, name='theme_list'),#新規追加
+    # path('themes/', theme_list, name='theme_list'),#新規追加
 ]
