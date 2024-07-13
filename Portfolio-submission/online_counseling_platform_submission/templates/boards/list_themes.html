@@ -2,7 +2,7 @@
 {% block content %}
 {% if messages %}
     {% for message in messages %}
-    <div>{{ message.message }}</div>
+        <div>{{ message.message }}</div>
     {% endfor %}
 {% endif %}
 <h3>チャット画面一覧</h3>
@@ -26,15 +26,17 @@
     </thead>
     <tbody>
     {% for theme in themes %}
-    <tr>
-        <td>{{ forloop.counter }}</td>
-        <td>
-            <a href="{% url 'boards:post_comments' theme_id=theme.id %}">{{ theme.title }}</a>
-        </td>
-        <td>
-            <a href="{% url 'boards:edit_theme' id=theme.id %}">{{ theme.user.username }}</a>
-        </td>
-    </tr>
+        {% if theme.user != request.user %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>
+                <a href="{% url 'boards:post_comments' theme_id=theme.id %}">{{ theme.title }}</a>
+            </td>
+            <td>
+                <a href="{% url 'boards:counselor_profile' %}">{{ theme.user.username }}</a>
+            </td>
+        </tr>
+        {% endif %}
     {% endfor %}
     </tbody>
 </table>
