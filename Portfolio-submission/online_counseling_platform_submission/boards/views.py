@@ -26,13 +26,13 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Themes
 
-# @login_required
-# def theme_list(request):
-#     # ログインしているユーザーが作成していないテーマを取得
-#     themes = Themes.objects.exclude(user=request.user)
-#     return render(request, 'boards/list_themes.html', {
-#         'themes': themes,
-#     })
+@login_required
+def theme_list(request):
+    # ログインしているユーザーが作成していないテーマを取得
+    themes = Themes.objects.exclude(user=request.user)
+    return render(request, 'boards/list_themes.html', {
+        'themes': themes,
+    })
 
 # from django.shortcuts import render
 # from django.contrib.auth.decorators import login_required
