@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect, get_object_or_404
 from . import forms
 from django.contrib import messages
@@ -152,7 +151,6 @@ def edit_comment(request, comment_id):
             'id': comment.id,  # 修正点: 'id' ではなく 'comment.id' を使用 # type: ignore
         }
     )
-
 
 # def create_theme(request):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
 #         create_theme_form = forms.CreateThemeForm(request.POST or None) # type: ignore
@@ -543,8 +541,6 @@ def create_theme(request):
 
 @login_required #ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
 def list_themes(request):
-    themes = Themes.objects.fetch_all_themes() # type: ignore
-    themes = Themes.objects.all()
     if request.user.is_authenticated:
         if isinstance(request.user, Users):
             user_type = 'User'
