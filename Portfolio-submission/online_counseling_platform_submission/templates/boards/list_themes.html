@@ -6,22 +6,18 @@
     {% endfor %}
 {% endif %}
 <h3>チャット画面一覧</h3>
+
 {% if request.user.is_authenticated %}
     {% if request.user.is_counselor %}
-    {% comment %} {% if request.user.is_counselor %} {% endcomment %}
         <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">チャット画面を新たに作成する</a></p>
     {% else %}
-        {% comment %} <p>カウンセラーと契約するとチャット画面を作成できるようになります</p> {% endcomment %}
+        <!-- ログインしているユーザーがカウンセラーでない場合の処理 -->
     {% endif %}
+{% else %}
+    <!-- ログインしていないユーザーに対する処理 -->
 {% endif %}
 
-{% comment %} {% if user_type == 'User' %} {% endcomment %}
-{% comment %} {% if request.user.counselor %} {% endcomment %}
-<p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">チャット画面を新たに作成する</a></p>
-{% comment %} {% else %} {% endcomment %}
-{% comment %} <p>カウンセラーと契約するとチャット画面を作成できるようになります</p> {% endcomment %}
-{% comment %} {% endif %} {% endcomment %}
-{% comment %} {% endif %} {% endcomment %}
+<!-- 全てのチャット画面を表示 -->
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -40,20 +36,6 @@
         <td>
             <a href="{% url 'boards:edit_theme' id=theme.id %}">{{ theme.user.username }}</a>
         </td>
-        {% comment %} <td>
-            {% if theme.user.id == user.id %}
-                <a href="{% url 'boards:post_comments' theme_id=theme.id %}">{{ theme.title }}</a>
-            {% else %}
-                {{ theme.title }}
-            {% endif %}
-        </td>
-        <td>
-            {% if theme.user.id == user.id %}
-                <a href="{% url 'boards:edit_theme' id=theme.id %}">{{ theme.user.username }}</a>
-            {% else %}
-                {{ theme.user.username }}
-            {% endif %}
-        </td> {% endcomment %}
     </tr>
     {% endfor %}
     </tbody>
