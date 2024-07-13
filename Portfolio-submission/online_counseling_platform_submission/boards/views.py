@@ -243,7 +243,7 @@ from django.contrib import messages
 from . import forms
 from .models import Users, Counselor
 
-@login_required #修正完了です！
+@login_required #修正完了です！ デブロイ記載内容！
 def create_theme(request):
     if request.user.is_authenticated:
         if isinstance(request.user, Users):
