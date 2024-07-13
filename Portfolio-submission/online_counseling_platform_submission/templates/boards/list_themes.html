@@ -14,13 +14,13 @@
     {% endif %}
 {% endif %}
 
-{% if user_type == 'User' %}
-{% if request.user.counselor %}
+{% comment %} {% if user_type == 'User' %} {% endcomment %}
+{% comment %} {% if request.user.counselor %} {% endcomment %}
 <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">チャット画面を新たに作成する</a></p>
 {% comment %} {% else %} {% endcomment %}
 {% comment %} <p>カウンセラーと契約するとチャット画面を作成できるようになります</p> {% endcomment %}
-{% endif %}
-{% endif %}
+{% comment %} {% endif %} {% endcomment %}
+{% comment %} {% endif %} {% endcomment %}
 <table class="table table-striped table-hover">
     <thead>
         <tr>
