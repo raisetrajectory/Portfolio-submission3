@@ -282,7 +282,7 @@ def create_theme(request):
             else:
                 create_theme_form = forms.CreateThemeForm()
             # カウンセラーが選択できるユーザーを制限する
-            users = Users.objects.filter(username__in=['カウンセラー01',])  # カウンセラー01のみを選択可能にする
+            users = Users.objects.filter(username__in=['カウンセラー01','カウンセラー02',])  # カウンセラー01のみを選択可能にする
             return render(request, 'boards/create_theme.html', context={
                 'create_theme_form': create_theme_form,
                 'user_type': user_type,
