@@ -1,8 +1,7 @@
 from django.urls import path
 from . import views
-
-from django.urls import path #新規追加
 from .views import theme_list #新規追加
+
 app_name = 'boards'
 
 urlpatterns = [
