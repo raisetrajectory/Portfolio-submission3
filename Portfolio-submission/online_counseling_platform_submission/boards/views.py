@@ -263,12 +263,6 @@ def edit_comment(request, comment_id):
 #     else:
 #         return redirect('accounts:home')
 
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from . import forms
-from .models import Users, Counselor
-
 # @login_required #修正完了です！ デブロイ記載内容！
 # def create_theme(request):
 #     if request.user.is_authenticated:
@@ -364,12 +358,6 @@ from .models import Users, Counselor
 #             return redirect('accounts:home')
 #     else:
 #         return redirect('accounts:home')
-
-# from django.contrib.auth.decorators import login_required
-# from django.shortcuts import render, redirect
-# from django.contrib import messages
-# from . import forms
-# from .models import Users, Counselor
 
 # @login_required
 # def create_theme(request):
