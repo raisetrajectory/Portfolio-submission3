@@ -301,6 +301,7 @@ def list_themes(request):
         if isinstance(request.user, Users):
             user_type = 'User'
             user_instance = request.user
+            themes = Themes.objects.all()
             themes = Themes.objects.filter(user=user_instance)
             return render(request, 'boards/list_themes.html', {'themes': themes, 'user_type': user_type})
         elif isinstance(request.user, Counselor):
