@@ -791,7 +791,6 @@ def post_comments(request, theme_id):
         }
     )
 
-
 def save_comment(request):
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         comment = request.GET.get('comment')
@@ -837,7 +836,6 @@ def delete_comment(request, comment_id):
         return redirect('boards:post_comments', theme_id=theme_id)
 
     return render(request, 'boards/delete_comment.html', context={'comment': comment})
-
 
 def upload_sample(request):
     if request.method == 'POST' and request.FILES['upload_file']:
