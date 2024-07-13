@@ -632,7 +632,7 @@ def delete_theme(request, id):
                     delete_theme_form = forms.DeleteThemeForm(request.POST or None)
                     if delete_theme_form.is_valid():
                         theme.delete()
-                        messages.success(request, 'テーマが削除されました。')
+                        messages.success(request, 'チャット画面が削除されました。')
                         return redirect('boards:list_themes')
                 else:
                     delete_theme_form = forms.DeleteThemeForm()
