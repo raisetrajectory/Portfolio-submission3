@@ -16,7 +16,7 @@
 {% endif %}
 
 {% if not request.user.is_counselor %}
-    <!-- ログインしているユーザーがカウンセラーでない場合の処理 -->
+    <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">チャット画面を新たに作成する</a></p>
 {% endif %}
 
 
