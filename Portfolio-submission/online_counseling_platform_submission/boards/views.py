@@ -37,31 +37,6 @@ from accounts.models import Counselor, Users
 #         'themes': themes,
 #     })
 
-# from django.shortcuts import render
-# from django.contrib.auth.decorators import login_required
-# from .models import Themes
-
-# @login_required
-# def theme_list(request):
-#     # ログインしているユーザーが作成していないテーマを取得
-#     themes = Themes.objects.exclude(user=request.user)
-#     return render(request, 'boards/list_themes.html', {
-#         'themes': themes,
-#     })
-
-# from django.shortcuts import render #新規追加
-# from django.contrib.auth.decorators import login_required #新規追加
-# from .models import Themes #新規追加
-
-# @login_required #新規追加
-# def theme_list(request):
-#     # ログインしているユーザーが作成していないテーマを取得
-#     themes = Themes.objects.exclude(user=request.user)
-
-#     return render(request, 'boards/list_themes.html', {
-#         'themes': themes,
-#     })
-
 @login_required #記載内容のバックアップです！
 def counselor_list(request):
     user = request.user
