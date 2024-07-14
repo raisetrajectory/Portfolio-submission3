@@ -25,7 +25,6 @@ from accounts.models import Counselor, Users
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Themes
-
 from .forms import CreateThemeForm
 
 from django.contrib.auth.decorators import login_required
@@ -37,7 +36,6 @@ from .models import Themes, Comments
 from .forms import PostCommentForm
 from accounts.models import Users, Counselor
 from django.utils.functional import SimpleLazyObject
-
 
 @login_required
 def theme_list(request):
