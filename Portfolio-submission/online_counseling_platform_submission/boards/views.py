@@ -26,6 +26,19 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Themes
 
+from .forms import CreateThemeForm
+
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import Http404
+from django.core.cache import cache
+from django.contrib import messages
+from .models import Themes, Comments
+from .forms import PostCommentForm
+from accounts.models import Users, Counselor
+from django.utils.functional import SimpleLazyObject
+
+
 @login_required
 def theme_list(request):
     # ログインしているユーザーが作成したテーマを取得
@@ -367,8 +380,6 @@ def list_themes(request):
 #         }
 #     )
 
-from .forms import CreateThemeForm
-
 @login_required #修正完了です！
 def edit_theme(request, id):
     if request.user.is_authenticated:
@@ -401,7 +412,6 @@ def edit_theme(request, id):
         })
     else:
         return redirect('accounts:home')
-
 
 @login_required #修正完了です！
 def delete_theme(request, id):
