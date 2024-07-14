@@ -48,37 +48,6 @@ class UserEditForm(forms.ModelForm):
         model = Users
         fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'counselor')
 
-class CounselorEditForm(forms.ModelForm):
-    username = forms.CharField(label='ユーザーネーム')
-    age = forms.IntegerField(label='年齢', min_value=0)
-    email = forms.EmailField(label='メールアドレス')
-    picture = forms.FileField(label='写真', required=False)
-    picture2 = forms.ImageField(label='新しい写真', required=False)  # 新しい ImageField を追加します！
-    introduction = forms.CharField(label='自己紹介', required=False, widget=forms.Textarea)
-    qualifications = forms.CharField(label='資格', required=False)
-
-    class Meta:
-        model = Counselor
-        fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'qualifications')
-
-    # def __init__(self, *args, **kwargs): #問題や不具合が発生はコメントアウトしましょう！
-    #     super().__init__(*args, **kwargs)
-    #     instance = kwargs.get('instance')
-    #     if instance and instance.user.is_counselor:
-    #         self.fields['is_counselor'] = forms.BooleanField(
-    #             label='カウンセラーとしてログイン中',
-    #             required=False,
-    #             initial=True,
-    #             disabled=True
-    #         )
-    #     else:
-    #         self.fields['is_counselor'] = forms.BooleanField(
-    #             label='カウンセラーとしてログイン中',
-    #             required=False,
-    #             initial=False,
-    #             disabled=True
-    #         )
-
 # class CounselorEditForm(forms.ModelForm):
 #     username = forms.CharField(label='ユーザーネーム')
 #     age = forms.IntegerField(label='年齢', min_value=0)
@@ -109,6 +78,35 @@ class CounselorEditForm(forms.ModelForm):
     #             initial=False,
     #             disabled=True
     #         )
+
+class CounselorEditForm(forms.ModelForm):
+    username = forms.CharField(label='ユーザーネーム')
+    age = forms.IntegerField(label='年齢', min_value=0)
+    email = forms.EmailField(label='メールアドレス')
+    picture = forms.FileField(label='写真', required=False)
+    picture2 = forms.ImageField(label='新しい写真', required=False)
+    introduction = forms.CharField(label='自己紹介', required=False, widget=forms.Textarea)
+    qualifications = forms.CharField(label='資格', required=False)
+    is_counselor = forms.BooleanField(label='カウンセラーとしてログイン中', required=False, initial=True, disabled=True)
+
+    class Meta:
+        model = Counselor
+        fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'qualifications', 'is_counselor')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        instance = kwargs.get('instance')
+        if instance:
+            self.fields['is_counselor'].initial = instance.user.is_counselor if hasattr(instance, 'user') else False
+
+        if 'is_counselor' not in self.fields:
+            self.fields['is_counselor'] = forms.BooleanField(
+                label='カウンセラーとしてログイン中',
+                required=False,
+                initial=instance.user.is_counselor if hasattr(instance, 'user') else False, # type: ignore
+                disabled=True
+            )
+
 
 
 class LoginForm(forms.Form):
