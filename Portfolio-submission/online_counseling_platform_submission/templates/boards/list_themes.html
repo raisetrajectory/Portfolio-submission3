@@ -6,6 +6,7 @@
     {% endfor %}
 {% endif %}
 <h3>チャット画面一覧</h3>
+ログインユーザー: {{ logged_in_user.username }}
 {% comment %} {% if request.user.is_authenticated %}
     {% if request.user.is_counselor %}
         <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">【カウンセラー側】チャット画面を新たに作成する</a></p>
