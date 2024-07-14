@@ -62,14 +62,22 @@ class CounselorEditForm(forms.ModelForm):
         fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'qualifications')
 
     def __init__(self, *args, **kwargs):
-        is_counselor = kwargs.pop('is_counselor', False)
         super().__init__(*args, **kwargs)
-        self.fields['is_counselor'] = forms.BooleanField(
-            label='カウンセラーとしてログイン中',
-            required=False,
-            initial=is_counselor,  # is_counselor パラメータの値を初期値として使用します
-            disabled=True
-        )
+        instance = kwargs.get('instance')
+        if instance and instance.user.is_counselor:
+            self.fields['is_counselor'] = forms.BooleanField(
+                label='カウンセラーとしてログイン中',
+                required=False,
+                initial=True,
+                disabled=True
+            )
+        else:
+            self.fields['is_counselor'] = forms.BooleanField(
+                label='カウンセラーとしてログイン中',
+                required=False,
+                initial=False,
+                disabled=True
+            )
 
 class LoginForm(forms.Form):
     email = forms.CharField(label="メールアドレス")
