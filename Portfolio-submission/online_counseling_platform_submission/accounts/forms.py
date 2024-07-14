@@ -65,8 +65,8 @@ class CounselorEditForm(forms.ModelForm):
         is_counselor = kwargs.pop('is_counselor', False)
         super().__init__(*args, **kwargs)
         self.fields['is_counselor'] = forms.BooleanField(
-            label='カウンセラーとしてログイン中', 
-            required=False, 
+            label='カウンセラーとしてログイン中',
+            required=False,
             initial=is_counselor,  # is_counselor パラメータの値を初期値として使用します
             disabled=True
         )
