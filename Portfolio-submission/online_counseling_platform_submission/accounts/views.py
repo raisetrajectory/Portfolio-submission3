@@ -188,3 +188,4 @@ def show_error_page(request, exception):
     return render(
         request, '404.html'
     )
+
