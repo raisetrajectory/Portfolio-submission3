@@ -26,11 +26,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Themes
 from .forms import CreateThemeForm
 
-from django.http import Http404
 from django.core.cache import cache
-from django.contrib import messages
 from .models import Themes, Comments
-from .forms import PostCommentForm
 from accounts.models import Users, Counselor
 from django.utils.functional import SimpleLazyObject
 
