@@ -18,7 +18,7 @@
 
 {% if request.user.is_authenticated %}
     <p>ログインユーザー: {{ request.user.username }}</p>
-    {% if request.user.counselor %}
+    {% if request.user.is_counselor %}
         <p>カウンセラーとしてログイン中</p>
     {% else %}
         <p>カウンセラーではありません</p>
