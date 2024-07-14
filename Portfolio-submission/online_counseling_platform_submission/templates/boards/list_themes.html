@@ -14,17 +14,6 @@
     {% endif %}
 {% endif %} {% endcomment %}
 
-{% comment %} {% if request.user.is_authenticated %}
-    <p>ログインユーザー: {{ request.user.username }}</p>
-    {% if request.user.is_counselor %}
-        <p>カウンセラーとしてログイン中</p>
-    {% else %}
-        <p>カウンセラーではありません</p>
-    {% endif %}
-{% else %}
-    <p>ログインしていません</p>
-{% endif %} {% endcomment %}
-
 {% if request.user.is_authenticated %}
     <p>ログインユーザー: {{ request.user.username }}</p>
     {% if request.user.is_counselor %}
