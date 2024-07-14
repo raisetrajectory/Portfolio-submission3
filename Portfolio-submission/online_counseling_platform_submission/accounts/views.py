@@ -153,7 +153,7 @@ def user_edit(request):
         'user_edit_form': user_edit_form,
     })
 
-@login_required  # type: ignore
+@login_required  # type: ignore #この記載内容に戻りましょう!
 def counselor_edit(request):
     counselor_edit_form = forms.CounselorEditForm(request.POST or None, request.FILES or None, instance=request.user)
 
@@ -166,6 +166,22 @@ def counselor_edit(request):
     return render(request, 'accounts/counselor_edit.html', context={
         'counselor_edit_form': counselor_edit_form,
     })
+
+# @login_required
+# def counselor_edit(request):
+#     counselor_instance = Counselor.objects.get(user=request.user)  # ログイン中のユーザーに対応するカウンセラーインスタンスを取得します
+#     counselor_edit_form = forms.CounselorEditForm(request.POST or None, instance=counselor_instance, is_counselor=True)
+
+#     if request.method == 'POST':
+#         if counselor_edit_form.is_valid():
+#             counselor_edit_form.save()
+#             messages.success(request, '更新完了しました。')
+#             return redirect('accounts:counselor_edit')
+
+#     return render(request, 'accounts/counselor_edit.html', context={
+#         'counselor_edit_form': counselor_edit_form,
+#     })
+
 
 @login_required  # type: ignore
 def change_password(request):
