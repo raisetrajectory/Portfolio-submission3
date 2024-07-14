@@ -185,50 +185,6 @@ def counselor_edit(request):
 
 # @login_required
 # def counselor_edit(request):
-#     if request.user.is_authenticated and hasattr(request.user, 'counselor'):
-#         counselor_instance = request.user.counselor
-#     else:
-#         counselor_instance = None
-
-#     counselor_edit_form = forms.CounselorEditForm(request.POST or None, request.FILES or None, instance=counselor_instance)
-
-#     if request.method == 'POST':
-#         counselor_edit_form = forms.CounselorEditForm(request.POST, request.FILES, instance=counselor_instance)
-#         if counselor_edit_form.is_valid():
-#             counselor_edit_form.save()
-#             messages.success(request, '更新完了しました。')
-#             return redirect('accounts:counselor_edit')
-
-#     return render(request, 'accounts/counselor_edit.html', context={
-#         'counselor_edit_form': counselor_edit_form,
-#     })
-
-# @login_required  # ユーザーがログインしているか確認
-# def counselor_edit(request):
-#     counselor_instance = None
-
-#     # ユーザーがログインしていて、かつCounselorオブジェクトを持っている場合にインスタンスを取得
-#     if request.user.is_authenticated and hasattr(request.user, 'counselor'):
-#         counselor_instance = request.user.counselor
-
-#     # フォームをインスタンス化
-#     counselor_edit_form = forms.CounselorEditForm(request.POST or None, request.FILES or None, instance=counselor_instance)
-
-#     if request.method == 'POST':
-#         # POSTメソッドで送信されたフォームをバリデーション
-#         counselor_edit_form = forms.CounselorEditForm(request.POST, request.FILES, instance=counselor_instance)
-#         if counselor_edit_form.is_valid():
-#             counselor_edit_form.save()  # フォームがバリデーションを通過したら保存
-#             messages.success(request, '更新完了しました。')  # 成功メッセージを表示
-#             return redirect('accounts:counselor_edit')  # リダイレクト
-
-#     return render(request, 'accounts/counselor_edit.html', context={
-#         'counselor_edit_form': counselor_edit_form,  # フォームをコンテキストに渡す
-#     })
-
-
-# @login_required
-# def counselor_edit(request):
 #     counselor_instance = None
 
 #     # ユーザーがログインしていて、かつCounselorオブジェクトを持っている場合にインスタンスを取得
@@ -271,25 +227,4 @@ def show_error_page(request, exception):
     return render(
         request, '404.html'
     )
-
-# from django.shortcuts import render, redirect
-# from django.contrib import messages
-# from .forms import CounselorEditForm
-# from .models import Counselor
-
-# def edit_counselor(request):
-#     counselor_instance = Counselor.objects.get(user=request.user)  # ログイン中のユーザーに対応するカウンセラーインスタンスを取得します
-#     if request.method == 'POST':
-#         form = CounselorEditForm(request.POST, request.FILES, instance=counselor_instance, is_counselor=True)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, 'カウンセラー情報が更新されました！')
-#             return redirect('some_redirect_view')  # 更新後のリダイレクト先を指定します
-#     else:
-#         form = CounselorEditForm(instance=counselor_instance, is_counselor=True)
-
-#     context = {
-#         'form': form,
-#     }
-#     return render(request, 'edit_counselor.html', context)
 
