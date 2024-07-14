@@ -61,9 +61,9 @@ class CounselorEditForm(forms.ModelForm):
         model = Counselor
         fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'qualifications')
 
-    def __init__(self, *args, **kwargs):#カウンセラーとしてログインしている場合に、フォームの表示に「カウンセラーとしてログイン中」の情報が表示されるようになります。CounselorEditForm の例では、__init__ メソッドを使用して、追加の情報フィールド is_counselor を動的にフォームに追加しています。
-        is_counselor = kwargs.pop('is_counselor', False)#フォームの初期化時に is_counselor パラメータを受け取り、その値を初期値として設定します。これにより、ログインユーザーがカウンセラーである場合はチェックボックスがチェックされた状態で表示され、ユーザーが変更できないようになります。
-        super().__init__(*args, **kwargs)#is_counselor フィールドを追加していますが、実際の使用状況に応じて、さまざまな方法でログインユーザーがカウンセラーであることを示すことができます。ログインユーザーの属性や権限に応じて、表示内容を適宜調整してください。
+    def __init__(self, *args, **kwargs):
+        is_counselor = kwargs.pop('is_counselor', False)
+        super().__init__(*args, **kwargs)
         self.fields['is_counselor'] = forms.BooleanField(label='カウンセラーとしてログイン中', required=False, initial=True, disabled=True)
 
 class LoginForm(forms.Form):
