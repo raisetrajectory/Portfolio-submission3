@@ -382,18 +382,15 @@ def list_themes(request):
 def edit_theme(request, id):
     if request.user.is_authenticated:
         theme = get_object_or_404(Themes, id=id)
-
         if theme.user != request.user:
             if not (isinstance(request.user, Counselor) and theme.user in request.user.clients.all()): # type: ignore
                 raise Http404
-
         if isinstance(request.user, Users):
             user_type = 'User'
         elif isinstance(request.user, Counselor):
             user_type = 'Counselor'
         else:
             return redirect('accounts:home')
-
         if request.method == 'POST':
             edit_theme_form = CreateThemeForm(request.POST, instance=theme)
             if edit_theme_form.is_valid():
@@ -402,7 +399,6 @@ def edit_theme(request, id):
                 return redirect('boards:list_themes')
         else:
             edit_theme_form = CreateThemeForm(instance=theme)
-
         return render(request, 'boards/edit_theme.html', context={
             'edit_theme_form': edit_theme_form,
             'user_type': user_type,
@@ -415,7 +411,6 @@ def edit_theme(request, id):
 def delete_theme(request, id):
     if request.user.is_authenticated:
         theme = get_object_or_404(Themes, id=id)
-
         if isinstance(request.user, Users):
             user_type = 'User'
             if theme.user == request.user:
@@ -434,7 +429,6 @@ def delete_theme(request, id):
             else:
                 messages.error(request, 'このチャット画面を削除する権限がありません。')
                 return redirect('boards:list_themes')
-
         elif isinstance(request.user, Counselor):
             user_type = 'Counselor'
             if theme.user in request.user.clients.all(): # type: ignore
@@ -453,7 +447,6 @@ def delete_theme(request, id):
             else:
                 messages.error(request, 'このチャット画面を削除する権限がありません。')
                 return redirect('boards:list_themes')
-
         else:
             return redirect('accounts:home')
     else:
