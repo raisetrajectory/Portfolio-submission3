@@ -224,8 +224,14 @@ def edit_comment(request, comment_id):
 #     else:
 #         return redirect('accounts:home')
 
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import Users, Counselor
+from . import forms
+from .decorators import counselor_required
 
 @login_required #修正完了です！ デブロイ記載内容！
+@counselor_required
 def create_theme(request):
     if request.user.is_authenticated:
         if isinstance(request.user, Users):
