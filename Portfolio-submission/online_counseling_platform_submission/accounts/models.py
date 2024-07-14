@@ -74,6 +74,7 @@ class Counselor(AbstractBaseUser, PermissionsMixin):
     picture2 = models.ImageField(null=True, upload_to='images/')  # 新しい ImageField を追加します！
     introduction = models.CharField(max_length=255, null=True)
     qualifications = models.CharField(max_length=255, null=True) #ユーザーの職業、学歴、専門知識などを記録するのに便利です。
+    is_counselor = models.BooleanField(default=False)  # 新しいフィールドを追加
 
     objects = UserManager()
 
