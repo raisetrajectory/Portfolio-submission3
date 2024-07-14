@@ -200,7 +200,14 @@ class CounselorEditForm(forms.ModelForm):
     def save(self, commit=True):
         # フォームが保存された後にインスタンスを再初期化する
         instance = super().save(commit=False)
-        instance.save()
+
+        # インスタンスのuser属性のis_counselorフィールドを更新
+        if hasattr(instance, 'user'):
+            instance.user.is_counselor = self.cleaned_data['is_counselor']
+            instance.user.save()
+
+        if commit:
+            instance.save()
 
         # 保存後のインスタンスの値を反映してフォームを再初期化する
         instance.refresh_from_db()  # インスタンスをデータベースから最新の情報でリフレッシュ
