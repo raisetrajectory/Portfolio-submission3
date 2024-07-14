@@ -14,6 +14,13 @@
     {% endif %}
 {% endif %}
 
+{% if request.user.is_authenticated %}
+    <p>ログインユーザー: {{ request.user.username }}</p>
+    <p>カウンセラー: {{ request.user.is_counselor }}</p>
+{% else %}
+    <p>ログインしていません</p>
+{% endif %}
+
 {% comment %} {% if user_type == 'User' %} {% endcomment %}
 {% comment %} {% if request.user.counselor %} {% endcomment %}
 <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">チャット画面を新たに作成する</a></p>
