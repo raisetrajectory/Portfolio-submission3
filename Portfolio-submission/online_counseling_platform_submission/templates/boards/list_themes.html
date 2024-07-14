@@ -8,7 +8,8 @@
 <h3>チャット画面一覧</h3>
 {% if request.user.is_authenticated %}
     {% comment %} {% if request.user.is_counselor %} {% endcomment %}
-    {% if request.user %}
+    {% comment %} {% if request.user %} {% endcomment %}
+    {% if request.user.username %}
         <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">チャット画面を新たに作成する</a></p>
     {% else %}
         <!--<p>カウンセラーと契約するとチャット画面を作成できるようになります</p>-->
