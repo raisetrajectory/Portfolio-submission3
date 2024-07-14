@@ -18,10 +18,15 @@
 
 {% if request.user.is_authenticated %}
     <p>ログインユーザー: {{ request.user.username }}</p>
-    <p>カウンセラー: {{ request.user.is_counselor }}</p>
+    {% if request.user.counselor %}
+        <p>カウンセラーとしてログイン中</p>
+    {% else %}
+        <p>カウンセラーではありません</p>
+    {% endif %}
 {% else %}
     <p>ログインしていません</p>
 {% endif %}
+
 
 {% comment %} {% if user_type == 'User' %} {% endcomment %}
 {% comment %} {% if request.user.counselor %} {% endcomment %}
