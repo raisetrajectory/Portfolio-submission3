@@ -170,7 +170,6 @@ class CounselorEditForm(forms.ModelForm):
         return instance
 
 
-
 class LoginForm(forms.Form):
     email = forms.CharField(label="メールアドレス")
     password = forms.CharField(label="パスワード", widget=forms.PasswordInput())
