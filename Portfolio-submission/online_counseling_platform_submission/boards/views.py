@@ -224,6 +224,7 @@ def edit_comment(request, comment_id):
 #     else:
 #         return redirect('accounts:home')
 
+
 @login_required #修正完了です！ デブロイ記載内容！
 def create_theme(request):
     if request.user.is_authenticated:
