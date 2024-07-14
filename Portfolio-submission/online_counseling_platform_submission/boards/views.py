@@ -256,7 +256,7 @@ def create_theme(request):
                             messages.success(request, 'チャット画面を作成しました。')
                             return redirect('boards:list_themes')
                         except Users.DoesNotExist:
-                            messages.error(request, '選択されたユーザーが存在しません。')
+                            messages.error(request, '選択されたカウンセラーが存在しません。')
                     else:
                         messages.error(request, 'ユーザーを選択してください。')
             else:
