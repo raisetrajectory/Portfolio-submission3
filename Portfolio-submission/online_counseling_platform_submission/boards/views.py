@@ -280,7 +280,7 @@ from .decorators import counselor_required
 #         return redirect('accounts:home')
 
 @login_required #修正完了です！ デブロイ記載内容！
-@counselor_required
+@counselor_required #@counselor_requiredデコレーターによりカウンセラーのみがアクセス可能です!
 def create_theme(request):
     if request.user.is_authenticated:
         if isinstance(request.user, Users):
