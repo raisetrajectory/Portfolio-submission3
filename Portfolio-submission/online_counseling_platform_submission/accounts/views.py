@@ -205,4 +205,24 @@ def show_error_page(request, exception):
         request, '404.html'
     )
 
+# from django.shortcuts import render, redirect
+# from django.contrib import messages
+# from .forms import CounselorEditForm
+# from .models import Counselor
+
+# def edit_counselor(request):
+#     counselor_instance = Counselor.objects.get(user=request.user)  # ログイン中のユーザーに対応するカウンセラーインスタンスを取得します
+#     if request.method == 'POST':
+#         form = CounselorEditForm(request.POST, request.FILES, instance=counselor_instance, is_counselor=True)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, 'カウンセラー情報が更新されました！')
+#             return redirect('some_redirect_view')  # 更新後のリダイレクト先を指定します
+#     else:
+#         form = CounselorEditForm(instance=counselor_instance, is_counselor=True)
+
+#     context = {
+#         'form': form,
+#     }
+#     return render(request, 'edit_counselor.html', context)
 
