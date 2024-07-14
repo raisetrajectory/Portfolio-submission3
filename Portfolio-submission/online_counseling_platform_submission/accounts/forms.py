@@ -64,7 +64,12 @@ class CounselorEditForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         is_counselor = kwargs.pop('is_counselor', False)
         super().__init__(*args, **kwargs)
-        self.fields['is_counselor'] = forms.BooleanField(label='カウンセラーとしてログイン中', required=False, initial=True, disabled=True)
+        self.fields['is_counselor'] = forms.BooleanField(
+            label='カウンセラーとしてログイン中', 
+            required=False, 
+            initial=is_counselor,  # is_counselor パラメータの値を初期値として使用します
+            disabled=True
+        )
 
 class LoginForm(forms.Form):
     email = forms.CharField(label="メールアドレス")
