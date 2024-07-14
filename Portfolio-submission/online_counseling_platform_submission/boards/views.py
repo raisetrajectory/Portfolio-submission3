@@ -513,7 +513,7 @@ def delete_theme(request, id):
 #         }
 #     )
 
-@login_required
+@login_required #ユーザー側がログインしている場合はコメント入力出来ます！ カウンセラー側がログインしている場合はコメント入力出来ます！
 def post_comments(request, theme_id):
     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
     post_comment_form = PostCommentForm(request.POST or None, initial={'comment': saved_comment})
