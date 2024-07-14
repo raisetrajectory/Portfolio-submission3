@@ -11,7 +11,6 @@ import os
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 
-from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404
 from django.contrib import messages
 from .models import Comments
@@ -27,8 +26,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Themes
 from .forms import CreateThemeForm
 
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404
 from django.core.cache import cache
 from django.contrib import messages
