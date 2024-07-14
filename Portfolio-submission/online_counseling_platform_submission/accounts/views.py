@@ -156,6 +156,7 @@ def user_edit(request):
 @login_required  # type: ignore #この記載内容に戻りましょう!
 def counselor_edit(request):
     counselor_edit_form = forms.CounselorEditForm(request.POST or None, request.FILES or None, instance=request.user)
+    # counselor_instance = forms.CounselorEditForm(request.POST or None, instance=counselor_instance, is_counselor=True)
 
     if request.method == 'POST':
         if counselor_edit_form.is_valid():
