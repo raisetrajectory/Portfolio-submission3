@@ -37,28 +37,24 @@ from .forms import PostCommentForm
 from accounts.models import Users, Counselor
 from django.utils.functional import SimpleLazyObject
 
-@login_required
-def theme_list(request):
-    # ログインしているユーザーが作成したテーマを取得
-    themes = Themes.objects.filter(user=request.user)
-    print("取得したテーマ: ", themes)  # デバッグ用にテーマを出力
-    return render(request, 'boards/list_themes.html', {
-        'themes': themes,
-    })
-
-# from django.shortcuts import render
-# from django.contrib.auth.decorators import login_required
-# from .models import Themes
-
 # @login_required
 # def theme_list(request):
-#     # ログインしているユーザーが作成していないテーマを取得
-#     themes = Themes.objects.exclude(user=request.user)
 #     # ログインしているユーザーが作成したテーマを取得
 #     themes = Themes.objects.filter(user=request.user)
+#     print("取得したテーマ: ", themes)  # デバッグ用にテーマを出力
 #     return render(request, 'boards/list_themes.html', {
 #         'themes': themes,
 #     })
+
+@login_required
+def theme_list(request):
+    # ログインしているユーザーが作成していないテーマを取得
+    themes = Themes.objects.exclude(user=request.user)
+    # ログインしているユーザーが作成したテーマを取得
+    themes = Themes.objects.filter(user=request.user)
+    return render(request, 'boards/list_themes.html', {
+        'themes': themes,
+    })
 
 @login_required #記載内容のバックアップです！
 def counselor_list(request):
