@@ -285,7 +285,7 @@ def create_theme(request):
             'create_theme_form': create_theme_form,
             'user_type': user_type,
             'users': users,
-            'Counselor': users
+            'Counselor': Counselor
         })
     else:
         return redirect('accounts:home')
