@@ -97,17 +97,6 @@ def deselect_counselor(request):
 #         user.save()
 #         return redirect('accounts:home')
 
-# @login_required　#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
-# def counselor_list(request):
-#     user = request.user
-#     counselors = Counselors.objects.all()
-
-#     context = {
-#         'counselors': counselors,
-#         'current_user_email': user.email,  # ログインユーザーのメールアドレスをコンテキストに追加
-#     }
-#     return render(request, 'boards/counselor_list.html', context)
-
 @login_required #修正完了です！
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comments, id=comment_id)
