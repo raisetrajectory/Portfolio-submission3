@@ -491,15 +491,6 @@ def delete_theme(request, id):
 #         }
 #     )
 
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from django.core.cache import cache
-from .forms import PostCommentForm
-from .models import Themes, Comments
-from accounts.models import Users, Counselor
-from django.http import Http404
-
 @login_required
 def post_comments(request, theme_id):
     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
