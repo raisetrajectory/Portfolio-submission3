@@ -5,7 +5,6 @@ from accounts.models import Users, Counselor
 
 class CreateThemeForm(forms.ModelForm):
     title = forms.CharField(label='タイトル')
-    selected_user = forms.ModelChoiceField(queryset=Users.objects.all(), label='ユーザーを選択してください')
 
     class Meta:
         model = Themes
