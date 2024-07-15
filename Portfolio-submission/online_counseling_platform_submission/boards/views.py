@@ -93,14 +93,6 @@ def deselect_counselor(request):
 #         }
 #     )
 
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from django.http import Http404
-from .forms import PostCommentForm
-from .models import Comments
-from accounts.models import Users, Counselor
-
 @login_required
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comments, id=comment_id)
@@ -230,13 +222,6 @@ def edit_comment(request, comment_id):
 #             return redirect('accounts:home')
 #     else:
 #         return redirect('accounts:home')
-
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from .forms import CreateThemeForm
-from .models import Themes
-from accounts.models import Users, Counselor
 
 @login_required
 def create_theme(request):
