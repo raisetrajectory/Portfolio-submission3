@@ -237,7 +237,6 @@ def create_theme(request):
     else:
         return redirect('accounts:home')
 
-
 # @login_required #修正完了です！ デブロイ記載内容！
 # @counselor_required #@counselor_requiredデコレーターによりカウンセラーのみがアクセス可能です!
 # def create_theme(request):
