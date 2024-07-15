@@ -158,13 +158,11 @@ def user_edit(request):
 @login_required  # type: ignore #この記載内容に戻りましょう!
 def counselor_edit(request):
     counselor_edit_form = forms.CounselorEditForm(request.POST or None, request.FILES or None, instance=request.user)
-
     if request.method == 'POST':
         if counselor_edit_form.is_valid():
             counselor_edit_form.save()
             messages.success(request, '更新完了しました。')
             return redirect('accounts:counselor_edit')
-
     return render(request, 'accounts/counselor_edit.html', context={
         'counselor_edit_form': counselor_edit_form,
     })
