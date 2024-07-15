@@ -9,15 +9,6 @@ from django.contrib.auth import update_session_auth_hash
 from django.shortcuts import render
 from .models import Users
 from .models import Counselor
-# from django.core.exceptions import PermissionDenied
-
-# def counselor_required(view_func):
-#     def _wrapped_view(request, *args, **kwargs):
-#         if hasattr(request.user, 'counselor'):
-#             return view_func(request, *args, **kwargs)
-#         else:
-#             raise PermissionDenied
-#     return _wrapped_view
 
 @login_required
 def counselor_profile(request):
