@@ -42,6 +42,9 @@
             <th>#</th>
             <th>タイトル</th>
             <th>契約カウンセラー</th>
+            {% if request.user.is_counselor %}
+            <th>編集</th>
+            {% endif %}
         </tr>
     </thead>
     <tbody>
