@@ -340,28 +340,6 @@ def create_theme(request):
 #         }
 #     )
 
-# from django.shortcuts import redirect #この記載内容に戻りましょう!
-# from django.contrib.auth import get_user_model
-# User = get_user_model()
-
-# def list_themes(request): #この記載内容に戻りましょう!
-#     if request.user.is_authenticated:
-#         if isinstance(request.user, User):
-#             themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
-#             if hasattr(request.user, 'counselor'):
-#                 user_type = 'Counselor'
-#             else:
-#                 user_type = 'User'  # デフォルトはユーザーとして設定
-#         else:
-#             return redirect('accounts:home')
-#     else:
-#         return redirect('accounts:home')
-
-#     return render(request, 'boards/list_themes.html', {
-#         'themes': themes,
-#         'user_type': user_type,
-#     })
-
 @login_required #ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
 def list_themes(request):
     if request.user.is_authenticated:
