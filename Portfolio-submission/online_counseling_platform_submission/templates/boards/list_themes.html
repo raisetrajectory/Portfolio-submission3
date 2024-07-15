@@ -6,7 +6,6 @@
     {% endfor %}
 {% endif %}
 <h3>チャット画面一覧</h3>
-<p><a class="navbar-brand" href="{% url 'boards:post_comments' theme_id=208 %}">チャット画面</a></p>
 <p>契約カウンセラー: {{ theme.user.username }}</p>
 <p>ログインユーザー: {{ user_type }}</p>
 {% comment %} {% if request.user.is_authenticated %}
