@@ -28,8 +28,13 @@
     <p>ログインしていません</p>
 {% endif %}
 
-
+{% comment %} {% if user_type == 'User' %} {% endcomment %}
+{% comment %} {% if request.user.counselor %} {% endcomment %}
 <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">【ユーザー側】チャット画面を新たに作成する</a></p>
+{% comment %} {% else %} {% endcomment %}
+{% comment %} <p>カウンセラーと契約するとチャット画面を作成できるようになります</p> {% endcomment %}
+{% comment %} {% endif %} {% endcomment %}
+{% comment %} {% endif %} {% endcomment %}
 
 <table class="table table-striped table-hover">
     <thead>
