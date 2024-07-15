@@ -50,15 +50,6 @@ def counselor_list(request):
     }
     return render(request, 'boards/counselor_list.html', context)
 
-# @login_required
-# def counselor_list(request):
-#     if isinstance(request.user, Counselor):
-#         user_type = 'Counselor'
-#     else:
-#         user_type = 'User'
-#     counselors = Counselor.objects.all()
-#     return render(request, 'boards/counselor_list.html', {'counselors': counselors, 'user_type': user_type,})
-
 @login_required
 def select_counselor(request, counselor_id):
     user = request.user
