@@ -428,23 +428,6 @@ def list_themes(request):
         # ログインしていない場合はログインページにリダイレクト
         return redirect('accounts:home')
 
-# def list_themes(request): #記載内容のバックアップです!
-#     if request.user.is_authenticated:
-#         themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
-
-#     # もしカウンセラーでログインしている場合は、そのタイプを設定
-#         if hasattr(request.user, 'counselor'):
-#             user_type = 'Counselor'
-#         else:
-#             user_type = 'User'  # デフォルトはユーザーとして設定
-#     else:
-#         return redirect('accounts:home')
-
-#     return render(request, 'boards/list_themes.html', {
-#         'themes': themes,
-#         'user_type': user_type,
-#     })
-
 @login_required #修正完了です！
 def edit_theme(request, id):
     if request.user.is_authenticated:
