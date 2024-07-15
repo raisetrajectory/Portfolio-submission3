@@ -12,7 +12,6 @@ urlpatterns = [
     path('post_comments/<int:theme_id>/', views.post_comments, name='post_comments'),
     path('save_comment/', views.save_comment, name='save_comment'),
     path('counselor_list/', views.counselor_list, name='counselor_list'),
-    # path('counselor_profile/<int:counselor_id>/', views.counselor_profile, name='counselor_profile'),
     path('counselor_profile/', views.counselor_profile, name='counselor_profile'),
     path('comment/<int:comment_id>/delete/', views.delete_comment, name='comment_delete'),
     path('upload_sample/', views.upload_sample, name='upload_sample'),
@@ -20,6 +19,5 @@ urlpatterns = [
     path('comment/<int:comment_id>/edit/', views.edit_comment, name='edit_comment'),
     path('select_counselor/<int:counselor_id>/', views.select_counselor, name='select_counselor'),
     path('deselect_counselor/', views.deselect_counselor, name='deselect_counselor'),
-
     path('themes/', theme_list, name='theme_list'),#新規追加
 ]
