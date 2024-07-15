@@ -133,42 +133,6 @@ class UserEditForm(forms.ModelForm):
 #         if 'is_counselor' in self.fields:
 #             self.fields['is_counselor'].disabled = False
 
-# class CounselorEditForm(forms.ModelForm):
-#     username = forms.CharField(label='ユーザーネーム')
-#     age = forms.IntegerField(label='年齢', min_value=0)
-#     email = forms.EmailField(label='メールアドレス')
-#     picture = forms.FileField(label='写真', required=False)
-#     picture2 = forms.ImageField(label='新しい写真', required=False)
-#     introduction = forms.CharField(label='自己紹介', required=False, widget=forms.Textarea)
-#     qualifications = forms.CharField(label='資格', required=False)
-#     is_counselor = forms.BooleanField(label='カウンセラーとしてログイン中', required=False)
-
-#     class Meta:
-#         model = Counselor
-#         fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'qualifications', 'is_counselor')
-
-#     def __init__(self, *args, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         instance = kwargs.get('instance')
-#         if instance:
-#             # インスタンスが存在する場合は、その値を初期値として設定する
-#             self.fields['is_counselor'].initial = instance.user.is_counselor if hasattr(instance, 'user') else False
-
-#         # is_counselor フィールドを無効化しない
-#         if 'is_counselor' in self.fields:
-#             self.fields['is_counselor'].disabled = False
-
-#     def save(self, commit=True):
-#         # フォームが保存された後にインスタンスを再初期化する
-#         instance = super().save(commit=False)
-#         instance.save()
-
-#         # 保存後のインスタンスの値を反映してフォームを再初期化する
-#         self.initial['is_counselor'] = instance.user.is_counselor if hasattr(instance, 'user') else False
-#         self.fields['is_counselor'].initial = instance.user.is_counselor if hasattr(instance, 'user') else False
-
-#         return instance
-
 from django import forms
 from .models import Counselor
 
