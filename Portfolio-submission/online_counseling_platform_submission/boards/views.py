@@ -509,7 +509,8 @@ def post_comments(request, theme_id):
         # Set user or counselor based on the logged-in user
         if isinstance(request.user, Counselor):
             comment.counselor = request.user
-            comment.user = None  # Set user to None for counselors
+            # Assign a specific user as the owner of the comment
+            comment.user = request.user.some_user  # type: ignore # ここに特定のユーザーを指定するロジックを追加する必要があります
         else:  # User instance
             comment.user = request.user
             comment.counselor = None
