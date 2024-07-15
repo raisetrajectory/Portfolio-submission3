@@ -10,12 +10,9 @@ class ThemesManager(models.Manager):
 class Themes(models.Model): #記載内容のバックアップです！
 
     title = models.CharField(max_length=255)
-    user = models.ForeignKey(
-        'accounts.Users', on_delete=models.CASCADE
-    )
+    user = models.ForeignKey('accounts.Users', on_delete=models.CASCADE)
     counselor = models.ForeignKey(
-        Counselor, on_delete=models.CASCADE, related_name='themes', null=True, blank=True
-    )  # Counselorモデルを関連付ける #記載内容の追加です!
+        Counselor, on_delete=models.CASCADE, related_name='themes', null=True, blank=True)  # Counselorモデルを関連付ける #記載内容の追加です!
 
     objects = ThemesManager()
 
@@ -32,15 +29,9 @@ class CommentsManager(models.Manager):
 class Comments(models.Model): #記載内容のバックアップです！
 
     comment = models.CharField(max_length=1000)
-    user = models.ForeignKey(
-        'accounts.Users', on_delete=models.CASCADE
-    )
-    theme = models.ForeignKey(
-        'Themes', on_delete=models.CASCADE
-    )
-    counselor = models.ForeignKey(
-        Counselor, on_delete=models.CASCADE, related_name='comments', null=True, blank=True
-    )  # Counselorモデルを関連付ける #記載内容の追加です!
+    user = models.ForeignKey('accounts.Users', on_delete=models.CASCADE)
+    theme = models.ForeignKey('Themes', on_delete=models.CASCADE)
+    counselor = models.ForeignKey(Counselor, on_delete=models.CASCADE, related_name='comments', null=True, blank=True)  # Counselorモデルを関連付ける
 
     objects = CommentsManager()
 
