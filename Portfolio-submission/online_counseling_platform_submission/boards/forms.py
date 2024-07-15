@@ -3,19 +3,12 @@ from .models import Themes, Comments
 from .models import User
 from accounts.models import Users, Counselor
 
-# class CreateThemeForm(forms.ModelForm):
-#     title = forms.CharField(label='タイトル')
-
-#     class Meta:
-#         model = Themes
-#         fields = ('title',)
-
 class CreateThemeForm(forms.ModelForm):
-    selected_user = forms.ModelChoiceField(queryset=Users.objects.all(), label='ユーザーを選択してください')
+    title = forms.CharField(label='タイトル')
 
     class Meta:
         model = Themes
-        fields = ('title', 'selected_user')
+        fields = ('title',)
 
 class DeleteThemeForm(forms.ModelForm):
 
