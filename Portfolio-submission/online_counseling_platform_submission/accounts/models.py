@@ -101,9 +101,7 @@ class UserActivateTokens(models.Model):
 
     token = models.UUIDField(db_index=True) # UUIDField を使用してトークンを保存します
     expired_at = models.DateTimeField()
-    user = models.ForeignKey(
-        'Users', on_delete=models.CASCADE
-    )
+    user = models.ForeignKey('Users', on_delete=models.CASCADE)
 
     objects = UserActivateTokensManager() # type: ignore
 
