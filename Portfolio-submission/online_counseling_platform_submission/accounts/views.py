@@ -127,12 +127,6 @@ def counselor_login(request): #記載内容のバックアップです!
         }
     )
 
-# @login_required # type: ignore #記載内容のバックアップです。
-# def user_logout(request):
-#     logout(request)
-#     messages.success(request, 'ログアウトしました')
-#     return redirect('accounts:home')
-
 @login_required
 def user_logout(request):
     logout(request)
