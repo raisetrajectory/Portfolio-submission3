@@ -333,42 +333,7 @@ def delete_theme(request, id):
     else:
         return redirect('accounts:home')
 
-# @login_required #ユーザー側がログインしている場合はコメント入力出来ます！ 問題や不具合が発生した場合はこの記載内容を戻りましょう！
-# def post_comments(request, theme_id):
-#     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
-#     post_comment_form = PostCommentForm(request.POST or None, initial={'comment': saved_comment})
-#     theme = get_object_or_404(Themes, id=theme_id)
-#     comments = Comments.objects.filter(theme_id=theme_id)
-#     if request.method == 'POST':
-#         if not request.user.is_authenticated:
-#             raise Http404
-#         # Save the comment
-#         comment = post_comment_form.save(commit=False)
-#         comment.theme = theme
-#         # Set user or counselor based on the logged-in user
-#         if isinstance(request.user._wrapped, Counselor):
-#             # Get the associated user for the counselor
-#             user = Users.objects.get(counselor=request.user)
-#             comment.user = user
-#             comment.counselor = request.user
-#         else:  # User instance
-#             comment.user = request.user
-#             comment.counselor = None
-#         comment.save()
-#         # Clear the saved comment from cache
-#         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}')
-#         # Redirect back to the post comments view
-#         messages.success(request, 'コメントが投稿されました。')
-#         return redirect('boards:post_comments', theme_id=theme.id) # type: ignore
-#     return render(
-#         request, 'boards/post_comments.html', context={
-#             'post_comment_form': post_comment_form,
-#             'theme': theme,
-#             'comments': comments,
-#         }
-#     )
-
-@login_required
+@login_required #ユーザー側がログインしている場合はコメント入力出来ます！ カウンセラー側がログインしている場合はコメント入力出来ます！ 問題や不具合が発生した場合はこの記載内容を戻りましょう！
 def post_comments(request, theme_id):
     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
     post_comment_form = PostCommentForm(request.POST or None, initial={'comment': saved_comment})
