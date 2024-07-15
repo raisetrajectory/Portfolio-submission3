@@ -48,7 +48,7 @@
     </thead>
     <tbody>
     {% for theme in themes %}
-    <li>{{ theme.title }}</li>
+    {% comment %} <li>{{ theme.title }}</li> {% endcomment %}
     <tr>
         <td>{{ forloop.counter }}</td>
         <td><a href="{% url 'boards:post_comments' theme_id=theme.id %}">{{ theme.title }}</a></td>
