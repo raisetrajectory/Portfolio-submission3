@@ -189,91 +189,91 @@ def edit_comment(request, comment_id):
 #     else:
 #         return redirect('accounts:home')
 
-# @login_required
-# def create_theme(request):
-#     if request.user.is_authenticated:
-#         if isinstance(request.user, Users):
-#             user_type = 'User'
-#             if request.method == 'POST':
-#                 create_theme_form = forms.CreateThemeForm(request.POST or None)
-#                 if create_theme_form.is_valid():
-#                     create_theme_form.instance.user = request.user
-#                     create_theme_form.save()
-#                     messages.success(request, 'チャット画面を作成しました。')
-#                     return redirect('boards:list_themes')
-#             else:
-#                 create_theme_form = forms.CreateThemeForm()
-#             return render(request, 'boards/create_theme.html', context={
-#                 'create_theme_form': create_theme_form,
-#                 'user_type': user_type
-#             })
-#         elif isinstance(request.user, Counselor):
-#             user_type = 'Counselor'
-#             if request.method == 'POST':
-#                 create_theme_form = forms.CreateThemeForm(request.POST or None)
-#                 if create_theme_form.is_valid():
-#                     selected_user_id = request.POST.get('selected_user')
-#                     if selected_user_id:
-#                         try:
-#                             user_instance = Users.objects.get(id=selected_user_id)
-#                             create_theme_form.instance.user = user_instance
-#                             create_theme_form.save()
-#                             messages.success(request, 'チャット画面を作成しました。')
-#                             return redirect('accounts:home')
-#                         except Users.DoesNotExist:
-#                             messages.error(request, '選択されたユーザーが存在しません。')
-#                     else:
-#                         messages.error(request, 'ユーザーを選択してください。')
-#             else:
-#                 create_theme_form = forms.CreateThemeForm()
-#             users = Users.objects.all()  # 選択可能なユーザーを取得
-#             return render(request, 'boards/create_theme.html', context={
-#                 'create_theme_form': create_theme_form,
-#                 'user_type': user_type,
-#                 'users': users
-#             })
-#         else:
-#             return redirect('accounts:home')
-#     else:
-#         return redirect('accounts:home')
-
-from django.shortcuts import get_object_or_404, redirect, render
-from django.http import Http404
-from django.contrib import messages
-from .forms import CreateThemeForm
-from .models import Themes
-from accounts.models import Users, Counselor
-from django.contrib.auth.decorators import login_required
-
 @login_required
 def create_theme(request):
-    if isinstance(request.user, Counselor):  # カウンセラーの場合の処理
-        if request.method == 'POST':
-            create_theme_form = CreateThemeForm(request.POST)
-            if create_theme_form.is_valid():
-                selected_user_id = create_theme_form.cleaned_data.get('selected_user')
-                try:
-                    user_instance = Users.objects.get(id=selected_user_id)
-                    theme = create_theme_form.save(commit=False)
-                    theme.user = user_instance
-                    theme.counselor = request.user
-                    theme.save()
-                    messages.success(request, 'チャット画面が作成されました。')
-                    return redirect('accounts:home')
-                except Users.DoesNotExist:
-                    messages.error(request, '選択されたユーザーが存在しません。')
+    if request.user.is_authenticated:
+        if isinstance(request.user, Users):
+            user_type = 'User'
+            if request.method == 'POST':
+                create_theme_form = forms.CreateThemeForm(request.POST or None)
+                if create_theme_form.is_valid():
+                    create_theme_form.instance.user = request.user
+                    create_theme_form.save()
+                    messages.success(request, 'チャット画面を作成しました。')
+                    return redirect('boards:list_themes')
+            else:
+                create_theme_form = forms.CreateThemeForm()
+            return render(request, 'boards/create_theme.html', context={
+                'create_theme_form': create_theme_form,
+                'user_type': user_type
+            })
+        elif isinstance(request.user, Counselor):
+            user_type = 'Counselor'
+            if request.method == 'POST':
+                create_theme_form = forms.CreateThemeForm(request.POST or None)
+                if create_theme_form.is_valid():
+                    selected_user_id = request.POST.get('selected_user')
+                    if selected_user_id:
+                        try:
+                            user_instance = Users.objects.get(id=selected_user_id)
+                            create_theme_form.instance.user = user_instance
+                            create_theme_form.save()
+                            messages.success(request, 'チャット画面を作成しました。')
+                            return redirect('accounts:home')
+                        except Users.DoesNotExist:
+                            messages.error(request, '選択されたユーザーが存在しません。')
+                    else:
+                        messages.error(request, 'ユーザーを選択してください。')
+            else:
+                create_theme_form = forms.CreateThemeForm()
+            users = Users.objects.all()  # 選択可能なユーザーを取得
+            return render(request, 'boards/create_theme.html', context={
+                'create_theme_form': create_theme_form,
+                'user_type': user_type,
+                'users': users
+            })
         else:
-            create_theme_form = CreateThemeForm()
-        users = Users.objects.all()  # 選択可能なユーザーを取得
-        return render(request, 'boards/create_theme.html', {
-            'create_theme_form': create_theme_form,
-            'user_type': 'Counselor',
-            'users': users,
-        })
+            return redirect('accounts:home')
     else:
-        # カウンセラー以外の場合はリダイレクトまたはエラーメッセージを返す
-        messages.error(request, 'カウンセラーのみがアクセス可能です。')
         return redirect('accounts:home')
+
+# from django.shortcuts import get_object_or_404, redirect, render
+# from django.http import Http404
+# from django.contrib import messages
+# from .forms import CreateThemeForm
+# from .models import Themes
+# from accounts.models import Users, Counselor
+# from django.contrib.auth.decorators import login_required
+
+# @login_required
+# def create_theme(request):
+#     if isinstance(request.user, Counselor):  # カウンセラーの場合の処理
+#         if request.method == 'POST':
+#             create_theme_form = CreateThemeForm(request.POST)
+#             if create_theme_form.is_valid():
+#                 selected_user_id = create_theme_form.cleaned_data.get('selected_user')
+#                 try:
+#                     user_instance = Users.objects.get(id=selected_user_id)
+#                     theme = create_theme_form.save(commit=False)
+#                     theme.user = user_instance
+#                     theme.counselor = request.user
+#                     theme.save()
+#                     messages.success(request, 'チャット画面が作成されました。')
+#                     return redirect('accounts:home')
+#                 except Users.DoesNotExist:
+#                     messages.error(request, '選択されたユーザーが存在しません。')
+#         else:
+#             create_theme_form = CreateThemeForm()
+#         users = Users.objects.all()  # 選択可能なユーザーを取得
+#         return render(request, 'boards/create_theme.html', {
+#             'create_theme_form': create_theme_form,
+#             'user_type': 'Counselor',
+#             'users': users,
+#         })
+#     else:
+#         # カウンセラー以外の場合はリダイレクトまたはエラーメッセージを返す
+#         messages.error(request, 'カウンセラーのみがアクセス可能です。')
+#         return redirect('accounts:home')
 
 # @login_required #修正完了です！ デブロイ記載内容！
 # @counselor_required #@counselor_requiredデコレーターによりカウンセラーのみがアクセス可能です!
