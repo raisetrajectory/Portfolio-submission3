@@ -89,14 +89,6 @@ def deselect_counselor(request):
         return redirect('accounts:home')  # リダイレクト先のURLが正しいか確認
     return redirect('accounts:home')  # GETリクエストの場合のリダイレクト先を指定
 
-# @login_required #記載内容のバックアップです！
-# def deselect_counselor(request):
-#     if request.method == 'POST':
-#         user = request.user
-#         user.counselor = None
-#         user.save()
-#         return redirect('accounts:home')
-
 @login_required #修正完了です！
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comments, id=comment_id)
