@@ -157,22 +157,6 @@ def counselor_edit(request):
         'counselor_edit_form': counselor_edit_form,
     })
 
-# @login_required  # type: ignore
-# def counselor_edit(request):
-#     counselor_instance = request.user.counselor  # カウンセラーのインスタンスを取得する
-#     counselor_edit_form = forms.CounselorEditForm(request.POST or None, request.FILES or None, instance=request.user.counselor)
-
-#     if request.method == 'POST':
-#         counselor_edit_form = forms.CounselorEditForm(request.POST, request.FILES, instance=counselor_instance, is_counselor=True)
-#         if counselor_edit_form.is_valid():
-#             counselor_edit_form.save()
-#             messages.success(request, '更新完了しました。')
-#             return redirect('accounts:counselor_edit')
-
-#     return render(request, 'accounts/counselor_edit.html', context={
-#         'counselor_edit_form': counselor_edit_form,
-#     })
-
 # @login_required
 # def counselor_edit(request):
 #     counselor_instance = None
