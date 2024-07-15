@@ -192,7 +192,6 @@ class CounselorEditForm(forms.ModelForm):
         if instance:
             # インスタンスが存在する場合は、その値を初期値として設定する
             self.fields['is_counselor'].initial = instance.user.is_counselor if hasattr(instance, 'user') else False
-
         # is_counselor フィールドを無効化しない
         if 'is_counselor' in self.fields:
             self.fields['is_counselor'].disabled = False
@@ -200,12 +199,10 @@ class CounselorEditForm(forms.ModelForm):
     def save(self, commit=True):
         # フォームが保存された後にインスタンスを再初期化する
         instance = super().save(commit=False)
-
         # インスタンスのuser属性のis_counselorフィールドを更新
         if hasattr(instance, 'user'):
             instance.user.is_counselor = self.cleaned_data['is_counselor']
             instance.user.save()
-
         if commit:
             instance.save()
 
@@ -215,7 +212,6 @@ class CounselorEditForm(forms.ModelForm):
         self.fields['is_counselor'].initial = instance.user.is_counselor if hasattr(instance, 'user') else False
 
         return instance
-
 
 class LoginForm(forms.Form):
     email = forms.CharField(label="メールアドレス")
