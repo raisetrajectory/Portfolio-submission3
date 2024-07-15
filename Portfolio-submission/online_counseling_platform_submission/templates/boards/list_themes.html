@@ -51,22 +51,6 @@
         <td><a href="{% url 'boards:post_comments' theme_id=theme.id %}">{{ theme.title }}</a></td>
         <td><a href="{% url 'boards:edit_theme' id=theme.id %}">{{ theme.user.username }}</a></td>
         {% if request.user.is_counselor %}
-        {% comment %} <td><a href="{% url 'boards:post_comments' theme_id=theme.id %}">{{ theme.title }}</a></td> {% endcomment %}
-        {% comment %} <td><a href="{% url 'boards:edit_theme' id=theme.id %}">{{ theme.user.username }}</a></td> {% endcomment %}
-        {% comment %} <td>
-            {% if theme.user.id == user.id %}
-                <a href="{% url 'boards:post_comments' theme_id=theme.id %}">{{ theme.title }}</a>
-            {% else %}
-                {{ theme.title }}
-            {% endif %}
-        </td>
-        <td>
-            {% if theme.user.id == user.id %}
-                <a href="{% url 'boards:edit_theme' id=theme.id %}">{{ theme.user.username }}</a>
-            {% else %}
-                {{ theme.user.username }}
-            {% endif %}
-        </td> {% endcomment %}
         {% endif %}
     </tr>
     {% endfor %}
