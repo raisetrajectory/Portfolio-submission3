@@ -10,14 +10,6 @@ class CreateThemeForm(forms.ModelForm):
         model = Themes
         fields = ('title',)
 
-# class CreateThemeForm(forms.ModelForm):
-#     title = forms.CharField(label='タイトル')
-#     selected_user = forms.ModelChoiceField(queryset=Users.objects.all(), label='ユーザーを選択してください')
-
-#     class Meta:
-#         model = Themes
-#         fields = ('title', 'selected_user')
-
 class DeleteThemeForm(forms.ModelForm):
 
     class Meta:
