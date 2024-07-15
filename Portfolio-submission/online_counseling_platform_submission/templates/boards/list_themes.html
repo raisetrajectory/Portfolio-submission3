@@ -7,7 +7,6 @@
 {% endif %}
 <h3>チャット画面一覧</h3>
 <p><a class="navbar-brand" href="{% url 'boards:post_comments' theme_id=208 %}">チャット画面</a></p>
-<p>テーマタイトル: {{ theme.title }}</p>
 <p>契約カウンセラー: {{ theme.user.username }}</p>
 <p>ログインユーザー: {{ user_type }}</p>
 {% comment %} {% if request.user.is_authenticated %}
@@ -45,9 +44,6 @@
             <th>#</th>
             <th>タイトル</th>
             <th>契約カウンセラー</th>
-            {% if request.user.is_counselor %}
-            <th>編集</th>
-            {% endif %}
         </tr>
     </thead>
     <tbody>
