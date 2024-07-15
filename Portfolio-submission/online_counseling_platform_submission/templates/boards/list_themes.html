@@ -53,7 +53,6 @@
         <td><a href="{% url 'boards:post_comments' theme_id=theme.id %}">{{ theme.title }}</a></td>
         <td><a href="{% url 'boards:edit_theme' id=theme.id %}">{{ theme.user.username }}</a></td>
         {% if request.user.is_counselor %}
-        <td><a href="{% url 'boards:edit_theme' id=theme.id %}">テーマを編集する</a></td>
         {% comment %} <td><a href="{% url 'boards:post_comments' theme_id=theme.id %}">{{ theme.title }}</a></td> {% endcomment %}
         {% comment %} <td><a href="{% url 'boards:edit_theme' id=theme.id %}">{{ theme.user.username }}</a></td> {% endcomment %}
         {% comment %} <td>
