@@ -284,7 +284,8 @@ def create_theme(request):
         return render(request, 'boards/create_theme.html', {
             'create_theme_form': create_theme_form,
             'user_type': user_type,
-            'users': users
+            'users': users,
+            'Counselor': users
         })
     else:
         return redirect('accounts:home')
