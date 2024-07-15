@@ -61,14 +61,23 @@ def select_counselor(request, counselor_id):
     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
     return (redirect('boards:list_themes'))
 
+# @login_required #記載内容のバックアップです！
+# def deselect_counselor(request):
+#     if request.method == 'POST':  # POSTメソッドをチェックする
+#         user = request.user
+#         user.counselor = None
+#         user.save()
+#         return redirect('accounts:home')  # リダイレクト先のURLが正しいか確認
+#     return redirect('accounts:home')  # GETリクエストの場合のリダイレクト先を指定
+
 @login_required
-def deselect_counselor(request):
-    if request.method == 'POST':  # POSTメソッドをチェックする
-        user = request.user
-        user.counselor = None
-        user.save()
-        return redirect('accounts:home')  # リダイレクト先のURLが正しいか確認
-    return redirect('accounts:home')  # GETリクエストの場合のリダイレクト先を指定
+def deselect_counselor(request, counselor_id):
+    counselor = get_object_or_404(Counselor, id=counselor_id)
+    if request.method == 'POST':
+        request.user.counselor = None
+        request.user.save()
+        return redirect('boards:counselor_list')
+    return render(request, 'boards/counselor_list.html', {'counselors': Counselor.objects.all()})
 
 @login_required#ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
 def edit_comment(request, comment_id):
