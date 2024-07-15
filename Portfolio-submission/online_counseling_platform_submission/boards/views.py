@@ -445,22 +445,6 @@ def list_themes(request):
 #         'user_type': user_type,
 #     })
 
-# def edit_theme(request, id):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
-#     theme = get_object_or_404(Themes, id=id)
-#     if theme.user.id != request.user.id:
-#         raise Http404
-#     edit_theme_form = forms.CreateThemeForm(request.POST or None, instance=theme) # type: ignore
-#     if edit_theme_form.is_valid():
-#         edit_theme_form.save()
-#         messages.success(request, 'チャット画面を更新しました。')
-#         return redirect('boards:list_themes')
-#     return render(
-#         request, 'boards/edit_theme.html', context={
-#             'edit_theme_form': edit_theme_form,
-#             'id': id,
-#         }
-#     )
-
 @login_required #修正完了です！
 def edit_theme(request, id):
     if request.user.is_authenticated:
