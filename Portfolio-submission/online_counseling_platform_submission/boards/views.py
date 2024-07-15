@@ -485,14 +485,6 @@ def counselor_profile(request):
 #         return redirect('boards:post_comments', theme_id=theme_id)
 #     return render(request, 'boards/delete_comment.html', context={'comment': comment})
 
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from django.http import Http404
-from .models import Comments
-from accounts.models import Users, Counselor
-from .models import Themes
-
 @login_required
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comments, id=comment_id)
@@ -518,7 +510,6 @@ def delete_comment(request, comment_id):
         return redirect('boards:post_comments', theme_id=theme_id)
 
     return render(request, 'boards/delete_comment.html', context={'comment': comment})
-
 
 def upload_sample(request):
     if request.method == 'POST' and request.FILES['upload_file']:
