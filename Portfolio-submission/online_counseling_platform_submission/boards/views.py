@@ -24,6 +24,7 @@ from django.core.cache import cache
 from .models import Themes, Comments
 from accounts.models import Users, Counselor
 from django.utils.functional import SimpleLazyObject
+from django.shortcuts import redirect
 
 @login_required
 def theme_list(request):
@@ -58,9 +59,6 @@ def select_counselor(request, counselor_id):
     user.save()
     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
     return (redirect('boards:list_themes'))
-
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect
 
 @login_required
 def deselect_counselor(request):
