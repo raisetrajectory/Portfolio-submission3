@@ -119,19 +119,6 @@ def edit_comment(request, comment_id):
         }
     )
 
-# def create_theme(request):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
-#         create_theme_form = forms.CreateThemeForm(request.POST or None) # type: ignore
-#         if create_theme_form.is_valid():
-#             create_theme_form.instance.user = request.user
-#             create_theme_form.save()
-#             messages.success(request, 'チャット画面を作成しました。')
-#             return redirect('boards:list_themes')
-#         return render(
-#         request, 'boards/create_theme.html', context={
-#             'create_theme_form': create_theme_form,
-#         }
-#     )
-
 # @login_required #修正完了です！
 # def create_theme(request):
 #     if request.user.is_authenticated:
