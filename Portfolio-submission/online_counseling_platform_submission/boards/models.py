@@ -11,8 +11,7 @@ class Themes(models.Model): #記載内容のバックアップです！
 
     title = models.CharField(max_length=255)
     user = models.ForeignKey('accounts.Users', on_delete=models.CASCADE)
-    counselor = models.ForeignKey(
-        Counselor, on_delete=models.CASCADE, related_name='themes', null=True, blank=True)  # Counselorモデルを関連付ける #記載内容の追加です!
+    counselor = models.ForeignKey(Counselor, on_delete=models.CASCADE, related_name='themes', null=True, blank=True)  # Counselorモデルを関連付ける #記載内容の追加です!
 
     objects = ThemesManager()
 
