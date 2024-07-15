@@ -25,6 +25,7 @@ from .models import Themes, Comments
 from accounts.models import Users, Counselor
 from django.utils.functional import SimpleLazyObject
 from django.shortcuts import redirect
+from .models import Counselor
 
 @login_required
 def theme_list(request):
