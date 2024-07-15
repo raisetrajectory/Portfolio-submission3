@@ -23,3 +23,4 @@ urlpatterns = [
 
     path('deselect_counselor/<int:counselor_id>/', views.deselect_counselor, name='deselect_counselor'),
 ]
+
