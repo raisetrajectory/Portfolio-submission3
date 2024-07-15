@@ -4,7 +4,6 @@
 <form method="POST">
     {% csrf_token %}
     {{ create_theme_form.as_p }}
-
     {% if user_type == 'Counselor' %}
         <label for="selected_user">ユーザーを選択してください:</label>
         <select name="selected_user" id="selected_user">
@@ -13,7 +12,6 @@
             {% endfor %}
         </select>
     {% endif %}
-
     <input type="submit" value="チャット画面作成">
 </form>
 {% endblock %}
