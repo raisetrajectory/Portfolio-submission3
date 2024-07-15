@@ -31,7 +31,6 @@ DEBUG = False
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'Portfoliosubmission3.pythonanywhere.com']
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'uchiyamatakuro.pythonanywhere.com'] #ユーザー名【uchiyamatakuro】
 
-
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
@@ -136,7 +135,6 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  # 標準の認証バックエンド
     'accounts.backends.CustomAuthBackend',    # カスタム認証バックエンドのパスを追加する
 ]
-
 
 LANGUAGE_CODE = 'ja'
 
