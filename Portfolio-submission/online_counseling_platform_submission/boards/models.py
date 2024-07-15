@@ -25,21 +25,6 @@ class CommentsManager(models.Manager):
     def fetch_by_theme_id(self, theme_id):
         return self.filter(theme_id=theme_id).order_by('id').all()
 
-# class Comments(models.Model): #記載内容のバックアップです！
-
-#     comment = models.CharField(max_length=1000)
-#     user = models.ForeignKey('accounts.Users', on_delete=models.CASCADE)
-#     theme = models.ForeignKey('Themes', on_delete=models.CASCADE)
-#     counselor = models.ForeignKey(Counselor, on_delete=models.CASCADE, related_name='comments', null=True, blank=True)  # Counselorモデルを関連付ける
-
-#     objects = CommentsManager()
-
-#     class Meta:
-#         db_table = 'comments'
-
-#     def __str__(self):
-#         return self.comment
-
 class Comments(models.Model):
     comment = models.CharField(max_length=1000)
     user = models.ForeignKey(Users, on_delete=models.CASCADE, blank=True, null=True)
