@@ -185,13 +185,13 @@
     {% block extra_styles %}
     <style>
         .profile-container {
-            display: flex;
+            {% comment %} display: flex;
             justify-content: center;
             align-items: flex-start;
-            {% comment %} align-items: center; {% endcomment %}
-            {% comment %} justify-content: flex-start; {% endcomment %}
-            margin: 20px;
-            {% comment %} margin: 20px auto; {% endcomment %}
+            margin: 20px; {% endcomment %}
+            align-items: center;
+            justify-content: flex-start;
+            margin: 20px auto;
         }
         .image-container {
             flex: 0 0 auto;
