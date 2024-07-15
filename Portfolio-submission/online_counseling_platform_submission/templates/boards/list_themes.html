@@ -28,6 +28,12 @@
     <p>ログインしていません</p>
 {% endif %}
 
+{% if current_user_email == "admin31@sample.com" %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
+    </nav>
+{% endif %}
+
 {% comment %} {% if user_type == 'User' %} {% endcomment %}
 {% comment %} {% if request.user.counselor %} {% endcomment %}
 <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">【ユーザー側】チャット画面を新たに作成する</a></p>
