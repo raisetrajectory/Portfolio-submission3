@@ -154,29 +154,7 @@ def create_theme(request):
     else:
         return redirect('accounts:home')
 
-# @login_required #ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
-# def list_themes(request):
-#     if request.user.is_authenticated:
-#         if isinstance(request.user, Users):
-#             user_type = 'User'
-#             user_instance = request.user
-#             themes = Themes.objects.fetch_all_themes() # type: ignore
-#             themes = Themes.objects.filter(user=user_instance)
-#             return render(request, 'boards/list_themes.html', {'themes': themes, 'user_type': user_type})
-#         elif isinstance(request.user, Counselor):
-#             user_type = 'Counselor'
-#             # カウンセラーが担当しているクライアントを取得する
-#             clients = request.user.clients.all()  # type: ignore # Adjust according to actual related nam
-#             themes = Themes.objects.filter(user__in=clients)
-#             return render(request, 'boards/list_themes.html', {'themes': themes, 'user_type': user_type})
-#         else:
-#             # その他の場合はリダイレクト
-#             return redirect('accounts:home')
-#     else:
-#         # ログインしていない場合はログインページにリダイレクト
-#         return redirect('accounts:home')
-
-@login_required
+@login_required #ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
 def list_themes(request):
     if isinstance(request.user, Users):
         themes = Themes.objects.filter(user=request.user)
