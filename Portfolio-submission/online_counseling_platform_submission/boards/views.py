@@ -332,14 +332,6 @@ def create_theme(request):
 #         }
 #     )
 
-# def list_themes(request):#修正完了です！デプロイサイトに記載しましょう！
-#     themes = Themes.objects.filter(user=request.user)  # ログインユーザーのテーマのみ取得
-#     return render(
-#         request, 'boards/list_themes.html', context={
-#             'themes': themes
-#         }
-#     )
-
 @login_required #ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
 def list_themes(request):
     if request.user.is_authenticated:
