@@ -114,10 +114,6 @@ def deselect_counselor(request):
 #     counselors = Counselors.objects.filter(user=request.user)
 #     return render(request, 'boards/counselor_list.html', {'counselors': counselors})
 
-# def counselor_list(request):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
-#     counselors = Counselors.objects.all()
-#     return render(request, 'boards/counselor_list.html', {'counselors': counselors})
-
 @login_required #修正完了です！
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comments, id=comment_id)
