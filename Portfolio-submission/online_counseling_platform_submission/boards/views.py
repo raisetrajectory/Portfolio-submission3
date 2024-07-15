@@ -528,7 +528,6 @@ def post_comments(request, theme_id):
         'comments': comments,
     })
 
-
 def save_comment(request):
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         comment = request.GET.get('comment')
