@@ -20,7 +20,6 @@ urlpatterns = [
     path('select_counselor/<int:counselor_id>/', views.select_counselor, name='select_counselor'),
     path('deselect_counselor/', views.deselect_counselor, name='deselect_counselor'),
     path('themes/', theme_list, name='theme_list'),#新規追加
-
     path('deselect_counselor/<int:counselor_id>/', views.deselect_counselor, name='deselect_counselor'),
 ]
 
