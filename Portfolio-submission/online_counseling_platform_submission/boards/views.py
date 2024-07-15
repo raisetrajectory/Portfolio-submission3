@@ -17,7 +17,6 @@ from .models import Comments
 from .forms import PostCommentForm
 
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
 from .models import Counselors
 from accounts.models import Counselor, Users
 
