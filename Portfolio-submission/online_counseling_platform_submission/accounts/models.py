@@ -43,14 +43,8 @@ class Users(AbstractBaseUser, PermissionsMixin):
     introduction = models.CharField(max_length=255, null=True) #追加します!
     counselor = models.ForeignKey('Counselor', on_delete=models.SET_NULL, related_name='clients', null=True, blank=True)
 
-    groups =  models.ManyToManyField(
-        Group,
-        related_name='user_groups'
-    )
-    user_permissions = models.ManyToManyField(
-        Permission,
-        related_name='user_permissions'
-    )
+    groups =  models.ManyToManyField(Group,related_name='user_groups')
+    user_permissions = models.ManyToManyField(Permission,related_name='user_permissions')
 
     objects = UserManager()
 
