@@ -324,14 +324,6 @@ def create_theme(request):
 #     else:
 #         return redirect('accounts:home')
 
-# def list_themes(request):#記載内容のバックアップです！　この記載内容にもどれば大丈夫です！
-#     themes = Themes.objects.fetch_all_themes() # type: ignore
-#     return render(
-#         request, 'boards/list_themes.html', context={
-#             'themes': themes
-#         }
-#     )
-
 @login_required #ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
 def list_themes(request):
     if request.user.is_authenticated:
