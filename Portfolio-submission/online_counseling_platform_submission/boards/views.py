@@ -518,7 +518,8 @@ def post_comments(request, theme_id):
         # Set user or counselor based on the logged-in user
         if isinstance(request.user, Counselor):
             comment.counselor = request.user
-            comment.user = None  # Set user to None for counselors
+            comment.user = request.user
+        # Set user to None for counselors
         else:  # User instance
             comment.user = request.user
             comment.counselor = None
