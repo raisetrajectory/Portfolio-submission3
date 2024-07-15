@@ -21,7 +21,6 @@ from .models import Counselor
 #             raise PermissionDenied
 #     return _wrapped_view
 
-
 @login_required
 def counselor_profile(request):
     user_lists = []
@@ -38,12 +37,10 @@ def counselor_profile(request):
 
 @login_required
 def counselor_menu(request):
-
     if isinstance(request.user, Users):
         user_type = 'User'
     else:
         user_type = 'Counselor'
-
     return render(request, 'base.html', {
         'user_type': user_type})
 
@@ -68,7 +65,6 @@ def regist(request):
 
 def counselor_regist(request):
     counselor_regist_form = forms.CounselorRegistForm(request.POST or None)
-
     if request.method == 'POST':
         if counselor_regist_form.is_valid():
             try:
@@ -76,7 +72,6 @@ def counselor_regist(request):
                 return redirect('accounts:home')
             except ValidationError as e:
                 counselor_regist_form.add_error('password', e)
-
     return render(
         request, 'accounts/counselor_regist.html', context={
             'counselor_regist_form': counselor_regist_form,
@@ -113,7 +108,6 @@ def user_login(request):
 def counselor_login(request): #記載内容のバックアップです!
     counselor_login_form = forms.CounselorLoginForm(request.POST or None)
     if request.method == 'POST':
-
         if counselor_login_form.is_valid():
             email = counselor_login_form.cleaned_data.get('email')
             password = counselor_login_form.cleaned_data.get('password')
@@ -127,7 +121,6 @@ def counselor_login(request): #記載内容のバックアップです!
                     messages.warning(request, 'カウンセラーがアクティブでありません')
             else:
                 messages.warning(request, 'カウンセラーのメールアドレスまたはパスワードが間違っています')
-
     return render(
         request, 'accounts/counselor_login.html', context={
             'counselor_login_form': counselor_login_form,
