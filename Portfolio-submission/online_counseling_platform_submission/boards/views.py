@@ -409,7 +409,7 @@ def list_themes(request):
         elif isinstance(request.user, Counselor):
             user_type = 'Counselor'
             # カウンセラーが担当しているクライアントを取得する
-            clients = request.user.clients.all()  # type: ignore # Adjust according to actual related name
+            clients = request.user.clients.all()  # type: ignore # Adjust according to actual related nam
             themes = Themes.objects.filter(user__in=clients)
             return render(request, 'boards/list_themes.html', {'themes': themes, 'user_type': user_type})
         else:
