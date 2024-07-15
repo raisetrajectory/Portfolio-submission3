@@ -133,9 +133,6 @@ class UserEditForm(forms.ModelForm):
 #         if 'is_counselor' in self.fields:
 #             self.fields['is_counselor'].disabled = False
 
-from django import forms
-from .models import Counselor
-
 class CounselorEditForm(forms.ModelForm):
     username = forms.CharField(label='ユーザーネーム')
     age = forms.IntegerField(label='年齢', min_value=0)
