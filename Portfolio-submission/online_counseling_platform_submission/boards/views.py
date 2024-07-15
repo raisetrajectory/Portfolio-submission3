@@ -79,7 +79,7 @@ def edit_comment(request, comment_id):
         user = Users.objects.get(counselor=request.user)
         if comment.user.id != user.id:  # type: ignore
             raise Http404
-    elif comment.user.id != request.user.id:
+    elif comment.user.id != request.user.id: # type: ignore
         raise Http404
     edit_comment_form = PostCommentForm(request.POST or None, instance=comment)
     if edit_comment_form.is_valid():
@@ -331,7 +331,7 @@ def create_theme(request):
                 return redirect('boards:list_themes')  # チャット一覧画面へのリダイレクト
         else:
             create_theme_form = CreateThemeForm()
-        
+
         if isinstance(request.user, Counselor):
             user_type = 'Counselor'
             users = Users.objects.all()  # 選択可能なユーザーを取得
@@ -550,7 +550,7 @@ def delete_comment(request, comment_id):
         user = Users.objects.get(counselor=request.user)
         if comment.user.id != user.id:  # type: ignore
             raise Http404
-    elif comment.user.id != request.user.id:
+    elif comment.user.id != request.user.id: # type: ignore
         raise Http404
     if request.method == 'POST':
         theme_id = comment.theme.id
