@@ -491,15 +491,6 @@ def delete_theme(request, id):
 #         }
 #     )
 
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from django.core.cache import cache
-from .forms import PostCommentForm
-from .models import Themes, Comments
-from accounts.models import Users, Counselor
-from django.http import Http404
-
 @login_required
 def post_comments(request, theme_id):
     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
@@ -518,8 +509,7 @@ def post_comments(request, theme_id):
         # Set user or counselor based on the logged-in user
         if isinstance(request.user, Counselor):
             comment.counselor = request.user
-            comment.user = request.user
-        # Set user to None for counselors
+            comment.user = None  # Set user to None for counselors
         else:  # User instance
             comment.user = request.user
             comment.counselor = None
@@ -527,6 +517,7 @@ def post_comments(request, theme_id):
         comment.save()
         # Clear the saved comment from cache
         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}') # type: ignore
+
         # Redirect back to the post comments view
         messages.success(request, 'コメントが投稿されました。')
         return redirect('boards:post_comments', theme_id=theme.id) # type: ignore
@@ -536,6 +527,7 @@ def post_comments(request, theme_id):
         'theme': theme,
         'comments': comments,
     })
+
 
 def save_comment(request):
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
