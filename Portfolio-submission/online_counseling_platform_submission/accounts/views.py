@@ -157,29 +157,6 @@ def counselor_edit(request):
         'counselor_edit_form': counselor_edit_form,
     })
 
-# @login_required
-# def counselor_edit(request):
-#     counselor_instance = None
-
-#     # ユーザーがログインしていて、かつCounselorオブジェクトを持っている場合にインスタンスを取得
-#     if request.user.is_authenticated and hasattr(request.user, 'counselor'):
-#         counselor_instance = request.user.counselor
-
-#     # フォームをインスタンス化
-#     counselor_edit_form = forms.CounselorEditForm(request.POST or None, request.FILES or None, instance=counselor_instance)
-
-#     if request.method == 'POST':
-#         # POSTメソッドで送信されたフォームをバリデーション
-#         counselor_edit_form = forms.CounselorEditForm(request.POST, request.FILES, instance=counselor_instance)
-#         if counselor_edit_form.is_valid():
-#             counselor_edit_form.save()  # フォームがバリデーションを通過したら保存
-#             messages.success(request, '更新完了しました。')  # 成功メッセージを表示
-#             return redirect('accounts:counselor_edit')  # リダイレクト
-
-#     return render(request, 'accounts/counselor_edit.html', context={
-#         'counselor_edit_form': counselor_edit_form,  # フォームをコンテキストに渡す
-#     })
-
 @login_required  # type: ignore
 def change_password(request):
     password_change_form = forms.PasswordChangeForm(request.POST or None, instance=request.user)
