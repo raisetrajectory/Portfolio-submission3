@@ -491,53 +491,6 @@ def delete_theme(request, id):
 #         }
 #     )
 
-# from django.shortcuts import render, redirect, get_object_or_404
-# from django.contrib import messages
-# from django.contrib.auth.decorators import login_required
-# from django.core.cache import cache
-# from .forms import PostCommentForm
-# from .models import Themes, Comments
-# from accounts.models import Users, Counselor
-
-# @login_required
-# def post_comments(request, theme_id):
-#     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
-#     post_comment_form = PostCommentForm(request.POST or None, initial={'comment': saved_comment})
-#     theme = get_object_or_404(Themes, id=theme_id)
-#     comments = Comments.objects.filter(theme_id=theme_id)
-
-#     if request.method == 'POST':
-#         if not request.user.is_authenticated:
-#             raise Http404
-
-#         # Save the comment
-#         comment = post_comment_form.save(commit=False)
-#         comment.theme = theme
-
-#         # Set user or counselor based on the logged-in user
-#         if isinstance(request.user, Counselor):
-#             # Assuming there is a ManyToMany relationship or a related_name on the User model for counselors
-#             related_users = request.user.clients.all()  # type: ignore # Adjust according to actual related name
-#             if related_users.exists():
-#                 comment.user = related_users.first()  # Select the first related user, adjust logic as needed
-#             comment.counselor = request.user
-#         else:  # User instance
-#             comment.user = request.user
-#             comment.counselor = None
-
-#         comment.save()
-#         # Clear the saved comment from cache
-#         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}') # type: ignore
-#         # Redirect back to the post comments view
-#         messages.success(request, 'コメントが投稿されました。')
-#         return redirect('boards:post_comments', theme_id=theme.id) # type: ignore
-
-#     return render(request, 'boards/post_comments.html', context={
-#         'post_comment_form': post_comment_form,
-#         'theme': theme,
-#         'comments': comments,
-#     })
-
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -545,6 +498,7 @@ from django.core.cache import cache
 from .forms import PostCommentForm
 from .models import Themes, Comments
 from accounts.models import Users, Counselor
+from django.http import Http404
 
 @login_required
 def post_comments(request, theme_id):
@@ -564,8 +518,7 @@ def post_comments(request, theme_id):
         # Set user or counselor based on the logged-in user
         if isinstance(request.user, Counselor):
             comment.counselor = request.user
-            # Ensure that user is set to None or some valid user
-            comment.user = None  # or any valid user instance if needed
+            comment.user = None  # Set user to None for counselors
         else:  # User instance
             comment.user = request.user
             comment.counselor = None
@@ -582,7 +535,6 @@ def post_comments(request, theme_id):
         'theme': theme,
         'comments': comments,
     })
-
 
 def save_comment(request):
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
