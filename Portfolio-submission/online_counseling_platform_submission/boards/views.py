@@ -6,25 +6,20 @@ from django.http import Http404
 from django.core.cache import cache
 from django.http import JsonResponse
 from .models import Themes, Comments, Counselors
-
 import os
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
-
 from django.http import Http404
 from django.contrib import messages
 from .models import Comments
 from .forms import PostCommentForm
-
 from django.shortcuts import render
 from .models import Counselors
 from accounts.models import Counselor, Users
-
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Themes
 from .forms import CreateThemeForm
-
 from django.core.cache import cache
 from .models import Themes, Comments
 from accounts.models import Users, Counselor
