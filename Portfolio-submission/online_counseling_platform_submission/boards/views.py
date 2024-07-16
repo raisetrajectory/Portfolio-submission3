@@ -237,7 +237,6 @@ def edit_theme(request, id):
         'id': id,
     })
 
-
 @login_required #修正完了です！
 def delete_theme(request, id):
     if request.user.is_authenticated:
