@@ -386,3 +386,255 @@
     </nav>
 {% endblock %} {% endcomment %}
 
+{% comment %} {% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div>{{ message.message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="text-center">
+        <h1>プロフィール画面</h1>
+    </div>
+
+<!-- カウンセラーリストを追加 -->
+
+<div class="profile-container">
+    {% if user_lists %}
+    {% for user in user_lists %}
+    <ul style="list-style-type: none; "width=" 80%;">
+    <li class="text-center">
+        <h3>ユーザー</h3>
+    </li>
+    <li>
+    <div class="image-container">
+        {% if user.picture and user.picture.url %}
+        <img src="{{ user.picture.url }}" alt="" width="300" height="300">
+        {% else %}
+        <p>画像がありません。</p>
+        {% endif %}
+    </div>
+    </li>
+    <li>
+        <div class="info-block">
+            <p>名前: {{ user.username }}</p>
+        </div>
+    </li>
+    <li>
+        <div class="info-block">
+            <p>{{ user.introduction }}</p>
+        </div>
+    </li>
+    </div>
+    <div class="info-block">
+        <h3>契約カウンセラー:{{ user.counselor.username }}</h3>
+        {% if user.picture and user.picture.url %}
+        <img src="{{ user.counselor.picture }}" alt="" width="100" height="100">
+        {% else %}
+        <p>画像がありません。</p>
+        {% endif %}
+        {% if request.user.counselor %}
+        <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}">
+        {% csrf_token %}
+        <button type="submit" style="color:red">契約を解除する</button>
+        </form>
+        {% endif %}
+    </div>
+    </div>
+    </ul>
+    {% endfor %}
+    {% elif counselor_lists %}
+    {% for counselor in counselor_lists %}
+    <ul style="list-style-type: none; "width=" 80%;">
+    <li>
+        <h3 class="text-center">カウンセラー</h3>
+    </li>
+    <div class="image-container">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+    </form>
+            {% if user %}
+            <img src="{{ user.picture.url }}" style="width: 300px; height: 300px;">
+            {% endif %}
+    </div>
+    <li>
+        <div class="info-block">
+            <p>名前: {{ counselor.username }}</p>
+        </div>
+    </li>
+    <li>
+        <div class="info-block">
+            <p>{{ counselor.introduction }}</p>
+        </div>
+    </li>
+    <li>
+        <div class="info-block">
+            <p>{{ counselor.qualifications }}</p>
+        </div>
+    </li>
+    </ul>
+    {% endfor %}
+    {% endif %}
+</div>
+
+    <!-- カウンセラーリストを追加 -->
+    <div class="profile-container">
+        <div class="counselor-list">
+            <ul style="list-style-type: none; display: flex; flex-direction: column; align-items: center;"> <!-- リストのマーカーを無効化、縦方向に配置、中央揃え -->
+                <h2 style="text-align: center;">カウンセラー又は利用者名</h2>
+                {% if user.username != "カウンセラー01" and user.username != "カウンセラー02" %}
+                    </li>
+                    <li class="counselor-item">
+                            <div class="counselor-card">
+                                <div class="image-container">
+                                    <img src="{% static 'images/smple5-img.jpg' %}" alt="カウンセラー01" width="100" height="100">
+                                </div>
+                                <div class="counselor-info">
+                                    <span>カウンセラー01</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="counselor-item">
+                            <div class="counselor-card">
+                                <div class="image-container">
+                                    <img src="{% static 'images/smple6-img.jpg' %}" alt="カウンセラー02" width="100" height="100">
+                                </div>
+                                <div class="counselor-info">
+                                    <span>カウンセラー02</span>
+                                </div>
+                            </div>
+                        </li>
+                {% else %}
+                    {% if user.username == "カウンセラー01" %}
+                    <li class="counselor-item">
+                        <div class="counselor-card">
+                            <div class="image-container">
+                                <img src="{% static 'images/smple9-img.jpg' %}" alt="利用者" width="100" height="100">
+                            </div>
+                            <div class="counselor-info">
+                                <span>利用者</span>
+                            </div>
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% if user.username == "カウンセラー02" %}
+                    <li class="counselor-item">
+                        <div class="counselor-card">
+                            <div class="image-container">
+                                <img src="{% static 'images/smple9-img.jpg' %}" alt="利用者" width="100" height="100">
+                            </div>
+                            <div class="counselor-info">
+                                <span>利用者</span>
+                            </div>
+                        </div>
+                    </li>
+                    {% endif %}
+                {% endif %}
+            </ul>
+        </div>
+
+        <div class="profile-info">
+            <ul style="list-style-type: none;">  <!-- リストのマーカーを無効化 -->
+                <div class="counselor-container">
+                    <div class="image-container">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                        </form>
+                        {% if user %}
+                            <img src="{{ user.picture.url }}" style="width: 300px; height: 300px;">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="info-block">
+                    <li>ユーザー名: {{ user.username }}</li>
+                </div>
+                <div class="info-block">
+                    <li>自己紹介: よろしくお願い致します！</li>
+                </div>
+                <div class="info-block">
+                    <li>資格: 臨床心理士</li>
+                </div>
+                <!-- 他のユーザー情報を追加する場合はここに追加 -->
+            </ul>
+        </div>
+    </div>
+
+    {% block extra_styles %}
+    <style>
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 20px;
+        }
+        .user-info, .counselor-info {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+        .image-container {
+            flex: 0 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .info-block {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #000;
+            margin: 10px auto;
+            background-color: #f0f0f0;
+            text-align: left;
+        }
+        .counselor-list {
+            margin-right: 20px;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .counselor-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            border: 1px solid #000;
+            padding: 5px;
+            background-color: #e0e0e0;
+            box-sizing: border-box;
+            margin-bottom: 0;
+        }
+        .counselor-card {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 10px;
+            padding: 10px;
+            flex: 1;
+        }
+        .counselor-info {
+            margin-left: 10px;
+        }
+    </style>
+    {% endblock %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
+    <a class="navbar-brand" href="{% url 'accounts:home' %}">メインメニューへ</a>
+    <a class="navbar-brand" href="{% url 'boards:counselor_list' %}">カウンセラー一覧画面へ</a>
+    {% if user.is_authenticated %}
+        <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
+        {% if user.email != 'admin30@sample.com' and user.email != 'admin31@sample.com' %}
+            <a class="navbar-brand" href="{% url 'accounts:user_edit' %}">プロフィール内容(ユーザー登録)変更</a>
+        {% endif %}
+        {% if user.email == 'admin30@sample.com' or user.email == 'admin31@sample.com' %}
+            <a class="navbar-brand" href="{% url 'accounts:counselor_edit' %}">プロフィール内容(カウンセラー登録)変更</a>
+        {% endif %}
+    {% endif %}
+</nav>
+{% endblock %} {% endcomment %}
