@@ -28,7 +28,9 @@
     <p>ログインしていません</p>
 {% endif %}
 
+{% if request.user.is_authenticated %}
 <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
+{% endif %}
 
 {% if user_type == 'User' %}
 {% comment %} {% if request.user.counselor %} {% endcomment %}
