@@ -158,7 +158,7 @@
         </div>
     </div>
 
-    {% block extra_styles %}
+    {% comment %} {% block extra_styles %}
     <style>
         .profile-container {
             display: flex;
@@ -186,9 +186,9 @@
             text-align: center;
         }
     </style>
-    {% endblock %}
+    {% endblock %} {% endcomment %}
 
-    {% comment %} {% block extra_styles %}
+    {% block extra_styles %}
     <style>
         .profile-container {
             display: flex;
@@ -247,7 +247,7 @@
             margin-left: 10px;
         }
     </style>
-    {% endblock %} {% endcomment %}
+    {% endblock %}
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
         <a class="navbar-brand" href="{% url 'accounts:home' %}">メインメニューへ</a>
