@@ -234,8 +234,8 @@ def list_themes(request):
 def edit_theme(request, id):
     theme = get_object_or_404(Themes, id=id)
 
-    # ユーザーがテーマの所有者であるか、または単純にログインしているかを確認
-    if theme.user != request.user:
+    # ユーザーがテーマの所有者であるか、またはカウンセラーでそのクライアントであるかを確認
+    if not (theme.user == request.user or (isinstance(request.user, Counselor) and theme.user in request.user.clients.all())): # type: ignore
         raise Http404
 
     if request.method == 'POST':
@@ -255,6 +255,7 @@ def edit_theme(request, id):
         'id': id,
         'theme': theme,  # テーマオブジェクトをテンプレートに渡す
     })
+
 
 @login_required #修正完了です！　記載内容のバックアップです！ この記載内容に戻りましょう！
 def delete_theme(request, id):
