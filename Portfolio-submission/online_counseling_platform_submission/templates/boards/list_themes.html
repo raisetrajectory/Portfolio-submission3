@@ -30,12 +30,6 @@
 
 <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
 
-{% if current_user_email == "admin31@sample.com" %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
-    </nav>
-{% endif %}
-
 {% if user_type == 'User' %}
 {% comment %} {% if request.user.counselor %} {% endcomment %}
 {% if request.user.is_counselor %}
