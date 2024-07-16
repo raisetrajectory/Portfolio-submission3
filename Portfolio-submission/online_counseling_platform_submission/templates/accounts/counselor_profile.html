@@ -20,23 +20,6 @@
     <li class="text-center">
         <h3>ユーザー</h3>
     </li>
-
-        <div class="info-block">
-            <h3>契約カウンセラー:{{ user.counselor.username }}</h3>
-            {% if user.picture and user.picture.url %}
-            <img src="{{ user.counselor.picture }}" alt="" width="100" height="100">
-            {% else %}
-            <p>画像がありません。</p>
-            {% endif %}
-            {% if request.user.counselor %}
-            <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}">
-            {% comment %} <form method="POST" action="{% url boards:deselect_counselor %}" > {% endcomment %}
-            {% csrf_token %}
-            <button type="submit" style="color:red">契約を解除する</button>
-            </form>
-            {% endif %}
-        </div>
-
     <li>
     <div class="image-container">
         {% if user.picture and user.picture.url %}
@@ -58,21 +41,21 @@
     </li>
     </div>
     <li>
-        <div class="info-block">
-            <h3>契約カウンセラー:{{ user.counselor.username }}</h3>
-            {% if user.picture and user.picture.url %}
-            <img src="{{ user.counselor.picture }}" alt="" width="100" height="100">
-            {% else %}
-            <p>画像がありません。</p>
-            {% endif %}
-            {% if request.user.counselor %}
-            <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}">
-            {% comment %} <form method="POST" action="{% url boards:deselect_counselor %}" > {% endcomment %}
-            {% csrf_token %}
-            <button type="submit" style="color:red">契約を解除する</button>
-            </form>
-            {% endif %}
-        </div>
+    <div class="info-block">
+        <h3>契約カウンセラー:{{ user.counselor.username }}</h3>
+        {% if user.picture and user.picture.url %}
+        <img src="{{ user.counselor.picture }}" alt="" width="100" height="100">
+        {% else %}
+        <p>画像がありません。</p>
+        {% endif %}
+        {% if request.user.counselor %}
+        <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}">
+        {% comment %} <form method="POST" action="{% url boards:deselect_counselor %}" > {% endcomment %}
+        {% csrf_token %}
+        <button type="submit" style="color:red">契約を解除する</button>
+        </form>
+        {% endif %}
+    </div>
     </li>
     </div>
     </ul>
