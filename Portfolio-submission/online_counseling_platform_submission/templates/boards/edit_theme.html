@@ -15,8 +15,6 @@
     <button type="submit">更新する</button>
 </form>
 
-<p><a class="navbar-brand" href="{% url 'boards:delete_theme' id=id %}">削除する</a></p>
-
 {% if user_type == 'Counselor' %}
     <form method="post" action="{% url 'boards:delete_theme' id=id %}">
         {% csrf_token %}
@@ -24,7 +22,6 @@
     </form>
 {% endif %}
 {% endblock %}
-
 
 
 {% comment %} {% extends "base.html" %}

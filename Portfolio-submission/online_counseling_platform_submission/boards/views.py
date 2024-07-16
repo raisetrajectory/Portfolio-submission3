@@ -204,12 +204,45 @@ def list_themes(request):
 #     else:
 #         return redirect('accounts:home')
 
+# from django.shortcuts import render, get_object_or_404, redirect
+# from django.contrib.auth.decorators import login_required
+# from django.http import Http404
+# from django.contrib import messages
+# from .models import Themes, Users, Counselor
+# from .forms import CreateThemeForm
+
+# @login_required
+# def edit_theme(request, id):
+#     theme = get_object_or_404(Themes, id=id)
+
+#     # ユーザーがテーマの所有者であるか、カウンセラーであり、そのクライアントであることを確認
+#     if theme.user != request.user:
+#         if not (isinstance(request.user, Counselor) and theme.user in request.user.clients.all()): # type: ignore
+#             raise Http404
+
+#     if request.method == 'POST':
+#         edit_theme_form = CreateThemeForm(request.POST, instance=theme)
+#         if edit_theme_form.is_valid():
+#             edit_theme_form.save()
+#             messages.success(request, 'チャット画面を更新しました。')
+#             return redirect('boards:list_themes')
+#     else:
+#         edit_theme_form = CreateThemeForm(instance=theme)
+
+#     user_type = 'Counselor' if isinstance(request.user, Counselor) else 'User'
+
+#     return render(request, 'boards/edit_theme.html', context={
+#         'edit_theme_form': edit_theme_form,
+#         'user_type': user_type,
+#         'id': id,
+#     })
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.contrib import messages
 from .models import Themes, Users, Counselor
-from .forms import CreateThemeForm
+from .forms import CreateThemeForm, DeleteThemeForm
 
 @login_required
 def edit_theme(request, id):
