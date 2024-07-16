@@ -1,5 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
+{% if messages %}
+    {% for message in messages %}
+    <div>{{ message.message }}</div>
+    {% endfor %}
+{% endif %}
+<h3>チャット画面の編集</h3>
+<p>ログインユーザー: {{ request.user.username }}</p>
+<p>契約カウンセラー: {{ theme.user.username }}</p>
+
+<form method="post" novalidate>
+    {% csrf_token %}
+    {{ edit_theme_form.as_p }}
+    <button type="submit">更新する</button>
+</form>
+
+{% if user_type == 'Counselor' %}
+    <form method="post" action="{% url 'boards:delete_theme' id=id %}">
+        {% csrf_token %}
+        <button type="submit">チャット画面を削除する</button>
+    </form>
+{% endif %}
+{% endblock %}
+
+
+{% comment %} {% extends "base.html" %}
+{% block content %}
 <h3>チャット編集画面</h3>
 <form method="POST">
 {% csrf_token %}
@@ -7,4 +33,4 @@
 <input type="submit" value="更新">
 </form>
 <p><a class="navbar-brand" href="{% url 'boards:delete_theme' id=id %}">削除する</a></p>
-{% endblock %}
+{% endblock %} {% endcomment %}
