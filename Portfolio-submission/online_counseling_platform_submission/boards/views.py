@@ -242,7 +242,12 @@ def edit_theme(request, id):
     theme = get_object_or_404(Themes, id=id)
 
     # ユーザーがテーマの所有者であるか、またはカウンセラーでそのクライアントであるかを確認
-    if not (theme.user == request.user or (isinstance(request.user, Counselor) and theme.user.counselor == request.user)):
+    is_owner = theme.user == request.user
+    is_counselor = request.user.is_counselor
+    is_client = is_counselor and theme.user.counselor == request.user
+
+    if not (is_owner or is_client):
+        print(f"Page not found: is_owner={is_owner}, is_counselor={is_counselor}, is_client={is_client}")
         raise Http404
 
     if request.method == 'POST':
@@ -254,7 +259,7 @@ def edit_theme(request, id):
     else:
         edit_theme_form = CreateThemeForm(instance=theme)
 
-    user_type = 'Counselor' if isinstance(request.user, Counselor) else 'User'
+    user_type = 'Counselor' if is_counselor else 'User'
 
     return render(request, 'boards/edit_theme.html', context={
         'edit_theme_form': edit_theme_form,
@@ -262,7 +267,6 @@ def edit_theme(request, id):
         'id': id,
         'theme': theme,  # テーマオブジェクトをテンプレートに渡す
     })
-
 
 
 @login_required #修正完了です！　記載内容のバックアップです！ この記載内容に戻りましょう！
