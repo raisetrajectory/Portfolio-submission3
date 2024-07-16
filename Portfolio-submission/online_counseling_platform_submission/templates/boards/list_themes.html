@@ -33,7 +33,6 @@
 {% endif %}
 
 {% if user_type == 'User' %}
-{% comment %} {% if request.user.counselor %} {% endcomment %}
 {% if request.user.is_counselor %}
 <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">【ユーザー側】チャット画面を新たに作成する</a></p>
 {% else %}
