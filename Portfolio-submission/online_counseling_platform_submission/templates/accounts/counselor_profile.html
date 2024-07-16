@@ -39,6 +39,7 @@
                     </div>
                 </li>
                 <li>
+                <button type="submit" style="color:red">契約を解除する</button>
                     {% if request.user.counselor %}
                     <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}">
                         {% csrf_token %}
