@@ -235,7 +235,7 @@ def edit_theme(request, id):
     theme = get_object_or_404(Themes, id=id)
 
     # ユーザーがテーマの所有者であるか、またはカウンセラーでそのクライアントであるかを確認
-    if not (theme.user == request.user or (isinstance(request.user, Counselor) and theme.user in request.user.clients.all())): # type: ignore
+    if not (theme.user == request.user or (isinstance(request.user, Counselor) and theme.user in request.user.clients.all())):  # type: ignore
         raise Http404
 
     if request.method == 'POST':
