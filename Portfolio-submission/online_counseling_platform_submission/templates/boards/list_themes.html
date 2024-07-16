@@ -7,13 +7,13 @@
 {% endif %}
 <h3>チャット画面一覧</h3>
 <p>契約カウンセラー: {{ theme.user.username }}</p>
-{% comment %} {% if request.user.is_authenticated %}
+{% if request.user.is_authenticated %}
     {% if request.user.is_counselor %}
         <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">【カウンセラー側】チャット画面を新たに作成する</a></p>
     {% else %}
         <p>カウンセラーと契約するとチャット画面を作成できるようになります</p>
     {% endif %}
-{% endif %} {% endcomment %}
+{% endif %}
 
 {% if request.user.is_authenticated %}
     <p>ログインユーザー: {{ request.user.username }}</p>
@@ -28,19 +28,21 @@
     <p>ログインしていません</p>
 {% endif %}
 
+<a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
+
 {% if current_user_email == "admin31@sample.com" %}
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
     </nav>
 {% endif %}
 
-{% comment %} {% if user_type == 'User' %} {% endcomment %}
+{% if user_type == 'User' %}
 {% comment %} {% if request.user.counselor %} {% endcomment %}
 <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">【ユーザー側】チャット画面を新たに作成する</a></p>
-{% comment %} {% else %} {% endcomment %}
-{% comment %} <p>カウンセラーと契約するとチャット画面を作成できるようになります</p> {% endcomment %}
+{% else %}
+<p>カウンセラーと契約するとチャット画面を作成できるようになります</p>
 {% comment %} {% endif %} {% endcomment %}
-{% comment %} {% endif %} {% endcomment %}
+{% endif %}
 
 <table class="table table-striped table-hover">
     <thead>
