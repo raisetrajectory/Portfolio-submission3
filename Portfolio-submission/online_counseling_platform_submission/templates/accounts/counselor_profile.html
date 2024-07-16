@@ -11,6 +11,173 @@
         <h1>プロフィール画面</h1>
     </div>
 
+    <div class="profile-container">
+        <div class="user-info">
+            <ul style="list-style-type: none;">
+                <li class="text-center">
+                    <h3>ユーザー</h3>
+                </li>
+                <li>
+                    <div class="image-container">
+                        {% if user.picture and user.picture.url %}
+                        <img src="{{ user.picture.url }}" alt="" width="300" height="300">
+                        {% else %}
+                        <p>画像がありません。</p>
+                        {% endif %}
+                    </div>
+                </li>
+                <li>
+                    <div class="info-block">
+                        <p>名前: {{ user.username }}</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="info-block">
+                        <p>{{ user.introduction }}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="counselor-info">
+            <ul style="list-style-type: none;">
+                <li class="text-center">
+                    <h3>契約カウンセラー</h3>
+                </li>
+                <li>
+                    <div class="image-container">
+                        {% if user.counselor and user.counselor.picture and user.counselor.picture.url %}
+                        <img src="{{ user.counselor.picture.url }}" alt="" width="100" height="100">
+                        {% else %}
+                        <p>画像がありません。</p>
+                        {% endif %}
+                    </div>
+                </li>
+                <li>
+                    <div class="info-block">
+                        <p>名前: {{ user.counselor.username }}</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="info-block">
+                        <p>{{ user.counselor.introduction }}</p>
+                    </div>
+                </li>
+                <li>
+                    {% if request.user.counselor %}
+                    <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}">
+                        {% csrf_token %}
+                        <button type="submit" style="color:red">契約を解除する</button>
+                    </form>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    {% comment %} {% block extra_styles %}
+    <style>
+        .profile-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 20px;
+        }
+        .user-info, .counselor-info {
+            flex: 1;
+            margin: 10px;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .info-block {
+            padding: 10px;
+            border: 1px solid #000;
+            margin: 10px 0;
+            background-color: #f0f0f0;
+            text-align: left;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+    {% endblock %} {% endcomment %}
+
+    {% block extra_styles %}
+    <style>
+        .profile-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 20px;
+        }
+        .user-info, .counselor-info {
+            flex: 1;
+            margin: 10px;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .info-block {
+            padding: 10px;
+            border: 1px solid #000;
+            margin: 10px 0;
+            background-color: #f0f0f0;
+            text-align: left;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+    {% endblock %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
+        <a class="navbar-brand" href="{% url 'accounts:home' %}">メインメニューへ</a>
+        <a class="navbar-brand" href="{% url 'boards:counselor_list' %}">カウンセラー一覧画面へ</a>
+        {% if user.is_authenticated %}
+            <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
+            {% if user.email != 'admin30@sample.com' and user.email != 'admin31@sample.com' %}
+                <a class="navbar-brand" href="{% url 'accounts:user_edit' %}">プロフィール内容(ユーザー登録)変更</a>
+            {% endif %}
+            {% if user.email == 'admin30@sample.com' or user.email == 'admin31@sample.com' %}
+                <a class="navbar-brand" href="{% url 'accounts:counselor_edit' %}">プロフィール内容(カウンセラー登録)変更</a>
+            {% endif %}
+        {% endif %}
+    </nav>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div>{{ message.message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="text-center">
+        <h1>プロフィール画面</h1>
+    </div>
+
 <!-- カウンセラーリストを追加 -->
 
 <div class="profile-container">
@@ -41,7 +208,6 @@
     </li>
     </div>
     <div class="info-block">
-    {% comment %} <div class="info-block: none; "width=" 80%;"> {% endcomment %}
         <h3>契約カウンセラー:{{ user.counselor.username }}</h3>
         {% if user.picture and user.picture.url %}
         <img src="{{ user.counselor.picture }}" alt="" width="100" height="100">
@@ -182,7 +348,6 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            {% comment %} align-items: center; {% endcomment %}
             margin: 20px;
         }
         .user-info, .counselor-info {
@@ -204,7 +369,6 @@
             padding: 10px;
             border: 1px solid #000;
             margin: 10px auto;
-            {% comment %} margin: 10px 0; {% endcomment %}
             background-color: #f0f0f0;
             text-align: left;
         }
@@ -252,4 +416,4 @@
         {% endif %}
     {% endif %}
 </nav>
-{% endblock %}
+{% endblock %} {% endcomment %}
