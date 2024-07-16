@@ -13,6 +13,76 @@
 
 <!-- カウンセラーリストを追加 -->
 
+{% comment %} <div class="profile-container">
+    {% if user_lists %}
+        {% for user in user_lists %}
+            <ul style="list-style-type: none; width: 80%;">
+                <li>
+                    <div class="user-info">
+                        <div class="image-container">
+                            {% if user.picture and user.picture.url %}
+                                <img src="{{ user.picture.url }}" alt="" width="300" height="300">
+                            {% else %}
+                                <p>画像がありません。</p>
+                            {% endif %}
+                        </div>
+                        <div class="info-block">
+                            <h3>ユーザー情報</h3>
+                            <p>名前: {{ user.username }}</p>
+                            <p>{{ user.introduction }}</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="info-block">
+                        <h3>契約カウンセラー: {{ user.counselor.username }}</h3>
+                        {% if user.counselor.picture %}
+                            <img src="{{ user.counselor.picture.url }}" alt="" width="100" height="100">
+                        {% else %}
+                            <p>画像がありません。</p>
+                        {% endif %}
+                        {% if request.user.counselor %}
+                            <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}">
+                                {% csrf_token %}
+                                <button type="submit" style="color:red">契約を解除する</button>
+                            </form>
+                        {% endif %}
+                    </div>
+                </li>
+            </ul>
+        {% endfor %}
+    {% elif counselor_lists %}
+        {% for counselor in counselor_lists %}
+            <ul style="list-style-type: none; width: 80%;">
+                <li>
+                    <h3 class="text-center">カウンセラー</h3>
+                </li>
+                <li>
+                    <div class="image-container">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                        </form>
+                        {% if counselor.picture %}
+                            <img src="{{ counselor.picture.url }}" alt="{{ counselor.username }}" style="width: 300px; height: 300px;">
+                        {% else %}
+                            <p>画像がありません。</p>
+                        {% endif %}
+                    </div>
+                </li>
+                <li>
+                    <div class="info-block">
+                        <p>名前: {{ counselor.username }}</p>
+                        <p>{{ counselor.introduction }}</p>
+                        <p>{{ counselor.qualifications }}</p>
+                    </div>
+                </li>
+            </ul>
+        {% endfor %}
+    {% endif %}
+</div> {% endcomment %}
+
+
 <div class="profile-container">
     {% if user_lists %}
     {% for user in user_lists %}
