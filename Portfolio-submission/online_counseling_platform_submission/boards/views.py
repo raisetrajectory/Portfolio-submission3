@@ -237,7 +237,7 @@ def edit_theme(request, id):
         'id': id,
     })
 
-@login_required #修正完了です！
+@login_required #修正完了です！　記載内容のバックアップです！ この記載内容に戻りましょう！
 def delete_theme(request, id):
     if request.user.is_authenticated:
         theme = get_object_or_404(Themes, id=id)
