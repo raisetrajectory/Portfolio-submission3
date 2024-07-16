@@ -40,8 +40,8 @@
         </div>
     </li>
     </div>
-    <li>
     <div class="info-block">
+    {% comment %} <div class="info-block: none; "width=" 80%;"> {% endcomment %}
         <h3>契約カウンセラー:{{ user.counselor.username }}</h3>
         {% if user.picture and user.picture.url %}
         <img src="{{ user.counselor.picture }}" alt="" width="100" height="100">
@@ -55,7 +55,6 @@
         </form>
         {% endif %}
     </div>
-    </li>
     </div>
     </ul>
     {% endfor %}
@@ -183,6 +182,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
+            {% comment %} align-items: center; {% endcomment %}
             margin: 20px;
         }
         .user-info, .counselor-info {
@@ -204,6 +204,7 @@
             padding: 10px;
             border: 1px solid #000;
             margin: 10px auto;
+            {% comment %} margin: 10px 0; {% endcomment %}
             background-color: #f0f0f0;
             text-align: left;
         }
