@@ -12,10 +12,6 @@
     <h1>カウンセラー一覧画面</h1>
 </div>
 {% for counselor in counselors %}
-    <div>
-        <p>{{ counselor.username }}</p>
-        <a href="{% url 'boards:select_counselor' counselor.id %}">選択</a>
-    </div>
 <div class="counselor-container">
     <div class="image-container">
         <img src="{{ counselor.picture }}" alt="" width="300" height="300">
@@ -26,6 +22,7 @@
     <div class="info-block">
         <h2>{{ counselor.username }}</h2>
         <p>{{ counselor.introduction }}</p>
+        <a href="{% url 'boards:select_counselor' counselor.id %}">選択</a>
         {% if user_type == 'User' %}
         {% if request.user.counselor is None %}
         <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}">
