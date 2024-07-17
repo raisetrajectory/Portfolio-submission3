@@ -34,38 +34,6 @@
 </div>
 {% endfor %}
 
-<div class="text-center">
-    <h1>カウンセラー一覧画面</h1>
-</div>
-
-<div class="counselor-container">
-    <div class="image-container">
-        <img src="{% static 'images/smple5-img.jpg' %}" alt="" width="300" height="300">
-    </div>
-    <div class="info-block">
-        <h2>カウンセラー01</h2>
-        {% if current_user_email == "admin30@sample.com" %}
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
-            </nav>
-        {% endif %}
-    </div>
-</div>
-
-<div class="counselor-container">
-    <div class="image-container">
-        <img src="{% static 'images/smple6-img.jpg' %}" alt="" width="300" height="300">
-    </div>
-    <div class="info-block">
-        <h2>カウンセラー02</h2>
-        {% if current_user_email == "admin31@sample.com" %}
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
-            </nav>
-        {% endif %}
-    </div>
-</div>
-
 {% block extra_styles %}
 <style>
     .counselor-container {
