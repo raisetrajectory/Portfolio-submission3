@@ -40,7 +40,7 @@
         <li>
             <div class="info-block counselor-info">
                 <h3>契約カウンセラー: {{ user.counselor.username }}</h3>
-                <button type="submit" style="color:red">契約を解除する</button>
+                {% comment %} <button type="submit" style="color:red">契約を解除する</button> {% endcomment %}
                 {% if user.counselor.picture and user.counselor.picture.url %}
                 <img src="{{ user.counselor.picture.url }}" alt="" width="100" height="100">
                 {% else %}
@@ -49,7 +49,12 @@
                 {% if request.user.counselor %}
                 {% comment %} 記載内容のバックアップです {% endcomment %}
                 {% comment %} <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}"> {% endcomment %}
-                <form method="POST" action="{% url 'boards:deselect_counselor' counselor.pk %}">
+                {% comment %} 記載内容のバックアップです {% endcomment %}
+                {% comment %} <form method="POST" action="{% url 'boards:deselect_counselor' counselor.pk %}">
+                    {% csrf_token %}
+                    <button type="submit" style="color:red">契約を解除する</button>
+                </form> {% endcomment %}
+                <form method="POST" action="{% url 'boards:deselect_counselor' user.counselor.id %}">
                     {% csrf_token %}
                     <button type="submit" style="color:red">契約を解除する</button>
                 </form>
