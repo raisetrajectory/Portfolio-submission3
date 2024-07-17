@@ -30,10 +30,10 @@
                     {% endif %}
                 </div>
 
-                {% comment %} <div class="info-block">
+                {% comment %} <div class="info-block user-info">
                 <p>名前: {{ user.username }}</p>
                 </div> {% endcomment %}
-                {% comment %} <div class="info-block">
+                {% comment %} <div class="info-block user-info">
                 <p>{{ user.introduction }}</p>
                 </div> {% endcomment %}
                 <p>名前: {{ user.username }}</p>
@@ -125,7 +125,7 @@
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 8px;
-        text-align: center;
+        {% comment %} text-align: center; {% endcomment %}
     }
 
     .counselor-info {
