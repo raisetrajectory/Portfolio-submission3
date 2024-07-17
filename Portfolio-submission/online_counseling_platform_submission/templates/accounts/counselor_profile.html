@@ -47,7 +47,9 @@
                 <p>画像がありません。</p>
                 {% endif %}
                 {% if request.user.counselor %}
-                <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}">
+                {% comment %} 記載内容のバックアップです {% endcomment %}
+                {% comment %} <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}"> {% endcomment %}
+                <form method="POST" action="{% url 'boards:deselect_counselor' counselor.pk %}">
                     {% csrf_token %}
                     <button type="submit" style="color:red">契約を解除する</button>
                 </form>
