@@ -130,9 +130,12 @@
     .user-info, .counselor-info {
         flex: 1; /* 左右に均等にスペースを割り当て */
         padding: 10px;
-        border: 1px solid #ccc;
+        {% comment %} border: 1px solid #ccc; {% endcomment %}
+        border: 1px solid #000;
         border-radius: 8px;
         text-align: center;
+        {% comment %} background-color: #f0f0f0; {% endcomment %}
+        margin-bottom: 15px;
     }
 
     .counselor-info {
