@@ -16,7 +16,8 @@
 <div class="profile-container">
     {% if user_lists %}
     {% for user in user_lists %}
-    <ul style="list-style-type: none; width: 80%;">
+    {% comment %} <ul style="list-style-type: none; width: 80%;"> {% endcomment %}
+    <ul style="list-style-type: none; width: 100%;">
         <li class="text-center">
             <h3>ユーザー</h3>
         </li>
@@ -29,13 +30,12 @@
                     <p>画像がありません。</p>
                     {% endif %}
                 </div>
-
-                <div class="info-block user-info">
+                {% comment %} <div class="info-block user-info">
                 <p>名前: {{ user.username }}</p>
-                </div>
-                <div class="info-block user-info">
+                </div> {% endcomment %}
+                {% comment %} <div class="info-block user-info">
                 <p>{{ user.introduction }}</p>
-                </div>
+                </div> {% endcomment %}
                 <p>名前: {{ user.username }}</p>
                 <p>{{ user.introduction }}</p>
             </div>
@@ -61,7 +61,8 @@
     {% endfor %}
     {% elif counselor_lists %}
     {% for counselor in counselor_lists %}
-    <ul style="list-style-type: none; width: 80%;">
+    {% comment %} <ul style="list-style-type: none; width: 80%;"> {% endcomment %}
+    <ul style="list-style-type: none; width: 100%;">
         <li>
             <h3 class="text-center">カウンセラー</h3>
         </li>
@@ -125,7 +126,7 @@
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 8px;
-        {% comment %} text-align: center; {% endcomment %}
+        text-align: center;
     }
 
     .counselor-info {
