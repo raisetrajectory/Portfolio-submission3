@@ -16,8 +16,7 @@
 <div class="profile-container">
     {% if user_lists %}
     {% for user in user_lists %}
-    {% comment %} <ul style="list-style-type: none; width: 80%;"> {% endcomment %}
-    <ul style="list-style-type: none; width: 100%;">
+    <ul style="list-style-type: none; width: 80%;">
         <li class="text-center">
             <h3>ユーザー</h3>
         </li>
@@ -30,18 +29,12 @@
                     <p>画像がありません。</p>
                     {% endif %}
                 </div>
-                {% comment %} <div class="info-block user-info">
-                <p>名前: {{ user.username }}</p>
-                </div> {% endcomment %}
                 <div class="user-info">
                 <p>名前: {{ user.username }}</p>
                 </div>
                 <div class="user-info">
                 <p>{{ user.introduction }}</p>
                 </div>
-                {% comment %} <div class="info-block user-info">
-                <p>{{ user.introduction }}</p>
-                </div> {% endcomment %}
                 <p>名前: {{ user.username }}</p>
                 <p>{{ user.introduction }}</p>
             </div>
@@ -67,8 +60,7 @@
     {% endfor %}
     {% elif counselor_lists %}
     {% for counselor in counselor_lists %}
-    {% comment %} <ul style="list-style-type: none; width: 80%;"> {% endcomment %}
-    <ul style="list-style-type: none; width: 100%;">
+    <ul style="list-style-type: none; width: 80%;">
         <li>
             <h3 class="text-center">カウンセラー</h3>
         </li>
@@ -130,11 +122,10 @@
     .user-info, .counselor-info {
         flex: 1; /* 左右に均等にスペースを割り当て */
         padding: 10px;
-        {% comment %} border: 1px solid #ccc; {% endcomment %}
         border: 1px solid #000;
         border-radius: 8px;
         text-align: center;
-        {% comment %} background-color: #f0f0f0; {% endcomment %}
+        background-color: #f0f0f0;
         margin-bottom: 15px;
     }
 
