@@ -80,7 +80,7 @@ def select_counselor(request, counselor_id):
 #         return redirect('accounts:home')  # リダイレクト先のURLが正しいか確認
 #     return redirect('accounts:home')  # GETリクエストの場合のリダイレクト先を指定
 
-@login_required
+@login_required #記載内容のバックアップです！ この記載内容戻りましょう!
 def deselect_counselor(request, counselor_id):
     counselor = get_object_or_404(Counselor, id=counselor_id)
     if request.method == 'POST':
