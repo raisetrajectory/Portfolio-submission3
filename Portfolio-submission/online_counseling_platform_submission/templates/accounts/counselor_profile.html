@@ -126,60 +126,6 @@
 </style>
 {% endblock extra_styles %}
 
-    {% comment %} {% block extra_styles %}
-    <style>
-        .profile-container {
-            display: flex;
-            justify-content: center;
-            gap: 50px;  /* 左右のブロックの間のスペースを指定 */
-        }
-
-        .counselor-info, .user-info {
-            flex: 1; /* 左右に均等にスペースを割り当て */
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-        }
-
-        .image-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .info-block {
-            text-align: center;
-            width: 300px;
-            padding: 10px;
-            border: 1px solid #000;
-            margin: 10px auto;
-            background-color: #f0f0f0;
-        }
-
-        .counselor-list {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .counselor-item {
-            list-style: none;
-        }
-
-        .counselor-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
-    </style>
-    {% endblock extra_styles %} {% endcomment %}
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
         <a class="navbar-brand" href="{% url 'accounts:home' %}">メインメニューへ</a>
         <a class="navbar-brand" href="{% url 'boards:counselor_list' %}">カウンセラー一覧画面へ</a>
