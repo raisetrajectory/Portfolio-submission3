@@ -61,15 +61,6 @@ def counselor_list(request):
 #     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
 #     return (redirect('boards:list_themes'))
 
-# @login_required
-# def select_counselor(request, counselor_id):
-#     user = request.user
-#     counselor = get_object_or_404(Counselor, id=counselor_id)
-#     user.counselor = counselor
-#     user.save()
-#     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
-#     return redirect('boards:list_themes', counselor_id=counselor_id) # type: ignore
-
 @login_required
 def select_counselor(request, counselor_id):
     user = request.user
@@ -77,7 +68,22 @@ def select_counselor(request, counselor_id):
     user.counselor = counselor
     user.save()
     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
-    return redirect('boards:chat', counselor_id=counselor.id) # type: ignore
+    return redirect('boards:list_themes', counselor_id=counselor.id) # type: ignore
+
+# @login_required
+# def select_counselor(request, counselor_id):
+#     user = request.user
+#     counselor = get_object_or_404(Counselor, id=counselor_id)
+
+#     # ユーザーに選択したカウンセラーを関連付け、保存
+#     user.counselor = counselor
+#     user.save()
+
+#     # 成功メッセージを表示
+#     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
+
+#     # チャット画面にリダイレクト
+#     return redirect('boards:chat', counselor_id=counselor.id) # type: ignore
 
 # @login_required #記載内容のバックアップです！
 # def deselect_counselor(request):

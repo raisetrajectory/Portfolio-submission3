@@ -12,10 +12,10 @@
     <h1>カウンセラー一覧画面</h1>
 </div>
 {% for counselor in counselors %}
-    <div>
+    {% comment %} <div>
         <p>{{ counselor.username }}</p>
         <a href="{% url 'boards:select_counselor' counselor.id %}">選択</a>
-    </div>
+    </div> {% endcomment %}
 <div class="counselor-container">
     <div class="image-container">
         <img src="{{ counselor.picture }}" alt="" width="300" height="300">
