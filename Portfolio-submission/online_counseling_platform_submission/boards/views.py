@@ -52,7 +52,7 @@ def counselor_list(request):
     }
     return render(request, 'boards/counselor_list.html', context)
 
-# @login_required　#記載内容のバックアップです！
+# @login_required　#記載内容のバックアップです！ この記載内容戻りましょう!
 # def select_counselor(request, counselor_id):
 #     user = request.user
 #     counselor = get_object_or_404(Counselor, id=counselor_id)
@@ -61,6 +61,15 @@ def counselor_list(request):
 #     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
 #     return (redirect('boards:list_themes'))
 
+# @login_required
+# def select_counselor(request, counselor_id):
+#     user = request.user
+#     counselor = get_object_or_404(Counselor, id=counselor_id)
+#     user.counselor = counselor
+#     user.save()
+#     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
+#     return redirect('boards:list_themes', counselor_id=counselor.id) # type: ignore
+
 @login_required
 def select_counselor(request, counselor_id):
     user = request.user
@@ -68,7 +77,7 @@ def select_counselor(request, counselor_id):
     user.counselor = counselor
     user.save()
     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
-    return redirect('boards:list_themes', counselor_id=counselor.id) # type: ignore
+    return redirect('boards:list_themes', counselor_id=counselor_id) # type: ignore
 
 # @login_required #記載内容のバックアップです！
 # def deselect_counselor(request):
