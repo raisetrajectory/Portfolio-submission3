@@ -61,15 +61,6 @@ def counselor_list(request):
 #     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
 #     return (redirect('boards:list_themes'))
 
-# @login_required
-# def select_counselor(request, counselor_id):
-#     user = request.user
-#     counselor = get_object_or_404(Counselor, id=counselor_id)
-#     user.counselor = counselor
-#     user.save()
-#     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
-#     return redirect('boards:list_themes', counselor_id=counselor.id) # type: ignore
-
 @login_required
 def select_counselor(request, counselor_id):
     user = request.user
