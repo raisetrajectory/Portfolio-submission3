@@ -92,13 +92,13 @@
         </li>
 
         {% comment %} 現段階での記載内容となります {% endcomment %}
-        <li>
+        {% comment %} <li>
             <div class="info-block counselor-info">
                 <h3>契約カウンセラー: {{ user.counselor.username }}</h3>
                 <h3>利用者: {{ user.username }}</h3>
                 <img src="{{ user.picture.url }}" alt="" width="100" height="100">
                 <img src="{{ counselor.picture2.url }}" alt="{{ counselor.name }}"width="100" height="100">
-                {% comment %} {% if user.counselor.picture and user.counselor.picture.url %} {% endcomment %}
+                {% if user.counselor.picture and user.counselor.picture.url %}
                 <img src="{{ user.counselor.picture.url }}" alt="" width="100" height="100">
                 {% else %}
                 <p>画像がありません。</p>
@@ -110,8 +110,7 @@
                 </form>
                 {% endif %}
             </div>
-        </li>
-
+        </li> {% endcomment %}
     </ul>
     {% endfor %}
     {% endif %}
