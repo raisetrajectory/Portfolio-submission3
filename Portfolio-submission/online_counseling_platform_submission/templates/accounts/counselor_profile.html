@@ -89,6 +89,25 @@
                 <p>{{ counselor.qualifications }}</p>
             </div>
         </li>
+
+        {% comment %} 現段階での記載内容となります {% endcomment %}
+        <li>
+            <div class="info-block counselor-info">
+                <h3>契約カウンセラー: {{ user.counselor.username }}</h3>
+                {% if user.counselor.picture and user.counselor.picture.url %}
+                <img src="{{ user.counselor.picture.url }}" alt="" width="100" height="100">
+                {% else %}
+                <p>画像がありません。</p>
+                {% endif %}
+                {% if request.user.counselor %}
+                <form method="POST" action="{% url 'boards:deselect_counselor' user.counselor.id %}">
+                    {% csrf_token %}
+                    <button type="submit" style="color:red">契約を解除する</button>
+                </form>
+                {% endif %}
+            </div>
+        </li>
+
     </ul>
     {% endfor %}
     {% endif %}
