@@ -37,6 +37,7 @@
                 </div>
             </div>
         </li>
+        {% comment %} 現段階での記載内容となります！この記載内容を活用しましょう！ {% endcomment %}
         <li>
             <div class="info-block counselor-info">
                 <h3>契約カウンセラー: {{ user.counselor.username }}</h3>
@@ -94,7 +95,10 @@
         <li>
             <div class="info-block counselor-info">
                 <h3>契約カウンセラー: {{ user.counselor.username }}</h3>
-                {% if user.counselor.picture and user.counselor.picture.url %}
+                <h3>利用者: {{ user.username }}</h3>
+                <img src="{{ user.picture.url }}" alt="" width="100" height="100">
+                <img src="{{ counselor.picture2.url }}" alt="{{ counselor.name }}"width="100" height="100">
+                {% comment %} {% if user.counselor.picture and user.counselor.picture.url %} {% endcomment %}
                 <img src="{{ user.counselor.picture.url }}" alt="" width="100" height="100">
                 {% else %}
                 <p>画像がありません。</p>
