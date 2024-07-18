@@ -17,6 +17,9 @@
     {% if counselor.picture %}
         <img src="{{ counselor.picture.url }}" alt="{{ counselor.name }}" width="300" height="300">
     {% endif %}
+    {% if counselor.picture2 %}
+        <img src="{{ counselor.picture2.url }}" alt="{{ counselor.name }}" width="300" height="300">
+    {% endif %}
         {% comment %} <img src="{{ counselor.picture }}" alt="" width="300" height="300"> {% endcomment %}
     </div>
     <div class="info-block">
