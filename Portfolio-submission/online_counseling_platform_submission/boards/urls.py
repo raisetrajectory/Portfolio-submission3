@@ -21,8 +21,5 @@ urlpatterns = [
     path('deselect_counselor/', views.deselect_counselor, name='deselect_counselor'),
     path('themes/', theme_list, name='theme_list'),#新規追加
     path('deselect_counselor/<int:counselor_id>/', views.deselect_counselor, name='deselect_counselor'),
-
-    path('counselors/', views.counselor_list, name='counselor_list'),
-    path('deselect_counselor/<int:counselor_id>/', views.deselect_counselor, name='deselect_counselor'),
 ]
 
