@@ -92,25 +92,26 @@
 
         {% comment %} 現段階での記載内容となります {% endcomment %}
         <li>
+            {% comment %} <div class="info-block counselor-info"> {% endcomment %}
             <div class="info-block user-info">
-                <div class="image-container">
-                    {% if counselor.picture2 %}
-                    <img src="{{ counselor.picture2.url }}" alt="{{ counselor.name }}" width="100" height="100">
-                    {% endif %}
-                    
-                    {% if user.picture and user.picture.url %}
-                    <img src="{{ user.picture.url }}" alt=""  width="100" height="100">
-                    <img src="{{ user.picture.url }}" alt="{{ user.name }}"  width="100" height="100">
-                    {% else %}
-                    <p>画像がありません。</p>
-                    {% endif %}
-                </div>
                 <div class="user-info">
                 <p>名前: {{ user.username }}</p>
                 </div>
                 <div class="user-info">
                 <p>{{ user.introduction }}</p>
                 </div>
+                <h3>契約カウンセラー: {{ user.counselor.username }}</h3>
+                {% if user.counselor.picture and user.counselor.picture.url %}
+                <img src="{{ user.counselor.picture.url }}" alt="" width="100" height="100">
+                {% else %}
+                <p>画像がありません。</p>
+                {% endif %}
+                {% if request.user.counselor %}
+                <form method="POST" action="{% url 'boards:deselect_counselor' user.counselor.id %}">
+                    {% csrf_token %}
+                    <button type="submit" style="color:red">契約を解除する</button>
+                </form>
+                {% endif %}
             </div>
         </li>
     </ul>
