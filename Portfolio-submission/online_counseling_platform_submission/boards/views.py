@@ -61,7 +61,7 @@ def counselor_list(request):
 #     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
 #     return (redirect('boards:list_themes'))
 
-@login_required
+@login_required #既に他のカウンセラーと契約中です。契約を解除してから新しいカウンセラーを選択してください。と表示されます！
 def select_counselor(request, counselor_id):
     user = request.user
     counselor = get_object_or_404(Counselor, id=counselor_id)
