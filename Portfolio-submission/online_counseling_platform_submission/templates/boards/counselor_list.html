@@ -14,10 +14,10 @@
 {% for counselor in counselors %}
 <div class="counselor-container">
     <div class="image-container">
-        <img src="{{ counselor.picture }}" alt="" width="300" height="300">
-    </div>
-    <div class="image-container">
-    <img src="{% static 'images/smple5-img.jpg' %}" alt="" width="300" height="300">
+    {% if counselor.picture %}
+        <img src="{{ counselor.picture.url }}" alt="{{ counselor.name }}" width="300" height="300">
+    {% endif %}
+        {% comment %} <img src="{{ counselor.picture }}" alt="" width="300" height="300"> {% endcomment %}
     </div>
     <div class="info-block">
         <h2>{{ counselor.username }}</h2>
