@@ -96,14 +96,33 @@ def select_counselor(request, counselor_id):
 #         return redirect('accounts:home')  # リダイレクト先のURLが正しいか確認
 #     return redirect('accounts:home')  # GETリクエストの場合のリダイレクト先を指定
 
-@login_required #記載内容のバックアップです！ この記載内容戻りましょう!
+# @login_required #記載内容のバックアップです！ この記載内容戻りましょう!
+# def deselect_counselor(request, counselor_id):
+#     counselor = get_object_or_404(Counselor, id=counselor_id)
+#     if request.method == 'POST':
+#         request.user.counselor = None
+#         request.user.save()
+#         return redirect('boards:counselor_list')
+#     return render(request, 'boards/counselor_list.html', {'counselors': Counselor.objects.all()})
+
+@login_required
 def deselect_counselor(request, counselor_id):
+    user = request.user
     counselor = get_object_or_404(Counselor, id=counselor_id)
-    if request.method == 'POST':
-        request.user.counselor = None
-        request.user.save()
+
+    # ユーザーが現在契約中のカウンセラーであることを確認
+    if user.counselor != counselor:
+        messages.error(request, 'このカウンセラーとは契約していません。')
         return redirect('boards:counselor_list')
+
+    if request.method == 'POST':
+        user.counselor = None
+        user.save()
+        messages.success(request, f'{counselor.username}さんとの契約を解除しました。')
+        return redirect('boards:counselor_list')
+
     return render(request, 'boards/counselor_list.html', {'counselors': Counselor.objects.all()})
+
 
 @login_required#ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
 def edit_comment(request, comment_id):
