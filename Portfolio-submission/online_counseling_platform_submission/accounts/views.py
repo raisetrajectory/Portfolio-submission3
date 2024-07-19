@@ -10,17 +10,17 @@ from django.shortcuts import render
 from .models import Users
 from .models import Counselor
 
-@login_required #記載内容のバックアップです! この記載内容に戻りましょう!
-def counselor_profile(request):
-    user_lists = []
-    counselor_lists = []
-    if isinstance(request.user, Users):
-        user_lists = Users.objects.filter(id=request.user.id) # type: ignore
-    else:
-        counselor_lists = Counselor.objects.filter(id=request.user.id)
-    return render(request, 'accounts/counselor_profile.html', {
-        'user_lists':user_lists, 'counselor_lists':counselor_lists,
-    'user': request.user})
+# @login_required #記載内容のバックアップです! この記載内容に戻りましょう!
+# def counselor_profile(request):
+#     user_lists = []
+#     counselor_lists = []
+#     if isinstance(request.user, Users):
+#         user_lists = Users.objects.filter(id=request.user.id) # type: ignore
+#     else:
+#         counselor_lists = Counselor.objects.filter(id=request.user.id)
+#     return render(request, 'accounts/counselor_profile.html', {
+#         'user_lists':user_lists, 'counselor_lists':counselor_lists,
+#     'user': request.user})
 
 # @login_required
 # def counselor_profile(request):
@@ -39,6 +39,24 @@ def counselor_profile(request):
 #         'counselor_lists': counselor_lists,
 #         'user': request.user
 #     })
+
+@login_required
+def counselor_profile(request):
+    user_lists = []
+    counselor_lists = []
+
+    if hasattr(request.user, 'counselor'):  # カウンセラーがログインしている場合
+        user_lists = Users.objects.filter(counselor=request.user.counselor)  # ログインしているカウンセラーに関連するユーザーを取得
+        counselor_lists = [request.user.counselor]
+    else:  # ユーザーがログインしている場合
+        user_lists = [request.user]
+        counselor_lists = [request.user.counselor] if request.user.counselor else []
+
+    return render(request, 'accounts/counselor_profile.html', {
+        'user_lists': user_lists,
+        'counselor_lists': counselor_lists,
+        'user': request.user
+    })
 
 
 @login_required
