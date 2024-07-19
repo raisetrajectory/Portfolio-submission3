@@ -27,12 +27,12 @@ def counselor_profile(request):
     user_lists = []
     counselor_lists = []
 
-    if hasattr(request.user, 'counselor'):  # カウンセラーがログインしている場合
-        user_lists = Users.objects.filter(counselor=request.user.counselor)  # ログインしているカウンセラーに関連するユーザーを取得
-        counselor_lists = [request.user.counselor]
-    else:  # ユーザーがログインしている場合
+    if hasattr(request.user, 'counselor'):  # ユーザーがログインしている場合
         user_lists = [request.user]
         counselor_lists = [request.user.counselor] if request.user.counselor else []
+    else:  # カウンセラーがログインしている場合
+        user_lists = Users.objects.filter(counselor=request.user)  # ログインしているカウンセラーに関連するユーザーを取得
+        counselor_lists = [request.user]
 
     return render(request, 'accounts/counselor_profile.html', {
         'user_lists': user_lists,
