@@ -32,19 +32,18 @@ from .models import Counselor
 #     counselor_lists = []
 
 #     if hasattr(request.user, 'is_counselor') and request.user.is_counselor:  # カウンセラーがログインしている場合
-#         # ログインしているカウンセラーに関連するユーザーを取得
 #         counselor = request.user
 #         user_lists = Users.objects.filter(counselor=counselor)  # ログインしているカウンセラーに関連するユーザーを取得
 #         counselor_lists = [counselor]
 #     else:  # ユーザーがログインしている場合
-#         # ログインしているユーザーに関連するカウンセラーを取得
 #         user = request.user
 #         counselor = user.counselor if hasattr(user, 'counselor') else None
 #         if counselor:
-#             user_lists = Users.objects.filter(counselor=counselor)  # 契約しているカウンセラーのユーザーを取得
+#             user_lists = [user]  # 契約しているユーザーの情報を表示
+#             counselor_lists = [counselor]  # 契約しているカウンセラーの情報を表示
 #         else:
 #             user_lists = [user]  # カウンセラーがない場合は、ユーザー自身の情報を表示
-#         counselor_lists = [counselor] if counselor else []
+#             counselor_lists = []
 
 #     return render(request, 'accounts/counselor_profile.html', {
 #         'user_lists': user_lists,
@@ -62,12 +61,10 @@ def counselor_profile(request):
     counselor_lists = []
 
     if hasattr(request.user, 'is_counselor') and request.user.is_counselor:  # カウンセラーがログインしている場合
-        # ログインしているカウンセラーに関連するユーザーを取得
         counselor = request.user
         user_lists = Users.objects.filter(counselor=counselor)  # ログインしているカウンセラーに関連するユーザーを取得
         counselor_lists = [counselor]
     else:  # ユーザーがログインしている場合
-        # ログインしているユーザーに関連するカウンセラーを取得
         user = request.user
         counselor = user.counselor if hasattr(user, 'counselor') else None
         if counselor:
@@ -82,6 +79,7 @@ def counselor_profile(request):
         'counselor_lists': counselor_lists,
         'user': request.user
     })
+
 
 @login_required #記載内容のバックアップです! この記載内容に戻りましょう!
 def counselor_menu(request):
