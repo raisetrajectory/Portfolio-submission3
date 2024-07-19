@@ -10,7 +10,7 @@ from django.shortcuts import render
 from .models import Users
 from .models import Counselor
 
-@login_required
+@login_required #記載内容のバックアップです! この記載内容に戻りましょう!
 def counselor_profile(request):
     user_lists = []
     counselor_lists = []
