@@ -22,7 +22,7 @@ urlpatterns = [
     path('themes/', theme_list, name='theme_list'),#新規追加
     path('deselect_counselor/<int:counselor_id>/', views.deselect_counselor, name='deselect_counselor'),
 
-    path('profile/', views.counselor_profile, name='counselor_profile'),
+    # path('profile/', views.counselor_profile, name='counselor_profile'),
 ]
 
 

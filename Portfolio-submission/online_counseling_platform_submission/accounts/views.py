@@ -80,14 +80,14 @@ def counselor_profile(request):
         'user': request.user
     })
 
-@login_required
-def terminate_contract(request, user_id):
-    if hasattr(request.user, 'is_counselor') and request.user.is_counselor:
-        user = Users.objects.get(id=user_id)
-        if user.counselor == request.user:
-            user.counselor = None
-            user.save()
-    return redirect('counselor_profile')
+# @login_required
+# def terminate_contract(request, user_id):
+#     if hasattr(request.user, 'is_counselor') and request.user.is_counselor:
+#         user = Users.objects.get(id=user_id)
+#         if user.counselor == request.user:
+#             user.counselor = None
+#             user.save()
+#     return redirect('counselor_profile')
 
 @login_required #記載内容のバックアップです! この記載内容に戻りましょう!
 def counselor_menu(request):
