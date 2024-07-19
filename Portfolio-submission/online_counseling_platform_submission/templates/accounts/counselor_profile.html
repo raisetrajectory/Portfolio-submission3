@@ -92,6 +92,22 @@
 
 <li>
     <div class="info-block user-info">
+
+    {% if user.is_counselor %}
+    <h2>カウンセラー: {{ user.username }}</h2>
+    <h3>契約ユーザー</h3>
+    <ul>
+    {% for user in user_lists %}
+        <li>{{ user.username }}</li>
+    {% empty %}
+        <li>契約ユーザーは存在しません。</li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <h2>契約カウンセラー: {{ counselor_lists.0.username }}</h2>
+    <h3>ユーザー: {{ user.username }}</h3>
+    {% endif %}
+
         <div class="image-container">
             {% if user.picture and user.picture.url %}
             <img src="{{ user.picture.url }}" alt="" width="300" height="300">
@@ -105,33 +121,13 @@
         <div class="user-info">
             <p>{{ user.introduction }}</p>
         </div>
-        <div class="user-info">
-            <p>名前: {{ username }}</p>
-        </div>
     </div>
 </li>
-
 
     </ul>
     {% endfor %}
     {% endif %}
 </div>
-
-<!-- カウンセラーまたはユーザーに応じた情報表示 -->
-{% if user.is_counselor %}
-    <h2>カウンセラー: {{ user.username }}</h2>
-    <h3>契約ユーザー</h3>
-    <ul>
-    {% for user in user_lists %}
-        <li>{{ user.username }}</li>
-    {% empty %}
-        <li>契約ユーザーは存在しません。</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <h2>契約カウンセラー: {{ counselor_lists.0.username }}</h2>
-    <h3>ユーザー: {{ user.username }}</h3>
-{% endif %}
 
 {% block extra_styles %}
 <style>
