@@ -22,6 +22,33 @@ from .models import Counselor
 #         'user_lists':user_lists, 'counselor_lists':counselor_lists,
 #     'user': request.user})
 
+# from django.contrib.auth.decorators import login_required
+# from django.shortcuts import render
+# from .models import Users, Counselor
+
+# @login_required
+# def counselor_profile(request):
+#     user_lists = []
+#     counselor_lists = []
+
+#     if hasattr(request.user, 'is_counselor') and request.user.is_counselor:  # カウンセラーがログインしている場合
+#         # ログインしているカウンセラーに関連するユーザーを取得
+#         counselor = request.user
+#         user_lists = Users.objects.filter(counselor=counselor)  # ログインしているカウンセラーに関連するユーザーを取得
+#         counselor_lists = [counselor]
+#     else:  # ユーザーがログインしている場合
+#         # ログインしているユーザーに関連するカウンセラーを取得
+#         user = request.user
+#         counselor = user.counselor if hasattr(user, 'counselor') else None
+#         user_lists = [user]
+#         counselor_lists = [counselor] if counselor else []
+
+#     return render(request, 'accounts/counselor_profile.html', {
+#         'user_lists': user_lists,
+#         'counselor_lists': counselor_lists,
+#         'user': request.user
+#     })
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from .models import Users, Counselor
@@ -40,7 +67,10 @@ def counselor_profile(request):
         # ログインしているユーザーに関連するカウンセラーを取得
         user = request.user
         counselor = user.counselor if hasattr(user, 'counselor') else None
-        user_lists = [user]
+        if counselor:
+            user_lists = Users.objects.filter(counselor=counselor)  # 契約しているカウンセラーのユーザーを取得
+        else:
+            user_lists = [user]  # カウンセラーがない場合は、ユーザー自身の情報を表示
         counselor_lists = [counselor] if counselor else []
 
     return render(request, 'accounts/counselor_profile.html', {
