@@ -99,8 +99,8 @@
                 {% for user in user_lists %}
                 <ul>
                     <li>
-                    {% for user in users %}
-                    {% endfor %}
+                    {% comment %} {% for user in users %}
+                    {% endfor %} {% endcomment %}
                         <div class="info-block">
                             <div class="image-container">
                                 {% if user.picture and user.picture.url %}
