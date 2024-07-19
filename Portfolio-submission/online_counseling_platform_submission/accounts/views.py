@@ -22,8 +22,37 @@ from .models import Counselor
 #         'user_lists':user_lists, 'counselor_lists':counselor_lists,
 #     'user': request.user})
 
+# from django.contrib.auth.decorators import login_required
+# from django.shortcuts import render
+# from .models import Users, Counselor
+
+# @login_required
+# def counselor_profile(request):
+#     user_lists = []
+#     counselor_lists = []
+
+#     if hasattr(request.user, 'is_counselor') and request.user.is_counselor:  # カウンセラーがログインしている場合
+#         counselor = request.user
+#         user_lists = Users.objects.filter(counselor=counselor)  # ログインしているカウンセラーに関連するユーザーを取得
+#         counselor_lists = [counselor]
+#     else:  # ユーザーがログインしている場合
+#         user = request.user
+#         counselor = user.counselor if hasattr(user, 'counselor') else None
+#         if counselor:
+#             user_lists = [user]  # 契約しているユーザーの情報を表示
+#             counselor_lists = [counselor]  # 契約しているカウンセラーの情報を表示
+#         else:
+#             user_lists = [user]  # カウンセラーがない場合は、ユーザー自身の情報を表示
+#             counselor_lists = []
+
+#     return render(request, 'accounts/counselor_profile.html', {
+#         'user_lists': user_lists,
+#         'counselor_lists': counselor_lists,
+#         'user': request.user
+#     })
+
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Users, Counselor
 
 @login_required
