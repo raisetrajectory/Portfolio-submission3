@@ -40,7 +40,10 @@ from .models import Counselor
 #         # ログインしているユーザーに関連するカウンセラーを取得
 #         user = request.user
 #         counselor = user.counselor if hasattr(user, 'counselor') else None
-#         user_lists = [user]
+#         if counselor:
+#             user_lists = Users.objects.filter(counselor=counselor)  # 契約しているカウンセラーのユーザーを取得
+#         else:
+#             user_lists = [user]  # カウンセラーがない場合は、ユーザー自身の情報を表示
 #         counselor_lists = [counselor] if counselor else []
 
 #     return render(request, 'accounts/counselor_profile.html', {
@@ -68,10 +71,11 @@ def counselor_profile(request):
         user = request.user
         counselor = user.counselor if hasattr(user, 'counselor') else None
         if counselor:
-            user_lists = Users.objects.filter(counselor=counselor)  # 契約しているカウンセラーのユーザーを取得
+            user_lists = [user]  # 契約しているユーザーの情報を表示
+            counselor_lists = [counselor]  # 契約しているカウンセラーの情報を表示
         else:
             user_lists = [user]  # カウンセラーがない場合は、ユーザー自身の情報を表示
-        counselor_lists = [counselor] if counselor else []
+            counselor_lists = []
 
     return render(request, 'accounts/counselor_profile.html', {
         'user_lists': user_lists,
@@ -79,15 +83,24 @@ def counselor_profile(request):
         'user': request.user
     })
 
+# @login_required #記載内容のバックアップです! この記載内容に戻りましょう!
+# def counselor_menu(request):
+#     if isinstance(request.user, Users):
+#         user_type = 'User'
+#     else:
+#         user_type = 'Counselor'
+#     return render(request, 'base.html', {
+#         'user_type': user_type})
 
 @login_required
 def counselor_menu(request):
-    if isinstance(request.user, Users):
-        user_type = 'User'
-    else:
+    if hasattr(request.user, 'is_counselor') and request.user.is_counselor:
         user_type = 'Counselor'
+    else:
+        user_type = 'User'
     return render(request, 'base.html', {
-        'user_type': user_type})
+        'user_type': user_type
+    })
 
 def home(request):
     return render(
