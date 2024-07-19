@@ -22,6 +22,21 @@ def counselor_profile(request):
         'user_lists':user_lists, 'counselor_lists':counselor_lists,
     'user': request.user})
 
+# @login_required
+# def counselor_profile(request):
+#     user_lists = []
+#     counselor_lists = []
+#     if request.user.is_counselor:  # カウンセラーがログインしている場合
+#         user_lists = Users.objects.filter(counselor=request.user.counselor)  # type: ignore
+#     else:  # ユーザーがログインしている場合
+#         user_lists = Users.objects.filter(id=request.user.id)  # type: ignore
+#     return render(request, 'accounts/counselor_profile.html', {
+#         'user_lists': user_lists,
+#         'counselor_lists': counselor_lists,
+#         'user': request.user
+#     })
+
+
 @login_required
 def counselor_menu(request):
     if isinstance(request.user, Users):
