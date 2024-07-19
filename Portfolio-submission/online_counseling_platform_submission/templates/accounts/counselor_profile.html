@@ -90,7 +90,6 @@
                 <p>{{ counselor.qualifications }}</p>
             </div>
         </li>
-
         <li>
             <div class="info-block user-info">
                 <h3>契約ユーザー</h3>
@@ -117,48 +116,6 @@
                 {% endfor %}
             </div>
         </li>
-
-
-{% comment %} <li>
-    <div class="info-block user-info">
-
-    {% if user.is_counselor %}
-    <h2>カウンセラー: {{ user.username }}</h2>
-    <h3>契約ユーザー</h3>
-    <div class="user-info">
-            <p>名前: {{ user.username }}</p>
-    </div>
-    <div class="user-info">
-        <p>{{ user.introduction }}</p>
-    </div>
-    <ul>
-    {% for user in user_lists %}
-        <li>{{ user.username }}</li>
-    {% empty %}
-        <li>契約ユーザーは存在しません。</li>
-    {% endfor %}
-    </ul>
-    {% else %}
-    <h2>契約カウンセラー: {{ counselor_lists.username }}</h2>
-    <h3>ユーザー: {{ user.username }}</h3>
-    {% endif %}
-
-        <div class="image-container">
-            {% if user.picture and user.picture.url %}
-            <img src="{{ user.picture.url }}" alt="" width="300" height="300">
-            {% else %}
-            <p>画像がありません。</p>
-            {% endif %}
-        </div>
-        <div class="user-info">
-            <p>名前: {{ user.username }}</p>
-        </div>
-        <div class="user-info">
-            <p>{{ user.introduction }}</p>
-        </div>
-    </div>
-</li> {% endcomment %}
-
     </ul>
     {% endfor %}
     {% endif %}
