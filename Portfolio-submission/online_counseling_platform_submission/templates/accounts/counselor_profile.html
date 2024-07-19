@@ -90,13 +90,9 @@
             </div>
         </li>
 
-{% comment %} 現段階での記載内容となります！不要ならば削除して良いです！ {% endcomment %}
 <li>
     <div class="info-block user-info">
         <div class="image-container">
-            {% comment %} {% if user.picture2 %}
-            <img src="{{ user.picture2.url }}" alt="{{ user.name }}" width="300" height="300">
-            {% endif %} {% endcomment %}
             {% if user.picture and user.picture.url %}
             <img src="{{ user.picture.url }}" alt="" width="300" height="300">
             {% else %}
@@ -117,14 +113,13 @@
         </div>
     </div>
 </li>
-{% comment %} 現段階での記載内容となります！不要ならば削除して良いです！ {% endcomment %}
+
 
     </ul>
     {% endfor %}
     {% endif %}
 </div>
 
-{% comment %} 現段階での記載内容となります！不要ならば削除して良いです！ {% endcomment %}
 <!-- カウンセラーまたはユーザーに応じた情報表示 -->
 {% if user.is_counselor %}
     <h2>カウンセラー: {{ user.username }}</h2>
@@ -140,7 +135,6 @@
     <h2>契約カウンセラー: {{ counselor_lists.0.username }}</h2>
     <h3>ユーザー: {{ user.username }}</h3>
 {% endif %}
-{% comment %} 現段階での記載内容となります！不要ならば削除して良いです！ {% endcomment %}
 
 {% block extra_styles %}
 <style>
