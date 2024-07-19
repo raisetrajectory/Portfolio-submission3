@@ -93,6 +93,9 @@
         <li>
             <div class="info-block user-info">
                 <div class="image-container">
+                    {% comment %} {% if counselor.picture2 %}
+                    <img src="{{ counselor.picture2.url }}" alt="{{ counselor.name }}" width="300" height="300">
+                    {% endif %} {% endcomment %}
                     {% if user.picture and user.picture.url %}
                     <img src="{{ user.picture.url }}" alt="" width="300" height="300">
                     {% else %}
