@@ -96,6 +96,9 @@
                     {% comment %} {% if counselor.picture2 %}
                     <img src="{{ counselor.picture2.url }}" alt="{{ counselor.name }}" width="300" height="300">
                     {% endif %} {% endcomment %}
+                    {% comment %} {% if user.picture2 %}
+                    <img src="{{ user.picture2.url }}" alt="{{ user.name }}" width="300" height="300">
+                    {% endif %} {% endcomment %}
                     {% if user.picture and user.picture.url %}
                     <img src="{{ user.picture.url }}" alt="" width="300" height="300">
                     {% else %}
