@@ -14,6 +14,7 @@
 <!-- カウンセラーリストを追加 -->
 
 <div class="profile-container">
+    <!-- ユーザーがログインしている場合の表示 -->
     {% if user_lists %}
     {% for user in user_lists %}
     <ul style="list-style-type: none; width: 80%;">
@@ -96,6 +97,12 @@
     {% if user.is_counselor %}
     <h2>カウンセラー: {{ user.username }}</h2>
     <h3>契約ユーザー</h3>
+    <div class="user-info">
+            <p>名前: {{ user.username }}</p>
+    </div>
+    <div class="user-info">
+        <p>{{ user.introduction }}</p>
+    </div>
     <ul>
     {% for user in user_lists %}
         <li>{{ user.username }}</li>
@@ -104,7 +111,7 @@
     {% endfor %}
     </ul>
     {% else %}
-    <h2>契約カウンセラー: {{ counselor_lists.0.username }}</h2>
+    <h2>契約カウンセラー: {{ counselor_lists.username }}</h2>
     <h3>ユーザー: {{ user.username }}</h3>
     {% endif %}
 
