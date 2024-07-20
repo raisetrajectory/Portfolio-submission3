@@ -54,12 +54,8 @@ from .models import Counselor
 #         if hasattr(user, 'counselor'):
 #             # カウンセラーが契約している利用者を取得
 #             contracted_users = Users.objects.filter(counselor=user.counselor)
-#             if contracted_users.exists():
-#                 # 契約している利用者が作成したテーマのみを取得
-#                 themes = Themes.objects.filter(user__in=contracted_users)
-#             else:
-#                 # 契約している利用者がいない場合は空のテーマリスト
-#                 themes = Themes.objects.none()
+#             # カウンセラーが契約している利用者のテーマを取得
+#             themes = Themes.objects.filter(user__in=contracted_users)
 #         else:
 #             # カウンセラーの情報がない場合は空のテーマリスト
 #             themes = Themes.objects.none()
@@ -84,8 +80,8 @@ def theme_list(request):
         # カウンセラーがログインしている場合
         if hasattr(user, 'counselor'):
             # カウンセラーが契約している利用者を取得
-            contracted_users = Users.objects.filter(counselor=user.counselor)
-            # カウンセラーが契約している利用者のテーマを取得
+            contracted_users = Users.objects.filter(counselor=user)
+            # 契約している利用者が作成したテーマのみを取得
             themes = Themes.objects.filter(user__in=contracted_users)
         else:
             # カウンセラーの情報がない場合は空のテーマリスト
