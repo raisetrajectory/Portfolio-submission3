@@ -27,7 +27,7 @@ from django.utils.functional import SimpleLazyObject
 from django.shortcuts import redirect
 from .models import Counselor
 
-# @login_required
+# @login_required #記載内容のバックアップです！ この記載内容戻りましょう!
 # def theme_list(request):
 #     # ログインしているユーザーが作成していないテーマを取得
 #     themes = Themes.objects.exclude(user=request.user)
@@ -47,11 +47,12 @@ def theme_list(request):
     user = request.user
 
     if user.is_counselor:
+        # カウンセラーがログインしている場合
         if user.counselor:
-            # カウンセラーが契約している利用者を取得
-            users = Users.objects.filter(counselor=user.counselor)
+            # 契約している利用者を取得
+            contracted_users = Users.objects.filter(counselor=user)
             # 契約している利用者が作成したテーマのみを取得
-            themes = Themes.objects.filter(user__in=users)
+            themes = Themes.objects.filter(user__in=contracted_users)
         else:
             # 契約している利用者がいない場合は空のテーマリスト
             themes = Themes.objects.none()
@@ -62,7 +63,6 @@ def theme_list(request):
     return render(request, 'boards/list_themes.html', {
         'themes': themes,
     })
-
 
 @login_required #記載内容のバックアップです！
 def counselor_list(request):
