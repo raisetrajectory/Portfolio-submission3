@@ -37,6 +37,27 @@ def theme_list(request):
         'themes': themes,
     })
 
+# @login_required
+# def theme_list(request):
+#     user = request.user
+
+#     if user.is_counselor:
+#         # カウンセラーの場合、契約しているユーザーが作成したテーマのみを取得
+#         if user.counselor:
+#             # 契約している利用者を取得
+#             users = Users.objects.filter(counselor=user.counselor)
+#             themes = Themes.objects.filter(user__in=users)
+#         else:
+#             # 契約している利用者がいない場合は空のテーマリスト
+#             themes = Themes.objects.none()
+#     else:
+#         # 一般のユーザーの場合、自分が作成したテーマのみを取得
+#         themes = Themes.objects.filter(user=user)
+
+#     return render(request, 'boards/list_themes.html', {
+#         'themes': themes,
+#     })
+
 @login_required #記載内容のバックアップです！
 def counselor_list(request):
     user = request.user
