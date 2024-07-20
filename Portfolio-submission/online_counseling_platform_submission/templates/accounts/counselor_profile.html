@@ -126,7 +126,7 @@
                 {% comment %} <img src="{% static 'images/smple9-img.jpg' %}" alt="" width="100" height="100"> {% endcomment %}
                 {% comment %} <p>名前: {{ user.username }}</p> {% endcomment %}
                 {% comment %} <p>{{ user.introduction }}</p> {% endcomment %}
-                {% for user in user_lists %}
+                {% comment %} {% for user in user_lists %}
                 <ul>
                     <li>
                         <div class="info-block">
@@ -146,7 +146,7 @@
                 </ul>
                 {% empty %}
                 <p>契約ユーザーは存在しません。</p>
-                {% endfor %}
+                {% endfor %} {% endcomment %}
 
 
 
