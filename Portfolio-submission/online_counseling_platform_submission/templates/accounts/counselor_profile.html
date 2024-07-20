@@ -93,6 +93,17 @@
         <li>
             <div class="info-block user-info">
                 <h3>契約ユーザー</h3>
+                {% comment %} {% if request.user.clients.all %}
+                {% for client in request.user.clients.all %}
+                <ul>
+                <li>
+                <div class="info-block">
+                <div class="image-container">
+                {% if client.picture and client.picture.url %}
+                <img src="{{ client.picture.url }}" alt="" width="100" height="100">
+                {% else %}
+                <p>画像がありません。</p>
+                {% endif %} {% endcomment %}
 
 
                 <img src="{% static 'images/smple9-img.jpg' %}" alt="" width="100" height="100">
