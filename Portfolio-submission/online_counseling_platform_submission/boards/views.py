@@ -37,11 +37,6 @@ from .models import Counselor
 #         'themes': themes,
 #     })
 
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from .models import Themes
-from accounts.models import Users
-
 @login_required
 def theme_list(request):
     user = request.user
@@ -63,7 +58,6 @@ def theme_list(request):
     return render(request, 'boards/list_themes.html', {
         'themes': themes,
     })
-
 
 @login_required #記載内容のバックアップです！
 def counselor_list(request):
