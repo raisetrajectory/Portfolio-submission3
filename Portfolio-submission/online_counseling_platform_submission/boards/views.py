@@ -54,10 +54,14 @@ def theme_list(request):
         if hasattr(user, 'counselor'):
             # カウンセラーが契約している利用者を取得
             contracted_users = Users.objects.filter(counselor=user.counselor)
-            # 契約している利用者が作成したテーマのみを取得
-            themes = Themes.objects.filter(user__in=contracted_users)
+            if contracted_users.exists():
+                # 契約している利用者が作成したテーマのみを取得
+                themes = Themes.objects.filter(user__in=contracted_users)
+            else:
+                # 契約している利用者がいない場合は空のテーマリスト
+                themes = Themes.objects.none()
         else:
-            # 契約している利用者がいない場合は空のテーマリスト
+            # カウンセラーの情報がない場合は空のテーマリスト
             themes = Themes.objects.none()
 
     return render(request, 'boards/list_themes.html', {
