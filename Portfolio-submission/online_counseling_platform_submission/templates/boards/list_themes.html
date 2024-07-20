@@ -6,17 +6,17 @@
     {% endfor %}
 {% endif %}
 <h3>チャット画面一覧</h3>
-{% if request.user.is_authenticated %}
+{% comment %} {% if request.user.is_authenticated %}
     {% if request.user.is_counselor %}
         <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">【カウンセラー側】チャット画面を新たに作成する</a></p>
     {% else %}
         <p>カウンセラーと契約するとチャット画面を作成できるようになります</p>
     {% endif %}
-{% endif %}
+{% endif %} {% endcomment %}
 
 {% if request.user.is_authenticated %}
     {% if request.user %}
-        <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">【カウンセラー側】チャット画面を新たに作成する</a></p>
+        <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">チャット画面を新たに作成する</a></p>
     {% else %}
         <p>カウンセラーと契約するとチャット画面を作成できるようになります</p>
     {% endif %}
