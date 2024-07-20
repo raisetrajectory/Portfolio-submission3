@@ -40,7 +40,7 @@ from .models import Counselor
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Themes
-from accounts.models import Users, Counselor
+from accounts.models import Users
 
 @login_required
 def theme_list(request):
@@ -51,14 +51,18 @@ def theme_list(request):
         themes = Themes.objects.filter(user=user)
     else:
         # カウンセラーがログインしている場合
-        contracted_users = Users.objects.filter(counselor=user)
-        # 契約している利用者が作成したテーマのみを取得
-        themes = Themes.objects.filter(user__in=contracted_users)
+        if hasattr(user, 'counselor'):
+            # カウンセラーが契約している利用者を取得
+            contracted_users = Users.objects.filter(counselor=user.counselor)
+            # 契約している利用者が作成したテーマのみを取得
+            themes = Themes.objects.filter(user__in=contracted_users)
+        else:
+            # 契約している利用者がいない場合は空のテーマリスト
+            themes = Themes.objects.none()
 
     return render(request, 'boards/list_themes.html', {
         'themes': themes,
     })
-
 
 @login_required #記載内容のバックアップです！
 def counselor_list(request):
