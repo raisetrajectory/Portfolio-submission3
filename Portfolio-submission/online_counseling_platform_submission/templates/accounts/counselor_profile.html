@@ -93,7 +93,7 @@
         <li>
             <div class="info-block user-info">
                 <h3>契約ユーザー</h3>
-                {% comment %} {% if request.user.clients.all %}
+                {% if request.user.clients.all %}
                 {% for client in request.user.clients.all %}
                 <ul>
                 <li>
@@ -116,7 +116,7 @@
                 {% else %}
                 <p>契約ユーザーは存在しません。</p>
                 {% endif %}
-                </div>
+                {% comment %} </div>
                 </li>
                 </ul>
                 {% endif %}
