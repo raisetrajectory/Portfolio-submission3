@@ -157,7 +157,7 @@
     {% endif %}
 </div>
 
-<!-- 追加した記載内容 -->
+{% comment %} <!-- 追加した記載内容 -->
 {% for user in users %}
 <div class="user-container">
 <div class="image-container">
@@ -169,7 +169,7 @@
 </div>
 </div>
 {% endfor %}
-<!-- 追加した記載内容 -->
+<!-- 追加した記載内容 --> {% endcomment %}
 
 {% block extra_styles %}
 <style>
