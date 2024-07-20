@@ -26,7 +26,6 @@
         {% if request.user.counselor is None %}
         <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}">
         {% csrf_token %}
-        {% comment %} <button type="submit">選択</button> {% endcomment %}
         </form>
         {% endif %}
         {% endif %}
