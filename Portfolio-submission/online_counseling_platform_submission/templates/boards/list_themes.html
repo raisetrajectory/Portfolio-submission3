@@ -6,13 +6,6 @@
     {% endfor %}
 {% endif %}
 <h3>チャット画面一覧</h3>
-{% comment %} {% if request.user.is_authenticated %}
-    {% if request.user %}
-        <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">チャット画面を新たに作成する</a></p>
-    {% else %}
-        <p>カウンセラーと契約するとチャット画面を作成できるようになります</p>
-    {% endif %}
-{% endif %} {% endcomment %}
 
 {% if request.user.is_authenticated %}
     {% if not request.user.is_counselor and request.user.counselor %}
@@ -21,26 +14,6 @@
         <p>カウンセラーと契約するとチャット画面を作成できるようになります</p>
     {% endif %}
 {% endif %}
-
-{% comment %} {% if request.user.is_authenticated %}
-    <p>ログインユーザー: {{ request.user.username }}</p>
-    {% if request.user.is_counselor %}
-        <p>カウンセラーとしてログイン中</p>
-        <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">【カウンセラー側】チャット画面を新たに作成する</a></p>
-    {% else %}
-        <p>カウンセラーと契約するとチャット画面を作成できるようになります</p>
-    {% endif %}
-{% else %}
-    <p>ログインしていません</p>
-{% endif %} {% endcomment %}
-
-{% comment %} {% if user_type == 'User' %}
-{% if request.user.is_counselor %}
-<p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">【ユーザー側】チャット画面を新たに作成する</a></p>
-{% else %}
-<p>カウンセラーと契約するとチャット画面を作成できるようになります</p>
-{% endif %}
-{% endif %} {% endcomment %}
 
 <table class="table table-striped table-hover">
     <thead>
