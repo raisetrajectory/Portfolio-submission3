@@ -44,16 +44,26 @@ from accounts.models import Users
 
 @login_required
 def theme_list(request):
-    if isinstance(request.user, Users):
-        themes = Themes.objects.filter(user=request.user)
-    elif isinstance(request.user, Counselor):
-        themes = Themes.objects.filter(user__in=Users.objects.all())
+    user = request.user
+
+    if not user.is_counselor:
+        # 一般ユーザーの場合、自分が作成したテーマのみを取得
+        themes = Themes.objects.filter(user=user)
     else:
-        themes = Themes.objects.none()
+        # カウンセラーがログインしている場合
+        if hasattr(user, 'counselor'):
+            # カウンセラーが契約している利用者を取得
+            contracted_users = Users.objects.filter(counselor=user.counselor)
+            # 契約している利用者が作成したテーマのみを取得
+            themes = Themes.objects.filter(user__in=contracted_users)
+        else:
+            # 契約している利用者がいない場合は空のテーマリスト
+            themes = Themes.objects.none()
 
     return render(request, 'boards/list_themes.html', {
         'themes': themes,
     })
+
 
 @login_required #記載内容のバックアップです！
 def counselor_list(request):
