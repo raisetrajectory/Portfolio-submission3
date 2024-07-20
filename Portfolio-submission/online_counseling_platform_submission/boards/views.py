@@ -37,33 +37,6 @@ from .models import Counselor
 #         'themes': themes,
 #     })
 
-# from django.shortcuts import render
-# from django.contrib.auth.decorators import login_required
-# from .models import Themes
-# from accounts.models import Users
-
-# @login_required
-# def theme_list(request):
-#     user = request.user
-
-#     if not user.is_counselor:
-#         # 一般ユーザーの場合、自分が作成したテーマのみを取得
-#         themes = Themes.objects.filter(user=user)
-#     else:
-#         # カウンセラーがログインしている場合
-#         if hasattr(user, 'counselor'):
-#             # カウンセラーが契約している利用者を取得
-#             contracted_users = Users.objects.filter(counselor=user.counselor)
-#             # カウンセラーが契約している利用者のテーマを取得
-#             themes = Themes.objects.filter(user__in=contracted_users)
-#         else:
-#             # カウンセラーの情報がない場合は空のテーマリスト
-#             themes = Themes.objects.none()
-
-#     return render(request, 'boards/list_themes.html', {
-#         'themes': themes,
-#     })
-
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Themes
