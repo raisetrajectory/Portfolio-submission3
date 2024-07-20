@@ -44,7 +44,22 @@
     <div class="info-block">
         <h2>{{ counselor.username }}</h2>
         <p>{{ counselor.introduction }}</p>
-        <a href="{% url 'boards:select_counselor' counselor.id %}">選択</a>
+
+        {% if request.user.is_authenticated %}
+            {% if request.user.is_counselor %}
+                <!-- カウンセラーがログインしている場合、「選択」リンクを表示しない -->
+                {% if request.user.id != counselor.id %}
+                    <!-- 他のカウンセラーの「選択」リンクを非表示 -->
+                {% endif %}
+            {% else %}
+                <!-- ユーザーがログインしている場合、選択リンクを表示 -->
+                <a href="{% url 'boards:select_counselor' counselor.id %}">選択</a>
+            {% endif %}
+        {% else %}
+            <!-- 未ログイン状態では「選択」リンクを表示 -->
+            <a href="{% url 'boards:select_counselor' counselor.id %}">選択</a>
+        {% endif %}
+
         {% if user_type == 'User' %}
         {% if request.user.counselor is None %}
         <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}">
