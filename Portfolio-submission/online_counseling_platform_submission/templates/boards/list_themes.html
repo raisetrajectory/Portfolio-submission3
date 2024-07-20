@@ -6,14 +6,6 @@
     {% endfor %}
 {% endif %}
 <h3>チャット画面一覧</h3>
-{% comment %} {% if request.user.is_authenticated %}
-    {% if request.user.is_counselor %}
-        <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">【カウンセラー側】チャット画面を新たに作成する</a></p>
-    {% else %}
-        <p>カウンセラーと契約するとチャット画面を作成できるようになります</p>
-    {% endif %}
-{% endif %} {% endcomment %}
-
 {% if request.user.is_authenticated %}
     {% if request.user %}
         <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">チャット画面を新たに作成する</a></p>
@@ -32,10 +24,6 @@
     {% endif %}
 {% else %}
     <p>ログインしていません</p>
-{% endif %}
-
-{% if request.user.is_authenticated %}
-<a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
 {% endif %}
 
 {% if user_type == 'User' %}
