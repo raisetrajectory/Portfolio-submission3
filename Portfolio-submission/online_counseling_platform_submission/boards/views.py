@@ -53,7 +53,7 @@ def theme_list(request):
         # カウンセラーがログインしている場合
         if hasattr(user, 'counselor'):
             # カウンセラーが契約している利用者を取得
-            contracted_users = Users.objects.filter(counselor=user.counselor)
+            contracted_users = Users.objects.filter(counselor=user)
             # 契約している利用者が作成したテーマのみを取得
             themes = Themes.objects.filter(user__in=contracted_users)
         else:
@@ -63,6 +63,7 @@ def theme_list(request):
     return render(request, 'boards/list_themes.html', {
         'themes': themes,
     })
+
 
 @login_required #記載内容のバックアップです！
 def counselor_list(request):
