@@ -59,6 +59,11 @@ from .models import Counselor
 #         'themes': themes,
 #     })
 
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from .models import Themes
+from accounts.models import Users
+
 @login_required
 def theme_list(request):
     user = request.user
@@ -70,9 +75,13 @@ def theme_list(request):
         # カウンセラーがログインしている場合
         if hasattr(user, 'counselor'):
             # 特定の利用者01（契約している利用者）を取得
-            contracted_user = Users.objects.get(username='利用者01')
-            # 契約している利用者が作成したテーマのみを取得
-            themes = Themes.objects.filter(user=contracted_user)
+            try:
+                contracted_user = Users.objects.get(username='利用者01')
+                # 契約している利用者が作成したテーマのみを取得
+                themes = Themes.objects.filter(user=contracted_user)
+            except Users.DoesNotExist:
+                # 利用者01が存在しない場合は空のテーマリスト
+                themes = Themes.objects.none()
         else:
             # カウンセラーの情報がない場合は空のテーマリスト
             themes = Themes.objects.none()
@@ -80,6 +89,7 @@ def theme_list(request):
     return render(request, 'boards/list_themes.html', {
         'themes': themes,
     })
+
 
 @login_required #記載内容のバックアップです！
 def counselor_list(request):
