@@ -95,9 +95,11 @@
                 <h3>契約ユーザー</h3>
                 {% if request.user.clients.all %}
                 {% for client in request.user.clients.all %}
-                <ul style="list-style-type: none;">
+                {% comment %} <ul style="list-style-type: none;"> {% endcomment %}
+                <ul class="no-bullet">
                 <li>
-                <div class="info-block">
+                {% comment %} <div class="info-block"> {% endcomment %}
+                <div class="info-block small">
                 <div class="image-container">
                 {% if client.picture and client.picture.url %}
                 <img src="{{ client.picture.url }}" alt="" width="100" height="100">
@@ -138,6 +140,10 @@
         border: 1px solid #000;
         margin: 10px auto;
         background-color: #f0f0f0;
+    }
+
+    .info-block.small {
+        width: 250px;  /* より小さくするために別クラスを使用 */
     }
 
     .image-container {
