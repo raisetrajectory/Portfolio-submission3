@@ -95,7 +95,8 @@
                 <h3>契約ユーザー</h3>
                 {% if request.user.clients.all %}
                 {% for client in request.user.clients.all %}
-                <ul>
+                {% comment %} <ul style="list-style-type: none; width: 80%;"> {% endcomment %}
+                <ul style="list-style-type: none;">
                 <li>
                 <div class="info-block">
                 <div class="image-container">
