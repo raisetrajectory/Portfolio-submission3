@@ -11,7 +11,7 @@
     <h1>カウンセラー一覧画面</h1>
 </div>
 
-{% for counselor in counselors %}
+{% comment %} {% for counselor in counselors %}
 <div class="counselor-container">
     <div class="image-container">
     {% if counselor.picture2 %}
@@ -22,6 +22,32 @@
         <h2>{{ counselor.username }}</h2>
         <p>{{ counselor.introduction }}</p>
         <a href="{% url 'boards:select_counselor' counselor.id %}">選択</a>
+        {% if user_type == 'User' %}
+        {% if request.user.counselor is None %}
+        <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}">
+        {% csrf_token %}
+        </form>
+        {% endif %}
+        {% endif %}
+    </div>
+</div>
+{% endfor %} {% endcomment %}
+
+{% for counselor in counselors %}
+<div class="counselor-container">
+    <div class="image-container">
+    {% if counselor.picture2 %}
+        <img src="{{ counselor.picture2.url }}" alt="{{ counselor.name }}" width="300" height="300">
+    {% endif %}
+    </div>
+    <div class="info-block">
+        <h2>{{ counselor.username }}</h2>
+        <p>{{ counselor.introduction }}</p>
+        {% if request.user.is_authenticated %}
+            {% if request.user.id != counselor.id %}
+        <a href="{% url 'boards:select_counselor' counselor.id %}">選択</a>
+            {% endif %}
+        {% endif %}
         {% if user_type == 'User' %}
         {% if request.user.counselor is None %}
         <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}">
