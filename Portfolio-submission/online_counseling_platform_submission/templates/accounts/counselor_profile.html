@@ -103,7 +103,24 @@
                 <img src="{{ client.picture.url }}" alt="" width="100" height="100">
                 {% else %}
                 <p>画像がありません。</p>
-                {% endif %} {% endcomment %}
+                {% endif %}
+                </div>
+                <div class="user-info">
+                <p>名前: {{ client.username }}</p>
+                <p>{{ client.introduction }}</p>
+                </div>
+                </div>
+                </li>
+                </ul>
+                {% endfor %}
+                {% else %}
+                <p>契約ユーザーは存在しません。</p>
+                {% endif %}
+                </div>
+                </li>
+                </ul>
+                {% endif %}
+                </div> {% endcomment %}
 
 
                 <img src="{% static 'images/smple9-img.jpg' %}" alt="" width="100" height="100">
