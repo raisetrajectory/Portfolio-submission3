@@ -43,10 +43,8 @@
     <div class="info-block">
         <h2>{{ counselor.username }}</h2>
         <p>{{ counselor.introduction }}</p>
-        {% if request.user.is_authenticated %}
-            {% if request.user.id != counselor.id %}
+        {% if request.user.is_authenticated and request.user.id != counselor.id %}
         <a href="{% url 'boards:select_counselor' counselor.id %}">選択</a>
-            {% endif %}
         {% endif %}
         {% if user_type == 'User' %}
         {% if request.user.counselor is None %}
