@@ -37,6 +37,43 @@ from .models import Counselor
 #         'themes': themes,
 #     })
 
+# from django.shortcuts import render
+# from django.contrib.auth.decorators import login_required
+# from .models import Themes
+# from accounts.models import Users
+
+# @login_required
+# def theme_list(request):
+#     user = request.user
+
+#     if not user.is_counselor:
+#         # 一般ユーザーの場合、自分が作成したテーマのみを取得
+#         themes = Themes.objects.filter(user=user)
+#     else:
+#         # カウンセラーがログインしている場合
+#         if hasattr(user, 'counselor'):
+#             # 契約している利用者を取得
+#             contracted_users = Users.objects.filter(counselor=user)
+#             # 契約している利用者の中で、特定の利用者01（例：利用者01）のみのテーマを取得
+#             # 利用者01を特定するためのフィルタ条件を設定
+#             try:
+#                 target_user = Users.objects.get(username='利用者01')
+#                 # 契約している利用者の中に利用者01が含まれていれば、利用者01が作成したテーマを取得
+#                 if target_user in contracted_users:
+#                     themes = Themes.objects.filter(user=target_user)
+#                 else:
+#                     themes = Themes.objects.none()
+#             except Users.DoesNotExist:
+#                 # 利用者01が存在しない場合は空のテーマリスト
+#                 themes = Themes.objects.none()
+#         else:
+#             # カウンセラーの情報がない場合は空のテーマリスト
+#             themes = Themes.objects.none()
+
+#     return render(request, 'boards/list_themes.html', {
+#         'themes': themes,
+#     })
+
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Themes
@@ -52,16 +89,16 @@ def theme_list(request):
     else:
         # カウンセラーがログインしている場合
         if hasattr(user, 'counselor'):
-            # 契約している利用者を取得
+            # カウンセラーが契約している利用者を取得
             contracted_users = Users.objects.filter(counselor=user)
-            # 契約している利用者の中で、特定の利用者01（例：利用者01）のみのテーマを取得
-            # 利用者01を特定するためのフィルタ条件を設定
+            # 契約している利用者の中で、利用者01（例：利用者01）のみのテーマを取得
             try:
                 target_user = Users.objects.get(username='利用者01')
                 # 契約している利用者の中に利用者01が含まれていれば、利用者01が作成したテーマを取得
                 if target_user in contracted_users:
                     themes = Themes.objects.filter(user=target_user)
                 else:
+                    # 契約している利用者の中に利用者01がいない場合、空のテーマリスト
                     themes = Themes.objects.none()
             except Users.DoesNotExist:
                 # 利用者01が存在しない場合は空のテーマリスト
