@@ -40,24 +40,20 @@ from .models import Counselor
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Themes
-from accounts.models import Users
+from accounts.models import Users, Counselor
 
 @login_required
 def theme_list(request):
     user = request.user
 
-    if user.is_counselor:
-        if user.counselor:
-            # カウンセラーが契約している利用者を取得
-            contracted_users = Users.objects.filter(counselor=user)
-            # 契約している利用者が作成したテーマのみを取得
-            themes = Themes.objects.filter(user__in=contracted_users)
-        else:
-            # 契約している利用者がいない場合は空のテーマリスト
-            themes = Themes.objects.none()
-    else:
+    if not user.is_counselor:
         # 一般ユーザーの場合、自分が作成したテーマのみを取得
         themes = Themes.objects.filter(user=user)
+    else:
+        # カウンセラーがログインしている場合
+        contracted_users = Users.objects.filter(counselor=user)
+        # 契約している利用者が作成したテーマのみを取得
+        themes = Themes.objects.filter(user__in=contracted_users)
 
     return render(request, 'boards/list_themes.html', {
         'themes': themes,
