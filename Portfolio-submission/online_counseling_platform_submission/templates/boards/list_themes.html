@@ -15,6 +15,14 @@
 {% endif %}
 
 {% if request.user.is_authenticated %}
+    {% if request.user %}
+        <p><a class="navbar-brand" href="{% url 'boards:create_theme' %}">【カウンセラー側】チャット画面を新たに作成する</a></p>
+    {% else %}
+        <p>カウンセラーと契約するとチャット画面を作成できるようになります</p>
+    {% endif %}
+{% endif %}
+
+{% if request.user.is_authenticated %}
     <p>ログインユーザー: {{ request.user.username }}</p>
     {% if request.user.is_counselor %}
         <p>カウンセラーとしてログイン中</p>
