@@ -64,6 +64,18 @@ def theme_list(request):
         'themes': themes,
     })
 
+@login_required #ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
+def list_themes(request):
+    if isinstance(request.user, Users):
+        themes = Themes.objects.filter(user=request.user)
+    elif isinstance(request.user, Counselor):
+        themes = Themes.objects.filter(user__in=Users.objects.all())
+    else:
+        themes = Themes.objects.none()
+
+    return render(request, 'boards/list_themes.html', {
+        'themes': themes,
+    })
 
 @login_required #記載内容のバックアップです！
 def counselor_list(request):
@@ -235,18 +247,18 @@ def create_theme(request):
     else:
         return redirect('accounts:home')
 
-@login_required #ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
-def list_themes(request):
-    if isinstance(request.user, Users):
-        themes = Themes.objects.filter(user=request.user)
-    elif isinstance(request.user, Counselor):
-        themes = Themes.objects.filter(user__in=Users.objects.all())
-    else:
-        themes = Themes.objects.none()
+# @login_required #ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
+# def list_themes(request):
+#     if isinstance(request.user, Users):
+#         themes = Themes.objects.filter(user=request.user)
+#     elif isinstance(request.user, Counselor):
+#         themes = Themes.objects.filter(user__in=Users.objects.all())
+#     else:
+#         themes = Themes.objects.none()
 
-    return render(request, 'boards/list_themes.html', {
-        'themes': themes,
-    })
+#     return render(request, 'boards/list_themes.html', {
+#         'themes': themes,
+#     })
 
 # @login_required #修正完了です！ 記載内容のバックアップです！ この記載内容に戻りましょう！
 # def edit_theme(request, id):
