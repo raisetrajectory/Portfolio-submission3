@@ -45,9 +45,6 @@ def theme_list(request):
         # 一般ユーザーの場合、自分が作成したテーマのみを取得
         themes = Themes.objects.filter(user=user)
     elif isinstance(user, Counselor):
-        themes = Themes.objects.filter(user=user)
-        clients = user.clients.all()  # type: ignore
-        themes = Themes.objects.filter(user__in=clients)
         # カウンセラーがログインしている場合
         if hasattr(user, 'clients'):
             # カウンセラーが契約している利用者のテーマのみを取得
