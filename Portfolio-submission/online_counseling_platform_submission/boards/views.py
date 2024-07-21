@@ -27,15 +27,15 @@ from django.utils.functional import SimpleLazyObject
 from django.shortcuts import redirect
 from .models import Counselor
 
-@login_required #記載内容のバックアップです！ この記載内容戻りましょう!
-def theme_list(request):
-    # ログインしているユーザーが作成していないテーマを取得
-    themes = Themes.objects.exclude(user=request.user)
-    # ログインしているユーザーが作成したテーマを取得
-    themes = Themes.objects.filter(user=request.user)
-    return render(request, 'boards/list_themes.html', {
-        'themes': themes,
-    })
+# @login_required #記載内容のバックアップです！ この記載内容戻りましょう!
+# def theme_list(request):
+#     # ログインしているユーザーが作成していないテーマを取得
+#     themes = Themes.objects.exclude(user=request.user)
+#     # ログインしているユーザーが作成したテーマを取得
+#     themes = Themes.objects.filter(user=request.user)
+#     return render(request, 'boards/list_themes.html', {
+#         'themes': themes,
+#     })
 
 # @login_required  #記載内容のバックアップです！
 # def theme_list(request):
@@ -58,24 +58,24 @@ def theme_list(request):
 #         'themes': themes,
 #     })
 
-# @login_required #記載内容のバックアップです！
-# def theme_list(request):
-#     if hasattr(request.user, 'counselor'):
-#         # カウンセラーがログインしている場合
-#         # カウンセラーが契約している利用者を取得
-#         users = Users.objects.filter(counselor=request.user)
-#         # 契約している利用者が作成したテーマのみを取得
-#         themes = Themes.objects.filter(user_in=users).distinct()
-#     elif hasattr(request.user, 'clients'):
-#         # 一般ユーザーがログインしている場合
-#         themes = Themes.objects.filter(user=request.user)
-#     else:
-#         # その他の場合は空のテーマリスト
-#         themes = Themes.objects.none()
+@login_required #記載内容のバックアップです！
+def theme_list(request):
+    if hasattr(request.user, 'counselor'):
+        # カウンセラーがログインしている場合
+        # カウンセラーが契約している利用者を取得
+        users = Users.objects.filter(counselor=request.user)
+        # 契約している利用者が作成したテーマのみを取得
+        themes = Themes.objects.filter(user_in=users).distinct()
+    elif hasattr(request.user, 'clients'):
+        # 一般ユーザーがログインしている場合
+        themes = Themes.objects.filter(user=request.user)
+    else:
+        # その他の場合は空のテーマリスト
+        themes = Themes.objects.none()
 
-#     return render(request, 'boards/list_themes.html', {
-#         'themes': themes,
-#     })
+    return render(request, 'boards/list_themes.html', {
+        'themes': themes,
+    })
 
 
 @login_required #記載内容のバックアップです！
