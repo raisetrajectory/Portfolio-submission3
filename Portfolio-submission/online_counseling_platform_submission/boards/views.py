@@ -39,28 +39,31 @@ from .models import Counselor
 
 @login_required
 def theme_list(request):
-    user = request.user
-
-    if isinstance(user, Users):
+    if isinstance(request.user, Users):
         # 一般ユーザーの場合、自分が作成したテーマのみを取得
-        themes = Themes.objects.filter(user=user)
-    elif isinstance(user, Counselor):
-        # カウンセラーがログインしている場合
-        if hasattr(user, 'clients'):
-            # カウンセラーが契約している利用者のテーマのみを取得
-            clients = user.clients.all()  # type: ignore
-            themes = Themes.objects.filter(user__in=clients)
-        else:
-            # カウンセラーの情報がない場合は空のテーマリスト
-            themes = Themes.objects.none()
+        themes = Themes.objects.filter(user=request.user)
+    elif isinstance(request.user, Counselor):
+        themes = Themes.objects.filter(user__in=Users.objects.all())
     else:
-        # ユーザーでもカウンセラーでもない場合は空のテーマリスト
+        # カウンセラーの情報がない場合は空のテーマリスト
         themes = Themes.objects.none()
 
     return render(request, 'boards/list_themes.html', {
         'themes': themes,
     })
 
+# @login_required #ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
+# def list_themes(request):
+#     if isinstance(request.user, Users):
+#         themes = Themes.objects.filter(user=request.user)
+#     elif isinstance(request.user, Counselor):
+#         themes = Themes.objects.filter(user__in=Users.objects.all())
+#     else:
+#         themes = Themes.objects.none()
+
+#     return render(request, 'boards/list_themes.html', {
+#         'themes': themes,
+#     })
 
 @login_required #記載内容のバックアップです！
 def counselor_list(request):
