@@ -37,6 +37,7 @@ from .models import Counselor
 #         'themes': themes,
 #     })
 
+
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Themes
@@ -52,19 +53,9 @@ def theme_list(request):
     else:
         # カウンセラーがログインしている場合
         if hasattr(user, 'counselor'):
-            # 「利用者01」のユーザーオブジェクトを取得
-            try:
-                target_user = Users.objects.get(username='利用者01')
-                # カウンセラーが契約している利用者の中に「利用者01」が含まれているか確認
-                if user.clients.filter(id=target_user.id).exists(): # type: ignore
-                    # 契約している「利用者01」が作成したテーマを取得
-                    themes = Themes.objects.filter(user=target_user)
-                else:
-                    # 契約している利用者の中に「利用者01」がいない場合、空のテーマリスト
-                    themes = Themes.objects.none()
-            except Users.DoesNotExist:
-                # 「利用者01」が存在しない場合は空のテーマリスト
-                themes = Themes.objects.none()
+            # カウンセラーが契約している利用者のテーマのみを取得
+            clients = user.clients.all()  # カウンセラーが契約している利用者全てを取得
+            themes = Themes.objects.filter(user__in=clients)  # 契約している利用者が作成したテーマのみを取得
         else:
             # カウンセラーの情報がない場合は空のテーマリスト
             themes = Themes.objects.none()
