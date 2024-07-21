@@ -52,33 +52,42 @@ from .models import Counselor
 #         'themes': themes,
 #     })
 
-@login_required
-def theme_list(request):
-    if isinstance(request.user, Counselor):
-        # 一般ユーザーの場合、自分が作成したテーマのみを取得
-        themes = Themes.objects.filter(user__in=Users.objects.all())
-    elif isinstance(request.user, Users):
-        themes = Themes.objects.filter(user=request.user)
-    else:
-        # カウンセラーの情報がない場合は空のテーマリスト
-        themes = Themes.objects.none()
-
-    return render(request, 'boards/list_themes.html', {
-        'themes': themes,
-    })
-
-# @login_required #ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
-# def list_themes(request):
-#     if isinstance(request.user, Users):
-#         themes = Themes.objects.filter(user=request.user)
-#     elif isinstance(request.user, Counselor):
+# @login_required
+# def theme_list(request):
+#     if isinstance(request.user, Counselor):
+#         # 一般ユーザーの場合、自分が作成したテーマのみを取得
 #         themes = Themes.objects.filter(user__in=Users.objects.all())
+#     elif isinstance(request.user, Users):
+#         themes = Themes.objects.filter(user=request.user)
 #     else:
+#         # カウンセラーの情報がない場合は空のテーマリスト
 #         themes = Themes.objects.none()
 
 #     return render(request, 'boards/list_themes.html', {
 #         'themes': themes,
 #     })
+
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from .models import Themes, Users, Counselor
+
+@login_required
+def theme_list(request):
+    if isinstance(request.user, Counselor):
+        # カウンセラーがログインしている場合
+        # 自分が関連する利用者が作成したテーマのみを取得
+        users = Users.objects.filter(counselor=request.user)
+        themes = Themes.objects.filter(user__in=users)
+    elif isinstance(request.user, Users):
+        # 一般ユーザーがログインしている場合
+        themes = Themes.objects.filter(user=request.user)
+    else:
+        # その他の場合は空のテーマリスト
+        themes = Themes.objects.none()
+
+    return render(request, 'boards/list_themes.html', {
+        'themes': themes,
+    })
 
 
 @login_required #記載内容のバックアップです！
