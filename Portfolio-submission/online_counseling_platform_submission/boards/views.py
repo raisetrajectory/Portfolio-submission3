@@ -77,6 +77,7 @@ def theme_list(request):
         'themes': themes,
     })
 
+
 @login_required #記載内容のバックアップです！
 def counselor_list(request):
     user = request.user
