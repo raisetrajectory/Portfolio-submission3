@@ -52,13 +52,12 @@ def theme_list(request):
     else:
         # カウンセラーがログインしている場合
         if hasattr(user, 'counselor'):
-            # カウンセラーが契約している利用者を取得
-            contracted_users = Users.objects.filter(counselor=user)
             # 「利用者01」のユーザーオブジェクトを取得
             try:
                 target_user = Users.objects.get(username='利用者01')
-                # 契約している利用者の中に「利用者01」が含まれている場合のみ、テーマを取得
-                if target_user in contracted_users:
+                # カウンセラーが契約している利用者の中に「利用者01」が含まれているか確認
+                if user.clients.filter(id=target_user.id).exists(): # type: ignore
+                    # 契約している「利用者01」が作成したテーマを取得
                     themes = Themes.objects.filter(user=target_user)
                 else:
                     # 契約している利用者の中に「利用者01」がいない場合、空のテーマリスト
