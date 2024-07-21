@@ -37,7 +37,7 @@ from .models import Counselor
 #         'themes': themes,
 #     })
 
-# @login_required  # 記載内容のバックアップです！
+# @login_required  #記載内容のバックアップです！
 # def theme_list(request):
 #     if isinstance(request.user, Counselor):
 #         # カウンセラーがログインしている場合
@@ -58,7 +58,7 @@ from .models import Counselor
 #         'themes': themes,
 #     })
 
-# @login_required
+# @login_required #記載内容のバックアップです！
 # def theme_list(request):
 #     if hasattr(request.user, 'counselor'):
 #         # カウンセラーがログインしている場合
