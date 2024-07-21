@@ -58,20 +58,44 @@ from .models import Counselor
 #         'themes': themes,
 #     })
 
+# @login_required
+# def theme_list(request):
+#     if hasattr(request.user, 'is_counselor') and request.user.is_counselor:
+#         # カウンセラーがログインしている場合
+#         # カウンセラーが契約している利用者を取得
+#         users = Users.objects.filter(counselor=request.user)
+#         print(users)  # デバッグ用の出力
+#         # 契約している利用者が作成したテーマのみを取得
+#         themes = Themes.objects.filter(user__in=users).distinct()
+#         print(themes)  # デバッグ用の出力
+#     else:
+#         # 一般ユーザーがログインしている場合
+#         themes = Themes.objects.filter(user=request.user)
+#         print(themes)  # デバッグ用の出力
+
+#     return render(request, 'boards/list_themes.html', {
+#         'themes': themes,
+#     })
+
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from accounts.models import Counselor, Users
+from boards.models import Themes
+
 @login_required
 def theme_list(request):
     if hasattr(request.user, 'is_counselor') and request.user.is_counselor:
         # カウンセラーがログインしている場合
         # カウンセラーが契約している利用者を取得
         users = Users.objects.filter(counselor=request.user)
-        print(users)  # デバッグ用の出力
+        print("契約している利用者:", users)  # デバッグ用の出力
         # 契約している利用者が作成したテーマのみを取得
         themes = Themes.objects.filter(user__in=users).distinct()
-        print(themes)  # デバッグ用の出力
+        print("契約している利用者が作成したテーマ:", themes)  # デバッグ用の出力
     else:
         # 一般ユーザーがログインしている場合
         themes = Themes.objects.filter(user=request.user)
-        print(themes)  # デバッグ用の出力
+        print("一般ユーザーが作成したテーマ:", themes)  # デバッグ用の出力
 
     return render(request, 'boards/list_themes.html', {
         'themes': themes,
