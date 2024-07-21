@@ -43,9 +43,9 @@ def theme_list(request):
     if isinstance(request.user, Counselor):
         # カウンセラーがログインしている場合
         # カウンセラーが契約している利用者を取得
-        users = Users.objects.filter(counselor=request.user)
+        users = Users.objects.filter(counselor=request.user) #カウンセラーが契約している利用者を取得
         # 契約している利用者が作成したテーマのみを取得
-        themes = Themes.objects.filter(user__in=users)
+        themes = Themes.objects.filter(user__in=users) #契約している利用者が作成したテーマのみを取得
     elif isinstance(request.user, Users):
         # 一般ユーザーがログインしている場合
         themes = Themes.objects.filter(user=request.user)
