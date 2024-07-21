@@ -37,20 +37,50 @@ from .models import Counselor
 #         'themes': themes,
 #     })
 
+# @login_required
+# def theme_list(request):
+#     if isinstance(request.user, Users):
+#         # 一般ユーザーの場合、自分が作成したテーマのみを取得
+#         themes = Themes.objects.filter(user=request.user)
+#     elif isinstance(request.user, Counselor):
+#         themes = Themes.objects.filter(user__in=Users.objects.all())
+#     else:
+#         # カウンセラーの情報がない場合は空のテーマリスト
+#         themes = Themes.objects.none()
+
+#     return render(request, 'boards/list_themes.html', {
+#         'themes': themes,
+#     })
+
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from .models import Themes
+from accounts.models import Users, Counselor
+
 @login_required
 def theme_list(request):
-    if isinstance(request.user, Users):
+    user = request.user
+
+    if isinstance(user, Users):
         # 一般ユーザーの場合、自分が作成したテーマのみを取得
-        themes = Themes.objects.filter(user=request.user)
-    elif isinstance(request.user, Counselor):
-        themes = Themes.objects.filter(user__in=Users.objects.all())
+        themes = Themes.objects.filter(user=user)
+    elif isinstance(user, Counselor):
+        # カウンセラーがログインしている場合
+        if hasattr(user, 'clients'):
+            # カウンセラーが契約している利用者のテーマのみを取得
+            clients = user.clients.all()  # type: ignore
+            themes = Themes.objects.filter(user__in=clients)
+        else:
+            # カウンセラーの情報がない場合は空のテーマリスト
+            themes = Themes.objects.none()
     else:
-        # カウンセラーの情報がない場合は空のテーマリスト
+        # ユーザーでもカウンセラーでもない場合は空のテーマリスト
         themes = Themes.objects.none()
 
     return render(request, 'boards/list_themes.html', {
         'themes': themes,
     })
+
 
 @login_required #記載内容のバックアップです！
 def counselor_list(request):
