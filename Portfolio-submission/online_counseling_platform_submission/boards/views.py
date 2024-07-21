@@ -65,7 +65,7 @@ from boards.models import Themes
 
 @login_required
 def theme_list(request):
-    if hasattr(request.user, 'is_counselor') and request.user.is_counselor:
+    if isinstance(request.user, Counselor):
         # カウンセラーがログインしている場合
         # カウンセラーが契約している利用者を取得
         users = Users.objects.filter(counselor=request.user)
