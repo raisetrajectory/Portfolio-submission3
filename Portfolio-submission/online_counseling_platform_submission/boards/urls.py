@@ -19,11 +19,11 @@ urlpatterns = [
     path('comment/<int:comment_id>/edit/', views.edit_comment, name='edit_comment'),
     path('select_counselor/<int:counselor_id>/', views.select_counselor, name='select_counselor'),
     path('deselect_counselor/', views.deselect_counselor, name='deselect_counselor'),
-    # path('themes/', theme_list, name='theme_list'),#新規追加
+    path('themes/', theme_list, name='theme_list'),#新規追加
     path('deselect_counselor/<int:counselor_id>/', views.deselect_counselor, name='deselect_counselor'),
 
     # path('themes/', views.theme_list, name='theme_list'),#新規追加
-    path('theme_list/', views.theme_list, name='theme_list'),#新規追加
+    # path('theme_list/', views.theme_list, name='theme_list'),#新規追加
 ]
 
 
