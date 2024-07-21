@@ -48,7 +48,7 @@ def theme_list(request):
         # カウンセラーがログインしている場合
         if hasattr(user, 'clients'):
             # カウンセラーが契約している利用者のテーマのみを取得
-            clients = user.clients.all() # type: ignore
+            clients = user.clients.all()  # type: ignore
             themes = Themes.objects.filter(user__in=clients)
         else:
             # カウンセラーの情報がない場合は空のテーマリスト
