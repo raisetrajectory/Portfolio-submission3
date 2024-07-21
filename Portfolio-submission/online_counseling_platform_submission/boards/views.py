@@ -65,7 +65,11 @@ from boards.models import Themes
 
 @login_required
 def theme_list(request):
-    if isinstance(request.user, Counselor):
+    if isinstance(request.user, Users):
+        # 一般ユーザーがログインしている場合
+        themes = Themes.objects.filter(user=request.user)
+        print("一般ユーザーが作成したテーマ:", themes)  # デバッグ用の出力
+    elif isinstance(request.user, Counselor):
         # カウンセラーがログインしている場合
         # カウンセラーが契約している利用者を取得
         users = Users.objects.filter(counselor=request.user)
@@ -73,10 +77,6 @@ def theme_list(request):
         # 契約している利用者が作成したテーマのみを取得
         themes = Themes.objects.filter(user__in=users).distinct()
         print("契約している利用者が作成したテーマ:", themes)  # デバッグ用の出力
-    elif isinstance(request.user, Users):
-        # 一般ユーザーがログインしている場合
-        themes = Themes.objects.filter(user=request.user)
-        print("一般ユーザーが作成したテーマ:", themes)  # デバッグ用の出力
     else:
         # その他の場合は空のテーマリスト
         themes = Themes.objects.none()
