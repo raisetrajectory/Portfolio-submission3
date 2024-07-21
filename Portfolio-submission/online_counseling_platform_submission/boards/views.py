@@ -37,17 +37,39 @@ from .models import Counselor
 #         'themes': themes,
 #     })
 
+# @login_required
+# def theme_list(request):
+#     if isinstance(request.user, Counselor):
+#         # カウンセラーがログインしている場合
+#         # カウンセラーが契約している利用者を取得
+#         users = Users.objects.filter(Counselor=request.user)
+#         print(users)
+#         # 契約している利用者が作成したテーマのみを取得
+#         themes = Themes.objects.filter(user__in=users).distinct()  # distinct() を追加
+#         print(themes)
+#     elif isinstance(request.user, Users):
+#         # 一般ユーザーがログインしている場合
+#         themes = Themes.objects.filter(user=request.user)
+#     else:
+#         # その他の場合は空のテーマリスト
+#         themes = Themes.objects.none()
+
+#     return render(request, 'boards/list_themes.html', {
+#         'themes': themes,
+#     })
+
 @login_required
 def theme_list(request):
-    if isinstance(request.user, Counselor):
+    if hasattr(request.user, 'counselor'):
         # カウンセラーがログインしている場合
         # カウンセラーが契約している利用者を取得
-        users = Users.objects.filter(Counselor=request.user)
-        print(users)
+        users = Users.objects.filter(counselor=request.user)
+        print(users)  # デバッグ出力: 契約している利用者の確認
+
         # 契約している利用者が作成したテーマのみを取得
         themes = Themes.objects.filter(user__in=users).distinct()  # distinct() を追加
-        print(themes)
-    elif isinstance(request.user, Users):
+        print(themes)  # デバッグ出力: 取得したテーマの確認
+    elif hasattr(request.user, 'users'):
         # 一般ユーザーがログインしている場合
         themes = Themes.objects.filter(user=request.user)
     else:
