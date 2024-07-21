@@ -42,8 +42,7 @@ def theme_list(request):
 #     # ログインしているユーザーが作成していないテーマを取得
 #     themes = Themes.objects.exclude(user=request.user)
 #     # ログインしているユーザーが作成したテーマを取得
-#     themes = Themes.objects.exclude(user=request.user)
-#     # themes = Themes.objects.filter(user=request.user)
+#     themes = Themes.objects.filter(user=request.user)
 #     return render(request, 'boards/list_themes.html', {
 #         'themes': themes,
 #     })
