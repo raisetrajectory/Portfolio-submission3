@@ -77,10 +77,6 @@ from .models import Counselor
 #         'themes': themes,
 #     })
 
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
-from .models import Themes, Users
-
 @login_required
 def theme_list(request):
     if hasattr(request.user, 'counselor'):
