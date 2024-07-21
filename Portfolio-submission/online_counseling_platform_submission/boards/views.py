@@ -37,11 +37,12 @@ from .models import Counselor
 #         'themes': themes,
 #     })
 
+
 @login_required
 def theme_list(request):
     if isinstance(request.user, Counselor):
         # カウンセラーがログインしている場合
-        # 自分が契約している利用者を取得
+        # カウンセラーが契約している利用者を取得
         users = Users.objects.filter(counselor=request.user)
         # 契約している利用者が作成したテーマのみを取得
         themes = Themes.objects.filter(user__in=users)
