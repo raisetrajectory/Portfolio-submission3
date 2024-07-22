@@ -672,7 +672,7 @@
                         <mxPoint x="1300" y="890.0020000000002" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2062" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;カウンセラー側でログインした状態では、プロフィール内容(カウンセラー登録)変更のみが表示され、カウンセラー登録した情報を編集を出来ます。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="2062" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;カウンセラー側でログインした状態では、プロフィール内容(カウンセラー登録)変更のみが表示され、カウンセラー登録した情報を編集する事が出来ます。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="1355" y="1030" width="285" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="2063" value="" style="endArrow=classic;html=1;fontSize=10;" edge="1" parent="1">
@@ -680,6 +680,9 @@
                         <mxPoint x="1355" y="1115" as="sourcePoint"/>
                         <mxPoint x="1255" y="1175" as="targetPoint"/>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="2064" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;ユーザー側のログインしている状態では、プロフィール内容(ユーザー登録)変更のみ表示され、ユーザー登録した情報を編集する事が出来ます。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1350" y="1169" width="290" height="120" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
