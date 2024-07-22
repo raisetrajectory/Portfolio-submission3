@@ -618,6 +618,9 @@
                         <mxPoint x="180" y="1780" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
+                <mxCell id="2018" value="コメント削除画面へ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="1729" width="130" height="25" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
