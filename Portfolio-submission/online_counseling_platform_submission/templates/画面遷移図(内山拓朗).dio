@@ -684,6 +684,9 @@
                 <mxCell id="2042" value="チャット制作画面へ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
                     <mxGeometry x="56.5" y="1110" width="140" height="30" as="geometry"/>
                 </mxCell>
+                <mxCell id="2043" value="チャット編集画面へ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="1350" width="130" height="25" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
