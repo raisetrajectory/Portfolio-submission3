@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="nMnuXORbZ245L0lCiLTD" name="ページ1">
-        <mxGraphModel dx="3209" dy="1528" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="3937" dy="1887" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -449,7 +449,7 @@
                     <mxGeometry x="-270" y="615" width="400" height="352.5" as="geometry"/>
                 </mxCell>
                 <mxCell id="1917" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;カウンセラーの名前と自己紹介が表示されております。&lt;br&gt;カウンセラー側でログインした状態では、【選択】が表示されない様にしております。&lt;br&gt;ユーザー側のログインしている方がカウンセラー一覧画面に遷移した場合に、【選択】が表示されます。&lt;br&gt;ユーザー側のログインしている方が、【選択】を押した場合にカウンセラーと契約した状態となり、チャット作成画面に遷移出来て、ユーザー側のログインしている方とカウンセラーが契約状態のみチャット画面を作成する事が出来ます。&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-741.5" y="650" width="350" height="190" as="geometry"/>
+                    <mxGeometry x="-741.5" y="650" width="350" height="200" as="geometry"/>
                 </mxCell>
                 <mxCell id="1924" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;チャット制作画面へ&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="1070" y="955" width="140" height="20" as="geometry"/>
