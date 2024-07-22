@@ -243,6 +243,7 @@ def list_themes(request):
     if isinstance(request.user, Users):
         themes = Themes.objects.filter(user=request.user)
     elif isinstance(request.user, Counselor):
+        # themes = Themes.objects.filter(user=request.user)
         themes = Themes.objects.filter(user__in=Users.objects.all())
     else:
         themes = Themes.objects.none()
@@ -250,6 +251,19 @@ def list_themes(request):
     return render(request, 'boards/list_themes.html', {
         'themes': themes,
     })
+
+# @login_required #ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう! 記載内容のバックアップです!
+# def list_themes(request):
+#     if isinstance(request.user, Users):
+#         themes = Themes.objects.filter(user=request.user)
+#     elif isinstance(request.user, Counselor):
+#         themes = Themes.objects.filter(user__in=Users.objects.all())
+#     else:
+#         themes = Themes.objects.none()
+
+#     return render(request, 'boards/list_themes.html', {
+#         'themes': themes,
+#     })
 
 # @login_required #修正完了です！ 記載内容のバックアップです！ この記載内容に戻りましょう！
 # def edit_theme(request, id):
