@@ -572,6 +572,9 @@
                 <mxCell id="1991" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;プロフィール画面において、利用者【ユーザー】に関しては、契約しているカウンセラーが画面上に表示されます。一方でカウンセラーが表示される場合は契約している利用者【ユーザー】が表示されます。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="1380" y="170" width="320" height="120" as="geometry"/>
                 </mxCell>
+                <mxCell id="1992" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;プロフィール画面において、利用者【ユーザー】に関しては、契約しているカウンセラーが画面上に表示されます。一方でカウンセラーが表示される場合は契約している利用者【ユーザー】が表示されます。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1420" y="-10" width="320" height="120" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
