@@ -179,7 +179,7 @@
                     <mxGeometry x="130" y="860" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="1041" value="カウンセラー一覧画面へ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="1" vertex="1">
-                    <mxGeometry x="-370" y="1000" width="205" height="30" as="geometry"/>
+                    <mxGeometry x="-480" y="990" width="205" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="1043" value="プロフィール画面へ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="1" vertex="1">
                     <mxGeometry x="1050" y="1090" width="170" height="30" as="geometry"/>
@@ -437,9 +437,10 @@
                 </mxCell>
                 <mxCell id="1894" value="" style="endArrow=classic;html=1;endFill=1;startArrow=none;startFill=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;" parent="1" target="651" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-160" y="2000" as="sourcePoint"/>
+                        <mxPoint x="-260" y="2000" as="sourcePoint"/>
                         <mxPoint x="1020" y="1040" as="targetPoint"/>
                         <Array as="points">
+                            <mxPoint x="-120" y="2010"/>
                             <mxPoint x="755" y="2158"/>
                         </Array>
                     </mxGeometry>
@@ -579,16 +580,51 @@
                     <mxGeometry x="1748" y="175" width="320" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="1998" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;コメント削除画面(Delete_comments)&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=1;dashed=0;strokeColor=rgb(240, 240, 240);fontFamily=Helvetica;fontSize=13;fontColor=rgb(240, 240, 240);fillColor=none;align=center;startSize=40;" parent="1" vertex="1">
-                    <mxGeometry x="-760" y="1240" width="530" height="330" as="geometry"/>
+                    <mxGeometry x="-730" y="2040" width="350" height="200" as="geometry"/>
                 </mxCell>
-                <mxCell id="1999" value="コメント削除画面" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="1998" vertex="1">
+                <mxCell id="1999" value="コメント削除画面" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1998" vertex="1">
                     <mxGeometry y="40" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="2000" value="チャット画面を新たに作成する" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1998" vertex="1">
-                    <mxGeometry y="80" width="300" height="40" as="geometry"/>
+                <mxCell id="2002" value="本当にこのコメントを削除しますか?" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1998">
+                    <mxGeometry y="80" width="330" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="2001" value="&lt;font style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;作成されたチャット画面一覧が表示されています&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1998" vertex="1">
-                    <mxGeometry y="160" width="530" height="120" as="geometry"/>
+                <mxCell id="2000" value="チャット画面を新たに作成する" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="-1190" y="1310" width="300" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="2003" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;相談を終了する&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="-335" y="2130" width="158.5" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="2004" value="" style="endArrow=classic;html=1;endFill=1;strokeWidth=2;entryX=0.275;entryY=1.004;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-256.25" y="1998.59" as="sourcePoint"/>
+                        <mxPoint x="-256.25" y="967.4999999999999" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2006" value="" style="endArrow=classic;html=1;endFill=1;strokeWidth=2;entryX=0.275;entryY=1.004;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-880" y="2461.09" as="sourcePoint"/>
+                        <mxPoint x="-880" y="1429.9999999999998" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2007" value="" style="endArrow=classic;html=1;endFill=1;startArrow=none;startFill=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-132" y="2220" as="sourcePoint"/>
+                        <mxPoint x="1175" y="1280" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="7.5" y="2246"/>
+                            <mxPoint x="882.5" y="2394"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2008" value="" style="endArrow=classic;html=1;endFill=1;startArrow=none;startFill=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-122" y="2230" as="sourcePoint"/>
+                        <mxPoint x="1185" y="1290" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="17.5" y="2256"/>
+                            <mxPoint x="892.5" y="2404"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>
