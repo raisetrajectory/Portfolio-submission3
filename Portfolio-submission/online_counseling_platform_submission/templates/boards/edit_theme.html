@@ -6,8 +6,6 @@
     {% endfor %}
 {% endif %}
 <h3>チャット画面編集</h3>
-<p>ログインユーザー: {{ request.user.username }}</p>
-<p>契約カウンセラー: {{ theme.user.username }}</p>
 
 <form method="post" novalidate>
     {% csrf_token %}
