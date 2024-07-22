@@ -238,19 +238,42 @@ def create_theme(request):
     else:
         return redirect('accounts:home')
 
-@login_required #ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
+# @login_required #ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
+# def list_themes(request):
+#     if isinstance(request.user, Users):
+#         themes = Themes.objects.filter(user=request.user)
+#     elif isinstance(request.user, Counselor):
+#         # themes = Themes.objects.filter(user=request.user)
+#         themes = Themes.objects.filter(user__in=Users.objects.all())
+#     else:
+#         themes = Themes.objects.none()
+
+#     return render(request, 'boards/list_themes.html', {
+#         'themes': themes,
+#     })
+
+@login_required
 def list_themes(request):
     if isinstance(request.user, Users):
+        # 一般ユーザーがログインしている場合
         themes = Themes.objects.filter(user=request.user)
+        print("一般ユーザーが作成したテーマ:", themes)  # デバッグ用の出力
     elif isinstance(request.user, Counselor):
-        # themes = Themes.objects.filter(user=request.user)
-        themes = Themes.objects.filter(user__in=Users.objects.all())
+        # カウンセラーがログインしている場合
+        # カウンセラーが契約している利用者を取得
+        users = Users.objects.filter(counselor=request.user)
+        print("契約している利用者:", users)  # デバッグ用の出力
+        # 契約している利用者が作成したテーマのみを取得
+        themes = Themes.objects.filter(user__in=users).distinct()
+        print("契約している利用者が作成したテーマ:", themes)  # デバッグ用の出力
     else:
+        # その他の場合は空のテーマリスト
         themes = Themes.objects.none()
 
     return render(request, 'boards/list_themes.html', {
         'themes': themes,
     })
+
 
 # @login_required #ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう! 記載内容のバックアップです!
 # def list_themes(request):
