@@ -569,14 +569,26 @@
                         <mxPoint x="1187.83" y="663.89" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1991" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;プロフィール画面において、利用者【ユーザー】に関しては、契約しているカウンセラーが画面上に表示されます。一方でカウンセラーが表示される場合は契約している利用者【ユーザー】が表示されます。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="1991" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;プロフィール画面において、利用者【ユーザー】に関しては、契約しているカウンセラーが画面上に表示されます。一方でカウンセラーが表示される場合は契約している利用者【ユーザー】が表示されます。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1380" y="170" width="320" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="1992" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;プロフィール画面において、利用者【ユーザー】に関しては、契約しているカウンセラーが画面上に表示されます。一方でカウンセラーが表示される場合は契約している利用者【ユーザー】が表示されます。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="1992" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;プロフィール画面において、利用者【ユーザー】に関しては、契約しているカウンセラーが画面上に表示されます。一方でカウンセラーが表示される場合は契約している利用者【ユーザー】が表示されます。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1420" y="-10" width="320" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="1993" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;プロフィール画面において、利用者【ユーザー】に関しては、契約しているカウンセラーが画面上に表示されます。一方でカウンセラーが表示される場合は契約している利用者【ユーザー】が表示されます。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="1993" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;プロフィール画面において、利用者【ユーザー】に関しては、契約しているカウンセラーが画面上に表示されます。一方でカウンセラーが表示される場合は契約している利用者【ユーザー】が表示されます。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1748" y="175" width="320" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="1994" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;チャット制作画面(Chat_rooms)&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=1;dashed=0;strokeColor=rgb(240, 240, 240);fontFamily=Helvetica;fontSize=13;fontColor=rgb(240, 240, 240);fillColor=none;align=center;startSize=40;" vertex="1" parent="1">
+                    <mxGeometry x="-750" y="1190" width="530" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="1995" value="チャット画面一覧" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1994">
+                    <mxGeometry y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1996" value="チャット画面を新たに作成する" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1994">
+                    <mxGeometry y="80" width="300" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1997" value="&lt;font style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;作成されたチャット画面一覧が表示されています&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1994">
+                    <mxGeometry y="160" width="530" height="120" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
