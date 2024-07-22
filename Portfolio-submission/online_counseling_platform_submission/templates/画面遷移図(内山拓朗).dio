@@ -470,25 +470,13 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1938" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;プロフィール画面に関しては、プロフィール画面＆ユーザー登録した情報を編集出来る機能を追加しております。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="1410" y="850" width="230" height="120" as="geometry"/>
+                    <mxGeometry x="1320" y="288" width="230" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="1942" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;プロフィール内容(ユーザー登録)変更&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="1025" y="1140" width="230" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="1969" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;プロフィール内容(カウンセラー登録)変更&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="1025" y="1165" width="230" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="1970" value="" style="endArrow=classic;html=1;fontSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="1938" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="1390" y="910" as="sourcePoint"/>
-                        <mxPoint x="1255" y="1020" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="1971" value="" style="endArrow=classic;html=1;fontSize=10;exitX=0;exitY=0.167;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="1938" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="1390" y="882.5" as="sourcePoint"/>
-                        <mxPoint x="1255" y="992.5" as="targetPoint"/>
-                    </mxGeometry>
                 </mxCell>
                 <mxCell id="1979" value="オンラインカウンセリングサービスに関する説明が記載されております。" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="899.5" y="-260" width="280.5" height="60" as="geometry"/>
@@ -681,8 +669,20 @@
                         <mxPoint x="1255" y="1175" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2064" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;ユーザー側のログインしている状態では、プロフィール内容(ユーザー登録)変更のみ表示され、ユーザー登録した情報を編集する事が出来ます。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="1350" y="1169" width="290" height="120" as="geometry"/>
+                <mxCell id="2064" value="&lt;font style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;ユーザー側のログインしている状態では、プロフィール内容(ユーザー登録)変更のみ表示され、ユーザー登録した情報を編集する事が出来ます。&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1350" y="930" width="290" height="85" as="geometry"/>
+                </mxCell>
+                <mxCell id="2065" value="" style="endArrow=classic;html=1;fontSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1615" y="1360" as="sourcePoint"/>
+                        <mxPoint x="1460" y="1470" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2067" value="" style="endArrow=classic;html=1;fontSize=10;exitX=0;exitY=0.167;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1350" y="982.54" as="sourcePoint"/>
+                        <mxPoint x="1195" y="1140" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>
