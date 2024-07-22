@@ -657,6 +657,18 @@
                 <mxCell id="2034" value="コメント編集画面" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="2033">
                     <mxGeometry y="40" width="160" height="40" as="geometry"/>
                 </mxCell>
+                <mxCell id="2049" value="タイトル：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2033">
+                    <mxGeometry y="70" width="76.5" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2038" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=;fillColor=none;" vertex="1" parent="2033">
+                    <mxGeometry x="70" y="70" width="170.75" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2036" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;更新する&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="2033">
+                    <mxGeometry x="3.25" y="120" width="70" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="2048" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;チャット画面を削除する&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="2033">
+                    <mxGeometry x="3.25" y="140" width="160" height="20" as="geometry"/>
+                </mxCell>
                 <mxCell id="2039" value="" style="shape=flexArrow;endArrow=classic;html=1;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="195" y="1320" as="sourcePoint"/>
@@ -684,23 +696,11 @@
                 <mxCell id="2047" value="ログインユーザー：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="-690" y="1014" width="136.5" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="2036" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;更新する&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="-570" y="1210" width="140" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="2048" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;チャット画面を削除する&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="-580" y="1270" width="160" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="2038" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=;fillColor=none;" vertex="1" parent="1">
-                    <mxGeometry x="-610" y="1360" width="260.75" height="30" as="geometry"/>
-                </mxCell>
                 <mxCell id="2035" value="本当にこのコメントを編集しますか?" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
                     <mxGeometry x="-650" y="1310" width="330" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2037" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;キャンセル&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
                     <mxGeometry x="-370" y="1250" width="78.5" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="2049" value="ログインユーザー：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="-690" y="1060" width="136.5" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
