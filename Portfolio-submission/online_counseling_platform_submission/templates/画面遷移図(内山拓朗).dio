@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="nMnuXORbZ245L0lCiLTD" name="ページ1">
-        <mxGraphModel dx="3426" dy="1781" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="3937" dy="2035" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -560,14 +560,17 @@
                 <mxCell id="1988" value="選択" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="-150" y="740" width="187" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="1989" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;プロフィール画面において、利用者【ユーザー】に関しては、契約しているカウンセラーが画面上に表示されます。一方でカウンセラーが表示される場合は契約している利用者【ユーザー】が表示されます。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="1989" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;プロフィール画面において、利用者【ユーザー】に関しては、契約しているカウンセラーが画面上に表示されます。一方でカウンセラーが表示される場合は契約している利用者【ユーザー】が表示されます。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1320" y="448" width="320" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="1990" value="" style="endArrow=classic;html=1;fontSize=10;entryX=0.993;entryY=0.657;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+                <mxCell id="1990" value="" style="endArrow=classic;html=1;fontSize=10;entryX=0.993;entryY=0.657;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="1320" y="546.1" as="sourcePoint"/>
                         <mxPoint x="1187.83" y="663.89" as="targetPoint"/>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="1991" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;プロフィール画面において、利用者【ユーザー】に関しては、契約しているカウンセラーが画面上に表示されます。一方でカウンセラーが表示される場合は契約している利用者【ユーザー】が表示されます。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1380" y="170" width="320" height="120" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
