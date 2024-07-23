@@ -70,7 +70,7 @@ def regist(request):
     if regist_form.is_valid():
         try:
             regist_form.save()
-            return redirect('accounts:regist')
+            return redirect('accounts:home')
         except ValidationError as e:
             regist_form.add_error('password', e)
     return render(
@@ -85,7 +85,7 @@ def counselor_regist(request):
         if counselor_regist_form.is_valid():
             try:
                 counselor_regist_form.save()
-                return redirect('accounts:counselor_regist')
+                return redirect('accounts:home')
             except ValidationError as e:
                 counselor_regist_form.add_error('password', e)
     return render(
