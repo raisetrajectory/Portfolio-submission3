@@ -697,7 +697,7 @@
                     <mxGeometry x="1670" y="560" width="190" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2079" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="1870" y="420" width="400" height="626" as="geometry"/>
+                    <mxGeometry x="1870" y="420" width="400" height="500" as="geometry"/>
                 </mxCell>
                 <mxCell id="2080" value="ユーザー登録変更画面 ユーザー(Users)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
                     <mxGeometry x="1923" y="448" width="290" height="30" as="geometry"/>
@@ -777,8 +777,8 @@
                 <mxCell id="2107" value="ファイルが選択されておりません" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="2080" y="140" width="200" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="2108" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;ファイルの選択&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="1710" y="290" width="110" height="20" as="geometry"/>
+                <mxCell id="2108" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;更新&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="1900" y="850" width="50" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="2109" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;ファイルの選択&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
                     <mxGeometry x="1940" y="645" width="100" height="20" as="geometry"/>
@@ -824,6 +824,18 @@
                 </mxCell>
                 <mxCell id="2125" value="ユーザーネーム：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="1910" y="90" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2126" value="カウンセラー：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1895" y="803.75" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2127" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=" vertex="1" parent="1">
+                    <mxGeometry x="1987" y="806" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2128" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;パスワード変更&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="1900" y="880" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="2129" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;ファイルの選択&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="1660" y="240" width="110" height="20" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
