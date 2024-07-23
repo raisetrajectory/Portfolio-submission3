@@ -735,8 +735,8 @@
                 <mxCell id="2091" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=" vertex="1" parent="1">
                     <mxGeometry x="1940" y="520" width="180" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="2092" value="ユーザーネーム：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="1925" y="130" width="130" height="30" as="geometry"/>
+                <mxCell id="2092" value="カウンセラー：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1670" y="110" width="100" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2093" value="メールアドレス：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="1880" y="560" width="130" height="30" as="geometry"/>
