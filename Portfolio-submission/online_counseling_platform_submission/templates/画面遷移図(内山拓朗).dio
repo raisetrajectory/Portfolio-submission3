@@ -849,6 +849,27 @@
                 <mxCell id="2134" value="カウンセラー登録変更画面 カウンセラー(Counselors)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
                     <mxGeometry x="1900" y="1020" width="410" height="30" as="geometry"/>
                 </mxCell>
+                <mxCell id="2135" value="ユーザーネーム：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1890" y="1055" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2136" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=" vertex="1" parent="1">
+                    <mxGeometry x="2007" y="1055" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2137" value="年齢：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="2330" y="235" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2139" value="年齢：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1900" y="1105" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2141" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=" vertex="1" parent="1">
+                    <mxGeometry x="1960" y="1105" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2142" value="メールアドレス：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1895" y="1150" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2143" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=" vertex="1" parent="1">
+                    <mxGeometry x="2007" y="1150" width="180" height="30" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
