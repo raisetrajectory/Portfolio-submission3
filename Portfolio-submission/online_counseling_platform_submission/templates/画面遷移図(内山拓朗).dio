@@ -972,6 +972,12 @@
                 <mxCell id="2183" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;パスワード更新&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
                     <mxGeometry x="2460" y="550" width="110" height="20" as="geometry"/>
                 </mxCell>
+                <mxCell id="2184" value="" style="shape=singleArrow;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="2295" y="421" width="110" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="2185" value="パスワード変更画面へ&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="2275" y="375" width="170" height="30" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
