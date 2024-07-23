@@ -724,7 +724,7 @@
                     <mxGeometry x="2230" y="310" width="60" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2088" value="メールアドレス：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="2280" y="450" width="130" height="30" as="geometry"/>
+                    <mxGeometry x="1710" y="200" width="130" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2089" value="ユーザーネーム：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="1880" y="480" width="130" height="30" as="geometry"/>
@@ -736,7 +736,7 @@
                     <mxGeometry x="1940" y="520" width="180" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2092" value="ユーザーネーム：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="2250" y="370" width="130" height="30" as="geometry"/>
+                    <mxGeometry x="1925" y="130" width="130" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2093" value="メールアドレス：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="1880" y="560" width="130" height="30" as="geometry"/>
@@ -745,10 +745,10 @@
                     <mxGeometry x="2000" y="560" width="180" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2095" value="写真：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="2300" y="544" width="60" height="30" as="geometry"/>
+                    <mxGeometry x="2120" y="250" width="60" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2096" value="写真：現在：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="2315" y="600" width="85" height="30" as="geometry"/>
+                    <mxGeometry x="1970" y="185" width="85" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2097" value="写真：現在：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="1890" y="600" width="85" height="30" as="geometry"/>
@@ -763,7 +763,7 @@
                     <mxGeometry x="2120" y="605" width="27" height="25" as="geometry"/>
                 </mxCell>
                 <mxCell id="2102" value="クリア" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="2300" y="230" width="60" height="30" as="geometry"/>
+                    <mxGeometry x="1820" y="105" width="60" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2103" value="クリア" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="2181.5" y="677.5" width="60" height="30" as="geometry"/>
@@ -790,7 +790,7 @@
                     <mxGeometry x="2040" y="640" width="200" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2112" value="新しい写真：現在：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="2287.5" y="320" width="140" height="30" as="geometry"/>
+                    <mxGeometry x="1800" y="165" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2115" value="新しい写真：現在：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="1880" y="680" width="140" height="30" as="geometry"/>
@@ -809,6 +809,15 @@
                 </mxCell>
                 <mxCell id="2120" value="ファイルが選択されておりません" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="2050" y="715" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2121" value="写真：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="2121.5" y="310" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2122" value="自己紹介：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="2030" y="30" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2123" value="自己紹介：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="2040" y="75" width="90" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
