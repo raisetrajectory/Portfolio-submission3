@@ -882,6 +882,15 @@
                 <mxCell id="2148" value="クリア" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="2198.5" y="1190" width="60" height="30" as="geometry"/>
                 </mxCell>
+                <mxCell id="2149" value="変更：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1910" y="1230" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2150" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;ファイルの選択&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="1958" y="1235" width="110" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="2151" value="ファイルが選択されておりません" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="2070" y="1230" width="200" height="30" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
