@@ -32,43 +32,19 @@ class UserManager(BaseUserManager): #このメソッドは、一般ユーザー�
         user.save(using=self._db) #save(using=self._db) を呼び出して、データベースにユーザーを保存します。
         return user
 
-class Users(AbstractBaseUser, PermissionsMixin):
-    username = models.CharField(max_length=255)
-    age = models.PositiveIntegerField()
-    email = models.EmailField(max_length=255, unique=True)
-    is_active = models.BooleanField(default=False)
-    is_staff = models.BooleanField(default=False)
-    picture = models.FileField(null=True, upload_to='picture/')
-    picture2 = models.ImageField(null=True, upload_to='images/')  # 新しい ImageField を追加します！
-    introduction = models.CharField(max_length=255, null=True) #追加します!
-    counselor = models.ForeignKey('Counselor', on_delete=models.SET_NULL, related_name='clients', null=True, blank=True)
-
-    groups =  models.ManyToManyField(Group,related_name='user_groups')
-    user_permissions = models.ManyToManyField(Permission,related_name='user_permissions')
-
-    objects = UserManager()
-
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
-
-    def __str__(self):
-        return self.username
-
-    class Meta:
-        db_table = 'users'
-
 # class Users(AbstractBaseUser, PermissionsMixin):
 #     username = models.CharField(max_length=255)
 #     age = models.PositiveIntegerField()
 #     email = models.EmailField(max_length=255, unique=True)
-#     is_active = models.BooleanField(default=True)  # デフォルト値を True に変更
-#     is_staff = models.BooleanField(default=True)   # デフォルト値を True に変更
+#     is_active = models.BooleanField(default=False)
+#     is_staff = models.BooleanField(default=False)
 #     picture = models.FileField(null=True, upload_to='picture/')
-#     picture2 = models.ImageField(null=True, upload_to='images/')
-#     introduction = models.CharField(max_length=255, null=True)
+#     picture2 = models.ImageField(null=True, upload_to='images/')  # 新しい ImageField を追加します！
+#     introduction = models.CharField(max_length=255, null=True) #追加します!
 #     counselor = models.ForeignKey('Counselor', on_delete=models.SET_NULL, related_name='clients', null=True, blank=True)
-#     groups = models.ManyToManyField(Group, related_name='user_groups')
-#     user_permissions = models.ManyToManyField(Permission, related_name='user_permissions')
+
+#     groups =  models.ManyToManyField(Group,related_name='user_groups')
+#     user_permissions = models.ManyToManyField(Permission,related_name='user_permissions')
 
 #     objects = UserManager()
 
@@ -81,18 +57,18 @@ class Users(AbstractBaseUser, PermissionsMixin):
 #     class Meta:
 #         db_table = 'users'
 
-
-class Counselor(AbstractBaseUser, PermissionsMixin):
+class Users(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=255)
-    age = models.PositiveIntegerField(default=0, null=True)
+    age = models.PositiveIntegerField()
     email = models.EmailField(max_length=255, unique=True)
-    is_active = models.BooleanField(default=False)
-    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)  # デフォルト値を True に変更
+    is_staff = models.BooleanField(default=True)   # デフォルト値を True に変更
     picture = models.FileField(null=True, upload_to='picture/')
-    picture2 = models.ImageField(null=True, upload_to='images/')  # 新しい ImageField を追加します！
+    picture2 = models.ImageField(null=True, upload_to='images/')
     introduction = models.CharField(max_length=255, null=True)
-    qualifications = models.CharField(max_length=255, null=True) #ユーザーの職業、学歴、専門知識などを記録するのに便利です。
-    is_counselor = models.BooleanField(default=False)  # 新しいフィールドを追加
+    counselor = models.ForeignKey('Counselor', on_delete=models.SET_NULL, related_name='clients', null=True, blank=True)
+    groups = models.ManyToManyField(Group, related_name='user_groups')
+    user_permissions = models.ManyToManyField(Permission, related_name='user_permissions')
 
     objects = UserManager()
 
@@ -103,19 +79,20 @@ class Counselor(AbstractBaseUser, PermissionsMixin):
         return self.username
 
     class Meta:
-        db_table = 'counselor'
+        db_table = 'users'
+
 
 # class Counselor(AbstractBaseUser, PermissionsMixin):
 #     username = models.CharField(max_length=255)
 #     age = models.PositiveIntegerField(default=0, null=True)
 #     email = models.EmailField(max_length=255, unique=True)
-#     is_active = models.BooleanField(default=True)  # デフォルト値を True に変更
-#     is_staff = models.BooleanField(default=True)   # デフォルト値を True に変更
+#     is_active = models.BooleanField(default=False)
+#     is_staff = models.BooleanField(default=False)
 #     picture = models.FileField(null=True, upload_to='picture/')
-#     picture2 = models.ImageField(null=True, upload_to='images/')
+#     picture2 = models.ImageField(null=True, upload_to='images/')  # 新しい ImageField を追加します！
 #     introduction = models.CharField(max_length=255, null=True)
-#     qualifications = models.CharField(max_length=255, null=True)
-#     is_counselor = models.BooleanField(default=True)  # デフォルト値を True に変更
+#     qualifications = models.CharField(max_length=255, null=True) #ユーザーの職業、学歴、専門知識などを記録するのに便利です。
+#     is_counselor = models.BooleanField(default=False)  # 新しいフィールドを追加
 
 #     objects = UserManager()
 
@@ -127,6 +104,29 @@ class Counselor(AbstractBaseUser, PermissionsMixin):
 
 #     class Meta:
 #         db_table = 'counselor'
+
+class Counselor(AbstractBaseUser, PermissionsMixin):
+    username = models.CharField(max_length=255)
+    age = models.PositiveIntegerField(default=0, null=True)
+    email = models.EmailField(max_length=255, unique=True)
+    is_active = models.BooleanField(default=True)  # デフォルト値を True に変更
+    is_staff = models.BooleanField(default=True)   # デフォルト値を True に変更
+    picture = models.FileField(null=True, upload_to='picture/')
+    picture2 = models.ImageField(null=True, upload_to='images/')
+    introduction = models.CharField(max_length=255, null=True)
+    qualifications = models.CharField(max_length=255, null=True)
+    is_counselor = models.BooleanField(default=True)  # デフォルト値を True に変更
+
+    objects = UserManager()
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
+
+    def __str__(self):
+        return self.username
+
+    class Meta:
+        db_table = 'counselor'
 
 
 class UserActivateTokensManager(models.Manager):
