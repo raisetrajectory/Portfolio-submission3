@@ -85,7 +85,7 @@ def counselor_regist(request):
         if counselor_regist_form.is_valid():
             try:
                 counselor_regist_form.save()
-                return redirect('accounts:home')
+                return redirect('accounts:counselor_regist')
             except ValidationError as e:
                 counselor_regist_form.add_error('password', e)
     return render(
