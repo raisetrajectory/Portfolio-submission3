@@ -766,7 +766,7 @@
                     <mxGeometry x="2300" y="230" width="60" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2103" value="クリア" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="2153" y="600" width="60" height="30" as="geometry"/>
+                    <mxGeometry x="2181.5" y="677.5" width="60" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2105" value="変更：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="2300" y="495" width="60" height="30" as="geometry"/>
@@ -788,6 +788,21 @@
                 </mxCell>
                 <mxCell id="2111" value="ファイルが選択されておりません" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="2040" y="640" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2112" value="新しい写真：現在：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="2287.5" y="320" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2115" value="新しい写真：現在：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1880" y="680" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2116" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=" vertex="1" parent="1">
+                    <mxGeometry x="2007" y="680" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2117" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fontColor=#F0F0F0;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="2154.5" y="682.5" width="27" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="2118" value="クリア" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="2147" y="600" width="60" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
