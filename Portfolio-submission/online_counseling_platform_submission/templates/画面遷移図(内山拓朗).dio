@@ -843,6 +843,9 @@
                 <mxCell id="2132" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="1880" y="1000" width="400" height="500" as="geometry"/>
                 </mxCell>
+                <mxCell id="2133" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;カウンセラー登録変更画面へ&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="1670" y="1000" width="180" height="30" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
