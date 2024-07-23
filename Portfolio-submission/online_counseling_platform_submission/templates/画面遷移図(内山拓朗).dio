@@ -696,6 +696,9 @@
                 <mxCell id="2078" value="ユーザー登録変更画面へ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
                     <mxGeometry x="1670" y="560" width="190" height="30" as="geometry"/>
                 </mxCell>
+                <mxCell id="2079" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1870" y="420" width="310" height="626" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
