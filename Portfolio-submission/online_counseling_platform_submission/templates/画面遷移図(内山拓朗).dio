@@ -939,9 +939,6 @@
                 <mxCell id="2171" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="2430" y="415" width="330" height="185" as="geometry"/>
                 </mxCell>
-                <mxCell id="2173" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="2440" y="1000" width="280" height="330" as="geometry"/>
-                </mxCell>
                 <mxCell id="2174" value="パスワード変更画面 ユーザー(Users)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
                     <mxGeometry x="2450" y="430" width="290" height="30" as="geometry"/>
                 </mxCell>
@@ -977,6 +974,15 @@
                 </mxCell>
                 <mxCell id="2185" value="パスワード変更画面へ&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
                     <mxGeometry x="2275" y="375" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2186" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="2510" y="1000" width="330" height="185" as="geometry"/>
+                </mxCell>
+                <mxCell id="2187" value="" style="shape=singleArrow;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="2371" y="1015" width="110" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="2188" value="パスワード変更画面へ&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="2347" y="965" width="170" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
