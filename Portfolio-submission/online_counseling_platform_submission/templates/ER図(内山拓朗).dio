@@ -920,7 +920,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="3110" value="チャット制作画面 (Chat_rooms)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;rounded=1;" parent="1" vertex="1">
-                    <mxGeometry x="160" y="840" width="265" height="240" as="geometry"/>
+                    <mxGeometry x="160" y="840" width="265" height="210" as="geometry"/>
                 </mxCell>
                 <mxCell id="3111" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;rounded=1;" parent="3110" vertex="1">
                     <mxGeometry y="30" width="265" height="30" as="geometry"/>
@@ -996,19 +996,6 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="3128" value="Updated_At" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=10;rounded=1;" parent="3126" vertex="1">
-                    <mxGeometry x="30" width="235" height="30" as="geometry">
-                        <mxRectangle width="235" height="30" as="alternateBounds"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="3400" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;rounded=1;" vertex="1" parent="3110">
-                    <mxGeometry y="210" width="265" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="3401" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;rounded=1;" vertex="1" parent="3400">
-                    <mxGeometry width="30" height="30" as="geometry">
-                        <mxRectangle width="30" height="30" as="alternateBounds"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="3402" value="削除フラグ（Deleted）" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=10;rounded=1;" vertex="1" parent="3400">
                     <mxGeometry x="30" width="235" height="30" as="geometry">
                         <mxRectangle width="235" height="30" as="alternateBounds"/>
                     </mxGeometry>
@@ -1135,7 +1122,7 @@
                 </mxCell>
                 <mxCell id="3179" value="" style="endArrow=ERone;html=1;fontSize=10;endFill=0;startArrow=ERoneToMany;startFill=0;strokeWidth=2;entryX=0.373;entryY=0.001;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="2310" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="281" y="1080" as="sourcePoint"/>
+                        <mxPoint x="281" y="1050" as="sourcePoint"/>
                         <mxPoint x="280" y="1130" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
