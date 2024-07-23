@@ -937,7 +937,7 @@
                     <mxGeometry x="1917" y="1500" width="100" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="2171" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="2430" y="415" width="330" height="345" as="geometry"/>
+                    <mxGeometry x="2430" y="415" width="330" height="185" as="geometry"/>
                 </mxCell>
                 <mxCell id="2173" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="2440" y="1000" width="280" height="330" as="geometry"/>
@@ -968,6 +968,9 @@
                 </mxCell>
                 <mxCell id="2182" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=" vertex="1" parent="1">
                     <mxGeometry x="2580" y="508" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2183" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;パスワード更新&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="2460" y="550" width="110" height="20" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
