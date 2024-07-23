@@ -70,7 +70,7 @@ def regist(request):
     if regist_form.is_valid():
         try:
             regist_form.save()
-            return redirect('accounts:home')
+            return redirect('accounts:regist')
         except ValidationError as e:
             regist_form.add_error('password', e)
     return render(
