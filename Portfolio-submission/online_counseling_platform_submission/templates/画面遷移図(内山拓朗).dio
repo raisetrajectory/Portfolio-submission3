@@ -469,7 +469,7 @@
                         <mxPoint x="758" y="1060" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1938" value="&lt;font style=&quot;&quot;&gt;【契約を解除する】は、ユーザー側のログインしている状態で、カウンセラー一覧画面において、カウンセラーを契約した状態でのみ、表示されます。&lt;br&gt;【契約を解除する】は、カウンセラー側でログインした状態では表示されません。&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="1938" value="&lt;font style=&quot;&quot;&gt;【契約を解除する】は、ユーザー側のログインしている状態で、カウンセラー一覧画面において、カウンセラーを契約した状態でのみ、表示されます。&lt;br&gt;【契約を解除する】は、カウンセラー側でログインした状態では表示されません。&lt;br&gt;ユーザー側がカウンセラーと契約状態である場合に、契約したカウンセラーの名前と画像が表示されます。&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1320" y="686" width="320" height="294" as="geometry"/>
                 </mxCell>
                 <mxCell id="1942" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;プロフィール内容(ユーザー登録)変更&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
