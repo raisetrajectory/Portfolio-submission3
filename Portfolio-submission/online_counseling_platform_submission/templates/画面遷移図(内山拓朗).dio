@@ -143,7 +143,7 @@
                     <mxGeometry x="840" y="250" width="107" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="1011" value="" style="shape=singleArrow;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="840" y="110" width="100" height="60" as="geometry"/>
+                    <mxGeometry x="1680" y="605" width="170" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="1014" value="ログイン画面へ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" parent="1" vertex="1">
                     <mxGeometry x="827" y="327" width="100" height="30" as="geometry"/>
@@ -180,9 +180,6 @@
                 </mxCell>
                 <mxCell id="1148" value="　　　　　　　　　　　　　　　　　" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" parent="1" vertex="1">
                     <mxGeometry x="-1740" y="1200" width="850" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="1387" value="　　　　　　　　　　　　　　　　　" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" parent="1" vertex="1">
-                    <mxGeometry x="1840" y="660" width="450" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="1522" value="メインメニュー(main menu)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;align=center;fontSize=10;" parent="1" vertex="1">
                     <mxGeometry x="196.5" y="-110" width="607" height="916" as="geometry"/>
@@ -692,6 +689,12 @@
                 </mxCell>
                 <mxCell id="2075" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;契約を解除する&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
                     <mxGeometry x="1060" y="1000" width="130" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="2077" value="" style="shape=singleArrow;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="850" y="120" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="2078" value="ユーザー登録変更画面へ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="1670" y="560" width="190" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
