@@ -768,7 +768,7 @@
                 <mxCell id="2105" value="変更：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="1890" y="715" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="2106" value="ファイルが選択されておりません" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="2106" value="カウンセラーとしてログイン中：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="2068" y="200" width="200" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2107" value="ファイルが選択されておりません" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
@@ -838,7 +838,7 @@
                     <mxGeometry x="1680" y="1040" width="170" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="2132" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="1880" y="1000" width="460" height="660" as="geometry"/>
+                    <mxGeometry x="1880" y="1000" width="460" height="550" as="geometry"/>
                 </mxCell>
                 <mxCell id="2133" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;カウンセラー登録変更画面へ&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
                     <mxGeometry x="1670" y="1000" width="180" height="30" as="geometry"/>
@@ -926,6 +926,18 @@
                 </mxCell>
                 <mxCell id="2166" value="ファイルが選択されておりません" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="2147" y="80" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2167" value="カウンセラーとしてログイン中：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1910" y="1430" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2168" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fontColor=#F0F0F0;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="2100" y="1432.5" width="27" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="2169" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;更新&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="1917" y="1470" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="2170" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;パスワード変更&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="1917" y="1500" width="100" height="20" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
