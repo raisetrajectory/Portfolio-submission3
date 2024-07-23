@@ -1173,7 +1173,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="3261" value="カウンセラー変更履歴テーブル (CounselorUpdateHistory)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;rounded=1;" vertex="1" parent="1">
+                <mxCell id="3261" value="カウンセラー登録内容変更 (CounselorUpdateHistory)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;rounded=1;" vertex="1" parent="1">
                     <mxGeometry x="910" y="720" width="360" height="150" as="geometry"/>
                 </mxCell>
                 <mxCell id="3262" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;rounded=1;" vertex="1" parent="3261">
@@ -1184,7 +1184,7 @@
                         <mxRectangle width="27.5" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="3264" value="カウンセラーID (CounselorID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;fontSize=10;rounded=1;" vertex="1" parent="3262">
+                <mxCell id="3264" value="更新履歴ID（UpdateHistoryID）" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;fontSize=10;rounded=1;" vertex="1" parent="3262">
                     <mxGeometry x="27.5" width="332.5" height="30" as="geometry">
                         <mxRectangle width="332.5" height="30" as="alternateBounds"/>
                     </mxGeometry>
@@ -1228,7 +1228,7 @@
                         <mxRectangle width="332.5" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="3283" value="カウンセラーパスワード変更 (PasswordChangeHistory)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;rounded=1;" vertex="1" parent="1">
+                <mxCell id="3283" value="カウンセラーパスワード変更(PasswordChangeHistory)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;rounded=1;fontSize=10;" vertex="1" parent="1">
                     <mxGeometry x="920" y="220" width="360" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="3284" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;rounded=1;" vertex="1" parent="3283">
@@ -1376,7 +1376,7 @@
                         <mxRectangle width="332.5" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="3366" value="カウンセラー変更履歴テーブル (CounselorUpdateHistory)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;rounded=1;" vertex="1" parent="1">
+                <mxCell id="3366" value="ユーザー変更履歴テーブル (UserUpdateHistory)" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;rounded=1;" vertex="1" parent="1">
                     <mxGeometry x="-760" y="720" width="360" height="150" as="geometry"/>
                 </mxCell>
                 <mxCell id="3367" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;rounded=1;" vertex="1" parent="3366">
@@ -1387,7 +1387,7 @@
                         <mxRectangle width="27.5" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="3369" value="カウンセラーID (CounselorID)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;fontSize=10;rounded=1;" vertex="1" parent="3367">
+                <mxCell id="3369" value="更新履歴ID（UpdateHistoryID）" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;fontSize=10;rounded=1;" vertex="1" parent="3367">
                     <mxGeometry x="27.5" width="332.5" height="30" as="geometry">
                         <mxRectangle width="332.5" height="30" as="alternateBounds"/>
                     </mxGeometry>
@@ -1400,7 +1400,7 @@
                         <mxRectangle width="27.5" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="3372" value="カウンセラーID（CounselorID）" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=10;rounded=1;" vertex="1" parent="3370">
+                <mxCell id="3372" value="ユーザーID（UserID）" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;fontSize=10;rounded=1;" vertex="1" parent="3370">
                     <mxGeometry x="27.5" width="332.5" height="30" as="geometry">
                         <mxRectangle width="332.5" height="30" as="alternateBounds"/>
                     </mxGeometry>
