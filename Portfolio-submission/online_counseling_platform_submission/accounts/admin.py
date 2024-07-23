@@ -1,6 +1,6 @@
 from django.contrib import admin
-# from .models import Users
-# from .models import Counselor
+from .models import Users
+from .models import Counselor
 # Register your models here.
-# admin.site.register(Users)
-# admin.site.register(Counselor)
+admin.site.register(Users)
+admin.site.register(Counselor)
