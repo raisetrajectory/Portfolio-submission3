@@ -20,9 +20,12 @@ import os
 import sys
 
 # Djangoプロジェクトのディレクトリを指定します
-path = '/home/uchiyamatakuro/Portfolio-submission3/Portfolio-submission/online_counseling_platform_submission/function_project'
-if path not in sys.path:
-    sys.path.append(path)
+# path = '/home/uchiyamatakuro/Portfolio-submission3/Portfolio-submission/online_counseling_platform_submission/function_project'
+# if path not in sys.path:
+#     sys.path.append(path)
+
+settings_path = '/home/uchiyamatakuro/Portfolio-submission3/Portfolio-submission/online_counseling_platform_submission/function_project'
+sys.path.insert(0, settings_path)
 
 # Djangoの設定ファイルを指定します
 os.environ['DJANGO_SETTINGS_MODULE'] = 'function_project.settings'
