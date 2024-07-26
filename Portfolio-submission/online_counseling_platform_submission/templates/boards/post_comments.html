@@ -22,6 +22,7 @@
     {% endif %}
     <p>{{ comment.comment | linebreaks }}</p>
     {% if comment.user == user or comment.counselor == user %}
+    {% comment %} {% if comment.user == user or comment.counselor == counselor %} {% endcomment %}
         <a href="{% url 'boards:comment_delete' comment.pk %}">コメント削除</a>
         <a href="{% url 'boards:edit_comment' comment.pk %}">コメント編集</a>
     {% endif %}
