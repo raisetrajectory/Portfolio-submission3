@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="nMnuXORbZ245L0lCiLTD" name="ページ1">
-        <mxGraphModel dx="3937" dy="1623" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="3210" dy="1508" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -469,11 +469,11 @@
                 <mxCell id="1938" value="&lt;font style=&quot;&quot;&gt;【契約を解除する】は、ユーザー側のログインしている状態で、カウンセラー一覧画面において、カウンセラーを契約した状態でのみ、表示されます。&lt;br&gt;【契約を解除する】は、カウンセラー側でログインした状態では表示されません。&lt;br&gt;ユーザー側がカウンセラーと契約状態である場合に、契約したカウンセラーの情報と画像が表示されます。&lt;br&gt;カウンセラー側とユーザーが契約状態である場合に、契約ユーザーの情報と画像が表示されます。&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1310" y="790" width="320" height="164" as="geometry"/>
                 </mxCell>
-                <mxCell id="1942" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;プロフィール内容(ユーザー登録)変更&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="1025" y="1140" width="230" height="20" as="geometry"/>
+                <mxCell id="1942" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;プロフィール内容(ユーザー登録内容)変更&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="990" y="1140" width="265" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="1969" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;プロフィール内容(カウンセラー登録)変更&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="1025" y="1165" width="230" height="20" as="geometry"/>
+                <mxCell id="1969" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;プロフィール内容(カウンセラー登録内容)変更&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="990" y="1165" width="265" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="1979" value="オンラインカウンセリングサービスに関する説明が記載されております。" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="899.5" y="-260" width="280.5" height="60" as="geometry"/>
