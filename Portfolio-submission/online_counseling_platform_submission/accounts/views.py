@@ -110,7 +110,7 @@ def user_login(request):
             if user.is_active:
                 login(request, user)
                 messages.success(request, 'ログイン完了しました。')
-                return redirect('accounts:user_edit')
+                return redirect('accounts:home')
             else:
                 messages.warning(request, 'ユーザがアクティブでありません')
         else:
@@ -132,7 +132,7 @@ def counselor_login(request): #記載内容のバックアップです!
                 if counselor.is_active:
                     login(request, counselor)
                     messages.success(request, 'ログイン完了しました。')
-                    return redirect('accounts:counselor_edit')
+                    return redirect('accounts:home')
                 else:
                     messages.warning(request, 'カウンセラーがアクティブでありません')
             else:
