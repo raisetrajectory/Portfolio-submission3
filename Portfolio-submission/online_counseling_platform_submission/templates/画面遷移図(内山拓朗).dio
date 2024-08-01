@@ -705,8 +705,8 @@
                 <mxCell id="2084" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=" parent="1" vertex="1">
                     <mxGeometry x="2000" y="480" width="180" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="2089" value="カウンセラーネーム：" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="1880" y="480" width="130" height="30" as="geometry"/>
+                <mxCell id="2089" value="ユーザーネーム：" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="1895" y="480" width="130" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2090" value="年齢：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="1890" y="520" width="60" height="30" as="geometry"/>
@@ -792,8 +792,8 @@
                 <mxCell id="2134" value="カウンセラー登録変更画面 カウンセラー(Counselors)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="1" vertex="1">
                     <mxGeometry x="1900" y="1020" width="410" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="2135" value="ユーザーネーム：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="1890" y="1055" width="130" height="30" as="geometry"/>
+                <mxCell id="2135" value="カウンセラーネーム：" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="1880" y="1055" width="130" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2136" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=" parent="1" vertex="1">
                     <mxGeometry x="2007" y="1055" width="180" height="30" as="geometry"/>
