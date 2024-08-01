@@ -528,10 +528,14 @@ def delete_comment(request, comment_id):
     else:
         raise Http404
 
-    comment.delete()
-    messages.success(request, 'コメントを削除しました。')
-    return redirect('boards:post_comments', theme_id=comment.theme.id)
+    if request.method == 'POST':
+        theme_id = comment.theme.id
+        theme = get_object_or_404(Themes, id=theme_id)  # テーマが存在するか確認
+        comment.delete()
+        messages.success(request, 'コメントを削除しました。')
+        return redirect('boards:post_comments', theme_id=theme_id)
 
+    return render(request, 'boards/delete_comment.html', context={'comment': comment})
 
 def upload_sample(request):
     if request.method == 'POST' and request.FILES['upload_file']:
