@@ -49,7 +49,7 @@ class UserEditForm(forms.ModelForm):
         fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'counselor')
 
 class CounselorEditForm(forms.ModelForm):
-    username = forms.CharField(label='ユーザーネーム')
+    username = forms.CharField(label='カウンセラーネーム')
     age = forms.IntegerField(label='年齢', min_value=0)
     email = forms.EmailField(label='メールアドレス')
     picture = forms.FileField(label='写真', required=False)
