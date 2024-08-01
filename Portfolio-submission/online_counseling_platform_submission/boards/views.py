@@ -477,30 +477,61 @@ def counselor_profile(request):
 
 #     return render(request, 'boards/delete_comment.html', context={'comment': comment})
 
+# @login_required #ユーザー側がログインしている場合はコメント削除出来ます！ カウンセラー側がログインしている場合はコメント削除出来ます！ 記載内容のバックアップです！
+# def delete_comment(request, comment_id):
+#     comment = get_object_or_404(Comments, id=comment_id)
+
+#     if isinstance(request.user, Counselor):
+#         # Check if the counselor is associated with a user
+#         try:
+#             user = Users.objects.get(counselor=request.user)
+#         except Users.DoesNotExist:
+#             user = None
+
+#         if comment.user != user and comment.counselor != request.user:
+#             raise Http404
+#     elif comment.user != request.user:
+#         raise Http404
+
+#     if request.method == 'POST':
+#         theme_id = comment.theme.id
+#         theme = get_object_or_404(Themes, id=theme_id)  # Ensure the theme exists
+#         comment.delete()
+#         messages.success(request, 'コメントを削除しました。')
+#         return redirect('boards:post_comments', theme_id=theme_id)
+
+#     return render(request, 'boards/delete_comment.html', context={'comment': comment})
+
 @login_required
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comments, id=comment_id)
 
-    if isinstance(request.user, Counselor):
-        # Check if the counselor is associated with a user
-        try:
-            user = Users.objects.get(counselor=request.user)
-        except Users.DoesNotExist:
-            user = None
+    # Ensure only the owner of the comment or a counselor can delete it
+    if request.user.is_authenticated:
+        if isinstance(request.user, Counselor):
+            # Check if the counselor is associated with a user
+            users = Users.objects.filter(counselor=request.user)
 
-        if comment.user != user and comment.counselor != request.user:
+            # Handle case where there are multiple users
+            if users.count() > 1:
+                # 適切な対応を行う（例: ログに記録、最初のユーザーを取得、エラーメッセージを表示するなど）
+                user = users.first()  # 例: 最初のユーザーを取得
+            elif users.exists():
+                user = users.first()
+            else:
+                user = None
+
+            if comment.counselor != request.user and comment.user != user:
+                raise Http404
+        elif comment.user != request.user:
             raise Http404
-    elif comment.user != request.user:
+    else:
         raise Http404
 
-    if request.method == 'POST':
-        theme_id = comment.theme.id
-        theme = get_object_or_404(Themes, id=theme_id)  # Ensure the theme exists
-        comment.delete()
-        messages.success(request, 'コメントを削除しました。')
-        return redirect('boards:post_comments', theme_id=theme_id)
+    comment.delete()
+    messages.success(request, 'コメントを削除しました。')
+    return redirect('boards:post_comments', theme_id=comment.theme.id)
 
-    return render(request, 'boards/delete_comment.html', context={'comment': comment})
 
 def upload_sample(request):
     if request.method == 'POST' and request.FILES['upload_file']:
