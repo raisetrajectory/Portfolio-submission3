@@ -155,7 +155,40 @@ def deselect_counselor(request, counselor_id):
     return render(request, 'boards/counselor_list.html', {'counselors': Counselor.objects.all()})
 
 
-@login_required#ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
+# @login_required#ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
+# def edit_comment(request, comment_id):
+#     comment = get_object_or_404(Comments, id=comment_id)
+
+#     # Ensure only the owner of the comment or a counselor can edit it
+#     if request.user.is_authenticated:
+#         if isinstance(request.user, Counselor):
+#             # Check if the counselor is associated with a user
+#             try:
+#                 user = Users.objects.get(counselor=request.user)
+#             except Users.DoesNotExist:
+#                 user = None
+
+#             if comment.counselor != request.user and comment.user != user:
+#                 raise Http404
+#         elif comment.user != request.user:
+#             raise Http404
+#     else:
+#         raise Http404
+
+#     edit_comment_form = PostCommentForm(request.POST or None, instance=comment)
+#     if edit_comment_form.is_valid():
+#         edit_comment_form.save()
+#         messages.success(request, 'コメントを更新しました。')
+#         return redirect('boards:post_comments', theme_id=comment.theme.id)
+
+#     return render(
+#         request, 'boards/edit_comment.html', context={
+#             'edit_comment_form': edit_comment_form,
+#             'comment': comment,
+#         }
+#     )
+
+@login_required  # ユーザー側がログインしていても利用可能です。カウンセラー側がログインしても利用できます。
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comments, id=comment_id)
 
@@ -163,9 +196,11 @@ def edit_comment(request, comment_id):
     if request.user.is_authenticated:
         if isinstance(request.user, Counselor):
             # Check if the counselor is associated with a user
-            try:
-                user = Users.objects.get(counselor=request.user)
-            except Users.DoesNotExist:
+            users = Users.objects.filter(counselor=request.user)
+
+            if users.exists():
+                user = users.first()
+            else:
                 user = None
 
             if comment.counselor != request.user and comment.user != user:
@@ -187,6 +222,7 @@ def edit_comment(request, comment_id):
             'comment': comment,
         }
     )
+
 
 @login_required
 def create_theme(request):
