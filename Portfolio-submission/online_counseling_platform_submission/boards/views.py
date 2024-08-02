@@ -437,6 +437,54 @@ def delete_theme(request, id):
     else:
         return redirect('accounts:home')
 
+# @login_required #この記載内容はまだ追加しません！
+# def delete_theme(request, id):
+#     if request.user.is_authenticated:
+#         theme = get_object_or_404(Themes, id=id)
+#         if isinstance(request.user, Users):
+#             user_type = 'User'
+#             if theme.user == request.user:
+#                 if request.method == 'POST':
+#                     delete_theme_form = forms.DeleteThemeForm(request.POST or None)
+#                     if delete_theme_form.is_valid():
+#                         theme.is_deleted = True #theme.delete()を削除し、代わりにtheme.is_deleted = Trueを設定してからtheme.save()を呼び出しています。これにより、テーマが物理的に削除されるのではなく、論理的に削除された状態になります。
+#                         theme.save()
+#                         messages.success(request, 'チャット画面が削除されました。')
+#                         return redirect('boards:list_themes')
+#                 else:
+#                     delete_theme_form = forms.DeleteThemeForm()
+#                 return render(request, 'boards/delete_theme.html', context={
+#                     'delete_theme_form': delete_theme_form,
+#                     'user_type': user_type
+#                 })
+#             else:
+#                 messages.error(request, 'このチャット画面を削除する権限がありません。')
+#                 return redirect('boards:list_themes')
+#         elif isinstance(request.user, Counselor):
+#             user_type = 'Counselor'
+#             if theme.user in request.user.clients.all():  # type: ignore #theme.user == request.userまたはtheme.user in request.user.clients.all()の条件に基づいて、フォームの処理を行います。
+#                 if request.method == 'POST':
+#                     delete_theme_form = forms.DeleteThemeForm(request.POST or None)
+#                     if delete_theme_form.is_valid():
+#                         theme.is_deleted = True
+#                         theme.save()
+#                         messages.success(request, 'チャット画面が削除されました。')
+#                         return redirect('boards:list_themes')
+#                 else:
+#                     delete_theme_form = forms.DeleteThemeForm()
+#                 return render(request, 'boards/delete_theme.html', context={
+#                     'delete_theme_form': delete_theme_form,
+#                     'user_type': user_type
+#                 })
+#             else:
+#                 messages.error(request, 'このチャット画面を削除する権限がありません。')
+#                 return redirect('boards:list_themes')
+#         else:
+#             return redirect('accounts:home')
+#     else:
+#         return redirect('accounts:home')
+
+
 @login_required #ユーザー側がログインしている場合はコメント入力出来ます！ カウンセラー側がログインしている場合はコメント入力出来ます！ 問題や不具合が発生した場合はこの記載内容を戻りましょう！
 def post_comments(request, theme_id):
     saved_comment = cache.get(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}', '')
