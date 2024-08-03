@@ -136,6 +136,47 @@ def select_counselor(request, counselor_id):
 #         return redirect('boards:counselor_list')
 #     return render(request, 'boards/counselor_list.html', {'counselors': Counselor.objects.all()})
 
+# @login_required #記載内容のバックアップです！ 問題や不具合が発生してした場合はこの記載内容に戻りましょう!
+# def deselect_counselor(request, counselor_id):
+#     user = request.user
+#     counselor = get_object_or_404(Counselor, id=counselor_id)
+
+#     # ユーザーが現在契約中のカウンセラーであることを確認
+#     if user.counselor != counselor:
+#         messages.error(request, 'このカウンセラーとは契約していません。')
+#         return redirect('boards:counselor_list')
+
+#     if request.method == 'POST':
+#         user.counselor = None
+#         user.save()
+#         messages.success(request, f'{counselor.username}さんとの契約を解除しました。')
+#         return redirect('boards:counselor_list')
+
+#     return render(request, 'boards/counselor_list.html', {'counselors': Counselor.objects.all()})
+
+# @login_required#記載内容のバックアップです！ 問題や不具合が発生してした場合はこの記載内容に戻りましょう!
+# def deselect_counselor(request, counselor_id):
+#     user = request.user
+#     counselor = get_object_or_404(Counselor, id=counselor_id)
+
+#     # ユーザーが現在契約中のカウンセラーであることを確認
+#     if user.counselor != counselor:
+#         messages.error(request, 'このカウンセラーとは契約していません。')
+#         return redirect('boards:counselor_list')
+
+#     if request.method == 'POST':
+#         # カウンセラーとの契約を解除
+#         user.counselor = None
+#         user.save()
+
+#         # 契約終了後にカウンセラーとの関連するテーマを論理削除
+#         user.themes_set.filter(counselor=counselor, is_deleted=False).update(is_deleted=True)
+
+#         messages.success(request, f'{counselor.username}さんとの契約を解除しました。')
+#         return redirect('boards:counselor_list')
+
+#     return render(request, 'boards/counselor_list.html', {'counselors': Counselor.objects.all()})
+
 @login_required
 def deselect_counselor(request, counselor_id):
     user = request.user
@@ -147,13 +188,20 @@ def deselect_counselor(request, counselor_id):
         return redirect('boards:counselor_list')
 
     if request.method == 'POST':
+        # カウンセラーとの契約を解除
         user.counselor = None
         user.save()
+
+        # 契約終了後にカウンセラーとの関連するテーマを論理削除
+        user.themes_set.filter(counselor=counselor, is_deleted=False).update(is_deleted=True)
+
+        # 関連するコメントの論理削除（追加）
+        user.comments_set.filter(theme__counselor=counselor, is_deleted=False).update(is_deleted=True)
+
         messages.success(request, f'{counselor.username}さんとの契約を解除しました。')
         return redirect('boards:counselor_list')
 
     return render(request, 'boards/counselor_list.html', {'counselors': Counselor.objects.all()})
-
 
 # @login_required#ユーザー側がログインしてしても利用可能です！カウンセラー側がログインしても利用できます！ この記載内容に戻りましょう!
 # def edit_comment(request, comment_id):
@@ -437,7 +485,7 @@ def delete_theme(request, id):
     else:
         return redirect('accounts:home')
 
-# @login_required #この記載内容はまだ追加しません！
+# @login_required
 # def delete_theme(request, id):
 #     if request.user.is_authenticated:
 #         theme = get_object_or_404(Themes, id=id)
@@ -620,6 +668,45 @@ def delete_comment(request, comment_id):
         return redirect('boards:post_comments', theme_id=theme_id)
 
     return render(request, 'boards/delete_comment.html', context={'comment': comment})
+
+# @login_required
+# def delete_comment(request, comment_id):
+#     # コメントを取得
+#     comment = get_object_or_404(Comments, id=comment_id)
+
+#     # コメントを削除できる権限を確認
+#     if request.user.is_authenticated:
+#         if isinstance(request.user, Counselor):
+#             # カウンセラーが関連するユーザーを取得
+#             users = Users.objects.filter(counselor=request.user)
+
+#             # ユーザーが複数いる場合の対応
+#             if users.count() > 1:
+#                 user = users.first()  # 例: 最初のユーザーを取得
+#             elif users.exists():
+#                 user = users.first()
+#             else:
+#                 user = None
+
+#             # コメントのカウンセラーがリクエストユーザーでないか、コメントのユーザーが関連ユーザーでない場合は削除不可
+#             if comment.counselor != request.user and comment.user != user:
+#                 raise Http404
+#         elif comment.user != request.user:
+#             raise Http404
+#     else:
+#         raise Http404
+
+#     if request.method == 'POST':
+#         theme_id = comment.theme.id
+#         theme = get_object_or_404(Themes, id=theme_id)  # テーマが存在するか確認
+#         # コメントを論理削除
+#         comment.is_deleted = True
+#         comment.save()
+#         messages.success(request, 'コメントを削除しました。')
+#         return redirect('boards:post_comments', theme_id=theme_id)
+
+#     return render(request, 'boards/delete_comment.html', context={'comment': comment})
+
 
 def upload_sample(request):
     if request.method == 'POST' and request.FILES['upload_file']:
