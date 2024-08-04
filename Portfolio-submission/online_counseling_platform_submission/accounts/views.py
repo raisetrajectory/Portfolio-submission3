@@ -132,7 +132,8 @@ def counselor_login(request): #記載内容のバックアップです!
                 if counselor.is_active:
                     login(request, counselor)
                     messages.success(request, 'ログイン完了しました。')
-                    return redirect('accounts:home')
+                    # return redirect('accounts:home')
+                    return redirect('boards:counselor_list')
                 else:
                     messages.warning(request, 'カウンセラーがアクティブでありません')
             else:
