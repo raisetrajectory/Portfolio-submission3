@@ -10,7 +10,8 @@ from django.utils import timezone
 
 class UserManager(BaseUserManager): #このメソッドは、一般ユーザーを作成するためのものです。
     #ユーザー作成手法
-    def create_user(self, username, email, password=True): #username と email を引数として受け取り、email が指定されていない場合は ValueError を発生させます。
+    # def create_user(self, username, email, password=True): #username と email を引数として受け取り、email が指定されていない場合は ValueError を発生させます。
+    def create_user(self, username, email, password=None):
         if not email:
             raise ValueError('emailを入力してください')
         user = self.model( #self.model を使用して新しいユーザーオブジェクトを作成し、username と email を設定します。
