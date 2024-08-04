@@ -13,14 +13,13 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="{% url 'accounts:home' %}">メインメニューへ</a>
     {% if user.is_authenticated %}
-        <p>User ID: {{ user.id }}</p>
-        <p>Username: {{ user.username }}</p>
-        <p>Is Counselor: {{ user.is_counselor }}</p>
+    <p>User {{ user.username }} is authenticated</p>
         <a class="navbar-brand" href="{% url 'boards:counselor_list' %}">カウンセラー一覧画面へ</a>
         <a class="navbar-brand" href="{% url 'accounts:counselor_profile' %}">プロフィール画面へ</a>
         <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
         <a class="navbar-brand" href="{% url 'accounts:user_logout' %}">ログアウト</a>
     {% else %}
+    <p>User is not authenticated or is missing required attributes</p>
         <a class="navbar-brand" href="{% url 'accounts:user_login' %}">ログイン</a>
         <a class="navbar-brand" href="{% url 'accounts:regist' %}">ユーザー登録</a>
         <a class="navbar-brand" href="{% url 'accounts:counselor_regist' %}">カウンセラー登録</a>
