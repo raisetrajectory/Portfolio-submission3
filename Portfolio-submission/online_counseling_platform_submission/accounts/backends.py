@@ -3,6 +3,8 @@ from django.contrib.auth.backends import BaseBackend
 from django.contrib.auth import get_user_model
 from django.core.exceptions import MultipleObjectsReturned
 from .models import Users, Counselor
+import logging #新規追加
+logger = logging.getLogger(__name__) #新規追加
 
 User = get_user_model()
 
