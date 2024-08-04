@@ -17,6 +17,9 @@
         <a class="navbar-brand" href="{% url 'accounts:counselor_profile' %}">プロフィール画面へ</a>
         <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
         <a class="navbar-brand" href="{% url 'accounts:user_logout' %}">ログアウト</a>
+        {% if user.is_counselor %}
+            <a class="navbar-brand" href="{% url 'accounts:counselor_profile' %}">プロフィール画面へ</a>
+        {% endif %}
     {% else %}
         <a class="navbar-brand" href="{% url 'accounts:user_login' %}">ログイン</a>
         <a class="navbar-brand" href="{% url 'accounts:regist' %}">ユーザー登録</a>
