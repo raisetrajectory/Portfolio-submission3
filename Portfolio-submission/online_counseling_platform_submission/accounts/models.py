@@ -32,6 +32,35 @@ class UserManager(BaseUserManager): #このメソッドは、一般ユーザー�
         user.save(using=self._db) #save(using=self._db) を呼び出して、データベースにユーザーを保存します。
         return user
 
+# class UserManager(BaseUserManager): #このメソッドは、一般ユーザーを作成するためのものです。記載内容のバックアップです!
+#     #ユーザー作成手法
+#     def create_user(self, username, email, password=None):
+#         if not email:
+#             raise ValueError('emailを入力してください')
+#         if not password:
+#             raise ValueError('パスワードを入力してください')
+#         user = self.model(
+#             username=username,
+#             email=email,
+#     )
+#         user.set_password(password)
+#         user.save(using=self._db)
+#         return user
+#     def create_superuser(self, username, email, password=None):
+#         if not password:
+#             raise ValueError('パスワードを入力してください')
+#         user = self.model(
+#             username=username,
+#             email=email,
+#         )
+#         user.set_password(password)
+#         user.is_staff = True
+#         user.is_active = True
+#         user.is_superuser = True
+#         user.save(using=self._db)
+#         return user
+
+
 # class Users(AbstractBaseUser, PermissionsMixin):
 #     username = models.CharField(max_length=255)
 #     age = models.PositiveIntegerField()
