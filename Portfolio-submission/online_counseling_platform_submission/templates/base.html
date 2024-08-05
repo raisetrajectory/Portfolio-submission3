@@ -12,9 +12,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="{% url 'accounts:home' %}">メインメニューへ</a>
-    {% comment %} {% if user.is_authenticated %} {% endcomment %}
-    {% comment %} {% if user.is_authenticated and user.is_counselor %} {% endcomment %}
-    {% if user.is_authenticated or user.is_counselor_authenticated %}
+    {% if user.is_authenticated %}
+    {% comment %} {% if user.is_authenticated or user.is_counselor_authenticated %} {% endcomment %}
     <p>Username: {{ user.username }}</p>
     <p>Authenticated: {{ user.is_authenticated }}</p>
         <a class="navbar-brand" href="{% url 'boards:counselor_list' %}">カウンセラー一覧画面へ</a>
