@@ -40,3 +40,4 @@ class CustomAuthBackend(BaseBackend): #記載内容のバックアップです! 
                 return Counselor.objects.get(pk=user_id)
             except Counselor.DoesNotExist:
                 return None
+
