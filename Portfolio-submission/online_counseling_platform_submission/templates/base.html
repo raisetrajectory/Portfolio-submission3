@@ -26,7 +26,7 @@
         <a class="navbar-brand" href="{% url 'boards:list_themes' %}">チャット制作画面へ</a>
         <a class="navbar-brand" href="{% url 'accounts:user_logout' %}">ログアウト</a>
     {% else %}
-    <p>ログインしていません。</p>
+    <p>User is not authenticated or is missing required attributes</p>
         <a class="navbar-brand" href="{% url 'accounts:user_login' %}">ログイン</a>
         <a class="navbar-brand" href="{% url 'accounts:regist' %}">ユーザー登録</a>
         <a class="navbar-brand" href="{% url 'accounts:counselor_regist' %}">カウンセラー登録</a>
