@@ -8,7 +8,7 @@ from uuid import uuid4
 from datetime import datetime, timedelta
 from django.utils import timezone
 
-class UserManager(BaseUserManager): #このメソッドは、一般ユーザーを作成するためのものです。
+class UserManager(BaseUserManager): #このメソッドは、一般ユーザーを作成するためのものです。記載内容のバックアップです!
     #ユーザー作成手法
     def create_user(self, username, email, password=True): #username と email を引数として受け取り、email が指定されていない場合は ValueError を発生させます。
         if not email:
