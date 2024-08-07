@@ -1,4 +1,4 @@
-DEBUG = True #Visual Studio Codeで制作している状態はDEBUG = Trueに設定しましょう！
+DEBUG = True #Visual Studio Codeで制作している場合はDEBUG = Trueに設定しましょう！
 # DEBUG = False
 
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'Portfoliosubmission3.pythonanywhere.com']
