@@ -55,7 +55,7 @@ document.querySelector("form").addEventListener("submit", function(event){
     var comment = document.querySelector("#id_comment").value;
     if (!comment.trim()) {
         event.preventDefault(); // フォーム送信を中止
-        alert("コメント送信時にスペースのみ登録した際に、【コメントには有効な文字を入力してください。】と表示されます！"); // エラーメッセージを表示
+        alert("コメント送信時にスペースのみ登録した際に、【コメントには有効な文字を入力してください。】"); // エラーメッセージを表示
     }
 });
 
