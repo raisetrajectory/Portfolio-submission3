@@ -50,7 +50,7 @@
 </nav>
 
 <script>
-{% comment %} チャット画面において、コメント送信時にコメントの入力内容を全てスペースで、コメント入力した場合に、エラーが発生しないための記載内容です！ {% endcomment %}
+{% comment %} 54～60の下記の記載内容に関しては、チャット画面において、コメント送信時にスペースのみの入力を検知し、送信を中止してエラーメッセージを表示する機能を備えています。これにより、誤って無効なコメントが送信されるのを防ぐことができます。 {% endcomment %}
 document.querySelector("form").addEventListener("submit", function(event){
     var comment = document.querySelector("#id_comment").value;
     if (!comment.trim()) {
