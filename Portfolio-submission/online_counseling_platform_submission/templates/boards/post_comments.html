@@ -50,6 +50,15 @@
 </nav>
 
 <script>
+{% comment %} チャット画面において、コメント送信時にコメントの入力内容を全てスペースで、コメント入力した場合に、エラーが発生しないための記載内容です！ {% endcomment %}
+document.querySelector("form").addEventListener("submit", function(event){
+    var comment = document.querySelector("#id_comment").value;
+    if (!comment.trim()) {
+        event.preventDefault(); // フォーム送信を中止
+        alert("コメントには有効な文字を入力してください。"); // エラーメッセージを表示
+    }
+});
+
 $("#save_comment").click(function(){
     var comment = $("#id_comment").val();
     $.ajax({
