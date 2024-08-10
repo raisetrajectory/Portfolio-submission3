@@ -92,41 +92,42 @@ def counselor_list(request):
 #     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
 #     return (redirect('boards:list_themes'))
 
-@login_required #既に他のカウンセラーと契約中です。契約を解除してから新しいカウンセラーを選択してください。と表示されます！ 記載内容のバックアップです！
+# @login_required #既に他のカウンセラーと契約中です。契約を解除してから新しいカウンセラーを選択してください。と表示されます！ 記載内容のバックアップです！
+# def select_counselor(request, counselor_id):
+#     user = request.user
+#     counselor = get_object_or_404(Counselor, id=counselor_id)
+
+#     # ユーザーが既に契約中のカウンセラーがいる場合は契約を許可しない
+#     if user.counselor:
+#         messages.error(request, '既に他のカウンセラーと契約中です。契約を解除してから新しいカウンセラーを選択してください。')
+#         return redirect('boards:counselor_list')
+
+#     user.counselor = counselor
+#     user.save()
+#     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
+#     return redirect('boards:list_themes')
+
+@login_required
 def select_counselor(request, counselor_id):
     user = request.user
     counselor = get_object_or_404(Counselor, id=counselor_id)
 
-    # ユーザーが既に契約中のカウンセラーがいる場合は契約を許可しない
+    # ユーザーがカウンセラーとしてログインしているかどうかを確認
+    if not user.counselor:  # 修正済み
+        messages.error(request, 'カウンセラーとしてログイン中ではありません。カウンセラーとしてログインしてから再度お試しください。')
+        return redirect('boards:counselor_list')
+
+    # ユーザーが既に契約中のカウンセラーがいる場合
     if user.counselor:
         messages.error(request, '既に他のカウンセラーと契約中です。契約を解除してから新しいカウンセラーを選択してください。')
         return redirect('boards:counselor_list')
 
+    # カウンセラーを選択して契約
     user.counselor = counselor
     user.save()
     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
     return redirect('boards:list_themes')
 
-# @login_required
-# def select_counselor(request, counselor_id):
-#     user = request.user
-#     counselor = get_object_or_404(Counselor, id=counselor_id)
-
-#     # ユーザーがカウンセラーとしてログインしているかどうかを確認
-#     if not request.user.is_counselor:  # 修正箇所
-#         messages.error(request, 'カウンセラーとしてログイン中ではありません。カウンセラーとしてログインしてから再度お試しください。')
-#         return redirect('boards:counselor_list')
-
-#     # ユーザーが既に契約中のカウンセラーがいる場合
-#     if user.counselor:
-#         messages.error(request, '既に他のカウンセラーと契約中です。契約を解除してから新しいカウンセラーを選択してください。')
-#         return redirect('boards:counselor_list')
-
-#     # カウンセラーを選択して契約
-#     user.counselor = counselor
-#     user.save()
-#     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
-#     return redirect('boards:list_themes')
 
 # @login_required
 # def select_counselor(request, counselor_id):
