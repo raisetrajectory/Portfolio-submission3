@@ -113,7 +113,7 @@ def select_counselor(request, counselor_id):
     counselor = get_object_or_404(Counselor, id=counselor_id)
 
     # ユーザーがカウンセラーとしてログインしているかどうかを確認
-    if not user.counselor:  # 修正箇所
+    if not request.user.is_counselor:  # 修正箇所
         messages.error(request, 'カウンセラーとしてログイン中ではありません。カウンセラーとしてログインしてから再度お試しください。')
         return redirect('boards:counselor_list')
 
@@ -127,7 +127,6 @@ def select_counselor(request, counselor_id):
     user.save()
     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
     return redirect('boards:list_themes')
-
 
 # @login_required
 # def select_counselor(request, counselor_id):
