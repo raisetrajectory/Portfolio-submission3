@@ -27,6 +27,11 @@
         <p>{{ counselor.introduction }}</p>
 
         {% if request.user.is_authenticated %}
+            {% if not request.user.is_counselor %}
+                <!-- カウンセラーとしてログインしていない場合、「選択」リンクを表示 -->
+                <a href="{% url 'boards:select_counselor' counselor.id %}">選択</a>
+            {% endif %}
+
             {% if request.user.is_counselor %}
             {% comment %} {% if not request.user.is_counselor %} {% endcomment %}
                 <!-- カウンセラーがログインしている場合、「選択」リンクを表示しない -->
