@@ -33,7 +33,6 @@
             {% endif %}
 
             {% if request.user.is_counselor %}
-            {% comment %} {% if not request.user.is_counselor %} {% endcomment %}
                 <!-- カウンセラーがログインしている場合、「選択」リンクを表示しない -->
                 {% if request.user.id != counselor.id %}
                     <!-- 他のカウンセラーの「選択」リンクを非表示 -->
