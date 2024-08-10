@@ -112,11 +112,10 @@ def select_counselor(request, counselor_id):
     user = request.user
     counselor = get_object_or_404(Counselor, id=counselor_id)
 
-    # カウンセラーではないユーザーの場合はスキップ
-    if user.is_counselor:  # カウンセラーの場合のみチェックを行う
-        if not user.is_counselor:
-            messages.error(request, 'カウンセラーとしてログイン中ではありません。カウンセラーとしてログインしてから再度お試しください。')
-            return redirect('boards:counselor_list')
+    # ユーザーがカウンセラーとしてログインしているかどうかを確認
+    if not user.is_counselor:  # 修正箇所
+        messages.error(request, 'カウンセラーとしてログイン中ではありません。カウンセラーとしてログインしてから再度お試しください。')
+        return redirect('boards:counselor_list')
 
     # ユーザーが既に契約中のカウンセラーがいる場合
     if user.counselor:
