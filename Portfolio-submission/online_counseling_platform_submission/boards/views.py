@@ -129,6 +129,7 @@ def select_counselor(request, counselor_id):
     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
     return redirect('boards:list_themes')
 
+
 # @login_required
 # def select_counselor(request, counselor_id):
 #     user = request.user
