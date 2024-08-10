@@ -11,6 +11,10 @@
     <h1>カウンセラー一覧画面</h1>
 </div>
 
+{% if not request.user.is_counselor %}
+    <div class="alert alert-warning">カウンセラーとしてログインしてください。</div>
+{% endif %}
+
 {% for counselor in counselors %}
 <div class="counselor-container">
     <div class="image-container">
@@ -23,10 +27,6 @@
         <p>{{ counselor.introduction }}</p>
 
         {% if request.user.is_authenticated %}
-        {% if not request.user.is_counselor %}
-        <div class="alert alert-warning">カウンセラーとしてログインしてください。</div>
-        {% endif %}
-
             {% if request.user.is_counselor %}
                 <!-- カウンセラーがログインしている場合、「選択」リンクを表示しない -->
                 {% if request.user.id != counselor.id %}
