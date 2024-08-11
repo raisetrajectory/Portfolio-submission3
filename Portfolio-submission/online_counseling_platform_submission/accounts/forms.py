@@ -48,6 +48,47 @@ class UserEditForm(forms.ModelForm):
         model = Users
         fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'counselor')
 
+# class CounselorEditForm(forms.ModelForm): #記載内容のバックアップです！動作確認で問題があった場合はこの記載内容に戻りましょう！
+#     username = forms.CharField(label='カウンセラーネーム')
+#     age = forms.IntegerField(label='年齢', min_value=0)
+#     email = forms.EmailField(label='メールアドレス')
+#     picture = forms.FileField(label='写真', required=False)
+#     picture2 = forms.ImageField(label='新しい写真', required=False)
+#     introduction = forms.CharField(label='自己紹介', required=False, widget=forms.Textarea)
+#     qualifications = forms.CharField(label='資格', required=False)
+#     is_counselor = forms.BooleanField(label='カウンセラーとしてログイン中', required=False)
+
+#     class Meta:
+#         model = Counselor
+#         fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'qualifications', 'is_counselor')
+
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         instance = kwargs.get('instance')
+#         if instance:
+#             # インスタンスが存在する場合は、その値を初期値として設定する
+#             self.fields['is_counselor'].initial = instance.user.is_counselor if hasattr(instance, 'user') else False
+#         # is_counselor フィールドを無効化しない
+#         if 'is_counselor' in self.fields:
+#             self.fields['is_counselor'].disabled = False
+
+#     def save(self, commit=True):
+#         # フォームが保存された後にインスタンスを再初期化する
+#         instance = super().save(commit=False)
+#         # インスタンスのuser属性のis_counselorフィールドを更新
+#         if hasattr(instance, 'user'):
+#             instance.user.is_counselor = self.cleaned_data['is_counselor']
+#             instance.user.save()
+#         if commit:
+#             instance.save()
+
+#         # 保存後のインスタンスの値を反映してフォームを再初期化する
+#         instance.refresh_from_db()  # インスタンスをデータベースから最新の情報でリフレッシュ
+#         self.initial['is_counselor'] = instance.user.is_counselor if hasattr(instance, 'user') else False
+#         self.fields['is_counselor'].initial = instance.user.is_counselor if hasattr(instance, 'user') else False
+
+#         return instance
+
 class CounselorEditForm(forms.ModelForm):
     username = forms.CharField(label='カウンセラーネーム')
     age = forms.IntegerField(label='年齢', min_value=0)
@@ -56,38 +97,19 @@ class CounselorEditForm(forms.ModelForm):
     picture2 = forms.ImageField(label='新しい写真', required=False)
     introduction = forms.CharField(label='自己紹介', required=False, widget=forms.Textarea)
     qualifications = forms.CharField(label='資格', required=False)
-    is_counselor = forms.BooleanField(label='カウンセラーとしてログイン中', required=False)
 
     class Meta:
         model = Counselor
-        fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'qualifications', 'is_counselor')
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        instance = kwargs.get('instance')
-        if instance:
-            # インスタンスが存在する場合は、その値を初期値として設定する
-            self.fields['is_counselor'].initial = instance.user.is_counselor if hasattr(instance, 'user') else False
-        # is_counselor フィールドを無効化しない
-        if 'is_counselor' in self.fields:
-            self.fields['is_counselor'].disabled = False
+        fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'qualifications')
 
     def save(self, commit=True):
-        # フォームが保存された後にインスタンスを再初期化する
         instance = super().save(commit=False)
-        # インスタンスのuser属性のis_counselorフィールドを更新
-        if hasattr(instance, 'user'):
-            instance.user.is_counselor = self.cleaned_data['is_counselor']
-            instance.user.save()
+        # カウンセラーとしてのステータスを強制的にTrueにする
+        instance.is_counselor = True
         if commit:
             instance.save()
-
-        # 保存後のインスタンスの値を反映してフォームを再初期化する
-        instance.refresh_from_db()  # インスタンスをデータベースから最新の情報でリフレッシュ
-        self.initial['is_counselor'] = instance.user.is_counselor if hasattr(instance, 'user') else False
-        self.fields['is_counselor'].initial = instance.user.is_counselor if hasattr(instance, 'user') else False
-
         return instance
+
 
 class LoginForm(forms.Form):
     email = forms.CharField(label="メールアドレス")
