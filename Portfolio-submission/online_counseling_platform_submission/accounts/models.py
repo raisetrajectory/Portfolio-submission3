@@ -152,7 +152,7 @@ class Counselor(AbstractBaseUser, PermissionsMixin):
     picture2 = models.ImageField(null=True, upload_to='images/')
     introduction = models.CharField(max_length=255, null=True)
     qualifications = models.CharField(max_length=255, null=True)
-    is_counselor = models.BooleanField(default=True)  # type: ignore # デフォルト値を True に変更
+    is_counselor = models.BooleanField(default=True)  # デフォルト値を True に変更
 
     objects = UserManager()
 
