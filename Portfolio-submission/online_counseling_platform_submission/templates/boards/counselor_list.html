@@ -86,3 +86,14 @@
 </nav>
 
 {% endblock %}
+
+{% block extra_scripts %}
+<script>
+    document.querySelectorAll('a.disabled').forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            alert('カウンセラーとしてログイン中ではありません。カウンセラーとしてログインしてから再度お試しください。');
+        });
+    });
+</script>
+{% endblock %}
