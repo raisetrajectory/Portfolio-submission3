@@ -104,9 +104,9 @@ class Users(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
-    # ここにis_counselorメソッドを追加します
-    def is_counselor(self):
-        return self.counselor is not None
+    # # ここにis_counselorメソッドを追加します
+    # def is_counselor(self):
+    #     return self.counselor is not None
 
     def __str__(self):
         return self.username
@@ -144,7 +144,6 @@ class Counselor(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
     is_active = models.BooleanField(default=True)  # デフォルト値を True に変更
     is_staff = models.BooleanField(default=True)   # デフォルト値を True に変更
-    # is_superuser = models.BooleanField(default=True)
     picture = models.FileField(null=True, upload_to='picture/')
     picture2 = models.ImageField(null=True, upload_to='images/')
     introduction = models.CharField(max_length=255, null=True)
