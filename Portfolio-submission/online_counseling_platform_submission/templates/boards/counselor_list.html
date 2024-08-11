@@ -87,7 +87,7 @@
 
 {% endblock %}
 
-{% if not request.user.is_counselor %}
+{% if request.user.is_counselor %}
     {% block extra_scripts %}
     <script>
         document.querySelectorAll('a.disabled').forEach(function(link) {
