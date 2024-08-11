@@ -107,35 +107,10 @@ def counselor_list(request):
 #     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
 #     return redirect('boards:list_themes')
 
-# @login_required
-# def select_counselor(request, counselor_id):
-#     user = request.user
-#     counselor = get_object_or_404(Counselor, id=counselor_id)
-
-#     # ユーザーが既に契約中のカウンセラーがいる場合は契約を許可しない
-#     if hasattr(user, 'counselor') and user.counselor:
-#         messages.error(request, '既に他のカウンセラーと契約中です。契約を解除してから新しいカウンセラーを選択してください。')
-#         return redirect('boards:counselor_list')
-
-#     user.counselor = counselor
-#     user.save()
-#     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
-#     return redirect('boards:list_themes')
-
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404, redirect
-from django.contrib import messages
-from .models import Counselor
-
 @login_required
 def select_counselor(request, counselor_id):
     user = request.user
     counselor = get_object_or_404(Counselor, id=counselor_id)
-
-    # カウンセラーとしてログイン中の場合は契約を許可しない
-    if user.is_counselor:
-        messages.error(request, 'カウンセラーとしてログイン中は他のカウンセラーを選択できません。')
-        return redirect('boards:counselor_list')
 
     # ユーザーが既に契約中のカウンセラーがいる場合は契約を許可しない
     if hasattr(user, 'counselor') and user.counselor:
@@ -146,7 +121,6 @@ def select_counselor(request, counselor_id):
     user.save()
     messages.success(request, f'{counselor.username}さんがあなたのカウンセラーに選ばれました。')
     return redirect('boards:list_themes')
-
 
 # @login_required
 # def select_counselor(request, counselor_id):
