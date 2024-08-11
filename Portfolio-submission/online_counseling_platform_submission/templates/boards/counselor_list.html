@@ -28,7 +28,6 @@
 
         {% if request.user.is_authenticated %}
             {% if request.user.is_counselor %}
-            {% comment %} {% if not request.user.is_counselor or request.user.is_counselor %} {% endcomment %}
                 <!-- カウンセラーがログインしている場合、「選択」リンクを表示しない -->
                 {% if request.user.id != counselor.id %}
                     <!-- 他のカウンセラーの「選択」リンクを非表示 -->
@@ -42,13 +41,12 @@
             <a href="{% url 'boards:select_counselor' counselor.id %}">選択</a>
         {% endif %}
 
-        {% comment %} {% if user_type == 'User' %} {% endcomment %}
-        {% comment %} {% if request.user.counselor is None %} {% endcomment %}
-        {% if user_type == 'User' and request.user.counselor is None %}
+        {% if user_type == 'User' %}
+        {% if request.user.counselor is None %}
         <form method="POST" action="{% url 'boards:deselect_counselor' counselor.id %}">
         {% csrf_token %}
         </form>
-        {% comment %} {% endif %} {% endcomment %}
+        {% endif %}
         {% endif %}
     </div>
 </div>
