@@ -110,7 +110,7 @@ class Users(AbstractBaseUser, PermissionsMixin):
 
     # ここにis_counselorメソッドを追加します
     def is_counselor(self):
-        return self.counselor
+        return self.counselor is True
 
     def __str__(self):
         return self.username
