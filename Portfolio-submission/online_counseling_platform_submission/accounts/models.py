@@ -104,9 +104,9 @@ class Users(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
-    # ここにis_counselorメソッドを追加します
-    def is_counselor(self):
-        return self.counselor is not None
+    # # ここにis_counselorメソッドを追加します
+    # def is_counselor(self):
+    #     return self.counselor is not None
 
     def __str__(self):
         return self.username
