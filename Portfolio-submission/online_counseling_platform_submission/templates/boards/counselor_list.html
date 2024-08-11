@@ -38,7 +38,7 @@
             {% endif %}
         {% else %}
             <!-- 未ログイン状態では「選択」リンクを表示 -->
-            <a href="{% url 'boards:select_counselor' counselor.id %}">選択</a>
+            {% comment %} <a href="{% url 'boards:select_counselor' counselor.id %}">選択</a> {% endcomment %}
         {% endif %}
 
         {% if user_type == 'User' %}
