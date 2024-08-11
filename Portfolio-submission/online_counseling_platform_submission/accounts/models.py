@@ -108,9 +108,9 @@ class Users(AbstractBaseUser, PermissionsMixin):
     # def is_counselor(self):
     #     return self.counselor is not None
 
-    # # ここにis_counselorメソッドを追加します
-    # def is_counselor(self):
-    #     return self.counselor
+    # ここにis_counselorメソッドを追加します
+    def is_counselor(self):
+        return self.counselor
 
     def __str__(self):
         return self.username
