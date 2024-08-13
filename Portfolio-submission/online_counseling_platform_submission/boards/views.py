@@ -575,7 +575,7 @@ def post_comments(request, theme_id):
         cache.delete(f'saved_comment-theme_id={theme_id}-user_id={request.user.id}') # type: ignore
 
         # Redirect back to the post comments view
-        messages.success(request, 'コメントが投稿されました。')
+        messages.success(request, '')
         return redirect('boards:post_comments', theme_id=theme.id) # type: ignore
 
     return render(request, 'boards/post_comments.html', context={
