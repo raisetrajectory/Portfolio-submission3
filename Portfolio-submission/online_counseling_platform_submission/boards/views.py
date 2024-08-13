@@ -275,7 +275,7 @@ def edit_comment(request, comment_id):
     edit_comment_form = PostCommentForm(request.POST or None, instance=comment)
     if edit_comment_form.is_valid():
         edit_comment_form.save()
-        messages.success(request, 'コメントを更新しました。')
+        messages.success(request, '')
         return redirect('boards:post_comments', theme_id=comment.theme.id)
 
     return render(
