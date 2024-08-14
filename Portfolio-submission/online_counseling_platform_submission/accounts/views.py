@@ -195,7 +195,12 @@ def change_password(request):
         }
     )
 
-def show_error_page(request, exception): #記載内容のバックアップです！この記載内容に戻りましょう！
-    return render(
-        request, '404.html'
-    )
+# def show_error_page(request, exception): #記載内容のバックアップです！この記載内容に戻りましょう！
+#     return render(
+#         request, '404.html'
+#     )
+
+from django.shortcuts import render
+
+def show_error_page(request, exception):
+    return render(request, '404.html', status=404)
