@@ -203,6 +203,3 @@ from django.conf.urls import handler404
 
 def show_error_page(request, exception):
     return render(request, 'templates/404.html', status=404)
-
-# def error_404page(request, exception):
-#     return render(request, 'templates/404.html', status=404)
