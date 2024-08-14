@@ -20,5 +20,8 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
 
+# # カスタム404エラーページのハンドラーを設定
+# handler404 = show_error_page
+
 # カスタム404エラーページのハンドラーを設定
-handler404 = show_error_page
+handler404 = 'accounts.views.show_error_page'
