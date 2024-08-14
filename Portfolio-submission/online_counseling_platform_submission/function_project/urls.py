@@ -9,6 +9,7 @@ from django.conf.urls import handler404 #2024年8月14日追加
 from accounts.views import show_error_page #2024年8月14日追加
 
 from accounts import views  # アプリ名を正確に指定してください #2024年8月14日追加
+from django.http import Http404 # 追記箇所
 
 urlpatterns = [
     path('', lambda request: redirect('accounts:user_login', permanent=False)),  # リダイレクト先を'user_login'に変更
