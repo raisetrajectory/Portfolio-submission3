@@ -5,6 +5,9 @@ from django.conf.urls.static import static
 from accounts.views import show_error_page
 from django.shortcuts import redirect
 
+from django.conf.urls import handler404 #2024年8月14日追加
+from accounts.views import show_error_page #2024年8月14日追加
+
 urlpatterns = [
     path('', lambda request: redirect('accounts:user_login', permanent=False)),  # リダイレクト先を'user_login'に変更
     path('admin/', admin.site.urls),
