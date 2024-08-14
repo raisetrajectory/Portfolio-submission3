@@ -20,6 +20,4 @@ urlpatterns = [
     path('user_edit/', views.user_edit, name='user_edit'),
     path('change_password/', views.change_password, name='change_password'),
     path('counselor_profile/', views.counselor_profile, name='counselor_profile'),
-    path('', views.show_error_page, name='show_error_page'),
-
 ]
