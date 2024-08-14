@@ -25,5 +25,5 @@ if settings.DEBUG:
 # カスタム404エラーページのハンドラーを設定
 handler404 = show_error_page
 
-# # カスタム404エラーページのハンドラーを設定
-handler404 = 'accounts.views.show_error_page' #2024年8月14日追加
+# # # カスタム404エラーページのハンドラーを設定
+# handler404 = 'accounts.views.show_error_page' #2024年8月14日追加
