@@ -200,3 +200,7 @@ def show_error_page(request, exception): #記載内容のバックアップで�
         request, '404.html'
     )
 
+# def show_error_page(request): #記載内容のバックアップです！この記載内容に戻りましょう！
+#     return render(
+#         request, '404.html'
+#     )
