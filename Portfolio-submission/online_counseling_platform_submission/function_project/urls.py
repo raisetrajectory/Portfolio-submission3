@@ -8,7 +8,6 @@ from django.shortcuts import redirect
 from django.conf.urls import handler404 #2024年8月14日追加
 from accounts.views import show_error_page #2024年8月14日追加
 
-from django.conf.urls import handler404 #2024年8月14日追加
 from accounts import views  # アプリ名を正確に指定してください #2024年8月14日追加
 
 urlpatterns = [
