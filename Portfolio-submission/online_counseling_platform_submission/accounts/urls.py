@@ -1,5 +1,9 @@
 from django.urls import path
 from . import views
+from django.conf.urls import handler404
+from accounts.views import show_error_page
+
+handler404 = show_error_page
 
 app_name = 'accounts'
 
