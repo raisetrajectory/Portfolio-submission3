@@ -201,6 +201,7 @@ def change_password(request):
 #     )
 
 from django.shortcuts import render
+from django.conf.urls import handler404
 
 def show_error_page(request, exception):
     return render(request, '404.html', status=404)
