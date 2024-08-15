@@ -173,7 +173,6 @@ except:
 # SECURE_SSL_REDIRECT= False
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-
 # SECURE = {
 #     # ...
 #     'SECURE_REDIRECT_EXEMPT': [
@@ -183,9 +182,6 @@ except:
 
 SECURE_SSL_REDIRECT = False
 
-# SECURE = {
-#     # ...
-#     'SECURE_REDIRECT_EXEMPT': [
-#         r'^http://127.0.0.1:8000/',
-#     ],
-# }
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
+STATICFILES_DIRS = [BASE_DIR / 'static']
