@@ -24,3 +24,6 @@ urlpatterns = [
 handler404 = 'accounts.views.show_error_page'
 
 handler404 = show_error_page
+
+from django.conf.urls import handler404
+handler404 = 'django.views.defaults.page_not_found'
