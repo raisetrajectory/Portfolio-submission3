@@ -5,6 +5,9 @@ from django.conf.urls.static import static
 from accounts.views import show_error_page
 from django.shortcuts import redirect
 
+# カスタム404エラーページのハンドラーを設定
+handler404 = show_error_page
+
 urlpatterns = [
     path('', lambda request: redirect('accounts:user_login', permanent=False)),  # リダイレクト先を'user_login'に変更
     path('admin/', admin.site.urls),
@@ -16,6 +19,3 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
-
-# カスタム404エラーページのハンドラーを設定
-handler404 = show_error_page
