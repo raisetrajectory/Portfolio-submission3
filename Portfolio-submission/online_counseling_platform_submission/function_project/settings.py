@@ -182,6 +182,3 @@ except:
 
 SECURE_SSL_REDIRECT = False
 
-# STATIC_URL = 'static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
-# STATICFILES_DIRS = [BASE_DIR / 'static']
