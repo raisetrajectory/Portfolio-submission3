@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from xml.dom.minidom import Notation
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +26,8 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = "django-insecure-cw&h(&866t*h$ns35@(6ifum4*9fcn%20ibdi0@_1_sp8ne@wi"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False #Visual Studio Codeで制作している場合はDEBUG = Falseに設定しましょう！
-DEBUG = True
+DEBUG = False #Visual Studio Codeで制作している場合はDEBUG = Falseに設定しましょう！
+# DEBUG = True
 
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'Portfoliosubmission3.pythonanywhere.com']
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'uchiyamatakuro.pythonanywhere.com'] #ユーザー名【uchiyamatakuro】
@@ -169,3 +170,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # except:
 #     pass
 
+
+# SECURE_SSL_REDIRECT = False
+#以下を追記
+
+SECURE_SSL_REDIRECT= False
