@@ -170,14 +170,15 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # except:
 #     pass
 
-# SECURE_SSL_REDIRECT = False
-SECURE_SSL_REDIRECT = True
+# SECURE_SSL_REDIRECT= False
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
 
-SECURE = {
-    # ...
-    'SECURE_REDIRECT_EXEMPT': [
-        r'^http://127.0.0.1:8000//',
-    ],
-}
+
+# SECURE = {
+#     # ...
+#     'SECURE_REDIRECT_EXEMPT': [
+#         r'^http://127.0.0.1:8000/',
+#     ],
+# }
+
+SECURE_SSL_REDIRECT = False
