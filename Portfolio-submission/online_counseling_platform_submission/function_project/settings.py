@@ -30,7 +30,7 @@ DEBUG = False #Visual Studio Codeで制作している場合はDEBUG = Falseに�
 # DEBUG = True
 
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'Portfoliosubmission3.pythonanywhere.com']
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'uchiyamatakuro.pythonanywhere.com'] #ユーザー名【uchiyamatakuro】
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'uchiyamatakuro.pythonanywhere.com', 'http://127.0.0.1:8000/accounts/user_login/'] #ユーザー名【uchiyamatakuro】
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
@@ -182,3 +182,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # }
 
 SECURE_SSL_REDIRECT = False
+
+SECURE = {
+    # ...
+    'SECURE_REDIRECT_EXEMPT': [
+        r'^http://127.0.0.1:8000/',
+    ],
+}
