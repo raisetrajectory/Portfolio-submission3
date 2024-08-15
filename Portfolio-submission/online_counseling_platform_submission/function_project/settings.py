@@ -168,3 +168,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 #     from .local_settings import *
 # except:
 #     pass
+
+SECURE_SSL_REDIRECT = True
