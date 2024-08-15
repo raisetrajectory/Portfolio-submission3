@@ -29,8 +29,8 @@ DEBUG = False #Visual Studio Codeで制作している場合はDEBUG = Falseに�
 # DEBUG = True
 
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'Portfoliosubmission3.pythonanywhere.com']
-# ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'uchiyamatakuro.pythonanywhere.com'] #ユーザー名【uchiyamatakuro】
-ALLOWED_HOSTS = ['uchiyamatakuro.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'uchiyamatakuro.pythonanywhere.com'] #ユーザー名【uchiyamatakuro】
+# ALLOWED_HOSTS = ['uchiyamatakuro.pythonanywhere.com']
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
