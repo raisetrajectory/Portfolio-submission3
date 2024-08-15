@@ -745,3 +745,6 @@ def upload_model_form(request):
     return render(request, 'boards/upload_model_form.html', context={
         'form': form, 'user': user
     })
+
+def show_error_page(request, exception):
+    return render(request, '404.html')

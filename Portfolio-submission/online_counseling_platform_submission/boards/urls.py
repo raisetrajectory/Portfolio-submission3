@@ -1,6 +1,12 @@
 from django.urls import path
 from . import views
 # from .views import theme_list #新規追加
+from django.conf.urls import handler404 #2024年8月14日追加
+from boards import views
+
+handler404 = 'accounts.views.show_error_page'
+
+# handler404 = show_error_page
 
 app_name = 'boards'
 
