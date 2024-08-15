@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from accounts.views import show_error_page # type: ignore
+from accounts.views import show_error_page
 from django.shortcuts import redirect
 
 # # カスタム404エラーページのハンドラーを設定
@@ -23,12 +23,12 @@ if settings.DEBUG:
 # カスタム404エラーページのハンドラーを設定
 handler404 = show_error_page
 
-from django.conf import settings
-from django.conf.urls import handler404
-from django.http import HttpResponseNotFound
-from django.shortcuts import render
+# from django.conf import settings
+# from django.conf.urls import handler404
+# from django.http import HttpResponseNotFound
+# from django.shortcuts import render
 
-if settings.DEBUG:
-    def show_error_page(request, exception=None):
-        return HttpResponseNotFound(render(request, '404.html'))
-    handler404 = show_error_page
+# if settings.DEBUG:
+#     def show_error_page(request, exception=None):
+#         return HttpResponseNotFound(render(request, '404.html'))
+#     handler404 = show_error_page
