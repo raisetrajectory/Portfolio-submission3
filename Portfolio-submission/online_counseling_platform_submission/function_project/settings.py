@@ -165,10 +165,10 @@ AUTH_USER_MODEL = 'accounts.Users'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# try:
-#     from .local_settings import *
-# except:
-#     pass
+try:
+    from .local_settings import *
+except:
+    pass
 
 # SECURE_SSL_REDIRECT= False
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
