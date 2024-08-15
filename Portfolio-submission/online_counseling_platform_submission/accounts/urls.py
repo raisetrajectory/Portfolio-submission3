@@ -2,8 +2,6 @@ from django.urls import path
 from . import views
 from django.conf.urls import handler404 #2024年8月14日追加
 from accounts.views import show_error_page #2024年8月14日追加
-
-# handler404 = show_error_page #2024年8月14日追加
 from accounts import views
 
 app_name = 'accounts'
@@ -24,3 +22,5 @@ urlpatterns = [
 ]
 
 handler404 = 'accounts.views.show_error_page'
+
+handler404 = show_error_page
