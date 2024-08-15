@@ -1,5 +1,5 @@
-# DEBUG = True #Visual Studio Codeで制作している場合はDEBUG = Trueに設定しましょう！
-DEBUG = False
+DEBUG = True #Visual Studio Codeで制作している場合はDEBUG = Trueに設定しましょう！
+# DEBUG = False
 
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'Portfoliosubmission3.pythonanywhere.com']
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'uchiyamatakuro.pythonanywhere.com'] #ユーザー名【uchiyamatakuro】
