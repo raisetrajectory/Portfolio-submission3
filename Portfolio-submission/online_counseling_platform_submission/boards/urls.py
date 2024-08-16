@@ -5,14 +5,14 @@ from django.conf.urls import handler404 #2024年8月14日追加
 from boards import views
 from accounts.views import show_error_page
 
-handler404 = 'accounts.views.show_error_page'
+# handler404 = 'accounts.views.show_error_page'
 
 handler404 = show_error_page
 
-# urls.py
-from django.conf.urls import handler404
+# # urls.py
+# from django.conf.urls import handler404
 
-handler404 = 'django.views.defaults.page_not_found'
+# handler404 = 'django.views.defaults.page_not_found'
 
 app_name = 'boards'
 
