@@ -5,8 +5,9 @@ from django.conf.urls.static import static
 from accounts.views import show_error_page # type: ignore
 from django.shortcuts import redirect
 
-# # カスタム404エラーページのハンドラーを設定
-# handler404 = show_error_page
+from django.conf import settings
+from django.conf.urls import handler404
+from accounts.views import show_error_page
 
 urlpatterns = [
     path('', lambda request: redirect('accounts:user_login', permanent=False)),  # リダイレクト先を'user_login'に変更
@@ -23,6 +24,9 @@ if settings.DEBUG:
 # # カスタム404エラーページのハンドラーを設定
 # handler404 = show_error_page
 
+# DEBUG = True の時でもカスタム404エラーページを表示
+handler404 = show_error_page
+
 # from django.conf import settings
 # from django.conf.urls import handler404
 # from django.http import HttpResponseNotFound
@@ -33,8 +37,8 @@ if settings.DEBUG:
 #         return HttpResponseNotFound(render(request, '404.html'))
 #     handler404 = show_error_page
 
-    # DEBUG = True の時でもカスタム404エラーページを表示
-    handler404 = show_error_page
-else:
-    # カスタム404エラーページのハンドラーを設定
-    handler404 = show_error_page
+#     # DEBUG = True の時でもカスタム404エラーページを表示
+#     handler404 = show_error_page
+# else:
+#     # カスタム404エラーページのハンドラーを設定
+#     handler404 = show_error_page
