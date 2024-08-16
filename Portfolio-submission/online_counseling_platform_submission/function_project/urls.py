@@ -20,15 +20,21 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
 
-# カスタム404エラーページのハンドラーを設定
-handler404 = show_error_page
+# # カスタム404エラーページのハンドラーを設定
+# handler404 = show_error_page
 
-from django.conf import settings
-from django.conf.urls import handler404
-from django.http import HttpResponseNotFound
-from django.shortcuts import render
+# from django.conf import settings
+# from django.conf.urls import handler404
+# from django.http import HttpResponseNotFound
+# from django.shortcuts import render
 
-if settings.DEBUG:
-    def show_error_page(request, exception=None):
-        return HttpResponseNotFound(render(request, '404.html'))
+# if settings.DEBUG:
+#     def show_error_page(request, exception=None):
+#         return HttpResponseNotFound(render(request, '404.html'))
+#     handler404 = show_error_page
+
+    # DEBUG = True の時でもカスタム404エラーページを表示
+    handler404 = show_error_page
+else:
+    # カスタム404エラーページのハンドラーを設定
     handler404 = show_error_page
