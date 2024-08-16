@@ -203,21 +203,6 @@ def change_password(request):
 #         request, '404.html'
 #     )
 
-# def show_error_page(request, exception):
-#     return render(request, '404.html')
-
-# # accounts/views.py
-# from django.shortcuts import render
-
-# def show_error_page(request, exception=None):
-#     return render(request, '404.html', status=404)
-
-# from django.shortcuts import render
-# from django.http import HttpResponseNotFound
-
-# def show_error_page(request, exception=None):
-#     return HttpResponseNotFound(render(request, '404.html'))
-
 from django.shortcuts import render
 
 def show_error_page(request, exception=None):
