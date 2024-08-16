@@ -217,4 +217,3 @@ from django.http import HttpResponseNotFound
 
 def show_error_page(request, exception=None):
     return HttpResponseNotFound(render(request, '404.html'))
-
