@@ -190,5 +190,5 @@ except:
 #     ],
 # }
 
-# SECURE_SSL_REDIRECT = False
+# SECURE_SSL_REDIRECT = False #今後は絶対に記載しません！
 
