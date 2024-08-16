@@ -4,10 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from accounts.views import show_error_page # type: ignore
 from django.shortcuts import redirect
-
-from django.conf import settings
 from django.conf.urls import handler404
-from accounts.views import show_error_page
 
 urlpatterns = [
     path('', lambda request: redirect('accounts:user_login', permanent=False)),  # リダイレクト先を'user_login'に変更
