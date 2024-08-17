@@ -194,3 +194,8 @@ except:
 
 # SECURE_SSL_REDIRECT = False #今後は絶対に記載しません！
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dfo6zpzik',
+    'API_KEY': '849992194399532',
+    'API_SECRET': 'uxavdn8ARiCFCCluRFYB7zXTu0Q',
+}
