@@ -26,8 +26,8 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = "django-insecure-cw&h(&866t*h$ns35@(6ifum4*9fcn%20ibdi0@_1_sp8ne@wi"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False #Visual Studio Codeで制作している場合はDEBUG = Falseに設定しましょう！
-DEBUG = True
+DEBUG = False #Visual Studio Codeで制作している場合はDEBUG = Falseに設定しましょう！
+# DEBUG = True
 
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'Portfoliosubmission3.pythonanywhere.com']
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'uchiyamatakuro.pythonanywhere.com', 'http://127.0.0.1:8000/accounts/user_login/'] #ユーザー名【uchiyamatakuro】
@@ -203,7 +203,6 @@ CLOUDINARY_STORAGE = {
 # DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.RawMediaCloudinaryStorage'
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = BASE_DIR / 'media'
-
 # DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.RawMediaCloudinaryStorage'
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
