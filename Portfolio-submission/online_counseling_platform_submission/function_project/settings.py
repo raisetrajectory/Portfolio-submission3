@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'accounts',
     'boards',
     # 'cloudinary_storage',
+    # 'cloudinary',
 ]
 
 MIDDLEWARE = [
