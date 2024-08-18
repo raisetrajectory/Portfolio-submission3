@@ -24,5 +24,14 @@ else:
     # DEBUG = Falseの場合、これが必要です。
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+# DEBUG = Trueの場合は、メディアファイルと静的ファイルの提供を設定
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
+else:
+    # DEBUG = Falseの場合の設定を追加する必要があります。
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
 # DEBUG = False の時にカスタム404エラーページを表示
 handler404 = show_error_page
