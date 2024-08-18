@@ -13,16 +13,16 @@ urlpatterns = [
     path('boards/', include('boards.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-# Debugモードの時に静的ファイルとメディアファイルを提供する設定を追加
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
+# # Debugモードの時に静的ファイルとメディアファイルを提供する設定を追加
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-else:
-    # DEBUG = Falseの場合、これが必要です。
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# else:
+#     # DEBUG = Falseの場合、これが必要です。
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # DEBUG = Trueの場合は、メディアファイルと静的ファイルの提供を設定
 if settings.DEBUG:
