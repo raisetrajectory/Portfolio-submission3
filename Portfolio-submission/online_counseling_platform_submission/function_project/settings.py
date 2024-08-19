@@ -160,16 +160,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# import os
-
-# STATIC_URL = 'static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static') # 静的ファイルを集める場所（STATIC_ROOT）を指定
-# STATICFILES_DIRS = [BASE_DIR / 'static'] # 追加の静的ファイル探索パス
-
-# STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATICFILES_DIRS = [BASE_DIR / 'static']
-
 AUTH_USER_MODEL = 'accounts.Users'
 
 # Default primary key field type
