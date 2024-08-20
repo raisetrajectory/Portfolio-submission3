@@ -14,6 +14,9 @@ from pathlib import Path
 import os
 # from xml.dom.minidom import Notation
 
+# # Cloudinaryの設定
+# os.environ['CLOUDINARY_URL'] = 'cloudinary://849992194399532:uxavdn8ARiCFCCluRFYB7zXTu0Q@dfo6zpzik'
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
