@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 # from xml.dom.minidom import Notation
 
-# # Cloudinaryの設定
+# # Cloudinaryの設定 #問題や不具合が発生せずに記載出来ております！
 # os.environ['CLOUDINARY_URL'] = 'cloudinary://849992194399532:uxavdn8ARiCFCCluRFYB7zXTu0Q@dfo6zpzik'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
