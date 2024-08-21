@@ -30,6 +30,9 @@ sys.path.insert(0, settings_path)
 # Djangoの設定ファイルを指定します
 os.environ['DJANGO_SETTINGS_MODULE'] = 'function_project.settings'
 
+# # Cloudinaryの環境変数を設定
+# os.environ["CLOUDINARY_URL"] = "cloudinary://849992194399532:uxavdn8ARiCFCCluRFYB7zXTu0Q@dfo6zpzik"
+
 # WSGIアプリケーションを取得します
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
