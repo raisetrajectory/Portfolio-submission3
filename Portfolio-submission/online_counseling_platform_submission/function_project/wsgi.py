@@ -30,6 +30,9 @@ sys.path.insert(0, settings_path)
 # Djangoの設定ファイルを指定します
 os.environ['DJANGO_SETTINGS_MODULE'] = 'function_project.settings'
 
+# # Djangoの設定ファイルを指定します
+# os.environ.setdefault("DJANGO_SETTINGS_MODULE", "function_project.settings")
+
 # # Cloudinaryの環境変数を設定
 # os.environ["SECRET_KEY"] = "uxavdn8ARiCFCCluRFYB7zXTu0Q"
 # os.environ["CLOUDINARY_URL"] = "cloudinary://849992194399532:uxavdn8ARiCFCCluRFYB7zXTu0Q@dfo6zpzik"
