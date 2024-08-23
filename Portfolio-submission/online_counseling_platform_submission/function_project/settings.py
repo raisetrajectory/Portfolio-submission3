@@ -37,6 +37,11 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'uchiyamatakur
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True #現段階で問題やも不具合が発生しておりません！
+# SECURE_HSTS_SECONDS = 31536000
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_PRELOAD = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 from django.core.management.utils import get_random_secret_key
 SECRET_KEY = get_random_secret_key()
