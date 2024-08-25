@@ -43,6 +43,17 @@ SESSION_COOKIE_SECURE = True
 # SECURE_HSTS_PRELOAD = True
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+# import cloudinary
+# import cloudinary.uploader
+# import cloudinary.api
+
+# cloudinary.config(
+#   cloud_name = 'dfo6zpzik',
+#   api_key = '849992194399532',
+#   api_secret = 'uxavdn8ARiCFCCluRFYB7zXTu0Q',
+#   secure=True  # HTTPSで接続する設定
+# )
+
 from django.core.management.utils import get_random_secret_key
 SECRET_KEY = get_random_secret_key()
 
