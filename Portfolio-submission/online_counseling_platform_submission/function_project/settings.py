@@ -42,6 +42,8 @@ SESSION_COOKIE_SECURE = True
 # SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 # SECURE_HSTS_PRELOAD = True
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = False  # SSLリダイレクトが必要ない場合はFalse
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')  # SSLを使用する場合
 
 # import cloudinary
 # import cloudinary.uploader
