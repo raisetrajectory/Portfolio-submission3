@@ -50,6 +50,27 @@ SESSION_COOKIE_SECURE = True
 # import cloudinary.api
 
 # cloudinary.config(
+#     cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
+#     api_key=os.getenv('CLOUDINARY_API_KEY'),
+#     api_secret=os.getenv('CLOUDINARY_API_SECRET'),
+#     secure=True
+# )
+
+# import cloudinary
+# import cloudinary.uploader
+# import cloudinary.api
+
+# cloudinary.config(
+#   cloud_name = 'dfo6zpzik',
+#   api_key = '849992194399532',
+#   api_secret = 'uxavdn8ARiCFCCluRFYB7zXTu0Q'
+# )
+
+# import cloudinary
+# import cloudinary.uploader
+# import cloudinary.api
+
+# cloudinary.config(
 #   cloud_name = 'dfo6zpzik',
 #   api_key = '849992194399532',
 #   api_secret = 'uxavdn8ARiCFCCluRFYB7zXTu0Q',
