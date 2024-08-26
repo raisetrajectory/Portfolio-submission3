@@ -77,6 +77,13 @@ SESSION_COOKIE_SECURE = True
 #   secure=True  # HTTPSで接続する設定
 # )
 
+# cloudinary.config(
+#   cloud_name='dfo6zpzik',
+#   api_key='849992194399532',
+#   api_secret='uxavdn8ARiCFCCluRFYB7zXTu0Q',
+#   secure=False  # HTTPで接続する設定
+# )
+
 from django.core.management.utils import get_random_secret_key
 SECRET_KEY = get_random_secret_key()
 
