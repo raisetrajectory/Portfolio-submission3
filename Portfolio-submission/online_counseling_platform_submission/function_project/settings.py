@@ -103,7 +103,7 @@ INSTALLED_APPS = [
     'boards',
     'cloudinary_storage',
     'cloudinary',
-]
+] #記載内容のバックアップです！この記載内容に戻りましょう！
 
 # INSTALLED_APPS = [
 #     "django.contrib.admin",
