@@ -35,7 +35,7 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'function_project.settings'
 
 # # Cloudinaryの環境変数を設定
 # os.environ["SECRET_KEY"] = "uxavdn8ARiCFCCluRFYB7zXTu0Q"
-# os.environ["CLOUDINARY_URL"] = "cloudinary://849992194399532:uxavdn8ARiCFCCluRFYB7zXTu0Q@dfo6zpzik"
+os.environ["CLOUDINARY_URL"] = "cloudinary://849992194399532:uxavdn8ARiCFCCluRFYB7zXTu0Q@dfo6zpzik"
 
 # WSGIアプリケーションを取得します
 from django.core.wsgi import get_wsgi_application
