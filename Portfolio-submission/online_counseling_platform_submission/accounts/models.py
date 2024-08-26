@@ -119,9 +119,9 @@ class Users(AbstractBaseUser, PermissionsMixin):
     class Meta:
         db_table = 'users'
 
-# from cloudinary.models import CloudinaryField
+# from cloudinary.models import CloudinaryField　#2024年8月追加
 
-# class Users(AbstractBaseUser, PermissionsMixin):
+# class Users(AbstractBaseUser, PermissionsMixin):　#2024年8月追加
 #     username = models.CharField(max_length=255)
 #     age = models.PositiveIntegerField()
 #     email = models.EmailField(max_length=255, unique=True)
@@ -194,6 +194,28 @@ class Counselor(AbstractBaseUser, PermissionsMixin):
     class Meta:
         db_table = 'counselor'
 
+# class Counselor(AbstractBaseUser, PermissionsMixin): #2024年8月追加
+#     username = models.CharField(max_length=255)
+#     age = models.PositiveIntegerField(default=0, null=True)
+#     email = models.EmailField(max_length=255, unique=True)
+#     is_active = models.BooleanField(default=True)
+#     is_staff = models.BooleanField(default=True)
+#     picture = CloudinaryField('picture', null=True, blank=True)
+#     picture2 = CloudinaryField('images', null=True, blank=True)
+#     introduction = models.CharField(max_length=255, null=True)
+#     qualifications = models.CharField(max_length=255, null=True)
+#     is_counselor = models.BooleanField(default=True)
+
+#     objects = UserManager()
+
+#     USERNAME_FIELD = 'email'
+#     REQUIRED_FIELDS = ['username']
+
+#     def __str__(self):
+#         return self.username
+
+#     class Meta:
+#         db_table = 'counselor'
 
 class UserActivateTokensManager(models.Manager):
 
