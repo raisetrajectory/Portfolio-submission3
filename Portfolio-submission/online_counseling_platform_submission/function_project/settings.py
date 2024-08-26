@@ -92,31 +92,31 @@ SECRET_KEY = get_random_secret_key()
 
 # Application definition
 
-# INSTALLED_APPS = [
-#     "django.contrib.admin",
-#     "django.contrib.auth",
-#     "django.contrib.contenttypes",
-#     "django.contrib.sessions",
-#     "django.contrib.messages",
-#     "django.contrib.staticfiles",
-#     'accounts',
-#     'boards',
-#     'cloudinary_storage',
-#     'cloudinary',
-# ] #記載内容のバックアップです！この記載内容に戻りましょう！
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    'cloudinary_storage',
-    'django.contrib.staticfiles',
-    'cloudinary',
+    "django.contrib.staticfiles",
     'accounts',
     'boards',
-]
+    'cloudinary_storage',
+    'cloudinary',
+] #記載内容のバックアップです！この記載内容に戻りましょう！
+
+# INSTALLED_APPS = [
+#     "django.contrib.admin",
+#     "django.contrib.auth",
+#     "django.contrib.contenttypes",
+#     "django.contrib.sessions",
+#     "django.contrib.messages",
+#     'cloudinary_storage',
+#     'django.contrib.staticfiles',
+#     'cloudinary',
+#     'accounts',
+#     'boards',
+# ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
