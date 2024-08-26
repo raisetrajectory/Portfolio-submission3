@@ -48,6 +48,8 @@ class UserEditForm(forms.ModelForm):
         model = Users
         fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'counselor')
 
+# from cloudinary.forms import CloudinaryFileField
+
 # class UserEditForm(forms.ModelForm):
 #     username = forms.CharField(label='ユーザーネーム')
 #     age = forms.IntegerField(label='年齢', min_value=0)
