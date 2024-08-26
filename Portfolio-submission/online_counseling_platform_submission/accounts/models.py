@@ -119,6 +119,34 @@ class Users(AbstractBaseUser, PermissionsMixin):
     class Meta:
         db_table = 'users'
 
+# from cloudinary.models import CloudinaryField
+
+# class Users(AbstractBaseUser, PermissionsMixin):
+#     username = models.CharField(max_length=255)
+#     age = models.PositiveIntegerField()
+#     email = models.EmailField(max_length=255, unique=True)
+#     is_active = models.BooleanField(default=True)
+#     is_staff = models.BooleanField(default=True)
+#     picture = CloudinaryField('picture', null=True, blank=True)
+#     picture2 = CloudinaryField('images', null=True, blank=True)
+#     introduction = models.CharField(max_length=255, null=True)
+#     counselor = models.ForeignKey('Counselor', on_delete=models.SET_NULL, related_name='clients', null=True, blank=True)
+#     groups = models.ManyToManyField(Group, related_name='user_groups')
+#     user_permissions = models.ManyToManyField(Permission, related_name='user_permissions')
+
+#     objects = UserManager()
+
+#     USERNAME_FIELD = 'email'
+#     REQUIRED_FIELDS = ['username']
+
+#     def is_counselor(self):
+#         return self.counselor is True
+
+#     def __str__(self):
+#         return self.username
+
+#     class Meta:
+#         db_table = 'users'
 
 # class Counselor(AbstractBaseUser, PermissionsMixin):
 #     username = models.CharField(max_length=255)
