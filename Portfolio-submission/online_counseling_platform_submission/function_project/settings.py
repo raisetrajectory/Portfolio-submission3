@@ -105,6 +105,19 @@ INSTALLED_APPS = [
     'cloudinary',
 ]
 
+# INSTALLED_APPS = [
+#     "django.contrib.admin",
+#     "django.contrib.auth",
+#     "django.contrib.contenttypes",
+#     "django.contrib.sessions",
+#     "django.contrib.messages",
+#     'cloudinary_storage',
+#     'django.contrib.staticfiles',
+#     'cloudinary',
+#     'accounts',
+#     'boards',
+# ]
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
