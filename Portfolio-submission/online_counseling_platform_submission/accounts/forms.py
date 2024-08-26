@@ -48,6 +48,19 @@ class UserEditForm(forms.ModelForm):
         model = Users
         fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'counselor')
 
+# class UserEditForm(forms.ModelForm):
+#     username = forms.CharField(label='ユーザーネーム')
+#     age = forms.IntegerField(label='年齢', min_value=0)
+#     email = forms.EmailField(label='メールアドレス')
+#     picture = CloudinaryFileField(label='写真', required=False)
+#     picture2 = CloudinaryFileField(label='新しい写真', required=False)
+#     introduction = forms.CharField(label='自己紹介', required=False, widget=forms.Textarea)
+#     counselor = forms.ModelChoiceField(queryset=Counselor.objects.all(), required=False, label='カウンセラー')
+
+#     class Meta:
+#         model = Users
+#         fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'counselor')
+
 # class CounselorEditForm(forms.ModelForm): #記載内容のバックアップです！動作確認で問題があった場合はこの記載内容に戻りましょう！
 #     username = forms.CharField(label='カウンセラーネーム')
 #     age = forms.IntegerField(label='年齢', min_value=0)
@@ -110,6 +123,25 @@ class CounselorEditForm(forms.ModelForm):
             instance.save()
         return instance
 
+# class CounselorEditForm(forms.ModelForm):
+#     username = forms.CharField(label='カウンセラーネーム')
+#     age = forms.IntegerField(label='年齢', min_value=0)
+#     email = forms.EmailField(label='メールアドレス')
+#     picture = CloudinaryFileField(label='写真', required=False)
+#     picture2 = CloudinaryFileField(label='新しい写真', required=False)
+#     introduction = forms.CharField(label='自己紹介', required=False, widget=forms.Textarea)
+#     qualifications = forms.CharField(label='資格', required=False)
+
+#     class Meta:
+#         model = Counselor
+#         fields = ('username', 'age', 'email', 'picture', 'picture2', 'introduction', 'qualifications')
+
+#     def save(self, commit=True):
+#         instance = super().save(commit=False)
+#         instance.is_counselor = True
+#         if commit:
+#             instance.save()
+#         return instance
 
 class LoginForm(forms.Form):
     email = forms.CharField(label="メールアドレス")
