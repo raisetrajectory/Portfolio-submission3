@@ -266,6 +266,11 @@ except:
 # response = requests.get("https://api.cloudinary.com/v1_1/dfo6zpzik/resources/image", proxies=proxies)
 # print(response.status_code)
 
+# os.environ['CLOUDINARY_URL'] = 'cloudinary://849992194399532:uxavdn8ARiCFCCluRFYB7zXTu0Q@dfo6zpzik'
+
+# # Cloudinaryの設定
+# CLOUDINARY_URL = 'cloudinary://849992194399532:uxavdn8ARiCFCCluRFYB7zXTu0Q@dfo6zpzik'
+
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dfo6zpzik',
     'API_KEY': '849992194399532',
