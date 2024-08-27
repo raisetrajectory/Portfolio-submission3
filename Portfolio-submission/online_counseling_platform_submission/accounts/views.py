@@ -51,13 +51,22 @@ def counselor_profile(request):
 #         'user': request.user
 #     })
 
+# @login_required #記載内容のバックアップです! この記載内容に戻りましょう!
+# def counselor_menu(request):
+#     if isinstance(request.user, Users):
+#         user_type = 'User'
+#     else:
+#         user_type = 'Counselor'
+#     return render(request, 'base.html', {
+#         'user_type': user_type})
+
 @login_required #記載内容のバックアップです! この記載内容に戻りましょう!
 def counselor_menu(request):
     if isinstance(request.user, Users):
         user_type = 'User'
     else:
         user_type = 'Counselor'
-    return render(request, 'base.html', {
+    return render(request, 'accounts/home.html', {
         'user_type': user_type})
 
 def home(request):
