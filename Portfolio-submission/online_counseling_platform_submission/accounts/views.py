@@ -145,29 +145,6 @@ def counselor_login(request): #記載内容のバックアップです!
         }
     )
 
-# def counselor_login(request): #記載内容のバックアップです!
-#     counselor_login_form = forms.CounselorLoginForm(request.POST or None)
-#     if request.method == 'POST':
-#         if counselor_login_form.is_valid():
-#             email = counselor_login_form.cleaned_data.get('email')
-#             password = counselor_login_form.cleaned_data.get('password')
-#             counselor = authenticate(request, email=email, password=password)
-#             if counselor:
-#                 if counselor.is_active:
-#                     login(request, counselor)
-#                     messages.success(request, 'ログイン完了しました。')
-#                     return redirect('accounts:home')
-#                     # return redirect('boards:counselor_list')
-#                 else:
-#                     messages.warning(request, 'カウンセラーがアクティブでありません')
-#             else:
-#                 messages.warning(request, 'カウンセラーのメールアドレスまたはパスワードが間違っています')
-#     return render(
-#         request, 'accounts/counselor_login.html', context={
-#             'login_form':login_form,
-#         }
-#     )
-
 # def counselor_login(request):
 #     counselor_login_form = forms.CounselorLoginForm(request.POST or None)
 #     if request.method == 'POST':
