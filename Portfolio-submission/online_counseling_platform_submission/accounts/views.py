@@ -122,7 +122,35 @@ def user_login(request):
         }
     )
 
-def counselor_login(request): #記載内容のバックアップです!
+# def counselor_login(request): #記載内容のバックアップです!
+#     counselor_login_form = forms.CounselorLoginForm(request.POST or None)
+#     if request.method == 'POST':
+#         if counselor_login_form.is_valid():
+#             email = counselor_login_form.cleaned_data.get('email')
+#             password = counselor_login_form.cleaned_data.get('password')
+#             counselor = authenticate(request, email=email, password=password)
+#             if counselor:
+#                 if counselor.is_active:
+#                     login(request, counselor)
+#                     messages.success(request, 'ログイン完了しました。')
+#                     return redirect('accounts:home')
+#                     # return redirect('boards:counselor_list')
+#                 else:
+#                     messages.warning(request, 'カウンセラーがアクティブでありません')
+#             else:
+#                 messages.warning(request, 'カウンセラーのメールアドレスまたはパスワードが間違っています')
+#     return render(
+#         request, 'accounts/counselor_login.html', context={
+#             'counselor_login_form': counselor_login_form,
+#         }
+#     )
+
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
+from . import forms
+
+def counselor_login(request):
     counselor_login_form = forms.CounselorLoginForm(request.POST or None)
     if request.method == 'POST':
         if counselor_login_form.is_valid():
@@ -134,53 +162,13 @@ def counselor_login(request): #記載内容のバックアップです!
                     login(request, counselor)
                     messages.success(request, 'ログイン完了しました。')
                     return redirect('accounts:home')
-                    # return redirect('boards:counselor_list')
                 else:
                     messages.warning(request, 'カウンセラーがアクティブでありません')
             else:
                 messages.warning(request, 'カウンセラーのメールアドレスまたはパスワードが間違っています')
-    return render(
-        request, 'accounts/counselor_login.html', context={
-            'counselor_login_form': counselor_login_form,
-        }
-    )
-
-# from django.shortcuts import render, redirect
-# from django.contrib.auth.decorators import login_required
-# from django.contrib import messages
-
-# @login_required
-# def counselor_login(request):
-#     # カウンセラーとしてログインした後の処理
-#     if request.user.is_authenticated and request.user.is_counselor:  # ユーザーがカウンセラーであるかを確認
-#         return redirect('accounts:home')
-#     else:
-#         messages.error(request, 'カウンセラーとしてのログインが必要です。')
-#         return redirect('accounts:counselor_login')
-
-
-# def counselor_login(request):
-#     counselor_login_form = forms.CounselorLoginForm(request.POST or None)
-#     if request.method == 'POST':
-#         if counselor_login_form.is_valid():
-#             email = counselor_login_form.cleaned_data.get('email')
-#             password = counselor_login_form.cleaned_data.get('password')
-#             counselor = authenticate(request, email=email, password=password)
-#             if counselor:
-#                 if counselor.is_active:
-#                     login(request, counselor)
-#                     messages.success(request, 'ログイン完了しました。')
-#                     # メニュー画面にリダイレクト
-#                     return redirect('accounts:counselor_menu')
-#                 else:
-#                     messages.warning(request, 'カウンセラーがアクティブでありません')
-#             else:
-#                 messages.warning(request, 'カウンセラーのメールアドレスまたはパスワードが間違っています')
-#     return render(
-#         request, 'accounts/counselor_login.html', context={
-#             'counselor_login_form': counselor_login_form,
-#         }
-#     )
+    return render(request, 'accounts/counselor_login.html', {
+        'counselor_login_form': counselor_login_form,
+    })
 
 
 @login_required
