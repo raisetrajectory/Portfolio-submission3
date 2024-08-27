@@ -122,35 +122,7 @@ def user_login(request):
         }
     )
 
-# def counselor_login(request): #記載内容のバックアップです!
-#     counselor_login_form = forms.CounselorLoginForm(request.POST or None)
-#     if request.method == 'POST':
-#         if counselor_login_form.is_valid():
-#             email = counselor_login_form.cleaned_data.get('email')
-#             password = counselor_login_form.cleaned_data.get('password')
-#             counselor = authenticate(request, email=email, password=password)
-#             if counselor:
-#                 if counselor.is_active:
-#                     login(request, counselor)
-#                     messages.success(request, 'ログイン完了しました。')
-#                     return redirect('accounts:home')
-#                     # return redirect('boards:counselor_list')
-#                 else:
-#                     messages.warning(request, 'カウンセラーがアクティブでありません')
-#             else:
-#                 messages.warning(request, 'カウンセラーのメールアドレスまたはパスワードが間違っています')
-#     return render(
-#         request, 'accounts/counselor_login.html', context={
-#             'counselor_login_form': counselor_login_form,
-#         }
-#     )
-
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
-from django.contrib import messages
-from . import forms
-
-def counselor_login(request):
+def counselor_login(request): #記載内容のバックアップです!
     counselor_login_form = forms.CounselorLoginForm(request.POST or None)
     if request.method == 'POST':
         if counselor_login_form.is_valid():
@@ -162,14 +134,16 @@ def counselor_login(request):
                     login(request, counselor)
                     messages.success(request, 'ログイン完了しました。')
                     return redirect('accounts:home')
+                    # return redirect('boards:counselor_list')
                 else:
                     messages.warning(request, 'カウンセラーがアクティブでありません')
             else:
                 messages.warning(request, 'カウンセラーのメールアドレスまたはパスワードが間違っています')
-    return render(request, 'accounts/counselor_login.html', {
-        'counselor_login_form': counselor_login_form,
-    })
-
+    return render(
+        request, 'accounts/counselor_login.html', context={
+            'counselor_login_form': counselor_login_form,
+        }
+    )
 
 @login_required
 def user_logout(request):
