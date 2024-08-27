@@ -256,6 +256,16 @@ except:
 #     'API_SECRET': 'uxavdn8ARiCFCCluRFYB7zXTu0Q',
 # }
 
+# import requests
+
+# proxies = {
+#     "http": "http://proxy.server:3128",
+#     "https": "http://proxy.server:3128",
+# }
+
+# response = requests.get("https://api.cloudinary.com/v1_1/dfo6zpzik/resources/image", proxies=proxies)
+# print(response.status_code)
+
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dfo6zpzik',
     'API_KEY': '849992194399532',
