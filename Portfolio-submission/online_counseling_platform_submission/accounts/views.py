@@ -145,6 +145,19 @@ def counselor_login(request): #記載内容のバックアップです!
         }
     )
 
+# from django.shortcuts import render, redirect
+# from django.contrib.auth.decorators import login_required
+# from django.contrib import messages
+
+# @login_required
+# def counselor_login(request):
+#     # カウンセラーとしてログインした後の処理
+#     if request.user.is_authenticated and request.user.is_counselor:  # ユーザーがカウンセラーであるかを確認
+#         return redirect('accounts:home')
+#     else:
+#         messages.error(request, 'カウンセラーとしてのログインが必要です。')
+#         return redirect('accounts:counselor_login')
+
 
 # def counselor_login(request):
 #     counselor_login_form = forms.CounselorLoginForm(request.POST or None)
