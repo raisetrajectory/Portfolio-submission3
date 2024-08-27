@@ -145,6 +145,7 @@ def counselor_login(request): #記載内容のバックアップです!
         }
     )
 
+
 # def counselor_login(request):
 #     counselor_login_form = forms.CounselorLoginForm(request.POST or None)
 #     if request.method == 'POST':
