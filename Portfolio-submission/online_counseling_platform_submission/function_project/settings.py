@@ -261,7 +261,7 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '849992194399532',
     'API_SECRET': 'uxavdn8ARiCFCCluRFYB7zXTu0Q',
     'API_PROXY': 'http://proxy.server:3128',  # プロキシ設定の追加
-}
+} #Visual Studio Codeにおいて、この記載内容で画像を問題や不具合無く取得して表示出来ております！
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_URL = '/media/'
