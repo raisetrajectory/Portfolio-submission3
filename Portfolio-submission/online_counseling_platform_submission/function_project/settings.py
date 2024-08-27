@@ -250,18 +250,18 @@ except:
 
 # SECURE_SSL_REDIRECT = False #今後は絶対に記載しません！
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dfo6zpzik',
-    'API_KEY': '849992194399532',
-    'API_SECRET': 'uxavdn8ARiCFCCluRFYB7zXTu0Q',
-}
-
 # CLOUDINARY_STORAGE = {
 #     'CLOUD_NAME': 'dfo6zpzik',
 #     'API_KEY': '849992194399532',
 #     'API_SECRET': 'uxavdn8ARiCFCCluRFYB7zXTu0Q',
-#     'API_PROXY': 'http://proxy.server:3128',  # プロキシ設定の追加
 # }
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dfo6zpzik',
+    'API_KEY': '849992194399532',
+    'API_SECRET': 'uxavdn8ARiCFCCluRFYB7zXTu0Q',
+    'API_PROXY': 'http://proxy.server:3128',  # プロキシ設定の追加
+}
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_URL = '/media/'
