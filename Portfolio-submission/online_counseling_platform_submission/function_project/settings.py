@@ -268,8 +268,8 @@ CLOUDINARY_STORAGE = {
 
 # os.environ['CLOUDINARY_URL'] = 'cloudinary://849992194399532:uxavdn8ARiCFCCluRFYB7zXTu0Q@dfo6zpzik'
 
-# # Cloudinaryの設定
-# CLOUDINARY_URL = 'cloudinary://849992194399532:uxavdn8ARiCFCCluRFYB7zXTu0Q@dfo6zpzik'
+# Cloudinaryの設定
+CLOUDINARY_URL = 'cloudinary://849992194399532:uxavdn8ARiCFCCluRFYB7zXTu0Q@dfo6zpzik'
 
 # CLOUDINARY_STORAGE = {
 #     'CLOUD_NAME': 'dfo6zpzik',
