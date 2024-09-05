@@ -4,7 +4,7 @@ from django.contrib.auth.password_validation import validate_password
 from .models import Counselor
 
 class RegistForm(forms.ModelForm):
-    username = forms.CharField(label='名前')
+    username = forms.CharField(label='ユーザーネーム')
     age = forms.IntegerField(label='年齢', min_value=0)
     email = forms.EmailField(label='メールアドレス')
     password = forms.CharField(label='パスワード', widget=forms.PasswordInput())
