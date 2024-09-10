@@ -120,6 +120,8 @@ class Users(AbstractBaseUser, PermissionsMixin):
         db_table = 'users'
 
 # from cloudinary.models import CloudinaryField #2024年8月追加
+# from django.contrib import admin
+# from django.db import models
 
 # class Users(AbstractBaseUser, PermissionsMixin):　#2024年8月追加
 #     username = models.CharField(max_length=255)
