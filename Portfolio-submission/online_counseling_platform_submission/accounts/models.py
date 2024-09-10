@@ -119,7 +119,7 @@ class Users(AbstractBaseUser, PermissionsMixin):
     class Meta:
         db_table = 'users'
 
-# from cloudinary.models import CloudinaryField　#2024年8月追加
+# from cloudinary.models import CloudinaryField #2024年8月追加
 
 # class Users(AbstractBaseUser, PermissionsMixin):　#2024年8月追加
 #     username = models.CharField(max_length=255)
