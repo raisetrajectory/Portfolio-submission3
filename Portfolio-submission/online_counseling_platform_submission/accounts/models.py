@@ -196,6 +196,10 @@ class Counselor(AbstractBaseUser, PermissionsMixin):
     class Meta:
         db_table = 'counselor'
 
+# from cloudinary.models import CloudinaryField #2024年8月追加
+# from django.contrib import admin
+# from django.db import models
+
 # class Counselor(AbstractBaseUser, PermissionsMixin): #2024年8月追加
 #     username = models.CharField(max_length=255)
 #     age = models.PositiveIntegerField(default=0, null=True)
